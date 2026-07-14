@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:thuvienphapluat.vn)",
+      "WebSearch",
+      "WebFetch(domain:xaydungchinhsach.chinhphu.vn)",
+      "WebFetch(domain:luatvietnam.vn)",
+      "WebFetch(domain:hcc.nghean.gov.vn)",
+      "WebFetch(domain:laixebacha.com)"
+    ]
+  }
+}
