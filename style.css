@@ -2616,6 +2616,176 @@ button {
   margin-left: 2px;
 }
 
+.curr-head--chapters {
+  margin-bottom: 32px;
+}
+
+.syll-list--chapters .syll-detail.is-open {
+  max-height: 5200px;
+}
+
+.syll-list--chapters .chap-row {
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+}
+
+.syll-list--chapters
+  .phan-body-pad
+  > .chap-list
+  > .chap:not(.is-featured),
+.syll-list--chapters
+  .mon-body-pad
+  > .chap-list
+  > .chap:not(.is-featured) {
+  background: #fff;
+  border-color: #e2e8f5;
+}
+
+.syll-list--chapters
+  .phan-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  > .chap-row,
+.syll-list--chapters
+  .mon-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  > .chap-row {
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  padding: 14px 16px;
+}
+
+.syll-list--chapters
+  .phan-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  .chap-num-wrap,
+.syll-list--chapters
+  .mon-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  .chap-num-wrap {
+  width: auto;
+  height: auto;
+  min-height: 30px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-family: var(--ff-display);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  background: #1e40af;
+  color: #fff;
+}
+
+.syll-list--chapters
+  .phan-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  .chap-num-wrap::before,
+.syll-list--chapters
+  .mon-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  .chap-num-wrap::before {
+  content: "Chương ";
+}
+
+.syll-list--chapters
+  .phan-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  .chap-title,
+.syll-list--chapters
+  .mon-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  .chap-title {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+}
+
+.syll-list--chapters
+  .phan--I
+  .phan-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  .chap-num-wrap {
+  background: #1e40af;
+}
+
+.syll-list--chapters
+  .phan--II
+  .phan-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  .chap-num-wrap {
+  background: #ef4822;
+}
+
+.syll-list--chapters
+  .phan--III
+  .phan-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  .chap-num-wrap {
+  background: #15803d;
+}
+
+.syll-list--chapters
+  .syll-detail:not(#syllDetail-chap-phap-luat)
+  .mon-body-pad {
+  gap: 0;
+}
+
+.syll-list--chapters
+  .syll-detail:not(#syllDetail-chap-phap-luat)
+  .phan {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.syll-list--chapters
+  .syll-detail:not(#syllDetail-chap-phap-luat)
+  .phan-header {
+  display: none;
+}
+
+.syll-list--chapters
+  .syll-detail:not(#syllDetail-chap-phap-luat)
+  .phan-body {
+  grid-template-rows: 1fr;
+}
+
+.syll-list--chapters
+  .syll-detail:not(#syllDetail-chap-phap-luat)
+  .phan-body-pad {
+  border-top: 0;
+  padding: 0;
+}
+
+@media (max-width: 560px) {
+  .syll-list--chapters
+    .phan-body-pad
+    > .chap-list
+    > .chap:not(.is-featured)
+    > .chap-row,
+  .syll-list--chapters
+    .mon-body-pad
+    > .chap-list
+    > .chap:not(.is-featured)
+    > .chap-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
 /* ──────────────────────────────────────────
        CURRICULUM — Phương án C (Vertical stepper)
        Timeline-style, mỗi môn là 1 step
