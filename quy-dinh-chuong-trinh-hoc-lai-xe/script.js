@@ -96,6 +96,131 @@
     revealItems.forEach((item) => item.classList.add("is-visible"));
   }
 
+  const autoDemoCards = [
+    document.querySelector(".cccd-stack")?.closest(".admission-card"),
+    document.querySelector(".gplx-stack")?.closest(".admission-card"),
+    document.querySelector(".sdt-container")?.closest(".admission-card"),
+    document.querySelector(".photo-stack-container")?.closest(".admission-card"),
+  ].filter(Boolean);
+
+  if (autoDemoCards.length && !prefersReducedMotion) {
+    const AUTO_START_DELAY = 2200;
+    const AUTO_STAGGER = 650;
+    const AUTO_ACTIVE_DURATION = 2200;
+    const AUTO_GAP = 4200;
+    const AUTO_INTERACTION_DELAY = 900;
+
+    const createAutoDemo = (card, index) => {
+      let isVisible = false;
+      let startTimer = null;
+      let finishTimer = null;
+
+      const clearStartTimer = () => {
+        if (startTimer === null) return;
+        window.clearTimeout(startTimer);
+        startTimer = null;
+      };
+
+      const clearFinishTimer = () => {
+        if (finishTimer === null) return;
+        window.clearTimeout(finishTimer);
+        finishTimer = null;
+      };
+
+      const deactivate = () => {
+        card.classList.remove("is-auto-active");
+      };
+
+      const pause = () => {
+        clearStartTimer();
+        clearFinishTimer();
+        deactivate();
+      };
+
+      const isInteracting = () =>
+        card.matches(":hover") || card.contains(document.activeElement);
+
+      const schedule = (delay = AUTO_GAP) => {
+        if (
+          startTimer !== null ||
+          finishTimer !== null ||
+          document.hidden ||
+          !isVisible ||
+          isInteracting()
+        ) {
+          return;
+        }
+
+        startTimer = window.setTimeout(run, delay);
+      };
+
+      const finish = () => {
+        finishTimer = null;
+        deactivate();
+        schedule(AUTO_GAP);
+      };
+
+      function run() {
+        startTimer = null;
+        if (document.hidden || !isVisible || isInteracting()) {
+          schedule(AUTO_INTERACTION_DELAY);
+          return;
+        }
+
+        card.classList.add("is-auto-active");
+        finishTimer = window.setTimeout(finish, AUTO_ACTIVE_DURATION);
+      }
+
+      card.addEventListener("mouseenter", pause);
+      card.addEventListener("mouseleave", () => schedule(AUTO_INTERACTION_DELAY));
+      card.addEventListener("focusin", pause);
+      card.addEventListener("focusout", (event) => {
+        if (!card.contains(event.relatedTarget)) {
+          window.setTimeout(() => schedule(AUTO_INTERACTION_DELAY), 0);
+        }
+      });
+
+      return {
+        setVisible(nextVisible) {
+          if (isVisible === nextVisible) return;
+          isVisible = nextVisible;
+          pause();
+          if (isVisible) schedule(AUTO_START_DELAY + index * AUTO_STAGGER);
+        },
+        pause,
+        restart() {
+          pause();
+          schedule(AUTO_START_DELAY + index * AUTO_STAGGER);
+        },
+      };
+    };
+
+    const autoDemoControllers = autoDemoCards.map(createAutoDemo);
+
+    if ("IntersectionObserver" in window) {
+      const autoDemoObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const controller = autoDemoControllers[autoDemoCards.indexOf(entry.target)];
+            controller?.setVisible(entry.isIntersecting && entry.intersectionRatio >= 0.25);
+          });
+        },
+        { threshold: [0, 0.25, 0.6] },
+      );
+      autoDemoCards.forEach((card) => autoDemoObserver.observe(card));
+    } else {
+      autoDemoControllers.forEach((controller) => controller.setVisible(true));
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        autoDemoControllers.forEach((controller) => controller.pause());
+      } else {
+        autoDemoControllers.forEach((controller) => controller.restart());
+      }
+    });
+  }
+
   setStickyOffset();
   updateOnScroll();
   window.addEventListener("resize", setStickyOffset);
