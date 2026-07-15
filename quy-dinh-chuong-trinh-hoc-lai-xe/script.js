@@ -198,4 +198,28 @@
       });
     });
   }
+
+  /* ────────────────────────────────────────
+     Photo stack dynamic cloning
+     ──────────────────────────────────────── */
+  const photoStack = document.querySelector(".photo-stack");
+  if (photoStack) {
+    const mainImg = photoStack.querySelector(".photo-main");
+    if (mainImg) {
+      // Create left clone
+      const leftImg = mainImg.cloneNode(true);
+      leftImg.className = "photo-item photo-left";
+      
+      // Create right clone
+      const rightImg = mainImg.cloneNode(true);
+      rightImg.className = "photo-item photo-right";
+
+      // Modify the original main image to be the center one
+      mainImg.className = "photo-item photo-center";
+
+      // Insert the clones into the DOM so that the stacking order is correct
+      photoStack.insertBefore(leftImg, mainImg);
+      photoStack.insertBefore(rightImg, mainImg);
+    }
+  }
 })();

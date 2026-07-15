@@ -2631,10 +2631,6 @@ button {
 .syll-list--chapters
   .phan-body-pad
   > .chap-list
-  > .chap:not(.is-featured),
-.syll-list--chapters
-  .mon-body-pad
-  > .chap-list
   > .chap:not(.is-featured) {
   background: #fff;
   border-color: #e2e8f5;
@@ -2642,11 +2638,6 @@ button {
 
 .syll-list--chapters
   .phan-body-pad
-  > .chap-list
-  > .chap:not(.is-featured)
-  > .chap-row,
-.syll-list--chapters
-  .mon-body-pad
   > .chap-list
   > .chap:not(.is-featured)
   > .chap-row {
@@ -2658,11 +2649,6 @@ button {
 
 .syll-list--chapters
   .phan-body-pad
-  > .chap-list
-  > .chap:not(.is-featured)
-  .chap-num-wrap,
-.syll-list--chapters
-  .mon-body-pad
   > .chap-list
   > .chap:not(.is-featured)
   .chap-num-wrap {
@@ -2685,22 +2671,12 @@ button {
   .phan-body-pad
   > .chap-list
   > .chap:not(.is-featured)
-  .chap-num-wrap::before,
-.syll-list--chapters
-  .mon-body-pad
-  > .chap-list
-  > .chap:not(.is-featured)
   .chap-num-wrap::before {
   content: "Chương ";
 }
 
 .syll-list--chapters
   .phan-body-pad
-  > .chap-list
-  > .chap:not(.is-featured)
-  .chap-title,
-.syll-list--chapters
-  .mon-body-pad
   > .chap-list
   > .chap:not(.is-featured)
   .chap-title {
@@ -2773,11 +2749,6 @@ button {
 @media (max-width: 560px) {
   .syll-list--chapters
     .phan-body-pad
-    > .chap-list
-    > .chap:not(.is-featured)
-    > .chap-row,
-  .syll-list--chapters
-    .mon-body-pad
     > .chap-list
     > .chap:not(.is-featured)
     > .chap-row {
@@ -7585,9 +7556,6 @@ button {
   padding: 12px 14px;
   cursor: default;
 }
-.chap.is-featured .chap-row {
-  cursor: pointer;
-}
 .chap-num-wrap {
   width: 36px;
   height: 36px;
@@ -7671,55 +7639,6 @@ button {
 .tag-gray {
   background: #f0f3fb;
   color: #0a1330;
-}
-.chap-expander {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 1.5px solid #e2e8f5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition:
-    border-color 0.2s,
-    background 0.2s;
-}
-.chap-expander svg {
-  width: 12px;
-  height: 12px;
-  color: #0a1330;
-  transition: transform 0.4s var(--ease);
-}
-.chap.is-open .chap-expander svg {
-  transform: rotate(180deg);
-}
-.phan--I .chap.is-open.is-featured .chap-expander {
-  border-color: #1e40af;
-  background: #1e40af;
-}
-.phan--II .chap.is-open.is-featured .chap-expander {
-  border-color: #ef4822;
-  background: #ef4822;
-}
-.phan--III .chap.is-open.is-featured .chap-expander {
-  border-color: #15803d;
-  background: #15803d;
-}
-.chap.is-open.is-featured .chap-expander svg {
-  color: #fff;
-}
-
-.chap-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.5s var(--ease);
-}
-.chap.is-open .chap-content {
-  grid-template-rows: 1fr;
-}
-.chap-content-inner {
-  overflow: hidden;
 }
 .chap-content-pad {
   border-top: 1px dashed #e2e8f5;
@@ -9481,83 +9400,6 @@ button {
   color: #080f2e;
   line-height: 1.35;
   flex: 1;
-}
-
-/* Chap content header */
-.chap-content-head {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  margin-bottom: 16px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid #e2e8f5;
-}
-.chap-content-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.icon-blue {
-  background: #dbeafe;
-  color: #1e40af;
-}
-.icon-green {
-  background: #f0fdf4;
-  color: #15803d;
-}
-.icon-fire {
-  background: #fff0eb;
-  color: #ef4822;
-}
-.chap-content-icon svg {
-  width: 22px;
-  height: 22px;
-}
-.chap-content-meta {
-  flex: 1;
-  min-width: 0;
-}
-.chap-content-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #0a1330;
-  margin-bottom: 4px;
-}
-.chap-content-title {
-  font-size: 15.5px;
-  font-weight: 700;
-  letter-spacing: -0.018em;
-  color: #080f2e;
-  line-height: 1.2;
-}
-.chap-content-title em {
-  font-family: var(--ff-serif);
-  font-style: italic;
-  font-weight: 400;
-  color: #1e40af;
-}
-.chap-content-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 8px;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #1e40af;
-  transition: gap 0.2s var(--ease);
-}
-.chap-content-link:hover {
-  gap: 10px;
-}
-.chap-content-link svg {
-  width: 13px;
-  height: 13px;
 }
 
 /* ==================== Chips: "N phần chính", "Phần N", "N chương", "Chương N" ==================== */

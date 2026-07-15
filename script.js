@@ -1034,19 +1034,10 @@
       if (modal && modal.classList.contains('is-open')) window.closeChapVideo();
     });
 
-    /* Mon 01-04 nested accordion — togglePhan / toggleChap (global) */
+    /* Mon 01-04 nested accordion — togglePhan (global) */
     window.togglePhan = function (id) {
       const el = document.getElementById(id);
       if (el) el.classList.toggle('is-open');
-    };
-    window.toggleChap = function (id) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const wasOpen = el.classList.contains('is-open');
-      el.closest('.chap-list').querySelectorAll('.chap').forEach(c => {
-        if (c !== el) c.classList.remove('is-open');
-      });
-      el.classList.toggle('is-open', !wasOpen);
     };
 
     /* Event blocks — "Xem thêm" / "Thu gọn" toggle ẩn/hiện mục 3-8 */
