@@ -98,6 +98,7 @@
 
   const autoDemoCards = [
     document.querySelector(".cccd-stack")?.closest(".admission-card"),
+    document.querySelector(".vneid-container")?.closest(".admission-card"),
     document.querySelector(".gplx-stack")?.closest(".admission-card"),
     document.querySelector(".sdt-container")?.closest(".admission-card"),
     document.querySelector(".photo-stack-container")?.closest(".admission-card"),
