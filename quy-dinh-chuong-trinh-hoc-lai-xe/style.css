@@ -581,14 +581,20 @@ em {
   height: 100%;
   object-fit: contain;
   object-position: center;
-  transition: transform 0.45s var(--ease), filter 0.45s var(--ease);
+  transition:
+    transform 0.45s var(--ease),
+    filter 0.45s var(--ease);
   will-change: transform;
   backface-visibility: hidden;
   animation: float-illustration 4s ease-in-out infinite;
   filter: drop-shadow(0 4px 10px rgba(10, 19, 48, 0.06));
 }
 
-.admission-card:hover .process-illustration:not(.cccd-stack):not(.gplx-stack):not(.vneid-container):not(.sdt-container):not(.photo-stack-container) img {
+.admission-card:hover
+  .process-illustration:not(.cccd-stack):not(.gplx-stack):not(.vneid-container):not(
+    .sdt-container
+  ):not(.photo-stack-container)
+  img {
   transform: translateY(-8px) scale(1.04);
   filter: drop-shadow(0 14px 28px rgba(10, 19, 48, 0.14));
 }
@@ -598,17 +604,41 @@ em {
 }
 
 /* Tạo độ lệch pha (animation delay) cho các hình ảnh tự chuyển động (Floating) */
-.admission-card:nth-child(8n+1) .process-illustration img { animation-delay: 0s; }
-.admission-card:nth-child(8n+2) .process-illustration img { animation-delay: 0.5s; animation-duration: 4.2s; }
-.admission-card:nth-child(8n+3) .process-illustration img { animation-delay: 1s; animation-duration: 3.8s; }
-.admission-card:nth-child(8n+4) .process-illustration img { animation-delay: 1.5s; animation-duration: 4.5s; }
-.admission-card:nth-child(8n+5) .process-illustration img { animation-delay: 2s; animation-duration: 3.9s; }
-.admission-card:nth-child(8n+6) .process-illustration img { animation-delay: 2.5s; animation-duration: 4.3s; }
-.admission-card:nth-child(8n+7) .process-illustration img { animation-delay: 3s; animation-duration: 4.1s; }
-.admission-card:nth-child(8n+8) .process-illustration img { animation-delay: 3.5s; animation-duration: 4.4s; }
+.admission-card:nth-child(8n + 1) .process-illustration img {
+  animation-delay: 0s;
+}
+.admission-card:nth-child(8n + 2) .process-illustration img {
+  animation-delay: 0.5s;
+  animation-duration: 4.2s;
+}
+.admission-card:nth-child(8n + 3) .process-illustration img {
+  animation-delay: 1s;
+  animation-duration: 3.8s;
+}
+.admission-card:nth-child(8n + 4) .process-illustration img {
+  animation-delay: 1.5s;
+  animation-duration: 4.5s;
+}
+.admission-card:nth-child(8n + 5) .process-illustration img {
+  animation-delay: 2s;
+  animation-duration: 3.9s;
+}
+.admission-card:nth-child(8n + 6) .process-illustration img {
+  animation-delay: 2.5s;
+  animation-duration: 4.3s;
+}
+.admission-card:nth-child(8n + 7) .process-illustration img {
+  animation-delay: 3s;
+  animation-duration: 4.1s;
+}
+.admission-card:nth-child(8n + 8) .process-illustration img {
+  animation-delay: 3.5s;
+  animation-duration: 4.4s;
+}
 
 @keyframes float-illustration {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -625,25 +655,31 @@ em {
   }
 }
 
-}
-
 /* Tắt mặt sau generic và tắt float animation cho các thẻ có hiệu ứng riêng */
-.cccd-stack::before, .cccd-stack::after,
-.gplx-stack::before, .gplx-stack::after,
-.vneid-container::before, .vneid-container::after,
-.sdt-container::before, .sdt-container::after,
-.photo-stack-container::before, .photo-stack-container::after {
+.cccd-stack::before,
+.cccd-stack::after,
+.gplx-stack::before,
+.gplx-stack::after,
+.vneid-container::before,
+.vneid-container::after,
+.sdt-container::before,
+.sdt-container::after,
+.photo-stack-container::before,
+.photo-stack-container::after {
   display: none !important;
 }
 
-.cccd-stack img, .gplx-stack img,
-.vneid-container img, .sdt-container img,
+.cccd-stack img,
+.gplx-stack img,
+.vneid-container img,
+.sdt-container img,
 .photo-stack-container img {
   animation: none !important;
 }
 
 /* 1. HIỆU ỨNG CHỒNG THẺ & XOÈ QUẠT 3D (CCCD & GPLX STACK) */
-.cccd-stack, .gplx-stack {
+.cccd-stack,
+.gplx-stack {
   perspective: 1200px;
   transform-style: preserve-3d;
   overflow: visible !important;
@@ -698,7 +734,8 @@ em {
   transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.doc-card__front, .doc-card__back {
+.doc-card__front,
+.doc-card__back {
   position: absolute;
   top: 0;
   left: 0;
@@ -742,7 +779,6 @@ em {
   transform: rotateY(180deg);
 }
 
-
 /* 2. HIỆU ỨNG TRƯỢT THÔNG TIN VNeID */
 .vneid-container {
   overflow: hidden !important;
@@ -760,7 +796,9 @@ em {
 .vneid-phone {
   width: 52%;
   height: auto;
-  transition: transform 0.55s var(--ease), filter 0.55s var(--ease);
+  transition:
+    transform 0.55s var(--ease),
+    filter 0.55s var(--ease);
   filter: drop-shadow(0 10px 20px rgba(10, 19, 48, 0.12));
 }
 
@@ -846,7 +884,8 @@ em {
   box-shadow: 0 4px 10px rgba(30, 64, 175, 0.4);
 }
 
-.calling-pulse-circle, .calling-pulse-circle-2 {
+.calling-pulse-circle,
+.calling-pulse-circle-2 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -892,8 +931,13 @@ em {
 }
 
 @keyframes calling-blink {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .calling-sub {
@@ -1650,8 +1694,16 @@ em {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .admission-card:hover .process-illustration:not(.cccd-stack):not(.gplx-stack):not(.vneid-container):not(.sdt-container):not(.photo-stack-container) img,
-  .admission-card:focus-within .process-illustration:not(.cccd-stack):not(.gplx-stack):not(.vneid-container):not(.sdt-container):not(.photo-stack-container) img,
+  .admission-card:hover
+    .process-illustration:not(.cccd-stack):not(.gplx-stack):not(
+      .vneid-container
+    ):not(.sdt-container):not(.photo-stack-container)
+    img,
+  .admission-card:focus-within
+    .process-illustration:not(.cccd-stack):not(.gplx-stack):not(
+      .vneid-container
+    ):not(.sdt-container):not(.photo-stack-container)
+    img,
   .condition-card:hover .completion-media,
   .condition-card:focus-within .completion-media,
   .check-card:hover .completion-media,
@@ -1665,8 +1717,16 @@ em {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .admission-card:hover .process-illustration:not(.cccd-stack):not(.gplx-stack):not(.vneid-container):not(.sdt-container):not(.photo-stack-container) img,
-  .admission-card:focus-within .process-illustration:not(.cccd-stack):not(.gplx-stack):not(.vneid-container):not(.sdt-container):not(.photo-stack-container) img,
+  .admission-card:hover
+    .process-illustration:not(.cccd-stack):not(.gplx-stack):not(
+      .vneid-container
+    ):not(.sdt-container):not(.photo-stack-container)
+    img,
+  .admission-card:focus-within
+    .process-illustration:not(.cccd-stack):not(.gplx-stack):not(
+      .vneid-container
+    ):not(.sdt-container):not(.photo-stack-container)
+    img,
   .condition-card:hover .completion-media,
   .condition-card:focus-within .completion-media,
   .check-card:hover .completion-media,
