@@ -1443,7 +1443,7 @@
       const videos = {
         '01': { src: 'mon-01-phap-luat.mp4',  title: 'Pháp luật về giao thông đường bộ',          tag: 'Lý thuyết' },
         '02': { src: 'mon-02-cau-tao.mp4',     title: 'Cấu tạo và sửa chữa thông thường',           tag: 'Lý thuyết' },
-        '03': { src: 'mon-03-dao-duc.mp4',     title: 'Đạo đức, văn hoá giao thông & PCCC',         tag: 'Lý thuyết' },
+        '03': { src: 'mon-03-dao-duc.mp4',     title: 'Đạo đức người lái xe, văn hóa GT và phòng chống tác hại của rượu, bia khi tham gia GT, kỹ năng PCCC và CNCH', tag: 'Lý thuyết' },
         '04': { src: 'mon-04-ky-thuat.mp4',    title: 'Kỹ thuật lái xe',                            tag: 'Thực hành' },
         '05': { src: 'mon-05-mo-phong.mp4',    title: 'Phần mềm mô phỏng tình huống giao thông',    tag: 'Mô phỏng' },
         '06': { src: 'mon-06-thuc-hanh.mp4',   title: 'Thực hành lái xe — Sa hình',                 tag: 'Thực hành' },
