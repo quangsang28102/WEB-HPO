@@ -2511,7 +2511,7 @@ button {
   grid-column: 2;
   grid-row: 1;
   justify-self: end;
-  align-self: normal;
+  align-self: start;
   margin-left: 0;
 }
 .syll-title > .syll-title-main {
