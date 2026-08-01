@@ -90,7 +90,7 @@
                 <a href="https://hpo.edu.vn/huong-dan-sat-hach/"><span class="dd-dot"></span> Hướng dẫn Sát hạch</a>
               </div>
             </li>
-            <li class="nav-item"><a href="${href("index.html#tin-tuc")}">Tin tức</a></li>
+            
             <li class="nav-item"><a href="https://hpo.edu.vn/on-tap/">Ôn tập</a></li>
           </ul>
 
@@ -137,8 +137,7 @@
           <a href="${href("quy-dinh-chuong-trinh-hoc-lai-xe/")}"${current("process")}>Quy định chương trình học lái xe</a>
           <a href="https://hpo.edu.vn/thong-bao/">Thông báo</a>
           <a href="https://hpo.edu.vn/thong-tin/">Thông tin</a>
-          <a href="https://hpo.edu.vn/huong-dan/">Hướng dẫn</a>
-          <a href="${href("index.html#tin-tuc")}">Tin tức</a>
+          <a href="https://hpo.edu.vn/huong-dan/">Hướng dẫn</a>          
           <a href="https://hpo.edu.vn/on-tap/">Ôn tập</a>
         </nav>
         <div class="mobile-menu-foot">
