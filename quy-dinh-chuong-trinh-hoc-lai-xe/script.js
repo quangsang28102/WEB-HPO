@@ -270,14 +270,30 @@
     const titleEl = document.getElementById("monModalTitle");
     let lastFocused = null;
 
-    const showContent = (key) => {
+    const showContent = (key, sectionFilter = "") => {
       contents.forEach((el) => {
         el.hidden = el.dataset.monContent !== key;
       });
+
+      const activeContent = Array.from(contents).find(
+        (el) => el.dataset.monContent === key,
+      );
+      if (!activeContent) return;
+
+      const allowedSections = sectionFilter
+        .split(",")
+        .map((value) => value.trim())
+        .filter(Boolean);
+
+      activeContent.querySelectorAll("[data-mon-section]").forEach((section) => {
+        section.hidden =
+          allowedSections.length > 0 &&
+          !allowedSections.includes(section.dataset.monSection);
+      });
     };
 
-    const openModal = (key, title) => {
-      showContent(key);
+    const openModal = (key, title, sectionFilter) => {
+      showContent(key, sectionFilter);
       if (titleEl && title) titleEl.textContent = title;
       monModal.hidden = false;
       // Force reflow để transition chạy
@@ -309,7 +325,11 @@
       const open = (e) => {
         e.preventDefault();
         lastFocused = cell;
-        openModal(cell.dataset.monModal, cell.dataset.monTitle);
+        openModal(
+          cell.dataset.monModal,
+          cell.dataset.monTitle,
+          cell.dataset.monSections,
+        );
       };
       cell.addEventListener("click", open);
       cell.addEventListener("keydown", (e) => {
