@@ -2624,6 +2624,11 @@ button {
   margin-bottom: 32px;
 }
 
+/* Không để trình duyệt tự kéo viewport khi accordion thay đổi chiều cao. */
+.syll--chapters {
+  overflow-anchor: none;
+}
+
 .syll-list--chapters .syll-detail.is-open {
   max-height: 5200px;
 }
@@ -7656,6 +7661,47 @@ button {
   padding: 16px 14px 18px;
 }
 
+/* Nội dung con của từng chương chỉ hiển thị sau khi bấm vào chương. */
+.syll-list--chapters .chap.is-featured > .chap-row {
+  cursor: pointer;
+}
+.syll-list--chapters .chap.is-featured > .chap-row::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  margin-left: auto;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.3s var(--ease);
+}
+.syll-list--chapters .chap.is-featured.is-open > .chap-row::after {
+  transform: rotate(225deg);
+}
+.syll-list--chapters .chap.is-featured > .chap-collapse {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  will-change: height, opacity, transform;
+  transition:
+    height 0.46s var(--ease),
+    opacity 0.3s var(--ease),
+    transform 0.38s var(--ease),
+    visibility 0s linear 0.46s;
+}
+.syll-list--chapters .chap.is-featured.is-open > .chap-collapse {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    height 0.46s var(--ease),
+    opacity 0.3s var(--ease) 0.05s,
+    transform 0.38s var(--ease) 0.03s,
+    visibility 0s;
+}
+
 /* Biển báo grid */
 .bb-grid {
   display: grid;
@@ -10055,7 +10101,7 @@ a.chap[data-engine-view]:focus-visible {
 
 /* Featured chap chỉ có chap-title — bỏ grid 3 cột để text không bị bóp 44px */
 .chap.is-featured > .chap-row {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr) auto;
   padding: 14px 16px;
 }
 .chap.is-featured > .chap-row .chap-title {

@@ -11,6 +11,27 @@
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let ticking = false;
+  let subnavHideTimer = 0;
+
+  const isSubnavSticky = () => {
+    if (!subnav) return false;
+    const navHeight = siteNav?.offsetHeight || 0;
+    return window.scrollY > 0 && subnav.getBoundingClientRect().top <= navHeight + 1;
+  };
+
+  const showSubnavTemporarily = () => {
+    if (!subnav) return;
+    window.clearTimeout(subnavHideTimer);
+    subnav.classList.remove("is-auto-hidden");
+    subnav.classList.add("is-scroll-active");
+
+    subnavHideTimer = window.setTimeout(() => {
+      subnav.classList.remove("is-scroll-active");
+      if (isSubnavSticky() && !subnav.matches(":hover, :focus-within")) {
+        subnav.classList.add("is-auto-hidden");
+      }
+    }, 1200);
+  };
 
   const setStickyOffset = () => {
     if (!siteNav) return;
@@ -59,10 +80,20 @@
   };
 
   const requestScrollUpdate = () => {
+    showSubnavTemporarily();
     if (ticking) return;
     ticking = true;
     window.requestAnimationFrame(updateOnScroll);
   };
+
+  subnav?.addEventListener("mouseenter", showSubnavTemporarily);
+  subnav?.addEventListener("mouseleave", showSubnavTemporarily);
+  subnav?.addEventListener("focusin", showSubnavTemporarily);
+  document.addEventListener("pointermove", (event) => {
+    if (!subnav?.classList.contains("is-auto-hidden")) return;
+    const revealEdge = (siteNav?.offsetHeight || 0) + 28;
+    if (event.clientY <= revealEdge) showSubnavTemporarily();
+  });
 
   subnavLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -289,6 +320,9 @@
     closeTriggers.forEach((t) => t.addEventListener("click", closeModal));
 
     document.addEventListener("keydown", (e) => {
+      if (document.getElementById("bbDetailModal")?.classList.contains("is-open")) {
+        return;
+      }
       if (e.key === "Escape" && monModal.classList.contains("is-open")) {
         closeModal();
       }
@@ -298,6 +332,103 @@
   /* ────────────────────────────────────────
      Training tabs (mobile): chọn hạng GPLX
      ──────────────────────────────────────── */
+  const bbDetailModal = document.getElementById("bbDetailModal");
+  const bbDetailFrame = document.getElementById("bbDetailFrame");
+  const bbDetailTitle = document.getElementById("bbDetailTitle");
+  const bbDetailTriggers = document.querySelectorAll("[data-bb-detail]");
+
+  if (bbDetailModal && bbDetailFrame && bbDetailTriggers.length) {
+    const bbTitles = {
+      "bien-cam": "Biển báo cấm",
+      "nguy-hiem": "Biển nguy hiểm",
+      "hieu-lenh": "Biển hiệu lệnh",
+      "chi-dan": "Biển chỉ dẫn",
+      "bien-phu": "Biển phụ",
+    };
+    let bbHtmlPromise = null;
+    let bbLastFocused = null;
+    const bbSharedStyleUrl = new URL("../style.css", window.location.href).href;
+
+    const createBbDocument = (content, target) => `<!doctype html>
+      <html lang="vi">
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="${bbSharedStyleUrl}">
+          <style>
+            html,body,#bbViewModal{height:100%;margin:0;background:#f8fafc}
+            html,body{overflow:hidden}
+            #bbViewModal{display:flex;flex-direction:column;min-height:0}
+            #bbViewModal>.bb-view-scroll{height:100%;min-height:0;overflow-y:auto}
+          </style>
+        </head>
+        <body>
+          <div id="bbViewModal">
+            <div class="bb-view-scroll">
+              ${content}
+            </div>
+          </div>
+          <script>
+            (() => {
+              const target = ${JSON.stringify(target)};
+              const goTo = (id, behavior = 'auto') => {
+                document.querySelectorAll('[data-hpo-tab]').forEach((tab) => {
+                  tab.classList.toggle('is-active', tab.getAttribute('data-hpo-tab') === id);
+                });
+                document.querySelector('[data-hpo-pane="' + id + '"]')
+                  ?.scrollIntoView({ behavior, block: 'start' });
+              };
+              requestAnimationFrame(() => goTo(target));
+              document.querySelectorAll('[data-hpo-tab]').forEach((tab) => {
+                tab.addEventListener('click', (event) => {
+                  event.preventDefault();
+                  goTo(tab.getAttribute('data-hpo-tab'), 'smooth');
+                });
+              });
+            })();
+          <\/script>
+        </body>
+      </html>`;
+
+    const openBbDetail = async (target, trigger) => {
+      bbLastFocused = trigger;
+      if (bbDetailTitle) bbDetailTitle.textContent = bbTitles[target] || "Chi tiết biển báo";
+      bbDetailModal.classList.add("is-open");
+      bbDetailModal.setAttribute("aria-hidden", "false");
+
+      try {
+        bbHtmlPromise ||= fetch("../assets/data/bien-bao-view.html").then((response) => {
+          if (!response.ok) throw new Error("Không tải được nội dung biển báo");
+          return response.text();
+        });
+        bbDetailFrame.srcdoc = createBbDocument(await bbHtmlPromise, target);
+      } catch (_) {
+        bbDetailFrame.srcdoc = "<p style='padding:24px;font-family:sans-serif'>Không tải được nội dung biển báo.</p>";
+      }
+
+      bbDetailModal.querySelector("[data-bb-detail-close]")?.focus({ preventScroll: true });
+    };
+
+    const closeBbDetail = () => {
+      bbDetailModal.classList.remove("is-open");
+      bbDetailModal.setAttribute("aria-hidden", "true");
+      bbLastFocused?.focus({ preventScroll: true });
+    };
+
+    bbDetailTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => openBbDetail(trigger.dataset.bbDetail, trigger));
+    });
+    bbDetailModal.querySelector("[data-bb-detail-close]")?.addEventListener("click", closeBbDetail);
+    bbDetailModal.addEventListener("click", (event) => {
+      if (event.target === bbDetailModal) closeBbDetail();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && bbDetailModal.classList.contains("is-open")) {
+        closeBbDetail();
+      }
+    });
+  }
+
   const trainingTabs = document.querySelectorAll("[data-training-tab]");
   const trainingTable = document.querySelector(".training-table");
   const mobileHangLabel = document.querySelector("[data-mobile-hang-label]");

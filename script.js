@@ -1040,6 +1040,56 @@
       if (el) el.classList.toggle('is-open');
     };
 
+    /* Chapter accordion: mặc định đóng các item con, bấm tiêu đề chương để mở. */
+    document.querySelectorAll('.syll-list--chapters .chap.is-featured').forEach((chapter) => {
+      const row = chapter.querySelector(':scope > .chap-row');
+      const content = chapter.querySelector(
+        ':scope > .chap-content-pad, :scope > .bb-grid, :scope > .sa-grid'
+      );
+      if (!row || !content) return;
+
+      const collapse = document.createElement('div');
+      collapse.className = 'chap-collapse';
+      chapter.insertBefore(collapse, content);
+      collapse.appendChild(content);
+
+      chapter.classList.remove('is-open');
+      collapse.style.height = '0px';
+      collapse.setAttribute('aria-hidden', 'true');
+      row.setAttribute('role', 'button');
+      row.setAttribute('tabindex', '0');
+      row.setAttribute('aria-expanded', 'false');
+
+      const toggleChapter = () => {
+        const willOpen = !chapter.classList.contains('is-open');
+        if (!willOpen) {
+          collapse.style.height = collapse.scrollHeight + 'px';
+          collapse.offsetHeight;
+        }
+        chapter.classList.toggle('is-open', willOpen);
+        row.setAttribute('aria-expanded', String(willOpen));
+        collapse.setAttribute('aria-hidden', String(!willOpen));
+        collapse.style.height = willOpen ? collapse.scrollHeight + 'px' : '0px';
+      };
+
+      collapse.addEventListener('transitionend', (event) => {
+        if (
+          event.target === collapse &&
+          event.propertyName === 'height' &&
+          chapter.classList.contains('is-open')
+        ) {
+          collapse.style.height = 'auto';
+        }
+      });
+
+      row.addEventListener('click', toggleChapter);
+      row.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        toggleChapter();
+      });
+    });
+
     /* Event blocks — "Xem thêm" / "Thu gọn" toggle ẩn/hiện mục 3-8 */
     (function () {
       var btn = document.getElementById('eventBlocksToggle');

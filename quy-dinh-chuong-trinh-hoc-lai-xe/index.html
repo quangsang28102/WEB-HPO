@@ -426,6 +426,74 @@
         </div>
       </section>
 
+      <aside
+        class="admission-cta"
+        aria-labelledby="admission-cta-title"
+        data-reveal
+      >
+        <div class="container">
+          <div class="admission-cta__inner">
+            <span class="admission-cta__glow" aria-hidden="true"></span>
+            <div class="admission-cta__intro">
+              <p class="admission-cta__eyebrow">Bắt đầu khóa học</p>
+              <h2 id="admission-cta-title">Bạn đã chuẩn bị đủ hồ sơ?</h2>
+              <p>
+                Đăng ký trực tuyến hoặc đến trực tiếp cơ sở gần bạn để được tư vấn
+                và hoàn tất thủ tục nhập học.
+              </p>
+              <a
+                class="button admission-cta__button"
+                href="https://hpo.edu.vn/dang-ky-hoc/"
+              >
+                Đăng ký ngay
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="admission-cta__options">
+              <article class="registration-option registration-option--offline">
+                <span class="registration-option__icon" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="22"
+                    height="22"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </span>
+                <div>
+                  <span class="registration-option__label">Đăng ký tại cơ sở</span>
+                  <h3>Đăng ký trực tiếp</h3>
+                  <ul class="registration-locations">
+                    <li><strong>Trụ sở chính:</strong> 176 Thế Lữ, Tân Nhựt, TP. HCM</li>
+                    <li><strong>Cơ sở Vĩnh Lộc:</strong> 271 Đường số 1, P. Bình Tân</li>
+                    <li><strong>VP Tuyển Sinh:</strong> 276 Minh Phụng, TP. HCM</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </aside>
+
       <section
         id="dao-tao"
         class="process-section process-section--training"
@@ -689,16 +757,7 @@
                   <tr
                     class="training-table__section training-table__section--practice"
                   >
-                    <th
-                      scope="row"
-                      colspan="2"
-                      class="mon-cell"
-                      data-mon-modal="mon-thuc-hanh"
-                      data-mon-title="Môn VI — Thực hành lái xe"
-                      tabindex="0"
-                      role="button"
-                      aria-label="Xem nội dung chương trình đào tạo thực hành"
-                    >
+                    <th scope="row" colspan="2">
                       II. Đào tạo thực hành
                     </th>
                     <td>giờ</td>
@@ -708,7 +767,15 @@
                   </tr>
                   <tr>
                     <td>1</td>
-                    <th scope="row">
+                    <th
+                      scope="row"
+                      class="mon-cell"
+                      data-mon-modal="mon-thuc-hanh"
+                      data-mon-title="Môn VI — Thực hành lái xe"
+                      tabindex="0"
+                      role="button"
+                      aria-label="Xem nội dung chương trình thực hành lái xe"
+                    >
                       Thời gian học thực hành lái xe trên sân tập lái của 01 học viên
                     </th>
                     <td>giờ</td>
@@ -718,7 +785,15 @@
                   </tr>
                   <tr>
                     <td>2</td>
-                    <th scope="row">
+                    <th
+                      scope="row"
+                      class="mon-cell"
+                      data-mon-modal="mon-thuc-hanh"
+                      data-mon-title="Môn VI — Thực hành lái xe"
+                      tabindex="0"
+                      role="button"
+                      aria-label="Xem nội dung chương trình thực hành lái xe"
+                    >
                       Thời gian học thực hành lái xe trên đường giao thông của 01 học
                       viên
                     </th>
@@ -729,7 +804,15 @@
                   </tr>
                   <tr>
                     <td>3</td>
-                    <th scope="row">
+                    <th
+                      scope="row"
+                      class="mon-cell"
+                      data-mon-modal="mon-cabin"
+                      data-mon-title="Thực hành trên cabin học lái xe ô tô"
+                      tabindex="0"
+                      role="button"
+                      aria-label="Xem danh sách các bài thực hành cabin"
+                    >
                       Thời gian học thực hành trên cabin học lái xe ô tô của 01 học
                       viên
                     </th>
@@ -798,13 +881,8 @@
           <div class="section-head">
             <p class="eyebrow">Bước 03</p>
             <h2 id="completion-title">
-              Điều kiện kiểm tra hoàn thành <em>khóa học</em>
+              Xét, kiểm tra hoàn thành <em>khóa đào tạo</em>
             </h2>
-            <p>
-              Học viên cần đáp ứng yêu cầu tham dự lý thuyết, thực hành trên sân tập
-              và thực hành trên đường trước khi được kiểm tra để xét hoàn thành khóa
-              đào tạo.
-            </p>
           </div>
 
           <div
@@ -812,94 +890,17 @@
             aria-label="Thông tin kiểm tra và xét hoàn thành khóa đào tạo"
           >
             <section
-              class="completion-panel completion-panel--accent"
-              aria-labelledby="completion-condition-title"
-              data-reveal
-            >
-              <div class="completion-panel__head">
-                <p class="completion-kicker">Điều kiện được kiểm tra</p>
-                <h3 id="completion-condition-title">
-                  Người học lái xe được kiểm tra để xét hoàn thành khóa đào tạo khi
-                </h3>
-                <p>
-                  Theo khoản 2 Điều 2 TT17/2026/TT-BXD sửa đổi, bổ sung khoản 4 Điều
-                  6 TT14/2025/TT-BXD.
-                </p>
-              </div>
-
-              <div class="completion-condition-grid">
-                <article class="condition-card">
-                  <figure
-                    class="condition-card__visual"
-                    aria-hidden="true"
-                  >
-                    <img
-                      class="completion-media"
-                      src="assets/images/completion/completion-checklist.png"
-                      alt=""
-                      loading="lazy"
-                    />
-                  </figure>
-                  <span class="condition-card__number">1</span>
-                  <h4>Tối thiểu 70% lý thuyết</h4>
-                  <p>
-                    Tham dự tối thiểu 70% thời gian học nội dung đào tạo lý thuyết.
-                  </p>
-                </article>
-
-                <article class="condition-card">
-                  <figure
-                    class="condition-card__visual"
-                    aria-hidden="true"
-                  >
-                    <img
-                      class="completion-media"
-                      src="assets/images/completion/completion-practice-yard.png"
-                      alt=""
-                      loading="lazy"
-                    />
-                  </figure>
-                  <span class="condition-card__number">2</span>
-                  <h4>Đủ giờ và 50% quãng đường sân tập</h4>
-                  <p>
-                    Tham dự đủ thời gian và tối thiểu 50% quãng đường học thực hành
-                    lái xe trên sân tập lái.
-                  </p>
-                </article>
-
-                <article class="condition-card">
-                  <figure
-                    class="condition-card__visual"
-                    aria-hidden="true"
-                  >
-                    <img
-                      class="completion-media"
-                      src="assets/images/completion/completion-road-driving.png"
-                      alt=""
-                      loading="lazy"
-                    />
-                  </figure>
-                  <span class="condition-card__number">3</span>
-                  <h4>Đủ quãng đường và 50% thời gian đường trường</h4>
-                  <p>
-                    Tham dự đủ quãng đường và tối thiểu 50% thời gian học thực hành
-                    lái xe trên đường.
-                  </p>
-                </article>
-              </div>
-            </section>
-
-            <section
               class="completion-panel"
               aria-labelledby="completion-guide-title"
               data-reveal
             >
               <div class="completion-panel__head">
                 <p class="completion-kicker">
-                  Hướng dẫn kiểm tra & quy trình đánh giá
+                  a) Hướng dẫn kiểm tra &amp; quy trình đánh giá
                 </p>
                 <h3 id="completion-guide-title">
-                  Cơ sở đào tạo tổ chức kiểm tra để xét hoàn thành khóa đào tạo
+                  Cơ sở đào tạo lái xe tổ chức kiểm tra để xét hoàn thành khóa đào
+                  tạo, gồm:
                 </h3>
               </div>
 
@@ -914,11 +915,9 @@
                       loading="lazy"
                     />
                   </figure>
-                  <h4>Lý thuyết</h4>
+                  <h4>Nội dung đào tạo lý thuyết</h4>
                   <p>
-                    Kiểm tra kiến thức pháp luật giao thông, kỹ thuật lái xe và các
-                    nội dung lý thuyết theo bộ câu hỏi sát hạch do Bộ Công an ban
-                    hành.
+                    Theo bộ câu hỏi sát hạch lý thuyết do Bộ Công an ban hành;
                   </p>
                 </article>
 
@@ -932,11 +931,7 @@
                       loading="lazy"
                     />
                   </figure>
-                  <h4>Mô phỏng</h4>
-                  <p>
-                    Đánh giá khả năng nhận biết nguy cơ và xử lý tình huống giao
-                    thông qua phần mềm mô phỏng.
-                  </p>
+                  <h4>Nội dung đào tạo mô phỏng các tình huống giao thông;</h4>
                 </article>
 
                 <article class="check-card">
@@ -949,33 +944,58 @@
                       loading="lazy"
                     />
                   </figure>
-                  <h4>Bài liên hoàn</h4>
+                  <h4>Nội dung đào tạo thực hành lái xe</h4>
                   <p>
-                    Kiểm tra kỹ năng điều khiển xe qua các bài thực hành liên hoàn
-                    trong sân sát hạch.
+                    Với bài liên hoàn, bài tiến lùi hình chữ chi và lái xe trên đường;
                   </p>
                 </article>
+              </div>
+            </section>
 
-                <article class="check-card">
-                  <span>04</span>
-                  <figure aria-hidden="true">
+            <section
+              class="completion-panel completion-panel--accent"
+              aria-labelledby="completion-condition-title"
+              data-reveal
+            >
+              <div class="completion-panel__head">
+                <p class="completion-kicker">b) Điều kiện được kiểm tra</p>
+                <h3 id="completion-condition-title">
+                  Người học lái xe được kiểm tra để xét hoàn thành khóa đào tạo khi
+                </h3>
+              </div>
+
+              <div class="completion-condition-grid">
+                <article class="condition-card">
+                  <figure class="condition-card__visual" aria-hidden="true">
                     <img
                       class="completion-media"
-                      src="assets/images/completion/completion-zigzag.png"
+                      src="assets/images/completion/completion-checklist.png"
                       alt=""
                       loading="lazy"
                     />
                   </figure>
-                  <h4>Tiến lùi chữ chi</h4>
-                  <p>
-                    Đánh giá khả năng căn chỉnh, điều khiển xe chính xác khi tiến lùi
-                    trong hình chữ chi.
-                  </p>
+                  <span class="condition-card__number">1</span>
+                  <h4>Tham dự tối thiểu 70% thời gian học nội dung đào tạo lý thuyết;</h4>
                 </article>
 
-                <article class="check-card">
-                  <span>05</span>
-                  <figure aria-hidden="true">
+                <article class="condition-card">
+                  <figure class="condition-card__visual" aria-hidden="true">
+                    <img
+                      class="completion-media"
+                      src="assets/images/completion/completion-practice-yard.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                  </figure>
+                  <span class="condition-card__number">2</span>
+                  <h4>
+                    Tham dự đủ thời gian và tối thiểu 50% quãng đường học thực hành
+                    lái xe trên sân tập lái;
+                  </h4>
+                </article>
+
+                <article class="condition-card">
+                  <figure class="condition-card__visual" aria-hidden="true">
                     <img
                       class="completion-media"
                       src="assets/images/completion/completion-road-driving.png"
@@ -983,42 +1003,61 @@
                       loading="lazy"
                     />
                   </figure>
-                  <h4>Trên đường</h4>
-                  <p>
-                    Kiểm tra kỹ năng lái xe thực tế, xử lý tình huống và chấp hành
-                    quy tắc giao thông trên đường.
-                  </p>
+                  <span class="condition-card__number">3</span>
+                  <h4>
+                    Tham dự đủ quãng đường và tối thiểu 50% thời gian học thực hành
+                    lái xe trên đường;
+                  </h4>
                 </article>
               </div>
+            </section>
 
-              <div class="completion-process">
+            <section
+              class="completion-panel"
+              aria-labelledby="completion-process-title"
+              data-reveal
+            >
+              <div class="completion-panel__head">
+                <p class="completion-kicker">c) Quy trình kiểm tra và đánh giá</p>
+                <h3 id="completion-process-title">
+                  Quy trình kiểm tra và đánh giá kết quả hoàn thành khóa đào tạo:
+                </h3>
+              </div>
+
+              <div class="completion-process completion-process--evaluation">
                 <article class="process-card process-card--wide">
                   <span class="process-card__step">1</span>
                   <div>
-                    <h4>Đánh giá theo quy trình sát hạch</h4>
+                    <h4>
+                      Nội dung đào tạo lý thuyết, thực hành lái xe với bài liên hoàn
+                      và lái xe trên đường
+                    </h4>
                     <p>
-                      Phần lý thuyết, bài liên hoàn và lái xe trên đường được kiểm
-                      tra theo quy trình sát hạch lái xe do Bộ Công an ban hành.
+                      Theo quy trình sát hạch lái xe do Bộ Công an ban hành;
                     </p>
                   </div>
                 </article>
+
                 <article class="process-card">
                   <span class="process-card__step">2</span>
                   <div>
-                    <h4>Mô phỏng tình huống</h4>
+                    <h4>Nội dung đào tạo mô phỏng các tình huống giao thông</h4>
                     <p>
-                      Đánh giá theo quy định tại Phụ lục XVIII TT17/2026/TT-BXD với
-                      thang điểm riêng cho từng tình huống.
+                      Theo quy định tại Phụ lục XXVIII ban hành kèm theo Thông tư này
+                      với thang điểm 10 (từ 1 đến 10) có tính đến hàng thập phân 1 con
+                      số;
                     </p>
                   </div>
                 </article>
+
                 <article class="process-card">
                   <span class="process-card__step">3</span>
                   <div>
-                    <h4>Bài tiến lùi chữ chi</h4>
+                    <h4>Nội dung đào tạo bài tiến lùi chữ chi</h4>
                     <p>
-                      Đánh giá bài tiến lùi hình chữ chi theo Phụ lục XVIII
-                      TT17/2026/TT-BXD.
+                      Theo quy định tại Phụ lục XXIX ban hành kèm theo Thông tư này
+                      với thang điểm 10 (từ 1 đến 10) có tính đến hàng thập phân 1 con
+                      số;
                     </p>
                   </div>
                 </article>
@@ -1031,23 +1070,14 @@
               data-reveal
             >
               <div class="completion-panel__head">
-                <p class="completion-kicker">Xét hoàn thành khóa đào tạo</p>
-                <h3 id="completion-review-title">
-                  Hai nhóm nội dung được dùng để xét hoàn thành
-                </h3>
-                <p>
-                  Theo khoản 2 Điều 2 TT17/2026/TT-BXD sửa đổi, bổ sung khoản 4 Điều
-                  6 TT14/2025/TT-BXD.
-                </p>
+                <p class="completion-kicker">d) Xét hoàn thành khóa đào tạo</p>
+                <h3 id="completion-review-title">Xét hoàn thành khóa đào tạo:</h3>
               </div>
 
               <div class="completion-review-grid">
                 <article class="review-card">
                   <span class="review-card__index">1</span>
-                  <figure
-                    class="review-card__visual"
-                    aria-hidden="true"
-                  >
+                  <figure class="review-card__visual" aria-hidden="true">
                     <img
                       class="completion-media"
                       src="assets/images/completion/completion-result.png"
@@ -1056,18 +1086,16 @@
                     />
                   </figure>
                   <p>
-                    Nhóm kết quả lý thuyết, bài liên hoàn và lái xe trên đường được
-                    dùng để xác định học viên đạt yêu cầu kiểm tra hoàn thành khóa
-                    đào tạo.
+                    Người học lái xe có điểm kiểm tra nội dung đào tạo lý thuyết, nội
+                    dung đào tạo thực hành lái xe với bài liên hoàn và lái xe trên
+                    đường đạt yêu cầu với hạng tương ứng theo quy trình sát hạch lái
+                    xe do Bộ Công an ban hành;
                   </p>
                 </article>
 
                 <article class="review-card">
                   <span class="review-card__index">2</span>
-                  <figure
-                    class="review-card__visual"
-                    aria-hidden="true"
-                  >
+                  <figure class="review-card__visual" aria-hidden="true">
                     <img
                       class="completion-media"
                       src="assets/images/completion/completion-zigzag.png"
@@ -1076,30 +1104,10 @@
                     />
                   </figure>
                   <p>
-                    Nhóm kết quả mô phỏng tình huống giao thông và bài tiến lùi hình
-                    chữ chi được xét riêng; bài tiến lùi chữ chi cần đạt từ 5,0 điểm
-                    trở lên.
+                    Nội dung đào tạo mô phỏng các tình huống giao thông, đào tạo thực
+                    hành lái xe với bài tiến lùi chữ chi đạt từ 5,0 trở lên.
                   </p>
                 </article>
-              </div>
-
-              <div class="completion-result">
-                <div>
-                  <span>Kết quả cuối cùng</span>
-                  <strong>100%</strong>
-                </div>
-                <p>
-                  Học viên đủ điều kiện được xác nhận hoàn thành khóa đào tạo để
-                  chuyển sang bước sát hạch.
-                </p>
-                <figure aria-hidden="true">
-                  <img
-                    class="completion-media"
-                    src="assets/images/completion/completion-result.png"
-                    alt=""
-                    loading="lazy"
-                  />
-                </figure>
               </div>
             </section>
           </div>
@@ -1437,14 +1445,82 @@
                   <li>
                     <span class="mon-chap__label">Chương III</span>
                     Biển báo hiệu
-                    <ul class="mon-sub-list">
-                      <li>Phân nhóm và hiệu lực của biển báo hiệu</li>
-                      <li>Biển báo cấm</li>
-                      <li>Biển báo nguy hiểm và cảnh báo</li>
-                      <li>Biển hiệu lệnh</li>
-                      <li>Biển chỉ dẫn</li>
-                      <li>Biển phụ</li>
-                    </ul>
+                    <div class="mon-bb-grid" aria-label="Các nhóm biển báo hiệu">
+                      <button type="button" class="mon-bb-card" data-bb-detail="bien-cam">
+                        <span class="mon-bb-name">Biển báo cấm</span>
+                        <div class="mon-bb-icon">
+                          <img
+                            src="../assets/images/bienbao/bbcam.png"
+                            alt="Biển báo cấm"
+                            loading="lazy"
+                          />
+                        </div>
+                        <span class="mon-bb-shape">
+                          Tròn · <em class="mon-bb-color--red">Viền đỏ</em>
+                        </span>
+                        <span class="mon-bb-count">63 <small>kiểu</small></span>
+                      </button>
+
+                      <button type="button" class="mon-bb-card" data-bb-detail="nguy-hiem">
+                        <span class="mon-bb-name">Biển nguy hiểm</span>
+                        <div class="mon-bb-icon">
+                          <img
+                            src="../assets/images/bienbao/bbNguyHiem.png"
+                            alt="Biển nguy hiểm"
+                            loading="lazy"
+                          />
+                        </div>
+                        <span class="mon-bb-shape">
+                          Tam giác · <em class="mon-bb-color--yellow">Vàng</em>
+                        </span>
+                        <span class="mon-bb-count">83 <small>kiểu</small></span>
+                      </button>
+
+                      <button type="button" class="mon-bb-card" data-bb-detail="hieu-lenh">
+                        <span class="mon-bb-name">Biển hiệu lệnh</span>
+                        <div class="mon-bb-icon">
+                          <img
+                            src="../assets/images/bienbao/bbHieuLenh.png"
+                            alt="Biển hiệu lệnh"
+                            loading="lazy"
+                          />
+                        </div>
+                        <span class="mon-bb-shape">
+                          Tròn · <em class="mon-bb-color--blue">Nền xanh</em>
+                        </span>
+                        <span class="mon-bb-count">65 <small>kiểu</small></span>
+                      </button>
+
+                      <button type="button" class="mon-bb-card" data-bb-detail="chi-dan">
+                        <span class="mon-bb-name">Biển chỉ dẫn</span>
+                        <div class="mon-bb-icon">
+                          <img
+                            src="../assets/images/bienbao/bbChiDan.png"
+                            alt="Biển chỉ dẫn"
+                            loading="lazy"
+                          />
+                        </div>
+                        <span class="mon-bb-shape">
+                          Chữ nhật · <em class="mon-bb-color--blue">Xanh</em>
+                        </span>
+                        <span class="mon-bb-count">92 <small>kiểu</small></span>
+                      </button>
+
+                      <button type="button" class="mon-bb-card" data-bb-detail="bien-phu">
+                        <span class="mon-bb-name">Biển phụ</span>
+                        <div class="mon-bb-icon">
+                          <img
+                            src="../assets/images/bienbao/bbPhu.png"
+                            alt="Biển phụ"
+                            loading="lazy"
+                          />
+                        </div>
+                        <span class="mon-bb-shape">
+                          Chữ nhật · <em class="mon-bb-color--gray">Trắng</em>
+                        </span>
+                        <span class="mon-bb-count">31 <small>kiểu</small></span>
+                      </button>
+                    </div>
                   </li>
                   <li>
                     <span class="mon-chap__label">Chương IV</span>
@@ -1821,10 +1897,91 @@
                 </h3>
               </section>
             </article>
+
+            <!-- Nội dung thực hành cabin -->
+            <article
+              class="mon-modal__content"
+              data-mon-content="mon-cabin"
+              hidden
+            >
+              <section class="mon-part">
+                <h3 class="mon-part__title">
+                  <span class="mon-part__index">Cabin</span>
+                  Danh sách các bài cabin
+                </h3>
+                <ol class="mon-chap-list">
+                  <li>
+                    <span class="mon-chap__label">1</span>
+                    Bài tập lái xe tổng hợp
+                  </li>
+                  <li>
+                    <span class="mon-chap__label">2</span>
+                    Bài lái trong đô thị
+                  </li>
+                  <li>
+                    <span class="mon-chap__label">3</span>
+                    Bài lái cao tốc
+                  </li>
+                  <li>
+                    <span class="mon-chap__label">4</span>
+                    Bài lái đường đồi núi
+                  </li>
+                  <li>
+                    <span class="mon-chap__label">5</span>
+                    Bài lái xe lên, xuống phà
+                  </li>
+                  <li>
+                    <span class="mon-chap__label">6</span>
+                    Bài lái xe trên đường lầy
+                  </li>
+                  <li>
+                    <span class="mon-chap__label">7</span>
+                    Bài lái xe trong điều kiện sương mù
+                  </li>
+                  <li>
+                    <span class="mon-chap__label">8</span>
+                    Lái xe qua đường ngập nước, lái xe qua ngầm
+                  </li>
+                </ol>
+              </section>
+            </article>
           </div>
         </div>
       </div>
     </main>
+
+    <div
+      class="bb-detail-modal"
+      id="bbDetailModal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="bbDetailTitle"
+    >
+      <div class="bb-detail-modal__shell">
+        <header class="bb-detail-modal__head">
+          <div>
+            <span>Hệ thống báo hiệu đường bộ</span>
+            <h2 id="bbDetailTitle">Chi tiết biển báo</h2>
+          </div>
+          <button
+            type="button"
+            class="bb-detail-modal__close"
+            aria-label="Đóng chi tiết biển báo"
+            data-bb-detail-close
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 6l12 12M18 6 6 18" />
+            </svg>
+          </button>
+        </header>
+        <iframe
+          class="bb-detail-modal__frame"
+          id="bbDetailFrame"
+          title="Nội dung chi tiết các nhóm biển báo"
+        ></iframe>
+      </div>
+    </div>
 
     <div
       id="siteFooter"
