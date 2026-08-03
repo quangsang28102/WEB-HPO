@@ -1741,6 +1741,10 @@ em {
   line-height: 1.28;
 }
 
+.condition-emphasis {
+  color: #dc2626;
+}
+
 .condition-card p,
 .check-card p,
 .review-card p,
