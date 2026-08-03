@@ -11056,7 +11056,8 @@ a.chap[data-engine-view]:focus-visible {
   border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
-  min-height: 56px;
+  height: 72px;
+  min-height: 72px;
 }
 
 .rate-label em {
@@ -11494,7 +11495,8 @@ a.chap[data-engine-view]:focus-visible {
     padding-right: 0;
   }
   .rate-label {
-    min-height: 44px;
+    height: 64px;
+    min-height: 64px;
     padding: 10px 14px;
     letter-spacing: 0.1em;
   }
