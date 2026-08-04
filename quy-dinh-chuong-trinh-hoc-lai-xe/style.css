@@ -598,6 +598,70 @@ em {
   background: transparent;
 }
 
+.gplx-figure-block {
+  position: relative;
+  top: -40%;
+  width: 100%;
+  height: auto;
+}
+
+.gplx-figure {
+  perspective: 1000px;
+}
+
+/* Card */
+.gplx-card {
+  position: relative;
+  width: 100%;
+}
+
+/* Phần sẽ xoay */
+.gplx__inner {
+  position: relative;
+  width: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+/* Hover để lật */
+.gplx-figure:hover .gplx__inner {
+  transform: rotateY(180deg);
+}
+
+/* Hai mặt của thẻ */
+.gplx-image__front,
+.gplx-image__back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.gplx-image__front {
+  width: 110%;
+}
+
+/* Mặt sau quay sẵn 180° */
+.gplx-image__back {
+  transform: rotateY(180deg);
+  width: 100%;
+}
+
+/* Ảnh */
+.gplx__face-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .gplx-figure-block {
+    top: -100%;
+  }
+}
+
 .process-illustration img {
   display: block;
   width: 100%;
@@ -2616,7 +2680,7 @@ em {
 .license-banner {
   position: relative;
   overflow: hidden;
-  min-height: 360px;
+  min-height: 500px;
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.68fr);
   gap: 36px;
@@ -2645,6 +2709,10 @@ em {
 .license-banner__content {
   position: relative;
   z-index: 1;
+}
+
+.license-banner__info {
+  margin: 20px 0 0 0;
 }
 
 .license-banner h2 {
@@ -2716,6 +2784,7 @@ em {
   .license-banner {
     grid-template-columns: 1fr;
     padding: 38px;
+    min-height: 1000px;
   }
 
   .license-banner h2 {
@@ -3403,4 +3472,50 @@ body.mon-modal-open {
   .training-table-wrap {
     overflow-x: visible;
   }
+}
+
+#chap-7-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 12px;
+}
+
+#chap-7-block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  justify-content: start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+#chap-7-block .chap-7-button {
+  padding: 24px;
+  height: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--ff-display);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+
+.chap-7-button .chap-7-button__label {
+  padding: 6px 12px;
+  background: var(--blue-600);
+  border-radius: 50%;
+  color: var(--white);
+  margin-right: 4px;
+}
+
+#chap-7-block .chap-7-button:hover {
+  background: var(--blue-50);
+  border-color: var(--blue-600);
+  color: var(--blue-700);
+  transform: translateY(-2px);
 }
