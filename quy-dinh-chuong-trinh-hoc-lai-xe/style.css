@@ -3492,7 +3492,7 @@ body.mon-modal-open {
 }
 
 #chap-7-block .chap-7-button {
-  padding: 24px;
+  padding: 16px;
   height: 100%;
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -3503,14 +3503,26 @@ body.mon-modal-open {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.25s var(--ease);
+  text-align: start;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chap-7-button .chap-7-button__label-wrapper {
+  /* width: 15%; */
+  margin-right: 12px;
 }
 
 .chap-7-button .chap-7-button__label {
-  padding: 6px 12px;
+  width: 32px;
+  height: 32px;
+  box-shadow: 0 4px 12px rgba(8, 15, 46, 0.12);
+  display: grid;
+  place-items: center;
   background: var(--blue-600);
   border-radius: 50%;
   color: var(--white);
-  margin-right: 4px;
 }
 
 #chap-7-block .chap-7-button:hover {
@@ -3518,4 +3530,101 @@ body.mon-modal-open {
   border-color: var(--blue-600);
   color: var(--blue-700);
   transform: translateY(-2px);
+}
+
+/* 4. Ky thuat lai xe modal */
+.ky-thuat-lai-xe-view-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(8, 15, 46, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.ky-thuat-lai-xe-view-modal.is-open {
+  display: flex;
+}
+
+.ky-thuat-lai-xe-view-shell {
+  width: min(1240px, 100%);
+  height: min(880px, calc(100vh - 32px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #f8fafc;
+  box-shadow: 0 28px 80px rgba(2, 6, 23, 0.34);
+}
+
+.ky-thuat-lai-xe-view-topbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 18px;
+  border-bottom: 1px solid #e2e8f0;
+  background: var(--white);
+}
+
+.ky-thuat-lai-xe-view-heading span {
+  display: block;
+  color: #1d4ed8;
+  font-family: var(--ff-display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ky-thuat-lai-xe-view-heading h2 {
+  margin: 3px 0 0;
+  color: #080f2e;
+  font-family: var(--ff-display);
+  font-size: clamp(20px, 2vw, 30px);
+  line-height: 1.15;
+}
+
+.ky-thuat-lai-xe-view-close {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid #dbe3ef;
+  border-radius: 12px;
+  background: var(--white);
+  color: #080f2e;
+  cursor: pointer;
+}
+
+.ky-thuat-lai-xe-view-close:hover {
+  border-color: #fecaca;
+  background: #fff1f2;
+  color: #dc2626;
+}
+
+.ky-thuat-lai-xe-view-close svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ky-thuat-lai-xe-modal__frame {
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  border: 0;
+  background: #f8fafc;
+}
+
+/* Ky Thuat Model Detail */
+.hpo-ky-thuat-video {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

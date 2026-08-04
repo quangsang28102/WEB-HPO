@@ -11517,3 +11517,207 @@ a.chap[data-engine-view]:focus-visible {
     animation: none;
   }
 }
+
+
+/* Ky Thuat Model Detail */
+.hpo-ky-thuat-video {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.hpo-ky-thuat-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hpo-text-strong strong {
+  font-weight: 800;
+  margin-left: -14px;
+  font-size: 18px;
+}
+
+#hpo-ky-thuat-sidebar-wrap {
+  width: 320px;
+  min-width: 320px;
+  flex: 0 0 320px;
+  position: sticky;
+  top: var(--hpo-top, 1px);
+  align-self: flex-start;
+  z-index: 30;
+  height: 100%;
+}
+/* 
+#hpo-ky-thuat-sidebar-wrap::-webkit-scrollbar {
+    width: 6px;
+}
+
+#hpo-ky-thuat-sidebar-wrap::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 999px;
+}
+
+#hpo-ky-thuat-sidebar-wrap::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+} */
+
+#hpo-ky-thuat-sidebar {
+  position: relative;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(2, 6, 23, 0.08);
+}
+
+#hpo-ky-thuat-tabs {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+}
+
+
+#hpo-ky-thuat-tabs::-webkit-scrollbar {
+    width: 6px;
+}
+
+#hpo-ky-thuat-tabs::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 999px;
+}
+
+#hpo-ky-thuat-tabs::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+#hpo-ky-thuat-tabs a[data-hpo-tab] {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 74px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 16px;
+  border: 1px solid #dbe3ef;
+  background: linear-gradient(180deg, #fff 0%, #f8fbff 100%);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.08);
+  text-decoration: none;
+  color: #000;
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    border-color 0.16s ease,
+    background 0.16s ease;
+}
+
+#hpo-ky-thuat-tabs a[data-hpo-tab]:hover {
+  transform: translateY(-1px);
+  border-color: #1d4ed8;
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.14);
+  background: linear-gradient(180deg, #fff 0%, #eef6ff 100%);
+}
+
+#hpo-ky-thuat-tabs a[data-hpo-tab].is-active {
+  border-color: #dc2626;
+  box-shadow: 0 12px 26px rgba(220, 38, 38, 0.18);
+  background: linear-gradient(180deg, #fff 0%, #fff1f2 100%);
+}
+
+#hpo-ky-thuat-tabs a[data-hpo-tab].is-active .hpo-tab-title {
+  color: #dc2626;
+}
+
+#hpo-ky-thuat-tabs .hpo-tab-thumb {
+  width: 74px;
+  height: 54px;
+  min-width: 74px;
+  flex: 0 0 74px;
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.65)
+  );
+}
+
+#hpo-ky-thuat-tabs .hpo-tab-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  transform: scale(1.18);
+  transform-origin: center;
+}
+
+#hpo-ky-thuat-tabs .hpo-tab-body {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
+  color: #000;
+}
+
+#hpo-ky-thuat-tabs .hpo-tab-title,
+#hpo-ky-thuat-tabs .hpo-tab-meta,
+#hpo-ky-thuat-tabs .hpo-tab-count {
+  display: block;
+  text-align: left;
+}
+
+#hpo-ky-thuat-tabs .hpo-tab-title {
+  font-size: 16px;
+  font-weight: 950;
+  line-height: 1.25;
+  color: #000;
+}
+
+#hpo-ky-thuat-tabs .hpo-tab-meta {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.25;
+  color: #000;
+}
+
+#hpo-ky-thuat-tabs .hpo-tab-meta b {
+  font-weight: 900;
+}
+
+#hpo-ky-thuat-tabs .hpo-tab-meta b.is-red {
+  color: #dc2626;
+}
+
+#hpo-ky-thuat-tabs .hpo-tab-meta b.is-yellow {
+  color: #ca8a04;
+}
+
+#hpo-ky-thuat-tabs .hpo-tab-meta b.is-blue {
+  color: #2563eb;
+}
+
+#hpo-ky-thuat-tabs .hpo-tab-meta b.is-black {
+  color: #000;
+}
+
+#hpo-ky-thuat-tabs .hpo-tab-count {
+  margin-top: 6px;
+  font-size: 19px;
+  font-weight: 950;
+  line-height: 1.05;
+  color: #1d4ed8;
+}

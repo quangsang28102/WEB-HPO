@@ -1969,6 +1969,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-1'
                       >
                         <span class="chap-7-button__label">1</span>
                         Xuất phát
@@ -1979,6 +1980,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-2'
                       >
                         <span class="chap-7-button__label">2</span>
                         Dừng xe nhường đường cho người đi bộ
@@ -1989,6 +1991,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-3'
                       >
                         <span class="chap-7-button__label">3</span>
                         Dừng xe khởi hành ngang dốc
@@ -1999,6 +2002,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-4'
                       >
                         <span class="chap-7-button__label">4</span>
                         Qua vệt bánh xe và đường hẹp vuông góc
@@ -2009,6 +2013,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-5'
                       >
                         <span class="chap-7-button__label">5</span>
                         Qua ngã tư có đèn tín hiệu giao thông
@@ -2019,8 +2024,11 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-6'
                       >
-                        <span class="chap-7-button__label">6</span>
+                        <div class="chap-7-button__label-wrapper" >
+                          <span class="chap-7-button__label">6</span>
+                        </div>
                         Đường vòng quanh co
                       </button>
 
@@ -2029,6 +2037,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-7'
                       >
                         <span class="chap-7-button__label">7</span>
                         Ghép xe dọc vào nơi đỗ
@@ -2039,6 +2048,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-8'
                       >
                         <span class="chap-7-button__label">8</span>
                         Tạm dừng ở nơi có đường sắt chạy qua
@@ -2049,6 +2059,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-9'
                       >
                         <span class="chap-7-button__label">9</span>
                         Thay đổi số trên đường bằng
@@ -2059,6 +2070,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-10'
                       >
                         <span class="chap-7-button__label">10</span>
                         Ghép xe ngang vào nơi đỗ
@@ -2069,6 +2081,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-11'
                       >
                         <span class="chap-7-button__label">11</span>
                         Bài kết thúc
@@ -2297,6 +2310,55 @@
           id="bbDetailFrame"
           title="Nội dung chi tiết các nhóm biển báo"
         ></iframe>
+      </div>
+    </div>
+
+    <!-- ── KỸ THUẬT LÁI XE VIEW ── -->
+    <div
+      class="ky-thuat-lai-xe-view-modal"
+      id="kyThuatLaiXeViewModal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="kyThuatLaiXeViewTitle"
+    >
+      <div class="ky-thuat-lai-xe-view-shell">
+        <div class="ky-thuat-lai-xe-view-topbar">
+          <div class="ky-thuat-lai-xe-view-heading">
+            <span>
+              Phương pháp thực hành lái xe tổng hợp
+            </span>
+            <h2 id="kyThuatLaiXeViewTitle">Bài thi ...</h2>
+          </div>
+          <button
+            type="button"
+            class="ky-thuat-lai-xe-view-close"
+            id="kyThuatLaiXeViewClose"
+            aria-label="Đóng"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6 6l12 12M18 6 6 18" />
+            </svg>
+          </button>
+        </div>
+        <iframe
+          class="ky-thuat-lai-xe-modal__frame"
+          id="KyThuatLaiXeModelDetailFrame"
+          title="Nội dung chi tiết các nhóm biển báo"
+        ></iframe>
+        <div
+          class="ky-thuat-lai-xe-view-scroll"
+          id="kyThuatLaiXeViewScroll"
+        >
+          <!-- <div class="ky-thuat-lai-xe-view-loading">Đang tải nội dung kỹ thuật lái xe...</div> -->
+        </div>
       </div>
     </div>
 
