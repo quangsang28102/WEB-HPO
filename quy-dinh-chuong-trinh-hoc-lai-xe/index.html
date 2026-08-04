@@ -916,6 +916,9 @@
             <h2 id="completion-title">
               Xét, kiểm tra hoàn thành <em>khóa đào tạo</em>
             </h2>
+            <p>
+              Quy định tại khoản 2, điều 2 TT17/2026/TT-BXD sửa đổi bổ sung khoản 4, điều 6 TT14/2025/TT-BXD.
+            </p>
           </div>
 
           <div
@@ -1338,9 +1341,9 @@
             >
               <h3 id="exam-content-title">Nội dung sát hạch</h3>
               <ul>
-                <li>Bài thi lý thuyết theo bộ câu hỏi sát hạch lý thuyết</li>
-                <li>Bài thi mô phỏng các tình huống giao thông</li>
-                <li>Bài thi thực hành trong sa hình, trên đường</li>
+                <li>Bài thi lý thuyết</li>
+                <li>Bài thi thực hành trên hình</li>
+                <li>Bài thi thực hành trên đường</li>
               </ul>
             </section>
           </div>
@@ -1360,13 +1363,53 @@
             <div class="license-banner__content">
               <p class="eyebrow eyebrow--light">Bước 05</p>
               <h2 id="license-title">Cấp giấy phép <em>lái xe</em></h2>
-              <p>
+              <!-- <p>
                 Sau khi đạt sát hạch, học viên được cấp GPLX theo hạng đã đào tạo.
                 Đây là trạng thái hoàn tất của toàn bộ quy trình.
-              </p>
+              </p> -->
+
+              <div class="license-banner__info">
+                <p>
+                  Người đạt kỳ sát hạch được cấp GPLX điện tử và tích hợp trên hệ thống trong vòng 02 giờ sau khi kết thúc kỳ sát hạch. 
+                </p>
+                
+                <p>
+                  Trường hợp đăng ký GPLX thẻ PET, thời gian in và trả không quá 3,5 ngày làm việc, nhận tại Phòng CSGT, trung tâm sát hạch, cơ sở đào tạo hoặc qua bưu chính.
+                </p>
+              </div>
             </div>
 
-            <figure
+            <div class="gplx-figure-block">
+              <figure
+                class="gplx-figure"
+              >
+                <div class="gplx-stack">
+                  <div class="doc-card gplx-card">
+                    <div class="gplx__inner">
+                      <div class="gplx-image__front">
+                        <img
+                          src="assets/images/admission/gplx-front-removebg.png"
+                          alt=""
+                          class="gplx__face-image"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                      <div class="gplx-image__back">
+                        <img
+                          src="assets/images/admission/gplx-back-removebg.png"
+                          alt=""
+                          class="gplx__face-image"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+            </div>
+            <!-- <figure
               class="license-card-illustration"
               aria-hidden="true"
             >
@@ -1440,7 +1483,7 @@
                   d="M247 91l8 8 16-20"
                 />
               </svg>
-            </figure>
+            </figure> -->
           </div>
         </div>
       </section>
@@ -1914,10 +1957,125 @@
                     <span class="mon-chap__label">6</span>
                     Tâm lý điều khiển xe ô tô
                   </li>
-                  <li>
-                    <span class="mon-chap__label">7</span>
-                    Phương pháp thực hành lái xe tổng hợp
+                  <li id="chap-7-item">
+                    <div>
+                      <span class="mon-chap__label">7</span>
+                      Phương pháp thực hành lái xe tổng hợp
+                    </div>
+
+                    <div id="chap-7-block">
+                      <button
+                        class="chap-7-button"
+                        aria-label="Xuất phát"
+                        aria-expanded="false"
+                        data-toggle="chap-7"
+                      >
+                        <span class="chap-7-button__label">1</span>
+                        Xuất phát
+                      </button>
+
+                      <button
+                        class="chap-7-button"
+                        aria-label="Xuất phát"
+                        aria-expanded="false"
+                        data-toggle="chap-7"
+                      >
+                        <span class="chap-7-button__label">2</span>
+                        Dừng xe nhường đường cho người đi bộ
+                      </button>
+
+                      <button
+                        class="chap-7-button"
+                        aria-label="Xuất phát"
+                        aria-expanded="false"
+                        data-toggle="chap-7"
+                      >
+                        <span class="chap-7-button__label">3</span>
+                        Dừng xe khởi hành ngang dốc
+                      </button>
+
+                      <button
+                        class="chap-7-button"
+                        aria-label="Xuất phát"
+                        aria-expanded="false"
+                        data-toggle="chap-7"
+                      >
+                        <span class="chap-7-button__label">4</span>
+                        Qua vệt bánh xe và đường hẹp vuông góc
+                      </button>
+
+                      <button
+                        class="chap-7-button"
+                        aria-label="Xuất phát"
+                        aria-expanded="false"
+                        data-toggle="chap-7"
+                      >
+                        <span class="chap-7-button__label">5</span>
+                        Qua ngã tư có đèn tín hiệu giao thông
+                      </button>
+
+                      <button
+                        class="chap-7-button"
+                        aria-label="Xuất phát"
+                        aria-expanded="false"
+                        data-toggle="chap-7"
+                      >
+                        <span class="chap-7-button__label">6</span>
+                        Đường vòng quanh co
+                      </button>
+
+                      <button
+                        class="chap-7-button"
+                        aria-label="Xuất phát"
+                        aria-expanded="false"
+                        data-toggle="chap-7"
+                      >
+                        <span class="chap-7-button__label">7</span>
+                        Ghép xe dọc vào nơi đỗ
+                      </button>
+
+                      <button
+                        class="chap-7-button"
+                        aria-label="Xuất phát"
+                        aria-expanded="false"
+                        data-toggle="chap-7"
+                      >
+                        <span class="chap-7-button__label">8</span>
+                        Tạm dừng ở nơi có đường sắt chạy qua
+                      </button>
+
+                      <button
+                        class="chap-7-button"
+                        aria-label="Xuất phát"
+                        aria-expanded="false"
+                        data-toggle="chap-7"
+                      >
+                        <span class="chap-7-button__label">9</span>
+                        Thay đổi số trên đường bằng
+                      </button>
+
+                      <button
+                        class="chap-7-button"
+                        aria-label="Xuất phát"
+                        aria-expanded="false"
+                        data-toggle="chap-7"
+                      >
+                        <span class="chap-7-button__label">10</span>
+                        Ghép xe ngang vào nơi đỗ
+                      </button>
+
+                      <button
+                        class="chap-7-button"
+                        aria-label="Xuất phát"
+                        aria-expanded="false"
+                        data-toggle="chap-7"
+                      >
+                        <span class="chap-7-button__label">11</span>
+                        Bài kết thúc
+                      </button>
+                    </div>
                   </li>
+
                   <li>
                     <span class="mon-chap__label">8</span>
                     Kỹ thuật kiểm tra, quan sát an toàn, chỉnh gương chiếu hậu trước

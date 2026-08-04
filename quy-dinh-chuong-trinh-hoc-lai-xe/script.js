@@ -486,7 +486,7 @@
       // Create left clone
       const leftImg = mainImg.cloneNode(true);
       leftImg.className = "photo-item photo-left";
-      
+
       // Create right clone
       const rightImg = mainImg.cloneNode(true);
       rightImg.className = "photo-item photo-right";
@@ -499,4 +499,5 @@
       photoStack.insertBefore(rightImg, mainImg);
     }
   }
+
 })();
