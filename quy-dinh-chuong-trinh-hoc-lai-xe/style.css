@@ -1740,6 +1740,10 @@ em {
   padding-bottom: 22px;
 }
 
+.completion-panel--review .review-card:first-child {
+  grid-column: 1 / -1;
+}
+
 .condition-card,
 .check-card,
 .review-card,
