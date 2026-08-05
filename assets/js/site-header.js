@@ -5,7 +5,7 @@
   const base = mount.dataset.base || "";
   const page = mount.dataset.page || "";
   const href = (path) => base + path;
-  const current = (name) => (page === name ? ' aria-current="page"' : "");
+  const current = (...names) => (names.includes(page) ? ' aria-current="page"' : "");
 
   mount.outerHTML = `
     <div class="topbar">
@@ -77,9 +77,10 @@
             <li class="nav-item"><a href="https://hpo.edu.vn/hoc-phi/">Học phí</a></li>
             <li class="nav-item"><a href="${href("quy-dinh-chuong-trinh-hoc-lai-xe/")}"${current("process")}>Quy định chương trình học lái xe</a></li>
             <li class="nav-item has-dropdown">
-              <a href="https://hpo.edu.vn/thong-bao/">Thông báo</a>
+              <a href="${href("danh-sach-benh-vien/")}"${current("hospital-lookup", "exam-progress")}>Tra cứu</a>
               <div class="nav-dropdown">
-                <a href="https://hpo.edu.vn/thong-bao/"><span class="dd-dot"></span> Tất cả thông báo</a>
+                <a href="${href("danh-sach-benh-vien/")}"${current("hospital-lookup")}><span class="dd-dot"></span> Danh sách bệnh viện</a>
+                <a href="${href("tien-do-thi-sat-hach/")}"${current("exam-progress")}><span class="dd-dot"></span> Tiến độ thi sát hạch</a>
               </div>
             </li>
             
@@ -135,7 +136,11 @@
           <a href="https://hpo.edu.vn/trung-tam-dao-tao/">Giới thiệu</a>
           <a href="https://hpo.edu.vn/hoc-phi/">Học phí</a>
           <a href="${href("quy-dinh-chuong-trinh-hoc-lai-xe/")}"${current("process")}>Quy định chương trình học lái xe</a>
-          <a href="https://hpo.edu.vn/thong-bao/">Thông báo</a>
+          <div class="mobile-menu-group">
+            <span class="mobile-menu-label">Tra cứu</span>
+            <a class="mobile-menu-child" href="${href("danh-sach-benh-vien/")}"${current("hospital-lookup")}>Danh sách bệnh viện</a>
+            <a class="mobile-menu-child" href="${href("tien-do-thi-sat-hach/")}"${current("exam-progress")}>Tiến độ thi sát hạch</a>
+          </div>
           <a href="https://hpo.edu.vn/thong-tin/">Thông tin</a>
           <a href="https://hpo.edu.vn/huong-dan/">Hướng dẫn</a>          
           <a href="https://hpo.edu.vn/on-tap/">Ôn tập</a>
