@@ -872,5 +872,197 @@
       engine4KyModal.classList.remove('is-open')
     })
 
-  })()
+  })();
+
+  // MON 02 - CHAPTER 08
+  (() => {
+    const body = document.getElementById("Lesson02ModalBody");
+    const modal = document.getElementById('Lesson02Modal')
+    const chapLessonItem = document.querySelectorAll('.chap-lesson-wrapper')
+    const asideLeft = document.getElementById('Lesson02PanelLeft')
+    const asideRight = document.getElementById('Lesson02PanelRight')
+    const btnAsideLeft = document.getElementById('Lesson02PanelButtonLeft')
+    const btnAsideRight = document.getElementById('Lesson02PanelButtonRight')
+    const lessonButtonLeft = document.getElementById('Lesson02ButtonLeft')
+    const lessonButtonRight = document.getElementById('Lesson02ButtonRight')
+    const buttonModalClose = document.getElementById('Lesson02CloseButton')
+    const video = document.getElementById('Lesson02Frame')
+    const modalTitle = document.getElementById('Lesson02ModalTitle')
+    const content = document.querySelector('.lesson-summary-list')
+    const container = document.getElementById("quiz-container");
+
+    if (!modal || !chapLessonItem) return;
+
+    const VIDEO_360_URL = "https://www.youtube.com/embed/8DGmYr3N-DI?autoplay=1"
+    let lessonData = []
+
+    const TITLE = {
+      'hu-hong-dong-co': 'Hư hỏng thường gặp ở động cơ',
+      'hu-hong-thuong-gap': 'Hư hỏng thường gặp ở hộp số',
+      'hu-hong-thuong-gap-dieu-hoa-va-dien': 'Hư hỏng thường gặp ở điều hoà và hệ thống điện',
+      'hu-hong-thuong-gap-he-thong-lai-va-treo': 'Hư hỏng thường gặp ở hệ thống lái và treo'
+    }
+
+    async function init() {
+      const response = await fetch("../assets/data/mon-02-chap-08.json");
+      const json = await response.json();
+
+      lessonData = json.data;
+
+      chapLessonItem.forEach((item) => {
+        item.addEventListener('click', () => {
+          console.log(12)
+          const target = item.dataset.target
+
+          const lesson = lessonData.find(i => i.target === target)
+
+          if (!lesson) return;
+
+          const title = TITLE[target] || 'Bài giảng'
+
+          modalTitle.textContent = title
+          modal.classList.add('is-open')
+          video.src = lesson.src
+
+          content.innerHTML = lesson.content.map((item) =>
+            `
+              <div class="lesson-summary-content">
+                  <h4>${item.title}</h4>
+
+                  <div class="lesson-summary-content-wrapper">
+                    <div class="lesson-summary-content-item">
+                      <p>Nguyên nhân:</p>
+                      <ul>
+                        ${item.causes
+              .map(cause => `<li>${cause}</li>`)
+              .join("")}
+                      </ul>
+                    </div>
+
+                    <div class="lesson-summary-content-item">
+                      <p>Biện pháp:</p>
+                      <ul>
+                        ${item.solutions
+              .map(solution => `<li>${solution}</li>`)
+              .join("")}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+            `
+          )
+            .join("")
+
+          // quiz
+          container.innerHTML = lesson.questions.map(question => {
+
+            const answers = question.options.map(answer => `
+              <div
+                class="quiz-option"
+                data-correct="${answer.correct ? "true" : "false"}"
+              >
+                <div class="quiz-option-label">
+                  ${answer.id}
+                </div>
+
+                <div class="quiz-option-text">
+                  ${answer.text}
+                </div>
+              </div>
+            `).join("");
+
+            return `
+            <div class="quiz-item">
+              <h2>
+                <span>Câu ${question.id}.</span>
+                ${question.question}
+              </h2>
+
+              <div class="quiz-options">
+                ${answers}
+              </div>
+
+            </div>
+          `;
+
+          }).join("");
+
+          document.querySelectorAll('.quiz-options').forEach(group => {
+            const options = group.querySelectorAll(".quiz-option");
+
+            options.forEach(option => {
+
+              option.addEventListener("click", () => {
+
+                // Nếu đã chọn rồi thì không cho chọn nữa
+                if (group.classList.contains("answered")) return;
+
+                group.classList.add("answered");
+
+                const isCorrect = option.dataset.correct === "true";
+
+                if (isCorrect) {
+                  option.classList.add("correct");
+                } else {
+                  option.classList.add("wrong");
+
+                  // Highlight đáp án đúng
+                  options.forEach(op => {
+                    if (op.dataset.correct === "true") {
+                      op.classList.add("correct");
+                    }
+                  });
+                }
+
+              });
+
+            });
+          })
+        })
+      })
+    }
+
+    btnAsideLeft.addEventListener('click', () => {
+      body.classList.toggle("hide-left");
+      asideLeft.classList.add('hide')
+      lessonButtonLeft.classList.add('is-open')
+    })
+
+    btnAsideRight.addEventListener('click', () => {
+      body.classList.toggle("hide-right");
+      asideRight.classList.add('hide')
+      lessonButtonRight.classList.add('is-open')
+    })
+
+    lessonButtonLeft.addEventListener('click', () => {
+      body.classList.remove("hide-left");
+      asideLeft.classList.remove('hide')
+      lessonButtonLeft.classList.remove('is-open')
+    })
+
+    lessonButtonRight.addEventListener('click', () => {
+      body.classList.remove("hide-right");
+      asideRight.classList.remove('hide')
+      lessonButtonRight.classList.remove('is-open')
+    })
+
+    buttonModalClose.addEventListener('click', () => {
+      modal.classList.remove('is-open')
+
+      body.classList.remove("hide-left");
+      body.classList.remove("hide-right");
+
+      asideLeft.classList.remove('hide')
+      asideRight.classList.remove('hide')
+
+      lessonButtonLeft.classList.remove('is-open')
+      lessonButtonRight.classList.remove('is-open')
+
+      video.src = ''
+      container.innerHTML = ''
+      content.innerHTML = ''
+    })
+
+    init()
+  })();
 })();

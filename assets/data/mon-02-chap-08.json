@@ -1,0 +1,1060 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "target": "hu-hong-dong-co",
+            "src": "https://www.youtube.com/embed/G9eeLeNSYB4?autoplay=1&rel=0",
+            "content": [
+                {
+                    "id": 1,
+                    "title": "Nguyên nhân động cơ không khởi động được",
+                    "causes": [
+                        "Ắc quy yếu hoặc hết điện",
+                        "Hệ thống khởi động hỏng",
+                        "Bugi hoặc kim phun nhiên liệu bị lỗi",
+                        "Hỏng cảm biến trục khuỷu hoặc cảm biến trục cam"
+                    ],
+                    "solutions": [
+                        "Kiểm tra và thay ắc quy nếu cần",
+                        "Kiểm tra và sửa chữa hệ thống khởi động",
+                        "Vệ sinh hoặc thay bugi, kim phun nhiên liệu",
+                        "Kiểm tra và thay thế cảm biến hỏng"
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "Nguyên nhân động cơ bị quá nhiệt",
+                    "causes": [
+                        "hệ thống làm mát rò rỉ hoặc tắc nghẽn.",
+                        "Thiếu nước làm mát.",
+                        "bơm nước hoặc van hằng nhiệt bị lỗi."
+                    ],
+                    "solutions": [
+                        "kiểm tra và sửa chữa hệ thống làm mát.",
+                        "bổ sung hoặc thay nước làm mát.",
+                        "thay bơm nước hoặc van hằng nhiệt nếu cần."
+                    ]
+                },
+                {
+                    "id": 3,
+                    "title": "Nguyên nhân động cơ hoạt động không ổn định",
+                    "causes": [
+                        "lọc gió hoặc lọc nhiên liệu bị bẩn.",
+                        "hỏng hệ thống đánh lửa.",
+                        "áp suất buồng đốt không đồng đều."
+                    ],
+                    "solutions": [
+                        "thay lọc gió, lọc nhiên liệu.",
+                        "kiểm tra và thay thế bugi, dây cao áp hoặc bobin.",
+                        "kiểm tra áp suất buồng đốt và sửa chữa nếu cần."
+                    ]
+                },
+                {
+                    "id": 4,
+                    "title": "Nguyên nhân động cơ phát ra tiếng ồn bất thường",
+                    "causes": [
+                        "lỏng dây đai cam, dây curoa.",
+                        "bộ van hoặc trục khuỷu bị mòn.",
+                        "hỏng bạc lót hoặc thanh truyền."
+                    ],
+                    "solutions": [
+                        "điều chỉnh hoặc thay thế dây đai.",
+                        "điều chỉnh hoặc thay thế dây đai."
+                    ]
+                },
+                {
+                    "id": 5,
+                    "title": "Nguyên nhân động cơ rò rỉ dầu",
+                    "causes": [
+                        "hỏng phớt chặn dầu.",
+                        "roăng động cơ bị rách."
+                    ],
+                    "solutions": [
+                        "thay phớt chặn dầu hoặc gioăng mới.",
+                        "kiểm tra áp suất dầu và hệ thống bôi trơn."
+                    ]
+                },
+                {
+                    "id": 6,
+                    "title": "Nguyên nhân động cơ khói đen, xanh hoặc trắng từ ống xả",
+                    "causes": [
+                        "khói đen: dư nhiên liệu do kim phun bị lỗi hoặc lọc gió bị bẩn.",
+                        "khói xanh: cháy dầu bôi trơn do hở xéc-măng hoặc phốt dầu van.",
+                        "khói trắng: hệ thống làm mát rò rỉ nước vào buồng đốt."
+                    ],
+                    "solutions": [
+                        "vệ sinh hoặc thay kim phun, lọc gió.",
+                        "thay xéc-măng, phốt dầu van.",
+                        "sửa chữa hệ thống làm mát."
+                    ]
+                },
+                {
+                    "id": 7,
+                    "title": "Nguyên nhân động cơ tiêu hao nhiên liệu bất thường",
+                    "causes": [
+                        "lọc nhiên liệu hoặc lọc gió bị bẩn.",
+                        "kim phun không hoạt động hiệu quả.",
+                        "lỗi cảm biến oxy hoặc cảm biến lưu lượng khí."
+                    ],
+                    "solutions": [
+                        "thay lọc nhiên liệu hoặc lọc gió.",
+                        "kiểm tra và vệ sinh kim phun.",
+                        "sửa chữa hoặc thay cảm biến."
+                    ]
+                }
+            ],
+            "questions": [
+                {
+                    "id": 1,
+                    "question": "Nguyên nhân nào sau đây KHÔNG gây ra hiện tượng động cơ không khởi động được?",
+                    "options": [
+                        {
+                        "id": "A",
+                        "text": "Ắc quy yếu hoặc hết điện.",
+                        "correct": false
+                        },
+                        {
+                        "id": "B",
+                        "text": "Hệ thống làm mát bị rò rỉ.",
+                        "correct": true
+                        },
+                        {
+                        "id": "C",
+                        "text": "Bugi hoặc kim phun nhiên liệu bị lỗi.",
+                        "correct": false
+                        },
+                        {
+                        "id": "D",
+                        "text": "Hỏng cảm biến trục khuỷu hoặc cảm biến trục cam.",
+                        "correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "question": "Động cơ bị quá nhiệt có thể do nguyên nhân nào?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Thiếu nước làm mát.",
+                            "correct": false
+                        },
+                        {
+                            "id": "B",
+                            "text": "Bơm nước hoặc van hằng nhiệt bị lỗi.",
+                            "correct": false
+                        },
+                        {
+                            "id": "C",
+                            "text": "Hệ thống làm mát rò rỉ hoặc tắc nghẽn.",
+                            "correct": false
+                        },
+                        {
+                            "id": "D",
+                            "text": "Tất cả các nguyên nhân trên.",
+                            "correct": true
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "question": "Khi động cơ hoạt động không ổn định, KHÔNG cần kiểm tra những gì?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Mức nước làm mát.",
+                            "correct": true
+                        },
+                        {
+                            "id": "B",
+                            "text": "Lọc gió, lọc nhiên liệu.",
+                            "correct": false
+                        },
+                        {
+                            "id": "C",
+                            "text": "Hệ thống đánh lửa.",
+                            "correct": false
+                        },
+                        {
+                            "id": "D",
+                            "text": "Áp suất buồng đốt.",
+                            "correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "question": "Dấu hiệu nào cho thấy động cơ có thể bị rò rỉ dầu?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Có khói đen từ ống xả.",
+                            "correct": false
+                        },
+                        {
+                            "id": "B",
+                            "text": "Có tiếng ồn bất thường từ động cơ.",
+                            "correct": false
+                        },
+                        {
+                            "id": "C",
+                            "text": "Động cơ tiêu hao nhiên liệu bất thường.",
+                            "correct": false
+                        },
+                        {
+                            "id": "D",
+                            "text": "Có vết dầu loang dưới gầm xe.",
+                            "correct": true
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "question": "Khói trắng từ ống xả thường là dấu hiệu của?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Kim phun bị lỗi.",
+                            "correct": false
+                        },
+                        {
+                            "id": "B",
+                            "text": "Hở xéc-măng.",
+                            "correct": false
+                        },
+                        {
+                            "id": "C",
+                            "text": "Nước vào buồng đốt.",
+                            "correct": true
+                        },
+                        {
+                            "id": "D",
+                            "text": "Lọc gió bị bẩn.",
+                            "correct": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "target": "hu-hong-thuong-gap",
+            "src": "https://www.youtube.com/embed/E2rwBpPNPiQ?autoplay=1&rel=0",
+            "content": [
+                {
+                    "id": 1,
+                    "title": "Nguyên nhân hộp số bị trượt",
+                    "causes": [
+                        "Đĩa ly hợp mòn (đối với số sàn)",
+                        "Thiếu dầu hộp số hoặc dầu bẩn (đối với số tự động)",
+                        "Hỏng bộ điều khiển hộp số (ECU)"
+                    ],
+                    "solutions": [
+                        "Thay đĩa ly hợp nếu mòn.",
+                        "Kiểm tra và bổ sung hoặc thay dầu hộp số.",
+                        "Kiểm tra và sửa chữa ECU."
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "Nguyên nhân hộp số phát ra tiếng ồn bất thường",
+                    "causes": [
+                        "Bánh răng hoặc ổ bi bị mòn hoặc hỏng.",
+                        "Thiếu dầu hộp số hoặc dầu không đạt tiêu chuẩn."
+                    ],
+                    "solutions": [
+                        "Kiểm tra và thay bánh răng hoặc ổ bi bị hỏng.",
+                        "Bổ sung hoặc thay dầu hộp số phù hợp."
+                    ]
+                },
+                {
+                    "id": 3,
+                    "title": "Nguyên nhân hộp số bị rò rỉ dầu",
+                    "causes": [
+                        "Hỏng phớt chặn dầu hoặc gioăng hộp số.",
+                        "Lỏng bu-lông hoặc các khớp nối."
+                    ],
+                    "solutions": [
+                        "Thay phớt chặn dầu hoặc gioăng mới.",
+                        "Siết chặt bu-lông hoặc các khớp nối."
+                    ]
+                },
+                {
+                    "id": 4,
+                    "title": "Nguyên nhân khó chuyển số (đối với hộp số sàn)",
+                    "causes": [
+                        "Mòn đĩa ly hợp.",
+                        "Dây cáp ly hợp hoặc hệ thống thủy lực bị hỏng.",
+                        "Lỗi cơ cấu đồng tốc trong hộp số."
+                    ],
+                    "solutions": [
+                        "Thay đĩa ly hợp nếu mòn.",
+                        "Kiểm tra và sửa chữa hoặc thay dây cáp, xi-lanh ly hợp.",
+                        "Sửa chữa hoặc thay thế bộ đồng tốc."
+                    ]
+                },
+                {
+                    "id": 5,
+                    "title": "Nguyên nhân xe bị giật hoặc rung khi chuyển số (đối với số tự động)",
+                    "causes": [
+                        "Lỗi van điều khiển dầu hộp số.",
+                        "Áp suất dầu không ổn định.",
+                        "Hư hỏng mạch điện hoặc cảm biến."
+                    ],
+                    "solutions": [
+                        "Vệ sinh hoặc thay thế van điều khiển dầu.",
+                        "Kiểm tra và khắc phục sự cố ở hệ thống điện, cảm biến."
+                    ]
+                },
+                {
+                    "id": 6,
+                    "title": "Nguyên nhân hộp số bị kẹt ở một số (đối với số tự động)",
+                    "causes": [
+                        "Lỗi cảm biến tốc độ hoặc cảm biến vị trí cần số.",
+                        "Hỏng bộ ly hợp trong hộp số.",
+                        "Lỗi phần mềm điều khiển."
+                    ],
+                    "solutions": [
+                        "Kiểm tra và thay cảm biến bị lỗi.",
+                        "Kiểm tra và sửa chữa bộ ly hợp.",
+                        "Cập nhật hoặc cài lại phần mềm điều khiển."
+                    ]
+                },
+                {
+                    "id": 7,
+                    "title": "Nguyên nhân xe không di chuyển dù đã gài số",
+                    "causes": [
+                        "Thiếu dầu hộp số hoặc dầu bị cháy.",
+                        "Hư hỏng cơ cấu ly hợp.",
+                        "Lỗi nghiêm trọng trong bộ truyền động."
+                    ],
+                    "solutions": [
+                        "Kiểm tra và bổ sung hoặc thay dầu.",
+                        "Sửa chữa cơ cấu ly hợp hoặc các bộ phận liên quan."
+                    ]
+                },
+                {
+                    "id": 8,
+                    "title": "Nguyên nhân nhiệt độ hộp số quá cao",
+                    "causes": [
+                        "Thiếu dầu hoặc dầu không đạt tiêu chuẩn.",
+                        "Lỗi trong hệ thống làm mát dầu hộp số."
+                    ],
+                    "solutions": [
+                        "Thay dầu hộp số đúng loại.",
+                        "Kiểm tra và sửa chữa hệ thống làm mát."
+                    ]
+                }
+            ],
+            "questions": [
+                {
+                    "id": 1,
+                    "question": "Hộp số bị trượt có thể do nguyên nhân nào sau đây?",
+                    "options": [
+                        {
+                        "id": "A",
+                        "text": "Đĩa ly hợp mòn.",
+                        "correct": true
+                        },
+                        {
+                        "id": "B",
+                        "text": "Thiếu dầu hộp số.",
+                        "correct": false
+                        },
+                        {
+                        "id": "C",
+                        "text": "Hỏng bộ điều khiển hộp số (ECU).",
+                        "correct": false
+                        },
+                        {
+                        "id": "D",
+                        "text": "Hỏng phớt chặn dầu.",
+                        "correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "question": "Nguyên nhân chính nào dẫn đến hộp số phát ra tiếng ồn bất thường?",
+                    "options": [
+                        {
+                        "id": "A",
+                        "text": "Thiếu dầu hộp số.",
+                        "correct": false
+                        },
+                        {
+                        "id": "B",
+                        "text": "Lỏng bu lông.",
+                        "correct": false
+                        },
+                        {
+                        "id": "C",
+                        "text": "Dây cáp ly hợp bị hỏng.",
+                        "correct": false
+                        },
+                        {
+                        "id": "D",
+                        "text": "Bánh răng bị mòn.",
+                        "correct": true
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "question": "Hộp số bị rò rỉ dầu có thể do nguyên nhân nào?",
+                    "options": [
+                        {
+                        "id": "A",
+                        "text": "Hỏng phớt chặn dầu.",
+                        "correct": true
+                        },
+                        {
+                        "id": "B",
+                        "text": "Lỏng bu lông.",
+                        "correct": false
+                        },
+                        {
+                        "id": "C",
+                        "text": "Mòn đĩa ly hợp.",
+                        "correct": false
+                        },
+                        {
+                        "id": "D",
+                        "text": "Lỗi cảm biến tốc độ.",
+                        "correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "question": "Đối với hộp số sàn, nguyên nhân phổ biến nhất gây khó chuyển số là gì?",
+                    "options": [
+                        {
+                        "id": "A",
+                        "text": "Dây cáp ly hợp bị hỏng.",
+                        "correct": false
+                        },
+                        {
+                        "id": "B",
+                        "text": "Mòn đĩa ly hợp.",
+                        "correct": true
+                        },
+                        {
+                        "id": "C",
+                        "text": "Lỗi cơ cấu đồng tốc.",
+                        "correct": false
+                        },
+                        {
+                        "id": "D",
+                        "text": "Thiếu dầu hộp số.",
+                        "correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "question": "Xe bị giật hoặc rung khi chuyển số (đối với hộp số tự động) thường là do?",
+                    "options": [
+                        {
+                        "id": "A",
+                        "text": "Áp suất dầu không ổn định.",
+                        "correct": false
+                        },
+                        {
+                        "id": "B",
+                        "text": "Hư hỏng mạch điện.",
+                        "correct": false
+                        },
+                        {
+                        "id": "C",
+                        "text": "Lỗi van điều khiển dầu hộp số.",
+                        "correct": true
+                        },
+                        {
+                        "id": "D",
+                        "text": "Hỏng bộ ly hợp.",
+                        "correct": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "target": "hu-hong-thuong-gap-dieu-hoa-va-dien",
+            "src": "https://www.youtube.com/embed/F4Fz56U2Fjc?autoplay=1&rel=0",
+            "content": [
+                {
+                    "id": 1,
+                    "title": "Nguyên nhân điều hòa không mát hoặc mát yếu",
+                    "causes": [
+                        "Thiếu hoặc hết gas lạnh",
+                        "Lọc gió cabin bị bẩn hoặc tắc",
+                        "Hư hỏng ở dàn nóng hoặc dàn lạnh",
+                        "Van tiết lưu hoặc van điều chỉnh áp suất bị lỗi",
+                        "Máy nén (compressor) hỏng hoặc hoạt động kém"
+                    ],
+                    "solutions": [
+                        "Kiểm tra và nạp thêm gas lạnh.",
+                        "Thay lọc gió cabin nếu bẩn.",
+                        "Kiểm tra dàn nóng/lạnh và vệ sinh hoặc thay thế.",
+                        "Sửa chữa hoặc thay van tiết lưu, van áp suất hoặc máy nén."
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "Nguyên nhân điều hòa không hoạt động",
+                    "causes": [
+                        "Hỏng bộ điều khiển (ECU điều hòa) hoặc rơ-le",
+                        "Cầu chì bị cháy",
+                        "Hư hỏng ở bộ quạt dàn nóng hoặc dây đai máy nén"
+                    ],
+                    "solutions": [
+                        "Kiểm tra và sửa chữa hoặc thay thế bộ điều khiển.",
+                        "Thay cầu chì mới.",
+                        "Kiểm tra và thay quạt hoặc dây đai máy nén."
+                    ]
+                },
+                {
+                    "id": 3,
+                    "title": "Nguyên nhân có mùi hôi khó chịu từ điều hòa",
+                    "causes": [
+                        "Dàn lạnh bẩn hoặc có nấm mốc.",
+                        "Lọc gió cabin lâu ngày không thay.",
+                        "Rò rỉ nước từ hệ thống thoát nước dàn lạnh."
+                    ],
+                    "solutions": [
+                        "Vệ sinh dàn lạnh bằng dung dịch chuyên dụng.",
+                        "Thay lọc gió cabin định kỳ.",
+                        "Kiểm tra và sửa chữa hệ thống thoát nước."
+                    ]
+                },
+                {
+                    "id": 4,
+                    "title": "Nguyên nhân điều hòa phát ra tiếng ồn lớn",
+                    "causes": [
+                        "Quạt gió cabin hoặc quạt dàn nóng bị hỏng hoặc bám bụi.",
+                        "Máy nén hoạt động bất thường.",
+                        "Lỏng dây đai truyền động."
+                    ],
+                    "solutions": [
+                        "Kiểm tra và sửa chữa hoặc thay thế quạt gió.",
+                        "Kiểm tra máy nén và dây đai, sửa chữa hoặc thay mới nếu cần."
+                    ]
+                },
+                {
+                    "id": 5,
+                    "title": "Nguyên nhân đóng tuyết trên dàn lạnh",
+                    "causes": [
+                        "Lượng gas lạnh quá nhiều.",
+                        "Van tiết lưu bị hỏng, không điều chỉnh được dòng gas.",
+                        "Dàn lạnh bị bẩn, làm giảm lưu thông không khí."
+                    ],
+                    "solutions": [
+                        "Xả bớt gas lạnh đến mức tiêu chuẩn.",
+                        "Kiểm tra và thay van tiết lưu nếu cần.",
+                        "Vệ sinh dàn lạnh."
+                    ]
+                },
+                {
+                    "id": 6,
+                    "title": "Nguyên nhân rò rỉ gas lạnh",
+                    "causes": [
+                        "Các đường ống dẫn gas bị nứt hoặc thủng",
+                        "Gioăng cao su bị lão hóa",
+                        "Rò rỉ tại các khớp nối hoặc van"
+                    ],
+                    "solutions": [
+                        "Kiểm tra hệ thống đường ống và khớp nối, sửa chữa hoặc thay thế.",
+                        "Thay roăng cao su mới."
+                    ]
+                },
+                {
+                    "id": 7,
+                    "title": "Nguyên nhân nhiệt độ không đều ở các cửa gió",
+                    "causes": [
+                        "Hư hỏng ở mô-tơ trộn gió hoặc cánh quạt phân phối gió.",
+                        "Đường ống dẫn khí bị tắc hoặc rò rỉ."
+                    ],
+                    "solutions": [
+                        "Kiểm tra và sửa chữa hoặc thay thế mô-tơ và cánh quạt.",
+                        "Kiểm tra và khắc phục đường ống dẫn khí."
+                    ]
+                },
+                {
+                    "id": 8,
+                    "title": "Nguyên nhân hệ thống làm mát quá tải",
+                    "causes": [
+                        "Hoạt động liên tục trong điều kiện nhiệt độ cao",
+                        "Quạt dàn nóng không đủ công suất hoặc bị hỏng"
+                    ],
+                    "solutions": [
+                        "Vệ sinh dàn nóng để tăng hiệu quả tản nhiệt.",
+                        "Thay thế hoặc sửa chữa quạt dàn nóng."
+                    ]
+                },
+                {
+                    "id": 9,
+                    "title": "Nguyên nhân hư hỏng ắc quy",
+                    "causes": [
+                        "Ắc quy hết điện do sử dụng lâu ngày hoặc không được sạc đúng cách.",
+                        "Đầu cực ắc quy bị oxy hóa hoặc kết nối lỏng.",
+                        "Ngắn mạch hoặc hỏng các ngăn bên trong ắc quy."
+                    ],
+                    "solutions": [
+                        "Sạc lại ắc quy hoặc thay mới nếu không thể sạc được.",
+                        "Vệ sinh đầu cực ắc quy và siết chặt kết nối.",
+                        "Thay thế ắc quy nếu hỏng hóc bên trong."
+                    ]
+                },
+                {
+                    "id": 10,
+                    "title": "Nguyên nhân máy phát điện không hoạt động",
+                    "causes": [
+                        "Dây đai dẫn động bị lỏng hoặc đứt",
+                        "Hỏng cuộn dây stator, rotor hoặc bộ điều chỉnh điện áp trong máy phát"
+                    ],
+                    "solutions": [
+                        "Thay mới dây đai dẫn động.",
+                        "Sửa chữa hoặc thay thế máy phát nếu các cuộn dây hoặc bộ điều chỉnh bị hỏng."
+                    ]
+                },
+                {
+                    "id": 11,
+                    "title": "Nguyên nhân hệ thống khởi động không hoạt động",
+                    "causes": [
+                        "Motor khởi động hoặc rơ le khởi động bị hỏng.",
+                        "Đứt dây dẫn hoặc kết nối không chắc chắn.",
+                        "Ắc quy yếu hoặc không đủ điện."
+                    ],
+                    "solutions": [
+                        "Kiểm tra và thay thế motor hoặc rơ le khởi động.",
+                        "Sửa chữa các dây dẫn bị đứt và siết chặt kết nối.",
+                        "Thay ắc quy nếu cần."
+                    ]
+                },
+                {
+                    "id": 12,
+                    "title": "Nguyên nhân hư hỏng hệ thống chiếu sáng và tín hiệu",
+                    "causes": [
+                        "Bóng đèn bị cháy hoặc oxy hóa tiếp điểm.",
+                        "Rơ le hoặc cầu chì đèn bị hỏng."
+                    ],
+                    "solutions": [
+                        "Thay bóng đèn mới nếu cháy.",
+                        "Kiểm tra và thay thế rơ le hoặc cầu chì hỏng.",
+                        "Vệ sinh tiếp điểm đèn."
+                    ]
+                }
+            ],
+            "questions": [
+                {
+                    "id": 1,
+                    "question": "Nguyên nhân chính nào khiến điều hòa không mát hoặc mát yếu?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Thiếu gas lạnh.",
+                            "correct": true
+                        },
+                        {
+                            "id": "B",
+                            "text": "Lọc gió cabin bẩn.",
+                            "correct": false
+                        },
+                        {
+                            "id": "C",
+                            "text": "Van tiết lưu bị lỗi.",
+                            "correct": false
+                        },
+                        {
+                            "id": "D",
+                            "text": "Máy nén bị hỏng.",
+                            "correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "question": "Điều hòa phát ra tiếng ồn lớn có thể do nguyên nhân nào?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Quạt gió bị hỏng.",
+                            "correct": false
+                        },
+                        {
+                            "id": "B",
+                            "text": "Máy nén hoạt động bất thường.",
+                            "correct": true
+                        },
+                        {
+                            "id": "C",
+                            "text": "Lỏng dây đai truyền động.",
+                            "correct": false
+                        },
+                        {
+                            "id": "D",
+                            "text": "Dàn nóng bị bám bụi.",
+                            "correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "question": "Dàn lạnh bị đóng tuyết là do đâu?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Lượng gas lạnh quá nhiều.",
+                            "correct": true
+                        },
+                        {
+                            "id": "B",
+                            "text": "Van tiết lưu bị hỏng.",
+                            "correct": false
+                        },
+                        {
+                            "id": "C",
+                            "text": "Dàn lạnh bị bẩn.",
+                            "correct": false
+                        },
+                        {
+                            "id": "D",
+                            "text": "Lọc gió cabin bị tắc.",
+                            "correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "question": "Khi hệ thống khởi động không hoạt động, ta nên kiểm tra những gì?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Motor khởi động.",
+                            "correct": false
+                        },
+                        {
+                            "id": "B",
+                            "text": "Dây dẫn điện.",
+                            "correct": false
+                        },
+                        {
+                            "id": "C",
+                            "text": "Ắc quy.",
+                            "correct": true
+                        },
+                        {
+                            "id": "D",
+                            "text": "Rơ le khởi động.",
+                            "correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "question": "Nguyên nhân gây ra mùi hôi khó chịu từ điều hòa là gì?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Dàn lạnh bẩn, có nấm mốc.",
+                            "correct": true
+                        },
+                        {
+                            "id": "B",
+                            "text": "Lọc gió cabin lâu ngày không thay.",
+                            "correct": false
+                        },
+                        {
+                            "id": "C",
+                            "text": "Rò rỉ nước từ hệ thống thoát nước dàn lạnh.",
+                            "correct": false
+                        },
+                        {
+                            "id": "D",
+                            "text": "Hư hỏng ở dàn nóng.",
+                            "correct": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "target": "hu-hong-thuong-gap-he-thong-lai-va-treo",
+            "src": "https://www.youtube.com/embed/3q1WpUh1AsE?autoplay=1&rel=0",
+            "content": [
+                {
+                    "id": 1,
+                    "title": "Nguyên nhân rơ hoặc lỏng hệ thống lái",
+                    "causes": [
+                        "Mòn các khớp nối hoặc rô tuyn.",
+                        "Lỏng ốc vít tại các liên kết.",
+                        "Trục lái hoặc cơ cấu lái bị mòn."
+                    ],
+                    "solutions": [
+                        "Siết chặt các khớp nối và ốc vít.",
+                        "Thay thế các rô tuyn hoặc khớp nối đã mòn.",
+                        "Kiểm tra và thay mới trục lái nếu cần."
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "Nguyên nhân tiếng kêu lạ khi quay vô lăng",
+                    "causes": [
+                        "Thiếu dầu trợ lực lái.",
+                        "Vòng bi hoặc bạc lót trục lái bị khô hoặc mòn."
+                    ],
+                    "solutions": [
+                        "Bổ sung hoặc thay thế dầu trợ lực lái đúng loại.",
+                        "Kiểm tra và thay mới vòng bi hoặc bạc lót trục lái."
+                    ]
+                },
+                {
+                    "id": 3,
+                    "title": "Nguyên nhân rò rỉ dầu trợ lực lái",
+                    "causes": [
+                        "Hở phớt dầu hoặc ống dẫn dầu bị nứt.",
+                        "Bơm trợ lực bị hỏng."
+                    ],
+                    "solutions": [
+                        "Thay phớt dầu hoặc ống dẫn dầu bị hỏng.",
+                        "Kiểm tra và thay mới bơm trợ lực nếu cần."
+                    ]
+                },
+                {
+                    "id": 4,
+                    "title": "Nguyên nhân vô lăng nặng hoặc mất trợ lực lái",
+                    "causes": [
+                        "Bơm trợ lực bị hỏng.",
+                        "Dây đai dẫn động bơm lỏng hoặc đứt.",
+                        "Hỏng cảm biến trợ lực (đối với hệ thống trợ lực điện)."
+                    ],
+                    "solutions": [
+                        "Thay thế bơm trợ lực hoặc dây đai dẫn động.",
+                        "Kiểm tra cảm biến và sửa chữa hoặc thay thế nếu cần."
+                    ]
+                },
+                {
+                    "id": 5,
+                    "title": "Nguyên nhân lệch vô lăng khi lái thẳng",
+                    "causes": [
+                        "Sai lệch góc đặt bánh xe.",
+                        "Mòn không đều của lốp.",
+                        "Các liên kết trong hệ thống lái bị lỏng hoặc hỏng."
+                    ],
+                    "solutions": [
+                        "Cân chỉnh lại góc đặt bánh xe.",
+                        "Kiểm tra độ mòn của lốp và thay lốp nếu cần.",
+                        "Sửa chữa hoặc thay thế các liên kết bị hỏng."
+                    ]
+                },
+                {
+                    "id": 6,
+                    "title": "Nguyên nhân hư hỏng giảm xóc",
+                    "causes": [
+                        "Xi-lanh thủy lực bị rò rỉ dầu.",
+                        "Giảm xóc bị mòn hoặc mất đàn hồi."
+                    ],
+                    "solutions": [
+                        "Kiểm tra và thay thế giảm xóc bị hỏng.",
+                        "Sử dụng giảm xóc chất lượng cao, phù hợp với xe."
+                    ]
+                },
+                {
+                    "id": 7,
+                    "title": "Nguyên nhân gãy hoặc yếu lò xo treo",
+                    "causes": [
+                        "Lò xo chịu tải trọng quá mức.",
+                        "Va chạm mạnh hoặc lão hóa vật liệu."
+                    ],
+                    "solutions": [
+                        "Thay mới lò xo treo, ưu tiên loại chính hãng hoặc tương đương.",
+                        "Kiểm tra các chi tiết liên quan để tránh hư hỏng tiếp tục."
+                    ]
+                },
+                {
+                    "id": 8,
+                    "title": "Nguyên nhân tiếng kêu lạ ở hệ thống treo",
+                    "causes": [
+                        "Rô tuyn hoặc khớp nối bị khô hoặc mòn.",
+                        "Cao su đệm lò xo hư hỏng."
+                    ],
+                    "solutions": [
+                        "Bôi trơn hoặc thay thế các rô tuyn, khớp nối bị mòn.",
+                        "Thay mới cao su đệm lò xo."
+                    ]
+                },
+                {
+                    "id": 9,
+                    "title": "Nguyên nhân rơ hoặc lỏng khớp nối trong hệ thống treo",
+                    "causes": [
+                        "Rô tuyn hoặc bạc đạn bị mòn sau thời gian dài sử dụng.",
+                        "Lỏng ốc tại các điểm liên kết."
+                    ],
+                    "solutions": [
+                        "Thay thế rô tuyn hoặc bạc đạn bị mòn.",
+                        "Siết chặt ốc vít và kiểm tra định kỳ."
+                    ]
+                },
+                {
+                    "id": 10,
+                    "title": "Nguyên nhân sai lệch góc đặt bánh xe",
+                    "causes": [
+                        "Va chạm mạnh làm cong các chi tiết của hệ thống treo.",
+                        "Độ mòn không đồng đều giữa các bộ phận."
+                    ],
+                    "solutions": [
+                        "Cân chỉnh lại góc đặt bánh xe bằng thiết bị chuyên dụng.",
+                        "Thay thế các chi tiết bị cong hoặc mòn."
+                    ]
+                },
+                {
+                    "id": 11,
+                    "title": "Nguyên nhân mòn không đều của cao su treo",
+                    "causes": [
+                        "lão hóa vật liệu do thời gian hoặc điều kiện làm việc khắc nghiệt.",
+                        "tải trọng xe phân bố không đồng đều."
+                    ],
+                    "solutions": [
+                        "thay mới các cao su treo bị mòn.",
+                        "kiểm tra phân bố tải trọng xe và điều chỉnh nếu cần."
+                    ]
+                }
+            ],
+            "questions": [
+                {
+                    "id": 1,
+                    "question": "Nguyên nhân nào gây ra hiện tượng rơ hoặc lỏng hệ thống lái?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Mòn các khớp nối hoặc rô tuyn.",
+                            "correct": true
+                        },
+                        {
+                            "id": "B",
+                            "text": "Lỏng ốc vít tại các liên kết.",
+                            "correct": false
+                        },
+                        {
+                            "id": "C",
+                            "text": "Trục lái hoặc cơ cấu lái bị mòn.",
+                            "correct": false
+                        },
+                        {
+                            "id": "D",
+                            "text": "Thiếu dầu trợ lực lái.",
+                            "correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "question": "Hệ thống treo bị gãy hoặc yếu lò xo có thể do nguyên nhân nào?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Va chạm mạnh quá mức.",
+                            "correct": false
+                        },
+                        {
+                            "id": "B",
+                            "text": "Lão hóa vật liệu quá mức.",
+                            "correct": false
+                        },
+                        {
+                            "id": "C",
+                            "text": "Rô tuyn bị mòn qua mức.",
+                            "correct": false
+                        },
+                        {
+                            "id": "D",
+                            "text": "Lò xo chịu tải trọng quá mức.",
+                            "correct": true
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "question": "Khi quay vô lăng phát ra tiếng kêu lạ, ta nên kiểm tra gì?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Lượng dầu trợ lực lái.",
+                            "correct": false
+                        },
+                        {
+                            "id": "B",
+                            "text": "Vòng bi, bạc lót trục lái.",
+                            "correct": true
+                        },
+                        {
+                            "id": "C",
+                            "text": "Ốc vít siết các khớp nối.",
+                            "correct": false
+                        },
+                        {
+                            "id": "D",
+                            "text": "Góc đặt bánh xe.",
+                            "correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "question": "Nguyên nhân nào dẫn đến rò rỉ dầu trợ lực lái?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Hở phớt dầu hoặc ống dẫn dầu bị nứt.",
+                            "correct": true
+                        },
+                        {
+                            "id": "B",
+                            "text": "Bơm trợ lực bị hỏng.",
+                            "correct": false
+                        },
+                        {
+                            "id": "C",
+                            "text": "Cao su đệm lò xo hư hỏng.",
+                            "correct": false
+                        },
+                        {
+                            "id": "D",
+                            "text": "Giảm xóc bị mòn.",
+                            "correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "question": "Xe bị lệch vô lăng khi lái thẳng là do?",
+                    "options": [
+                        {
+                            "id": "A",
+                            "text": "Mòn không đều của lốp.",
+                            "correct": false
+                        },
+                        {
+                            "id": "B",
+                            "text": "Các liên kết trong hệ thống lái bị lỏng hoặc hỏng.",
+                            "correct": false
+                        },
+                        {
+                            "id": "C",
+                            "text": "Sai lệch góc đặt bánh xe.",
+                            "correct": true
+                        },
+                        {
+                            "id": "D",
+                            "text": "Xi lanh thủy lực bị rò rỉ dầu.",
+                            "correct": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

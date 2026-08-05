@@ -1858,7 +1858,9 @@
                         </div>
                       </li>
 
-                      <li class="chap-lesson-wrapper">
+                      <li 
+                        class="chap-lesson-wrapper"
+                        data-target="hu-hong-thuong-gap">
                         <div class="chap-title">
                           <div class="chap-2-label-block">BG</div>
                           <p class="chap-2-label">Hư hỏng thường gặp ở hộp số</p>
@@ -1869,7 +1871,10 @@
                         </div>
                       </li>
 
-                      <li class="chap-lesson-wrapper">
+                      <li 
+                        class="chap-lesson-wrapper"
+                        data-target="hu-hong-thuong-gap-dieu-hoa-va-dien"
+                      >
                         <div class="chap-title">
                           <div class="chap-2-label-block">BG</div>
                           <p class="chap-2-label">Hư hỏng thường gặp ở điều hoà và hệ thống điện</p>
@@ -1880,7 +1885,10 @@
                         </div>
                       </li>
 
-                      <li class="chap-lesson-wrapper">
+                      <li 
+                        class="chap-lesson-wrapper"
+                        data-target="hu-hong-thuong-gap-he-thong-lai-va-treo"
+                      >
                         <div class="chap-title">
                           <div class="chap-2-label-block">BG</div>
                           <p class="chap-2-label">Hư hỏng thường gặp ở hệ thống lái và treo</p>
@@ -2623,6 +2631,115 @@
           class="engine-4ky-scroll"
           id="Engine4KyScroll"
         >
+        </div>
+      </div>
+    </div>
+
+    <!-- MON 02 - CHAP 08 MODAL -->
+    <div 
+      class="lesson-modal" 
+      id="Lesson02Modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="lesson-modal__backdrop"></div>
+
+      <div class="lesson-modal__container">
+
+        <button class="lesson-modal__close" id="Lesson02CloseButton">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M6 6l12 12M18 6 6 18"></path>
+          </svg>
+        </button>
+
+        <h1 class="lesson-modal__title" id="Lesson02ModalTitle">
+          ...
+        </h1>
+
+        <div class="lesson-modal__body" id="Lesson02ModalBody">
+          <div>
+            <aside class="lesson-panel" id="Lesson02PanelLeft">
+              <button 
+                id="Lesson02PanelButtonLeft" 
+                class="lesson-modal__nav lesson-modal__nav--prev"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+
+              <div class="lesson-panel__content" id="Lesson02Summary">
+                <h3 class="lesson-summary-title">Tóm tắt nội dung bài học</h3>
+
+                <div class="lesson-summary-list">
+                </div>
+              </div>
+            </aside>
+
+            <button 
+              id="Lesson02ButtonLeft" 
+              class="lesson-modal__nav lesson-modal__nav--prev"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <main class="lesson-view" id="Lesson02View">
+
+            <!-- <iframe
+              id="lessonFrame"
+              src="lesson.html"
+              allowfullscreen
+            ></iframe> -->
+            <iframe 
+              id="Lesson02Frame"
+              width="1041" 
+              height="450" 
+              src="" 
+              title="Kỹ thuật lái xe - 360" 
+              frameborder="0" 
+              allow="accelerometer; 
+                autoplay;
+                clipboard-write; 
+                encrypted-media; 
+                gyroscope; 
+                picture-in-picture; 
+                web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen
+            ></iframe>
+
+          </main>
+
+          <div>
+            <aside class="lesson-panel" id="Lesson02PanelRight">
+              <button 
+                id="Lesson02PanelButtonRight"
+                class="lesson-modal__nav lesson-modal__nav--next"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+
+              <div class="lesson-panel__content" id="Lesson02PanelQuiz">
+                <h3 class="lesson-question-title">Câu hỏi trắc nghiệm</h3>
+                <div id="quiz-container"></div>
+              </div>
+            </aside>
+
+            <button 
+              id="Lesson02ButtonRight"
+              class="lesson-modal__nav lesson-modal__nav--next"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
