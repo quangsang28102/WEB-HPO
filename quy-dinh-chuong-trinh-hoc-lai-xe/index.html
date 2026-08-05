@@ -1931,9 +1931,27 @@
                   Nội dung Kỹ thuật lái xe
                 </h3>
                 <ol class="mon-chap-list">
-                  <li>
-                    <span class="mon-chap__label">1</span>
-                    Vị trí, tác dụng các bộ phận trong buồng lái
+                  <li class="chap-1-item">
+                    <div>
+                      <span class="mon-chap__label">1</span>
+                      Vị trí, tác dụng các bộ phận trong buồng lái
+                    </div>
+
+                    <div class="mon-360-wrapper">
+                      <div class="mon-360-title-wrapper">
+                        <div class="mon-360-block">
+                          360°
+                        </div>
+
+                        <p class="mon-360-title">
+                          Bài giảng 360° tham quan các bộ phận của xe ô tô
+                        </p>
+                      </div>
+
+                      <div class="mon-360-play-button">
+                        <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"></path></svg>
+                      </div>
+                    </div>
                   </li>
                   <li>
                     <span class="mon-chap__label">2</span>
@@ -1981,6 +1999,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-1'
                       >
                         <span class="chap-7-button__label">1</span>
                         Xuất phát
@@ -1991,6 +2010,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-2'
                       >
                         <span class="chap-7-button__label">2</span>
                         Dừng xe nhường đường cho người đi bộ
@@ -2001,6 +2021,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-3'
                       >
                         <span class="chap-7-button__label">3</span>
                         Dừng xe khởi hành ngang dốc
@@ -2011,6 +2032,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-4'
                       >
                         <span class="chap-7-button__label">4</span>
                         Qua vệt bánh xe và đường hẹp vuông góc
@@ -2021,6 +2043,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-5'
                       >
                         <span class="chap-7-button__label">5</span>
                         Qua ngã tư có đèn tín hiệu giao thông
@@ -2031,8 +2054,11 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-6'
                       >
-                        <span class="chap-7-button__label">6</span>
+                        <div class="chap-7-button__label-wrapper" >
+                          <span class="chap-7-button__label">6</span>
+                        </div>
                         Đường vòng quanh co
                       </button>
 
@@ -2041,6 +2067,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-7'
                       >
                         <span class="chap-7-button__label">7</span>
                         Ghép xe dọc vào nơi đỗ
@@ -2051,6 +2078,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-8'
                       >
                         <span class="chap-7-button__label">8</span>
                         Tạm dừng ở nơi có đường sắt chạy qua
@@ -2061,6 +2089,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-9'
                       >
                         <span class="chap-7-button__label">9</span>
                         Thay đổi số trên đường bằng
@@ -2071,6 +2100,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-10'
                       >
                         <span class="chap-7-button__label">10</span>
                         Ghép xe ngang vào nơi đỗ
@@ -2081,6 +2111,7 @@
                         aria-label="Xuất phát"
                         aria-expanded="false"
                         data-toggle="chap-7"
+                        data-target='chap-7-content-11'
                       >
                         <span class="chap-7-button__label">11</span>
                         Bài kết thúc
@@ -2310,6 +2341,162 @@
           title="Nội dung chi tiết các nhóm biển báo"
         ></iframe>
       </div>
+    </div>
+
+    <!-- ── KỸ THUẬT LÁI XE VIEW ── -->
+    <div
+      class="ky-thuat-lai-xe-view-modal"
+      id="kyThuatLaiXeViewModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="kyThuatLaiXeViewTitle"
+    >
+      <div class="ky-thuat-lai-xe-view-shell">
+        <div class="ky-thuat-lai-xe-view-topbar">
+          <div class="ky-thuat-lai-xe-view-heading">
+            <span>
+              Phương pháp thực hành lái xe tổng hợp
+            </span>
+            <h2 id="kyThuatLaiXeViewTitle">Bài thi ...</h2>
+          </div>
+          <button
+            type="button"
+            class="ky-thuat-lai-xe-view-close"
+            id="kyThuatLaiXeViewClose"
+            aria-label="Đóng"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6 6l12 12M18 6 6 18" />
+            </svg>
+          </button>
+        </div>
+        <iframe
+          class="ky-thuat-lai-xe-modal__frame"
+          id="KyThuatLaiXeModelDetailFrame"
+          title="Nội dung chi tiết các nhóm biển báo"
+        ></iframe>
+        <div
+          class="ky-thuat-lai-xe-view-scroll"
+          id="kyThuatLaiXeViewScroll"
+        >
+          <!-- <div class="ky-thuat-lai-xe-view-loading">Đang tải nội dung kỹ thuật lái xe...</div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 360 VIEW -- KY THUAT LAI XE -->
+    <div 
+      class="lesson-modal" 
+      id="lessonModal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="lesson-modal__backdrop"></div>
+
+      <div class="lesson-modal__container">
+
+        <button class="lesson-modal__close" id="lessonClose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M6 6l12 12M18 6 6 18"></path>
+          </svg>
+        </button>
+
+        <h1 class="lesson-modal__title">
+          Bài giảng 360° tham quan các bộ phận của xe ô tô
+        </h1>
+
+        <div class="lesson-modal__body">
+          <div>
+            <aside class="lesson-panel" id="lesson-panel-left">
+              <button 
+                id="lesson-panel-button-left" 
+                class="lesson-modal__nav lesson-modal__nav--prev"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+
+              <div class="lesson-panel__content" id="lessonSummary">
+                Không tìm thấy nội dung tóm tắt.
+              </div>
+            </aside>
+
+            <button 
+              id="lesson-button-left" 
+              class="lesson-modal__nav lesson-modal__nav--prev"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <main class="lesson-view">
+
+            <!-- <iframe
+              id="lessonFrame"
+              src="lesson.html"
+              allowfullscreen
+            ></iframe> -->
+            <iframe 
+              id="lessonFrame"
+              width="1041" 
+              height="450" 
+              src="https://www.youtube.com/embed/8DGmYr3N-DI?autoplay=1" 
+              title="Kỹ thuật lái xe - 360" 
+              frameborder="0" 
+              allow="accelerometer; 
+                autoplay;
+                clipboard-write; 
+                encrypted-media; 
+                gyroscope; 
+                picture-in-picture; 
+                web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen
+            ></iframe>
+
+          </main>
+
+          <div>
+            <aside class="lesson-panel" id="lesson-panel-right">
+              <button 
+                id="lesson-panel-button-right"
+                class="lesson-modal__nav lesson-modal__nav--next"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+
+              <div class="lesson-panel__content">
+                Không có câu hỏi trắc nghiệm.
+              </div>
+            </aside>
+
+            <button 
+              id="lesson-button-right"
+              class="lesson-modal__nav lesson-modal__nav--next"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
     <div

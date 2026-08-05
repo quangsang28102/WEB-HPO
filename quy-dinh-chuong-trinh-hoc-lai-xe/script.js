@@ -500,4 +500,284 @@
     }
   }
 
+  /* Bài 4 - Kỹ thuật lái xe view modal */
+  (() => {
+    const modal = document.getElementById('kyThuatLaiXeViewModal');
+    const scroller = document.getElementById("kyThuatLaiXeViewScroll");
+    const closeBtn = document.getElementById("kyThuatLaiXeViewClose");
+    const title = document.getElementById("kyThuatLaiXeViewTitle");
+    const triggers = document.querySelectorAll('.chap-7-button');
+    const frame = document.getElementById("KyThuatLaiXeModelDetailFrame");
+
+    if (!modal || !frame || !scroller || !closeBtn || !triggers.length) return;
+
+    const DATA_URL = '../assets/data/ky-thuat-lai-xe-view.html';
+    const TITLES = {
+      'chap-7-content-1': 'Xuất phát',
+      'chap-7-content-2': 'Dừng xe nhường đường cho người đi bộ',
+      'chap-7-content-3': 'Dừng xe và khởi hành ngang dốc',
+      'chap-7-content-4': 'Qua vệt bánh xe và đường hẹp vuông góc',
+      'chap-7-content-5': 'Qua ngã tư có đèn tín hiệu giao thông',
+      'chap-7-content-6': 'Đường vòng quanh co',
+      'chap-7-content-7': 'Ghép xe dọc vào nơi đỗ',
+      'chap-7-content-8': 'Tạm dừng ở nơi có đường sắt chạy qua',
+      'chap-7-content-9': 'Thay đổi số trên đường bằng',
+      'chap-7-content-10': 'Ghép xe ngang vào nơi đỗ',
+      'chap-7-content-11': 'Bài kết thúc'
+    };
+
+    let htmlPromise = null;
+    let loaded = false;
+    let spy = null;
+    let lastFocus = null;
+    let previousBodyOverflow = '';
+
+    function updateModalTitle(activeId) {
+      if (title) title.textContent = TITLES[activeId];
+    }
+
+    // async function loadContent() {
+    //   if (loaded) return;
+
+    //   if (!htmlPromise) {
+    //     htmlPromise = fetch(DATA_URL)
+    //       .then((response) => {
+    //         if (!response.ok) throw new Error('Không tải được nội dung kỹ thuật lái xe');
+    //         return response.text();
+    //       });
+    //   }
+
+    //   try {
+    //     scroller.innerHTML = await htmlPromise;
+    //     loaded = true;
+    //   } catch (error) {
+    //     scroller.innerHTML = '<div class="bb-view-loading">Không tải được nội dung kỹ thuật lái xe.</div>';
+    //     throw error;
+    //   }
+    // }
+
+    // function initSpy() {
+    //   const page = scroller.querySelector('#hpo-sign-page');
+    //   if (!page || !window.HPOStickyScrollSpy) return null;
+
+    //   spy = window.HPOStickyScrollSpy.init(page, {
+    //     scrollContainer: scroller,
+    //     linksSelector: '#hpo-sign-tabs a[data-hpo-tab]',
+    //     panesSelector: '[data-hpo-pane]',
+    //     stickyWrapSelector: '#hpo-sign-sidebar-wrap',
+    //     linkId: (link) => link.getAttribute('data-hpo-tab'),
+    //     paneId: (pane) => pane.getAttribute('data-hpo-pane'),
+    //     getOffset: () => (window.matchMedia('(max-width: 900px)').matches ? 0 : 16),
+    //     onActiveChange: updateModalTitle,
+    //   });
+
+    //   return spy;
+    // }
+
+    // function waitForImages(root) {
+    //   const images = Array.from(root.querySelectorAll('img'));
+    //   if (!images.length) return Promise.resolve();
+
+    //   return Promise.allSettled(images.map((img) => {
+    //     if (img.complete) return Promise.resolve();
+
+    //     return new Promise((resolve) => {
+    //       img.addEventListener('load', resolve, { once: true });
+    //       img.addEventListener('error', resolve, { once: true });
+    //     });
+    //   }));
+    // }
+
+    async function openSignView(target = 'xuat-phat') {
+      lastFocus = document.activeElement;
+      previousBodyOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+
+      updateModalTitle(target);
+
+      const KTSharedStyleUrl = new URL("../style.css", window.location.href).href;
+
+      const createBbDocument = (content, target) => `<!doctype html>
+      <html lang="vi">
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="${KTSharedStyleUrl}">
+          <style>
+            html,body,#bbViewModal{height:100%;margin:0;background:#f8fafc}
+            html,body{overflow:hidden}
+            #bbViewModal{display:flex;flex-direction:column;min-height:0}
+            #bbViewModal>.bb-view-scroll{height:100%;min-height:0;overflow-y:auto}
+          </style>
+        </head>
+        <body>
+          <div id="bbViewModal">
+            <div class="bb-view-scroll">
+              ${content}
+            </div>
+          </div>
+          <script>
+            (() => {
+              const target = ${JSON.stringify(target)};
+              const goTo = (id, behavior = 'auto') => {
+                document.querySelectorAll('[data-hpo-tab]').forEach((tab) => {
+                  tab.classList.toggle('is-active', tab.getAttribute('data-hpo-tab') === id);
+                });
+                document.querySelector('[data-hpo-pane="' + id + '"]')
+                  ?.scrollIntoView({ behavior, block: 'start' });
+              };
+              requestAnimationFrame(() => goTo(target));
+              document.querySelectorAll('[data-hpo-tab]').forEach((tab) => {
+                tab.addEventListener('click', (event) => {
+                  event.preventDefault();
+                  goTo(tab.getAttribute('data-hpo-tab'), 'smooth');
+                });
+              });
+            })();
+          <\/script>
+        </body>
+      </html>`;
+
+      frame.srcdoc = createBbDocument(await fetch(DATA_URL).then((response) => {
+        if (!response.ok) throw new Error('Không tải được nội dung kỹ thuật lái xe');
+        return response.text();
+      }), target);
+
+      try {
+        await loadContent();
+      } catch (_) {
+        return;
+      }
+
+      frame.onload = () => {
+
+        const doc = frame.contentDocument;
+
+        if (!doc) return;
+
+        const target = doc.getElementById(target);
+
+        if (!target) return;
+
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+        target.classList.add("is-highlight");
+
+        setTimeout(() => {
+          target.classList.remove("is-highlight");
+        }, 2000);
+
+        closeBtn.focus({ preventScroll: true });
+      };
+
+      const api = initSpy();
+
+      const alignToTarget = () => {
+        if (!modal.classList.contains('is-open')) return;
+        if (api) api.scrollTo(target, 'auto');
+      };
+
+      requestAnimationFrame(() => {
+        scroller.scrollTop = 0;
+        requestAnimationFrame(() => {
+          alignToTarget();
+          closeBtn.focus({ preventScroll: true });
+        });
+      });
+
+      setTimeout(alignToTarget, 250);
+      waitForImages(scroller).then(alignToTarget);
+    }
+
+    function closeSignView() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = previousBodyOverflow;
+      if (lastFocus && typeof lastFocus.focus === 'function') {
+        lastFocus.focus({ preventScroll: true });
+      }
+    }
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        openSignView(trigger.dataset.target);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeSignView);
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeSignView();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+        closeSignView();
+      }
+    });
+
+    window.openBienBaoView = openSignView;
+  })();
+
+  const body = document.querySelector(".lesson-modal__body");
+  const modal = document.querySelector('.lesson-modal')
+  const mon360Wrapper = document.querySelector('.mon-360-wrapper')
+  const asideLeft = document.getElementById('lesson-panel-left')
+  const asideRight = document.getElementById('lesson-panel-right')
+  const btnAsideLeft = document.getElementById('lesson-panel-button-left')
+  const btnAsideRight = document.getElementById('lesson-panel-button-right')
+  const lessonButtonLeft = document.getElementById('lesson-button-left')
+  const lessonButtonRight = document.getElementById('lesson-button-right')
+  const buttonModalClose = document.getElementById('lessonClose')
+
+  if (!modal || !mon360Wrapper) return;
+
+  mon360Wrapper.addEventListener("click", () => {
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  });
+
+  btnAsideLeft.addEventListener('click', () => {
+    body.classList.toggle("hide-left");
+    asideLeft.classList.add('hide')
+    lessonButtonLeft.classList.add('is-open')
+  })
+
+  btnAsideRight.addEventListener('click', () => {
+    body.classList.toggle("hide-right");
+    asideRight.classList.add('hide')
+    lessonButtonRight.classList.add('is-open')
+  })
+
+  lessonButtonLeft.addEventListener('click', () => {
+    body.classList.remove("hide-left");
+    asideLeft.classList.remove('hide')
+    lessonButtonLeft.classList.remove('is-open')
+  })
+
+  lessonButtonRight.addEventListener('click', () => {
+    body.classList.remove("hide-right");
+    asideRight.classList.remove('hide')
+    lessonButtonRight.classList.remove('is-open')
+  })
+
+  buttonModalClose.addEventListener('click', () => {
+    modal.classList.remove('is-open')
+
+    body.classList.remove("hide-left");
+    body.classList.remove("hide-right");
+
+    asideLeft.classList.remove('hide')
+    asideRight.classList.remove('hide')
+
+    lessonButtonLeft.classList.remove('is-open')
+    lessonButtonRight.classList.remove('is-open')
+  })
+
 })();
