@@ -1792,6 +1792,7 @@
             <!-- Nội dung cho môn 02 -->
             <article
               class="mon-modal__content"
+              id="mon-02"
               data-mon-content="mon-02"
               hidden
             >
@@ -1805,9 +1806,16 @@
                     <span class="mon-chap__label">1</span>
                     Giới thiệu chung về xe ô tô
                   </li>
-                  <li>
-                    <span class="mon-chap__label">2</span>
-                    Động cơ xe ô tô
+                  <li class="chap-item" id="chap-2-item">
+                    <div class="chap-2-wrapper">
+                      <span class="mon-chap__label">2</span>
+                      Động cơ xe ô tô
+                    </div>
+
+                    <div id="chap-2-lesson" class="chap-2-title">
+                      <div class="chap-2-label-block">BG</div>
+                      <p class="chap-2-label">Nguyên lý làm việc của động cơ 4 kỳ</p>
+                    </div>
                   </li>
                   <li>
                     <span class="mon-chap__label">3</span>
@@ -1829,9 +1837,60 @@
                     <span class="mon-chap__label">7</span>
                     Nội quy xưởng và kỹ thuật an toàn
                   </li>
-                  <li>
-                    <span class="mon-chap__label">8</span>
-                    Các hư hỏng thông thường
+                  <li class="chap-item">
+                    <div>
+                      <span class="mon-chap__label">8</span>
+                      Các hư hỏng thông thường
+                    </div>
+
+                    <ul id="chap-8-list-lesson">
+                      <li 
+                        class="chap-lesson-wrapper"
+                        data-target="hu-hong-dong-co"
+                      >
+                        <div class="chap-title">
+                          <div class="chap-2-label-block">BG</div>
+                          <p class="chap-2-label">Hư hỏng thường gặp ở động cơ</p>
+                        </div>
+                        
+                        <div class="mon-360-play-button">
+                          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"></path></svg>
+                        </div>
+                      </li>
+
+                      <li class="chap-lesson-wrapper">
+                        <div class="chap-title">
+                          <div class="chap-2-label-block">BG</div>
+                          <p class="chap-2-label">Hư hỏng thường gặp ở hộp số</p>
+                        </div>
+                        
+                        <div class="mon-360-play-button">
+                          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"></path></svg>
+                        </div>
+                      </li>
+
+                      <li class="chap-lesson-wrapper">
+                        <div class="chap-title">
+                          <div class="chap-2-label-block">BG</div>
+                          <p class="chap-2-label">Hư hỏng thường gặp ở điều hoà và hệ thống điện</p>
+                        </div>
+                        
+                        <div class="mon-360-play-button">
+                          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"></path></svg>
+                        </div>
+                      </li>
+
+                      <li class="chap-lesson-wrapper">
+                        <div class="chap-title">
+                          <div class="chap-2-label-block">BG</div>
+                          <p class="chap-2-label">Hư hỏng thường gặp ở hệ thống lái và treo</p>
+                        </div>
+                        
+                        <div class="mon-360-play-button">
+                          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"></path></svg>
+                        </div>
+                      </li>
+                    </ul>
                   </li>
                 </ol>
               </section>
@@ -2517,6 +2576,55 @@
 
       </div>
 
+    </div>
+
+    <!-- Mon 02 - Chapter 2 MODAL VIEW -->
+    <div
+      class="engine-4ky-modal"
+      id="Engine4KyModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="Engine4KyTitle"
+    >
+      <div class="engine-4ky-shell">
+        <div class="engine-4ky-topbar">
+          <div class="engine-4ky-heading">
+            <span>
+              Động cơ xe ô tô
+            </span>
+            <h2 id="Engine4KyTitle">Nguyên lý làm việc của động cơ 4 kỳ</h2>
+          </div>
+          <button
+            type="button"
+            class="engine-4ky-close"
+            id="Engine4KyClose"
+            aria-label="Đóng"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6 6l12 12M18 6 6 18" />
+            </svg>
+          </button>
+        </div>
+
+        <iframe
+          class="engine-4ky-modal__frame"
+          id="Engine4KyModalDetailFrame"
+          title="Nội dung chi tiết các nhóm biển báo"
+        ></iframe>
+
+        <div
+          class="engine-4ky-scroll"
+          id="Engine4KyScroll"
+        >
+        </div>
+      </div>
     </div>
 
     <div

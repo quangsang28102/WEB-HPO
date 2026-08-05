@@ -724,67 +724,153 @@
     window.openBienBaoView = openSignView;
   })();
 
-  const body = document.querySelector(".lesson-modal__body");
-  const modal = document.querySelector('.lesson-modal')
-  const mon360Wrapper = document.querySelector('.mon-360-wrapper')
-  const asideLeft = document.getElementById('lesson-panel-left')
-  const asideRight = document.getElementById('lesson-panel-right')
-  const btnAsideLeft = document.getElementById('lesson-panel-button-left')
-  const btnAsideRight = document.getElementById('lesson-panel-button-right')
-  const lessonButtonLeft = document.getElementById('lesson-button-left')
-  const lessonButtonRight = document.getElementById('lesson-button-right')
-  const buttonModalClose = document.getElementById('lessonClose')
-  const video = document.getElementById('lessonFrame')
+  (() => {
+    const body = document.querySelector(".lesson-modal__body");
+    const modal = document.querySelector('.lesson-modal')
+    const mon360Wrapper = document.querySelector('.mon-360-wrapper')
+    const asideLeft = document.getElementById('lesson-panel-left')
+    const asideRight = document.getElementById('lesson-panel-right')
+    const btnAsideLeft = document.getElementById('lesson-panel-button-left')
+    const btnAsideRight = document.getElementById('lesson-panel-button-right')
+    const lessonButtonLeft = document.getElementById('lesson-button-left')
+    const lessonButtonRight = document.getElementById('lesson-button-right')
+    const buttonModalClose = document.getElementById('lessonClose')
+    const video = document.getElementById('lessonFrame')
 
-  if (!modal || !mon360Wrapper) return;
+    if (!modal || !mon360Wrapper) return;
 
-  const VIDEO_360_URL = "https://www.youtube.com/embed/8DGmYr3N-DI?autoplay=1"
+    const VIDEO_360_URL = "https://www.youtube.com/embed/8DGmYr3N-DI?autoplay=1"
 
-  mon360Wrapper.addEventListener("click", () => {
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+    mon360Wrapper.addEventListener("click", () => {
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
 
-    video.src = VIDEO_360_URL
-  });
+      video.src = VIDEO_360_URL
+    });
 
-  btnAsideLeft.addEventListener('click', () => {
-    body.classList.toggle("hide-left");
-    asideLeft.classList.add('hide')
-    lessonButtonLeft.classList.add('is-open')
-  })
+    btnAsideLeft.addEventListener('click', () => {
+      body.classList.toggle("hide-left");
+      asideLeft.classList.add('hide')
+      lessonButtonLeft.classList.add('is-open')
+    })
 
-  btnAsideRight.addEventListener('click', () => {
-    body.classList.toggle("hide-right");
-    asideRight.classList.add('hide')
-    lessonButtonRight.classList.add('is-open')
-  })
+    btnAsideRight.addEventListener('click', () => {
+      body.classList.toggle("hide-right");
+      asideRight.classList.add('hide')
+      lessonButtonRight.classList.add('is-open')
+    })
 
-  lessonButtonLeft.addEventListener('click', () => {
-    body.classList.remove("hide-left");
-    asideLeft.classList.remove('hide')
-    lessonButtonLeft.classList.remove('is-open')
-  })
+    lessonButtonLeft.addEventListener('click', () => {
+      body.classList.remove("hide-left");
+      asideLeft.classList.remove('hide')
+      lessonButtonLeft.classList.remove('is-open')
+    })
 
-  lessonButtonRight.addEventListener('click', () => {
-    body.classList.remove("hide-right");
-    asideRight.classList.remove('hide')
-    lessonButtonRight.classList.remove('is-open')
-  })
+    lessonButtonRight.addEventListener('click', () => {
+      body.classList.remove("hide-right");
+      asideRight.classList.remove('hide')
+      lessonButtonRight.classList.remove('is-open')
+    })
 
-  buttonModalClose.addEventListener('click', () => {
-    modal.classList.remove('is-open')
+    buttonModalClose.addEventListener('click', () => {
+      modal.classList.remove('is-open')
 
-    body.classList.remove("hide-left");
-    body.classList.remove("hide-right");
+      body.classList.remove("hide-left");
+      body.classList.remove("hide-right");
 
-    asideLeft.classList.remove('hide')
-    asideRight.classList.remove('hide')
+      asideLeft.classList.remove('hide')
+      asideRight.classList.remove('hide')
 
-    lessonButtonLeft.classList.remove('is-open')
-    lessonButtonRight.classList.remove('is-open')
+      lessonButtonLeft.classList.remove('is-open')
+      lessonButtonRight.classList.remove('is-open')
 
-    video.src = ''
-  })
+      video.src = ''
+    })
+  })();
 
+  // ENGINE 4 KY MODAL
+  (() => {
+
+    const engine4KyModal = document.getElementById('Engine4KyModal');
+    const engine4KyModalCloseBtn = document.getElementById("Engine4KyClose");
+    const engine4KyChap2Btn = document.getElementById('chap-2-lesson')
+    const frame = document.getElementById('Engine4KyModalDetailFrame')
+    const closeBtn = document.getElementById('Engine4KyClose')
+
+    if (!engine4KyModal || !engine4KyChap2Btn) return
+
+    const DATA_URL = '../assets/data/engine-4ky-view.html';
+    const SharedStyleUrl = new URL("../style.css", window.location.href).href;
+
+    let htmlPromise = null;
+
+    const createBbDocument = (content, target) => `<!doctype html>
+      <html lang="vi">
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="${SharedStyleUrl}">
+          <style>
+            html,body,#bbViewModal{height:100%;margin:0;background:#f8fafc}
+            html,body{overflow:hidden}
+            #bbViewModal{display:flex;flex-direction:column;min-height:0}
+            #bbViewModal>.bb-view-scroll{height:100%;min-height:0;overflow-y:auto}
+          </style>
+        </head>
+        <body>
+          <div id="bbViewModal">
+            <div class="bb-view-scroll">
+              ${content}
+            </div>
+          </div>
+          <script>
+            (() => {
+              const target = ${JSON.stringify(target)};
+              const goTo = (id, behavior = 'auto') => {
+                document.querySelectorAll('[data-hpo-tab]').forEach((tab) => {
+                  tab.classList.toggle('is-active', tab.getAttribute('data-hpo-tab') === id);
+                });
+                document.querySelector('[data-hpo-pane="' + id + '"]')
+                  ?.scrollIntoView({ behavior, block: 'start' });
+              };
+              requestAnimationFrame(() => goTo(target));
+              document.querySelectorAll('[data-hpo-tab]').forEach((tab) => {
+                tab.addEventListener('click', (event) => {
+                  event.preventDefault();
+                  goTo(tab.getAttribute('data-hpo-tab'), 'smooth');
+                });
+              });
+            })();
+          <\/script>
+        </body>
+      </html>`;
+
+    async function openModal() {
+      engine4KyModal.classList.add("is-open");
+
+      try {
+
+        htmlPromise ||= fetch(DATA_URL).then(res => {
+          if (!res.ok) throw new Error("Load html failed");
+          return res.text();
+        });
+
+        const html = await htmlPromise;
+
+        frame.srcdoc = createBbDocument(html);
+
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+
+    engine4KyChap2Btn.addEventListener("click", openModal);
+
+    closeBtn.addEventListener('click', () => {
+      engine4KyModal.classList.remove('is-open')
+    })
+
+  })()
 })();

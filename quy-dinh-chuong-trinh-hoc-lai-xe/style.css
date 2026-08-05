@@ -3933,3 +3933,155 @@ body.mon-modal-open {
 .lesson-modal__close:hover{
   transform:scale(1.08);
 }
+
+/* Mon 2 - chapter 2 */
+#mon-02 .chap-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 12px;
+}
+
+.chap-2-title {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #edeef0;
+  cursor: pointer;
+}
+
+.chap-2-title:hover {
+  border: 1px solid var(--blue-600);
+  background: var(--blue-50);
+}
+
+.chap-2-label-block {
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--blue-600);
+  font-size: 12px;
+  color: white;
+  box-shadow: 0 2px 4px var(--blue-600);
+}
+
+#chap-8-list-lesson {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chap-lesson-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #edeef0;
+  cursor: pointer;
+  padding: 12px 18px;
+  border-radius: 10px;
+}
+
+.chap-lesson-wrapper:hover {
+  border: 1px solid var(--blue-600);
+  background: var(--blue-50);
+}
+
+.chap-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ENGINE 4 KY MODAL */
+.engine-4ky-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(8, 15, 46, 0.65);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.engine-4ky-modal.is-open {
+  display: flex;
+}
+
+.engine-4ky-shell{
+  width: min(1190px, 100%);
+  height: min(880px, calc(100vh - 32px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #f8fafc;
+  box-shadow: 0 28px 80px rgba(2, 6, 23, 0.34);
+}
+
+.engine-4ky-topbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 18px;
+  border-bottom: 1px solid #e2e8f0;
+  background: var(--white);
+}
+
+.engine-4ky-heading span {
+  display: block;
+  color: #1d4ed8;
+  font-family: var(--ff-display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.engine-4ky-heading h2 {
+  margin: 3px 0 0;
+  color: #080f2e;
+  font-family: var(--ff-display);
+  font-size: clamp(20px, 2vw, 30px);
+  line-height: 1.15;
+}
+
+.engine-4ky-close {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid #dbe3ef;
+  border-radius: 12px;
+  background: var(--white);
+  color: #080f2e;
+  cursor: pointer;
+}
+
+.engine-4ky-close:hover {
+  border-color: #fecaca;
+  background: #fff1f2;
+  color: #dc2626;
+}
+
+.engine-4ky-close svg {
+  width: 22px;
+  height: 22px;
+}
+
+.engine-4ky-modal__frame {
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  border: 0;
+  background: #f8fafc;
+}
