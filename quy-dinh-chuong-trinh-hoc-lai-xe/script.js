@@ -734,13 +734,18 @@
   const lessonButtonLeft = document.getElementById('lesson-button-left')
   const lessonButtonRight = document.getElementById('lesson-button-right')
   const buttonModalClose = document.getElementById('lessonClose')
+  const video = document.getElementById('lessonFrame')
 
   if (!modal || !mon360Wrapper) return;
+
+  const VIDEO_360_URL = "https://www.youtube.com/embed/8DGmYr3N-DI?autoplay=1"
 
   mon360Wrapper.addEventListener("click", () => {
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+
+    video.src = VIDEO_360_URL
   });
 
   btnAsideLeft.addEventListener('click', () => {
@@ -778,6 +783,8 @@
 
     lessonButtonLeft.classList.remove('is-open')
     lessonButtonRight.classList.remove('is-open')
+
+    video.src = ''
   })
 
 })();
