@@ -724,107 +724,60 @@
     window.openBienBaoView = openSignView;
   })();
 
-  // const KTDetailModal = document.getElementById("kyThuatLaiXeViewModal");
-  // const KTDetailFrame = document.getElementById("KyThuatLaiXeModelDetailFrame");
-  // const KTDetailTitle = document.getElementById("kyThuatLaiXeViewTitle");
-  // const KTDetailTriggers = document.querySelectorAll("[data-bb-detail]");
+  const body = document.querySelector(".lesson-modal__body");
+  const modal = document.querySelector('.lesson-modal')
+  const mon360Wrapper = document.querySelector('.mon-360-wrapper')
+  const asideLeft = document.getElementById('lesson-panel-left')
+  const asideRight = document.getElementById('lesson-panel-right')
+  const btnAsideLeft = document.getElementById('lesson-panel-button-left')
+  const btnAsideRight = document.getElementById('lesson-panel-button-right')
+  const lessonButtonLeft = document.getElementById('lesson-button-left')
+  const lessonButtonRight = document.getElementById('lesson-button-right')
+  const buttonModalClose = document.getElementById('lessonClose')
 
-  // if (KTDetailModal && KTDetailFrame && KTDetailTriggers.length) {
-  //   const Titles = {
-  //     'xuat-phat': 'Xuất phát',
-  //     'dung-xe-nhuong-duong-cho-nguoi-di-bo': 'Dừng xe nhuường đường cho người đi bộ',
-  //     'dung-xe-va-khoi-hanh-ngang-doc': 'Dừng xe và khởi hành ngang dốc',
-  //     'qua-vet-banh-xe': 'Qua vệt bánh xe và đường hẹp vuông góc',
-  //     'qua-nga-tu': 'Qua ngã tư có đèn tín hiệu giao thông',
-  //     'duong-quanh-co': 'Đường vòng quanh co',
-  //     'ghep-xe-doc-vao-noi-do': 'Ghép xe dọc vào nơi đỗ',
-  //     'tam-dung-duong-sat': 'Tạm dừng ở nơi có đường sắt chạy qua',
-  //     'thay-doi-so-tren-duong-bang': 'Thay đổi số trên đường bằng',
-  //     'ghep-xe-ngang-vao-noi-do': 'Ghép xe ngang vào nơi đỗ',
-  //     'bai-ket-thuc': 'Bài kết thúc'
-  //   };
-  //   let KTHtmlPromise = null;
-  //   let KTLastFocused = null;
-  //   const KTSharedStyleUrl = new URL("../style.css", window.location.href).href;
+  if (!modal || !mon360Wrapper) return;
 
-  //   const createBbDocument = (content, target) => `<!doctype html>
-  //     <html lang="vi">
-  //       <head>
-  //         <meta charset="utf-8">
-  //         <meta name="viewport" content="width=device-width, initial-scale=1">
-  //         <link rel="stylesheet" href="${KTSharedStyleUrl}">
-  //         <style>
-  //           html,body,#bbViewModal{height:100%;margin:0;background:#f8fafc}
-  //           html,body{overflow:hidden}
-  //           #bbViewModal{display:flex;flex-direction:column;min-height:0}
-  //           #bbViewModal>.bb-view-scroll{height:100%;min-height:0;overflow-y:auto}
-  //         </style>
-  //       </head>
-  //       <body>
-  //         <div id="bbViewModal">
-  //           <div class="bb-view-scroll">
-  //             ${content}
-  //           </div>
-  //         </div>
-  //         <script>
-  //           (() => {
-  //             const target = ${JSON.stringify(target)};
-  //             const goTo = (id, behavior = 'auto') => {
-  //               document.querySelectorAll('[data-hpo-tab]').forEach((tab) => {
-  //                 tab.classList.toggle('is-active', tab.getAttribute('data-hpo-tab') === id);
-  //               });
-  //               document.querySelector('[data-hpo-pane="' + id + '"]')
-  //                 ?.scrollIntoView({ behavior, block: 'start' });
-  //             };
-  //             requestAnimationFrame(() => goTo(target));
-  //             document.querySelectorAll('[data-hpo-tab]').forEach((tab) => {
-  //               tab.addEventListener('click', (event) => {
-  //                 event.preventDefault();
-  //                 goTo(tab.getAttribute('data-hpo-tab'), 'smooth');
-  //               });
-  //             });
-  //           })();
-  //         <\/script>
-  //       </body>
-  //     </html>`;
+  mon360Wrapper.addEventListener("click", () => {
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  });
 
-  //   const openKyThuatDetailModal = async (target, trigger) => {
-  //     KTLastFocused = trigger;
-  //     if (KTDetailTitle) KTDetailTitle.textContent = KTTitles[target] || "Chi tiết kỹ thuật lái xe";
-  //     KTDetailModal.classList.add("is-open");
-  //     KTDetailModal.setAttribute("aria-hidden", "false");
+  btnAsideLeft.addEventListener('click', () => {
+    body.classList.toggle("hide-left");
+    asideLeft.classList.add('hide')
+    lessonButtonLeft.classList.add('is-open')
+  })
 
-  //     try {
-  //       KTHtmlPromise ||= fetch("../assets/data/ky-thuat-lai-xe-view.html").then((response) => {
-  //         if (!response.ok) throw new Error("Không tải được nội dung kỹ thuật lái xe");
-  //         return response.text();
-  //       });
-  //       KTDetailFrame.srcdoc = createBbDocument(await KTHtmlPromise, target);
-  //     } catch (_) {
-  //       KTDetailFrame.srcdoc = "<p style='padding:24px;font-family:sans-serif'>Không tải được nội dung kỹ thuật lái xe.</p>";
-  //     }
+  btnAsideRight.addEventListener('click', () => {
+    body.classList.toggle("hide-right");
+    asideRight.classList.add('hide')
+    lessonButtonRight.classList.add('is-open')
+  })
 
-  //     KTDetailModal.querySelector("[data-kt-detail-close]")?.focus({ preventScroll: true });
-  //   };
+  lessonButtonLeft.addEventListener('click', () => {
+    body.classList.remove("hide-left");
+    asideLeft.classList.remove('hide')
+    lessonButtonLeft.classList.remove('is-open')
+  })
 
-  //   const closeKTDetail = () => {
-  //     KTDetailModal.classList.remove("is-open");
-  //     KTDetailModal.setAttribute("aria-hidden", "true");
-  //     KTLastFocused?.focus({ preventScroll: true });
-  //   };
+  lessonButtonRight.addEventListener('click', () => {
+    body.classList.remove("hide-right");
+    asideRight.classList.remove('hide')
+    lessonButtonRight.classList.remove('is-open')
+  })
 
-  //   KTDetailTriggers.forEach((trigger) => {
-  //     trigger.addEventListener("click", () => openKyThuatDetailModal(trigger.dataset.KTDetail, trigger));
-  //   });
-  //   KTDetailModal.querySelector("[data-kt-detail-close]")?.addEventListener("click", closeKTDetail);
-  //   KTDetailModal.addEventListener("click", (event) => {
-  //     if (event.target === KTDetailModal) closeKTDetail();
-  //   });
-  //   document.addEventListener("keydown", (event) => {
-  //     if (event.key === "Escape" && KTDetailModal.classList.contains("is-open")) {
-  //       closeKTDetail();
-  //     }
-  //   });
-  // }
+  buttonModalClose.addEventListener('click', () => {
+    modal.classList.remove('is-open')
+
+    body.classList.remove("hide-left");
+    body.classList.remove("hide-right");
+
+    asideLeft.classList.remove('hide')
+    asideRight.classList.remove('hide')
+
+    lessonButtonLeft.classList.remove('is-open')
+    lessonButtonRight.classList.remove('is-open')
+  })
 
 })();

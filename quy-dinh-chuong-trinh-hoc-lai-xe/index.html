@@ -1919,9 +1919,27 @@
                   Nội dung Kỹ thuật lái xe
                 </h3>
                 <ol class="mon-chap-list">
-                  <li>
-                    <span class="mon-chap__label">1</span>
-                    Vị trí, tác dụng các bộ phận trong buồng lái
+                  <li class="chap-1-item">
+                    <div>
+                      <span class="mon-chap__label">1</span>
+                      Vị trí, tác dụng các bộ phận trong buồng lái
+                    </div>
+
+                    <div class="mon-360-wrapper">
+                      <div class="mon-360-title-wrapper">
+                        <div class="mon-360-block">
+                          360°
+                        </div>
+
+                        <p class="mon-360-title">
+                          Bài giảng 360° tham quan các bộ phận của xe ô tô
+                        </p>
+                      </div>
+
+                      <div class="mon-360-play-button">
+                        <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"></path></svg>
+                      </div>
+                    </div>
                   </li>
                   <li>
                     <span class="mon-chap__label">2</span>
@@ -2319,7 +2337,6 @@
       id="kyThuatLaiXeViewModal"
       role="dialog"
       aria-modal="true"
-      aria-hidden="true"
       aria-labelledby="kyThuatLaiXeViewTitle"
     >
       <div class="ky-thuat-lai-xe-view-shell">
@@ -2360,6 +2377,114 @@
           <!-- <div class="ky-thuat-lai-xe-view-loading">Đang tải nội dung kỹ thuật lái xe...</div> -->
         </div>
       </div>
+    </div>
+
+    <!-- 360 VIEW -- KY THUAT LAI XE -->
+    <div 
+      class="lesson-modal" 
+      id="lessonModal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="lesson-modal__backdrop"></div>
+
+      <div class="lesson-modal__container">
+
+        <button class="lesson-modal__close" id="lessonClose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M6 6l12 12M18 6 6 18"></path>
+          </svg>
+        </button>
+
+        <h1 class="lesson-modal__title">
+          Bài giảng 360° tham quan các bộ phận của xe ô tô
+        </h1>
+
+        <div class="lesson-modal__body">
+          <div>
+            <aside class="lesson-panel" id="lesson-panel-left">
+              <button 
+                id="lesson-panel-button-left" 
+                class="lesson-modal__nav lesson-modal__nav--prev"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+
+              <div class="lesson-panel__content" id="lessonSummary">
+                Không tìm thấy nội dung tóm tắt.
+              </div>
+            </aside>
+
+            <button 
+              id="lesson-button-left" 
+              class="lesson-modal__nav lesson-modal__nav--prev"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <main class="lesson-view">
+
+            <!-- <iframe
+              id="lessonFrame"
+              src="lesson.html"
+              allowfullscreen
+            ></iframe> -->
+            <iframe 
+              id="lessonFrame"
+              width="1041" 
+              height="450" 
+              src="https://www.youtube.com/embed/8DGmYr3N-DI?autoplay=1" 
+              title="Kỹ thuật lái xe - 360" 
+              frameborder="0" 
+              allow="accelerometer; 
+                autoplay;
+                clipboard-write; 
+                encrypted-media; 
+                gyroscope; 
+                picture-in-picture; 
+                web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen
+            ></iframe>
+
+          </main>
+
+          <div>
+            <aside class="lesson-panel" id="lesson-panel-right">
+              <button 
+                id="lesson-panel-button-right"
+                class="lesson-modal__nav lesson-modal__nav--next"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+
+              <div class="lesson-panel__content">
+                Không có câu hỏi trắc nghiệm.
+              </div>
+            </aside>
+
+            <button 
+              id="lesson-button-right"
+              class="lesson-modal__nav lesson-modal__nav--next"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
     <div
