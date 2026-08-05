@@ -1,0 +1,63 @@
+:root { --lookup-navy: #081536; --lookup-blue: #173f9f; --lookup-gold: #d5a52d; }
+.hospital-page { background: #f5f7fb; color: var(--ink-900); }
+.lookup-hero { position: relative; overflow: hidden; padding: 76px 0 68px; color: #fff; background: linear-gradient(128deg, #071432 0%, #102962 68%, #174c98 100%); }
+.lookup-hero::before { content: ""; position: absolute; inset: 0; opacity: .18; background-image: radial-gradient(circle at 82% 18%, #fff 0 1px, transparent 1.5px); background-size: 22px 22px; }
+.lookup-hero::after { content: "+"; position: absolute; right: 7vw; top: -100px; color: rgba(255,255,255,.055); font: 500 420px/1 Sora,sans-serif; }
+.lookup-hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: end; gap: 64px; }
+.lookup-eyebrow,.lookup-kicker { margin: 0 0 14px; color: #f2c858; font: 700 12px/1.3 Sora,sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+.lookup-hero h1 { max-width: 780px; margin: 0 0 20px; color: #fff; font: 700 clamp(38px,5vw,66px)/1.08 Sora,sans-serif; letter-spacing: -.045em; }
+.lookup-hero h1 em { display: inline-block; white-space: nowrap; color: #f0c95a; font-family: "Playfair Display",serif; font-weight: 600; }
+.lookup-hero__copy > p:last-child { max-width: 680px; margin: 0; color: rgba(255,255,255,.76); font-size: 17px; line-height: 1.75; }
+.lookup-hero__stats { display: grid; grid-template-columns: repeat(2, 150px); border: 1px solid rgba(255,255,255,.18); border-radius: 18px; background: rgba(255,255,255,.08); backdrop-filter: blur(12px); }
+.lookup-hero__stats div { padding: 22px; }
+.lookup-hero__stats div + div { border-left: 1px solid rgba(255,255,255,.16); }
+.lookup-hero__stats strong,.lookup-hero__stats span { display: block; }
+.lookup-hero__stats strong { margin-bottom: 8px; color: #f4cc62; font: 700 32px/1 Sora,sans-serif; }
+.lookup-hero__stats span { color: rgba(255,255,255,.75); font-size: 12px; line-height: 1.45; }
+.lookup-section { padding: 0 0 90px; }
+.lookup-panel { position: relative; z-index: 2; margin-top: -26px; padding: 30px; border: 1px solid #e1e6ef; border-radius: 22px; background: #fff; box-shadow: 0 18px 50px rgba(8,21,54,.1); }
+.lookup-panel__head { display: flex; justify-content: space-between; gap: 40px; align-items: end; margin-bottom: 24px; }
+.lookup-kicker { color: var(--lookup-blue); margin-bottom: 8px; }
+.lookup-panel h2 { margin: 0; font: 700 clamp(24px,3vw,34px)/1.2 Sora,sans-serif; letter-spacing: -.03em; }
+.lookup-panel__note { max-width: 430px; margin: 0; color: var(--ink-500); font-size: 15px; line-height: 1.65; }
+.lookup-filters { display: grid; grid-template-columns: minmax(280px,1.6fr) minmax(175px,.7fr) minmax(210px,.8fr) auto; align-items: end; gap: 12px; }
+.lookup-field { display: grid; gap: 8px; }
+.lookup-field > span { color: var(--ink-700); font-size: 14px; font-weight: 700; }
+.lookup-input-wrap { position: relative; }
+.lookup-input-wrap svg { position: absolute; left: 14px; top: 50%; width: 18px; height: 18px; fill: none; stroke: #78849b; stroke-width: 2; transform: translateY(-50%); }
+.lookup-field input,.lookup-field select { width: 100%; height: 50px; border: 1px solid #dbe1eb; border-radius: 11px; outline: none; background: #f9fafc; color: var(--ink-900); font: 500 15px "Plus Jakarta Sans",sans-serif; transition: border-color .2s,box-shadow .2s; }
+.lookup-field input { padding: 0 14px 0 43px; }.lookup-field select { padding: 0 38px 0 13px; }
+.lookup-field input:focus,.lookup-field select:focus { border-color: #6287dc; box-shadow: 0 0 0 3px rgba(46,91,191,.12); }
+.lookup-reset,.lookup-empty button { height: 48px; border: 0; border-radius: 11px; cursor: pointer; font: 700 13px Sora,sans-serif; }
+.lookup-reset { padding: 0 18px; color: var(--lookup-blue); background: #edf2ff; }
+.lookup-results-head { display: flex; justify-content: space-between; gap: 20px; align-items: center; margin: 34px 2px 18px; }
+.lookup-results-head p { margin: 0; color: var(--lookup-navy); font-size: 16px; font-weight: 700; }.lookup-results-head span { color: var(--ink-400); font-size: 14px; }
+.hospital-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+.hospital-card { display: flex; min-height: 100%; flex-direction: column; padding: 22px; border: 1px solid #e0e5ed; border-radius: 18px; background: #fff; box-shadow: 0 8px 24px rgba(8,21,54,.045); transition: transform .2s,box-shadow .2s,border-color .2s; }
+.hospital-card:hover { transform: translateY(-3px); border-color: #bdc9e3; box-shadow: 0 14px 32px rgba(8,21,54,.09); }
+.hospital-card__top { display: flex; gap: 13px; align-items: flex-start; }
+.hospital-card__number { display: grid; flex: 0 0 38px; height: 38px; place-items: center; border-radius: 10px; color: #fff; background: var(--lookup-navy); font: 700 12px Sora,sans-serif; }
+.hospital-card h3 { margin: 1px 0 7px; color: var(--lookup-navy); font: 700 17px/1.45 Sora,sans-serif; }
+.hospital-card__district { display: inline-flex; color: var(--lookup-blue); font-size: 13px; font-weight: 700; }
+.hospital-card__address { margin: 18px 0 12px; color: var(--ink-700); font-size: 15px; line-height: 1.65; }
+.hospital-card__address::before { content: "Địa chỉ mới"; display: block; margin-bottom: 3px; color: var(--ink-400); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.hospital-card__badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 13px; }
+.hospital-badge { padding: 7px 9px; border-radius: 7px; color: #345239; background: #edf7ee; font-size: 12px; font-weight: 700; }.hospital-badge--foreign { color: #735916; background: #fff6dc; }
+.hospital-card__note { margin: 0 0 15px; padding: 11px 13px; border-left: 3px solid #e4b742; color: #66552c; background: #fffaf0; font-size: 14px; line-height: 1.6; }
+.hospital-card__contact { margin-top: auto; padding-top: 14px; border-top: 1px solid #edf0f5; }
+.hospital-card__contact p { margin: 0 0 5px; color: var(--ink-500); font-size: 14px; line-height: 1.5; }.hospital-card__contact strong { color: var(--ink-800); }
+.hospital-card__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+.hospital-card__actions a { display: inline-flex; min-height: 42px; align-items: center; justify-content: center; gap: 7px; border-radius: 9px; font-size: 14px; font-weight: 700; }
+.hospital-card__call { color: var(--lookup-blue); background: #edf2ff; }.hospital-card__map { color: #fff; background: var(--lookup-blue); }.hospital-card__actions a:only-child { grid-column: 1/-1; }
+.lookup-pagination { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin-top: 30px; }
+.lookup-pagination button { min-width: 42px; height: 42px; padding: 0 12px; border: 1px solid #d8dfeb; border-radius: 9px; cursor: pointer; color: var(--lookup-navy); background: #fff; font: 700 13px Sora,sans-serif; transition: color .2s,background .2s,border-color .2s; }
+.lookup-pagination button:hover:not(:disabled) { border-color: var(--lookup-blue); color: var(--lookup-blue); }
+.lookup-pagination button.is-active { border-color: var(--lookup-blue); color: #fff; background: var(--lookup-blue); }
+.lookup-pagination button:disabled { cursor: default; opacity: .4; }
+.lookup-pagination__ellipsis { display: grid; min-width: 24px; height: 42px; place-items: center; color: var(--ink-400); }
+.lookup-empty { padding: 58px 20px; text-align: center; border: 1px dashed #cbd3e1; border-radius: 18px; background: #fff; }.lookup-empty strong { display: block; margin-bottom: 8px; font: 700 18px Sora,sans-serif; }.lookup-empty p { color: var(--ink-500); }.lookup-empty button { margin-top: 10px; padding: 0 18px; color: #fff; background: var(--lookup-blue); }
+.lookup-advice { display: flex; gap: 18px; margin-top: 44px; padding: 25px 28px; border: 1px solid #d8dfeb; border-radius: 16px; background: #eef2f8; }
+.lookup-advice__icon { display: grid; flex: 0 0 34px; height: 34px; place-items: center; border-radius: 50%; color: #fff; background: var(--lookup-blue); font: 700 16px Georgia,serif; }.lookup-advice h2 { margin: 0 0 7px; font: 700 17px Sora,sans-serif; }.lookup-advice p { margin: 0; color: var(--ink-600); font-size: 15px; line-height: 1.7; }
+@media (max-width: 1050px) { .lookup-filters { grid-template-columns: 1fr 1fr; }.lookup-field--search { grid-column: 1/-1; }.hospital-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 760px) { .lookup-hero { padding: 52px 0 62px; }.lookup-hero__inner { grid-template-columns: 1fr; gap: 30px; }.lookup-hero__stats { grid-template-columns: repeat(2,1fr); }.lookup-panel { padding: 22px 18px; }.lookup-panel__head { display: block; }.lookup-panel__note { margin-top: 12px; }.lookup-filters { grid-template-columns: 1fr; }.lookup-field--search { grid-column: auto; }.hospital-grid { grid-template-columns: 1fr; }.lookup-results-head { align-items: flex-start; flex-direction: column; gap: 5px; }.lookup-advice { padding: 21px 18px; }.lookup-hero::after { display: none; } }
+@media (max-width: 420px) { .lookup-hero__stats { grid-template-columns: 1fr; }.lookup-hero__stats div + div { border-top: 1px solid rgba(255,255,255,.16); border-left: 0; }.hospital-card__actions { grid-template-columns: 1fr; }.hospital-card__actions a { grid-column: 1; } }

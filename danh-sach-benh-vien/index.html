@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <meta
+      name="description"
+      content="Tra cứu cơ sở khám sức khỏe lái xe ô tô tại TP.HCM và khu vực lân cận dành cho học viên HPO."
+    />
+    <title>Tra cứu bệnh viện khám sức khỏe lái xe | HPO</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="../assets/images/favicon.png"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="../style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
+  </head>
+  <body class="hospital-page">
+    <div
+      id="siteHeader"
+      data-base="../"
+      data-page="hospital-lookup"
+    ></div>
+    <script src="../assets/js/site-header.js"></script>
+
+    <main id="main-content">
+      <section
+        class="lookup-hero"
+        aria-labelledby="page-title"
+      >
+        <div class="container lookup-hero__inner">
+          <div class="lookup-hero__copy">
+            <p class="lookup-eyebrow">Tiện ích cho học viên HPO</p>
+            <h1 id="page-title">Tra cứu nơi khám <em>sức khỏe lái xe</em></h1>
+            <p>
+              Tìm nhanh bệnh viện, trung tâm y tế và phòng khám có dịch vụ khám sức
+              khỏe dành cho người học lái xe ô tô.
+            </p>
+          </div>
+          <div
+            class="lookup-hero__stats"
+            aria-label="Thống kê dữ liệu"
+          >
+            <div>
+              <strong id="driverCount">—</strong><span>Cơ sở khám lái xe</span>
+            </div>
+            <div>
+              <strong id="facilityCount">—</strong><span>Cơ sở trong dữ liệu</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="lookup-section"
+        aria-labelledby="lookup-title"
+      >
+        <div class="container">
+          <div class="lookup-panel">
+            <div class="lookup-panel__head">
+              <div>
+                <p class="lookup-kicker">Danh sách cơ sở y tế</p>
+                <h2 id="lookup-title">Chọn nơi khám thuận tiện</h2>
+              </div>
+              <p class="lookup-panel__note">
+                Nên gọi xác nhận lịch khám, chi phí và giấy tờ cần mang theo trước
+                khi đến.
+              </p>
+            </div>
+
+            <form
+              class="lookup-filters"
+              id="filterForm"
+              role="search"
+            >
+              <label class="lookup-field lookup-field--search">
+                <span>Tìm theo tên hoặc địa chỉ</span>
+                <div class="lookup-input-wrap">
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <circle
+                      cx="11"
+                      cy="11"
+                      r="7"
+                    ></circle>
+                    <path d="m20 20-4-4"></path>
+                  </svg>
+                  <input
+                    id="searchInput"
+                    type="search"
+                    placeholder="Ví dụ: Bệnh viện An Bình, Nguyễn Trãi…"
+                    autocomplete="off"
+                  />
+                </div>
+              </label>
+              <label class="lookup-field">
+                <span>Khu vực</span>
+                <select id="districtSelect">
+                  <option value="">Tất cả khu vực</option>
+                </select>
+              </label>
+              <label class="lookup-field">
+                <span>Nhu cầu khám</span>
+                <select id="serviceSelect">
+                  <option value="driver">Khám sức khỏe lái xe</option>
+                  <option value="foreign">Khám cho người nước ngoài</option>
+                  <option value="all">Tất cả cơ sở</option>
+                </select>
+              </label>
+              <button
+                class="lookup-reset"
+                id="resetButton"
+                type="button"
+              >
+                Đặt lại
+              </button>
+            </form>
+          </div>
+
+          <div class="lookup-results-head">
+            <p
+              id="resultSummary"
+              aria-live="polite"
+            >
+              Đang tải dữ liệu…
+            </p>
+          </div>
+          <div
+            class="hospital-grid"
+            id="hospitalGrid"
+            aria-live="polite"
+            aria-busy="true"
+          ></div>
+          <div
+            class="lookup-empty"
+            id="emptyState"
+            hidden
+          >
+            <strong>Chưa tìm thấy cơ sở phù hợp</strong>
+            <p>Hãy thử tên khác, bỏ chọn khu vực hoặc thay đổi nhu cầu khám.</p>
+            <button
+              type="button"
+              id="emptyReset"
+            >
+              Xem tất cả cơ sở khám lái xe
+            </button>
+          </div>
+          <nav
+            class="lookup-pagination"
+            id="pagination"
+            aria-label="Phân trang kết quả"
+            hidden
+          ></nav>
+
+          <aside
+            class="lookup-advice"
+            aria-labelledby="advice-title"
+          >
+            <div class="lookup-advice__icon">i</div>
+            <div>
+              <h2 id="advice-title">Lưu ý trước khi đi khám</h2>
+              <p>
+                Thông tin có thể thay đổi theo từng thời điểm. Học viên nên liên hệ
+                trực tiếp cơ sở y tế để xác nhận cơ sở còn thực hiện khám sức khỏe
+                lái xe và hỏi trước về hồ sơ, ảnh thẻ, thời gian trả kết quả.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="siteFooter"
+      data-base="../"
+    ></div>
+    <script src="../assets/js/site-footer.js"></script>
+    <script src="../script.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
