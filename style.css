@@ -395,6 +395,14 @@ button {
   color: var(--blue-600);
   background: var(--blue-50);
 }
+.nav-item > a[aria-current="page"] {
+  color: var(--accent);
+  background: transparent;
+  font-weight: 600;
+}
+.nav-item > a[aria-current="page"]::before {
+  content: none;
+}
 .nav-item.has-dropdown > a::after {
   content: "";
   width: 6px;
@@ -450,6 +458,12 @@ button {
   background: var(--surface);
   color: var(--blue-600);
 }
+.nav-dropdown a[aria-current="page"] {
+  color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: inset 2px 0 0 rgba(255, 107, 53, 0.55);
+  font-weight: 600;
+}
 .nav-dropdown a .dd-dot {
   width: 6px;
   height: 6px;
@@ -459,6 +473,10 @@ button {
 }
 .nav-dropdown a:hover .dd-dot {
   background: var(--accent);
+}
+.nav-dropdown a[aria-current="page"] .dd-dot {
+  background: var(--accent);
+  box-shadow: none;
 }
 
 .nav-actions {
@@ -6920,6 +6938,12 @@ button {
   background: var(--surface);
   color: var(--blue-600);
 }
+.mobile-menu-list a[aria-current="page"] {
+  color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: inset 2px 0 0 rgba(255, 107, 53, 0.55);
+  font-weight: 600;
+}
 .mobile-menu-group {
   padding: 6px 0;
 }
@@ -6930,6 +6954,10 @@ button {
   font-size: 15px;
   font-weight: 600;
   color: var(--ink-900);
+}
+.mobile-menu-label.is-active {
+  color: var(--accent);
+  font-weight: 700;
 }
 .mobile-menu-list a.mobile-menu-child {
   position: relative;
@@ -6952,6 +6980,10 @@ button {
 }
 .mobile-menu-list a.mobile-menu-child:hover::before {
   background: var(--accent);
+}
+.mobile-menu-list a.mobile-menu-child[aria-current="page"]::before {
+  background: var(--accent);
+  box-shadow: none;
 }
 .mobile-menu-foot {
   margin-top: auto;
