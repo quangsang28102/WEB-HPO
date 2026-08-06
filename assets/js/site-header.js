@@ -68,10 +68,10 @@
 
           <ul class="nav-links">
             <li class="nav-item has-dropdown">
-              <a href="${href("gioi-thieu/trung-tam-giao-duc-nghe-nghiep/")}"${current("training-center")}>Giới thiệu</a>
+              <a href="${href("gioi-thieu/trung-tam-giao-duc-nghe-nghiep/")}"${current("training-center", "exam-center")}>Giới thiệu</a>
               <div class="nav-dropdown">
-                <a href="${href("gioi-thieu/trung-tam-giao-duc-nghe-nghiep/")}"><span class="dd-dot"></span> Trung tâm giáo dục nghề nghiệp</a>
-                <a href="https://hpo.edu.vn/trung-tam-sat-hach/"><span class="dd-dot"></span> Trung tâm sát hạch lái xe ô tô</a>
+                <a href="${href("gioi-thieu/trung-tam-giao-duc-nghe-nghiep/")}"${current("training-center")}><span class="dd-dot"></span> Trung tâm giáo dục nghề nghiệp</a>
+                <a href="${href("gioi-thieu/trung-tam-sat-hach/")}"${current("exam-center")}><span class="dd-dot"></span> Trung tâm sát hạch lái xe ô tô</a>
               </div>
             </li>
             <li class="nav-item"><a href="https://hpo.edu.vn/hoc-phi/">Học phí</a></li>
@@ -133,7 +133,11 @@
         </div>
         <nav class="mobile-menu-list">
           <a href="${href("index.html")}"${current("home")}>Trang chủ</a>
-          <a href="${href("gioi-thieu/trung-tam-giao-duc-nghe-nghiep/")}"${current("training-center")}>Giới thiệu</a>
+          <div class="mobile-menu-group">
+            <span class="mobile-menu-label">Giới thiệu</span>
+            <a class="mobile-menu-child" href="${href("gioi-thieu/trung-tam-giao-duc-nghe-nghiep/")}"${current("training-center")}>Trung tâm giáo dục nghề nghiệp</a>
+            <a class="mobile-menu-child" href="${href("gioi-thieu/trung-tam-sat-hach/")}"${current("exam-center")}>Trung tâm sát hạch lái xe</a>
+          </div>
           <a href="https://hpo.edu.vn/hoc-phi/">Học phí</a>
           <a href="${href("quy-dinh-chuong-trinh-hoc-lai-xe/")}"${current("process")}>Quy định chương trình học lái xe</a>
           <div class="mobile-menu-group">
