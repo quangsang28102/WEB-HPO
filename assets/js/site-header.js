@@ -68,9 +68,9 @@
 
           <ul class="nav-links">
             <li class="nav-item has-dropdown">
-              <a href="https://hpo.edu.vn/trung-tam-dao-tao/">Giới thiệu</a>
+              <a href="${href("gioi-thieu/trung-tam-giao-duc-nghe-nghiep/")}"${current("training-center")}>Giới thiệu</a>
               <div class="nav-dropdown">
-                <a href="https://hpo.edu.vn/trung-tam-dao-tao/"><span class="dd-dot"></span> Trung tâm giáo dục nghề nghiệp</a>
+                <a href="${href("gioi-thieu/trung-tam-giao-duc-nghe-nghiep/")}"><span class="dd-dot"></span> Trung tâm giáo dục nghề nghiệp</a>
                 <a href="https://hpo.edu.vn/trung-tam-sat-hach/"><span class="dd-dot"></span> Trung tâm sát hạch lái xe ô tô</a>
               </div>
             </li>
@@ -133,7 +133,7 @@
         </div>
         <nav class="mobile-menu-list">
           <a href="${href("index.html")}"${current("home")}>Trang chủ</a>
-          <a href="https://hpo.edu.vn/trung-tam-dao-tao/">Giới thiệu</a>
+          <a href="${href("gioi-thieu/trung-tam-giao-duc-nghe-nghiep/")}"${current("training-center")}>Giới thiệu</a>
           <a href="https://hpo.edu.vn/hoc-phi/">Học phí</a>
           <a href="${href("quy-dinh-chuong-trinh-hoc-lai-xe/")}"${current("process")}>Quy định chương trình học lái xe</a>
           <div class="mobile-menu-group">
