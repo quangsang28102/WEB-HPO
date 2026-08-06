@@ -158,7 +158,7 @@
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 50%;
   color: #ff8356;
-  font: 700 10px var(--ff-display);
+  font: 700 14px var(--ff-display);
 }
 .exam-gallery__label h3 {
   font: 700 21px var(--ff-display);
