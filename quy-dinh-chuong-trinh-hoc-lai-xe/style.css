@@ -643,6 +643,11 @@ em {
   width: 110%;
 }
 
+/* Keep the transparent GPLX car faces at the same visual scale. */
+.gplx-image__front--equal-scale {
+  width: 100%;
+}
+
 /* Mặt sau quay sẵn 180° */
 .gplx-image__back {
   transform: rotateY(180deg);
@@ -4326,7 +4331,6 @@ body.mon-modal-open {
 .lesson-modal__close:hover{
   transform:scale(1.08);
 }
-
 .lesson-summary-title,
 .lesson-question-title {
   padding: 0 !important;
