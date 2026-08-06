@@ -1,0 +1,1336 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "target": "cac-tinh-huong-ung-xu-khi-tham-gia-giao-thong",
+      "src": "",
+      "content": [
+        {
+          "id": 1,
+          "title": "Thực hiện đúng quy tắc giao thông đường bộ",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Đi bên phải theo chiều đi của mình.",
+            "Đi đúng làn đường, phần đường quy định.",
+            "Chấp hành hệ thống báo hiệu đường bộ.",
+            "Dừng xe đúng vạch khi có tín hiệu dừng.",
+            "Chủ động nhường đường cho người đi bộ."
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Có trách nhiệm với bản thân và cộng đồng",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Không phóng nhanh, vượt ẩu; đường giao thông không phải đường đua.",
+            "Khi trời mưa phải giảm tốc độ, đi chậm và tránh làm té nước vào người khác.",
+            "Báo hiệu trước khi rẽ, vượt, dừng hoặc đỗ xe.",
+            "Luôn tập trung, ý thức rằng lái xe an toàn mới là lái xe giỏi.",
+            "Không đi vào vùng mù hoặc quỹ đạo chuyển động của xe đang rẽ.",
+            "Quan sát kỹ trước khi mở cửa xe.",
+            "Không đi dàn hàng ngang gây cản trở giao thông.",
+            "Giữ khoảng cách an toàn với xe phía trước.",
+            "Chở đúng số người, đúng trọng tải và kích thước cho phép.",
+            "Không chở hàng quá khổ, quá tải.",
+            "Không sử dụng rượu, bia trước và trong khi điều khiển phương tiện."
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Lái xe an toàn, bình tĩnh và nhường nhịn",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Tuân thủ luật giao thông, chủ động phán đoán và phòng tránh tai nạn.",
+            "Giữ thái độ bình tĩnh, không nóng giận, quát tháo hoặc có hành vi thô tục.",
+            "Không lạng lách, đánh võng, chen lấn hoặc chuyển làn thiếu an toàn.",
+            "Tôn trọng, dung hòa và nhường nhịn những người cùng tham gia giao thông.",
+            "Khi xảy ra va chạm hoặc tai nạn phải bình tĩnh, nhìn nhận khách quan và giải quyết hợp tình, hợp lý.",
+            "Biết kiềm chế cảm xúc để tránh làm tình hình căng thẳng, hỗn loạn hơn."
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Thể hiện tình người khi tham gia giao thông",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Sẵn sàng giúp đỡ người khác mà không mong được đền đáp.",
+            "Quan tâm, hỗ trợ người già, trẻ em, người bệnh và phụ nữ có thai.",
+            "Tận tâm giúp đỡ người bị tai nạn hoặc gặp sự cố trên đường.",
+            "Những hành động nhỏ như dắt người già, trẻ em qua đường đều có ý nghĩa.",
+            "Tôn trọng, nhường nhịn và giúp đỡ nhau góp phần lan tỏa tình yêu thương trong cộng đồng.",
+            "Văn hóa giao thông là thước đo trình độ văn hóa, danh dự và nhân phẩm của con người Việt Nam."
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": 1,
+          "question": "Hành vi nào sau đây thể hiện văn hóa giao thông?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Phát tín hiệu báo trước khi chuyển làn.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "Chú ý sự xuất hiện của cảnh sát giao thông.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Cố gắng đi thật nhanh để tiết kiệm thời gian.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Bấm còi để các xe khác nhường đường.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "Khi tham gia giao thông, vì sao cần giữ khoảng cách an toàn với xe phía trước?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Để dễ dàng vượt qua xe trước trong trường hợp cần thiết.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Để có đủ thời gian và khoảng trống xử lý tình huống.",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "Để có thể quan sát rõ biển báo trên đường.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Vì luật yêu cầu, nhưng thực tế không cần thiết.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "question": "Điều gì có thể xảy ra nếu mở cửa xe mà không quan sát?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Các phương tiện khác khi đi tới sẽ phải vòng ra để tự tránh.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Có thể gây tai nạn cho người đi xe máy, xe đạp hoặc người đi bộ.",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "Có thể gây ra tai nạn hoặc va chạm cho người ở trong xe.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Chỉ nguy hiểm khi mở cửa bên trái, không ảnh hưởng khi mở cửa bên phải.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "question": "Khi trời mưa, người lái xe cần làm gì để đảm bảo an toàn?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Đi thật nhanh để thoát nếu mưa nhỏ và dừng lại nếu mưa lớn.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Phanh lại để quan sát khi thấy nước đọng trên mặt đường.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Không cần điều chỉnh tốc độ nếu xe có hệ thống phanh tốt.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Giảm tốc độ, giữ khoảng cách và tránh đi qua vũng nước sâu.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "question": "Hành vi nào sau đây có thể gây mất an toàn khi tham gia giao thông?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Báo hiệu quá sớm trước khi rẽ, vượt, đỗ xe.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Đi về phía bên trái của phần đường, làn đường quy định.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Đi chậm rất chậm trên đường chỉ có một làn cho xe chạy cùng chiều.",
+              "correct": true
+            },
+            {
+              "id": "D",
+              "text": "Giảm tốc độ xuống thấp khi đi qua khu vực đông dân cư vào ban ngày.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "question": "Tại sao bình tĩnh và nhường nhịn là yếu tố quan trọng khi tham gia giao thông?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Giúp tránh các vụ va chạm và xung đột không đáng có.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "Giúp lái xe nhanh hơn và hiệu quả hơn.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Giúp tăng khả năng giành quyền ưu tiên trên đường.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Giúp giao tiếp tốt với cảnh sát hoặc thanh tra giao thông.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "question": "Khi gặp tai nạn giao thông, người tham gia giao thông nên làm gì?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Giữ bình tĩnh, đánh giá tình huống khách quan và hỗ trợ người bị nạn.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "Quan sát hiện trường kỹ càng để có cơ sở bảo vệ quyền lợi của mình.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Rời đi ngay nếu không nghiêm trọng để tránh rắc rối liên quan.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Tranh thủ chụp ảnh và đăng lên mạng xã hội để làm bằng chứng.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "question": "Văn hóa giao thông có ý nghĩa như thế nào đối với xã hội?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Không ảnh hưởng nhiều đến sự phát triển của xã hội.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Cho biết trình độ văn hóa của một quốc gia.",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "Chỉ quan trọng đối với người lái xe chuyên nghiệp.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Chỉ cần tuân thủ luật giao thông đầy đủ là phù hợp.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "question": "Khi xe của bạn gặp sự cố trên đường, nên làm gì trước tiên?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Lái xe chậm lại vào lề đường để tìm cách sửa chữa hoặc nhờ giúp đỡ.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Dừng lại ngay lập tức để tránh hư hỏng thêm phương tiện.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Bật tín hiệu khẩn cấp, di chuyển vào vị trí an toàn nếu có thể.",
+              "correct": true
+            },
+            {
+              "id": "D",
+              "text": "Dừng lại và rời khỏi xe để xem xét vấn đề, đặt biển cảnh báo nếu cần.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "question": "Trong các tình huống nào sau đây, bạn thể hiện văn hóa giao thông tốt?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Nhường đường cho người đi bộ, giúp đỡ người già và trẻ em qua đường.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Hỗ trợ người bị tai nạn bằng cách gọi cấp cứu hoặc sơ cứu nếu có thể.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Chia sẻ thông tin về tình hình giao thông để giúp đỡ những người khác di chuyển an toàn.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Cả ba phương án trên đều đúng.",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "target": "cac-tinh-huong-ung-xu-khi-tham-gia-giao-thong-(2)",
+      "src": "",
+      "content": [
+        {
+          "id": 1,
+          "title": "Khi gặp người lái xe ẩu",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Giữ bình tĩnh để giảm sự căng thẳng.",
+            "Không đáp trả bằng hành vi tương tự.",
+            "Báo cho cơ quan chức năng nếu có nguy hiểm nghiêm trọng."
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Khi bị cắt ngang đầu xe, chuyển làn không báo trước",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Kiểm soát tốc độ và giữ khoảng cách an toàn.",
+            "Nhường đường nếu an toàn để tránh va chạm.",
+            "Không cố gắng tranh giành."
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Khi gặp đèn đỏ kéo dài, tắc đường",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Giữ thái độ kiên nhẫn, không bóp còi.",
+            "Không chen lấn, lạng lách.",
+            "Tắt máy nếu thời gian chờ đèn đỏ lâu."
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Khi xe của bạn gặp sự cố trên đường",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Bật đèn tín hiệu khẩn cấp.",
+            "Di chuyển xe vào vị trí an toàn nếu có thể.",
+            "Gọi cứu hộ nếu không thể tự khắc phục sự cố.",
+            "Đặt cảnh báo nguy hiểm phía sau xe."
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Khi gặp tai nạn giao thông",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Giữ bình tĩnh.",
+            "Kiểm tra và sơ cứu người bị nạn.",
+            "Gọi cấp cứu 115 nếu có người bị thương nặng.",
+            "Bảo vệ hiện trường, trừ khi cần di chuyển xe để đảm bảo an toàn.",
+            "Báo cho cơ quan công an theo số 113.",
+            "Hợp tác với cơ quan điều tra.",
+            "Ứng xử lịch sự, tôn trọng dù có lỗi hay không."
+          ]
+        },
+        {
+          "id": 6,
+          "title": "Khi giúp đỡ người khác gặp khó khăn trên đường",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Dừng xe ở vị trí an toàn.",
+            "Hỏi han và giúp đỡ tận tình.",
+            "Không đòi hỏi sự biết ơn."
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Những hành động thể hiện tình người trên đường",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Nhường đường và quan tâm đến người yếu thế.",
+            "Giúp đỡ người bị tai nạn bằng cách sơ cứu, gọi cấp cứu hoặc hỏi han.",
+            "Tặng nước, thức ăn cho người gặp nạn.",
+            "Chia sẻ thông tin về tình hình giao thông.",
+            "Tham gia các hoạt động tình nguyện giao thông."
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": 1,
+          "question": "Tại sao bình tĩnh và nhường nhịn là yếu tố quan trọng khi tham gia giao thông?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Giúp tránh các vụ va chạm và xung đột không đáng có.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "Giúp lái xe nhanh hơn và hiệu quả hơn.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Giúp tăng khả năng giành quyền ưu tiên trên đường.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Giúp giao tiếp tốt với cảnh sát hoặc thanh tra giao thông.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "Khi gặp tai nạn giao thông, người tham gia giao thông nên làm gì?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Giữ bình tĩnh, đánh giá tình huống khách quan và hỗ trợ người bị nạn.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "Quan sát hiện trường kỹ càng để có cơ sở bảo vệ quyền lợi của mình.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Rời đi ngay nếu không nghiêm trọng để tránh rắc rối liên quan.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Tranh thủ chụp ảnh và đăng lên mạng xã hội để làm bằng chứng.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "question": "Văn hóa giao thông có ý nghĩa như thế nào đối với xã hội?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Không ảnh hưởng nhiều đến sự phát triển của xã hội.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Cho biết trình độ văn hóa của một quốc gia.",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "Chỉ quan trọng đối với người lái xe chuyên nghiệp.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Chỉ cần tuân thủ luật giao thông đầy đủ là phù hợp.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "question": "Khi xe của bạn gặp sự cố trên đường, nên làm gì trước tiên?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Lái xe chậm lại vào lề đường để tìm cách sửa chữa hoặc nhờ giúp đỡ.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Dừng lại ngay lập tức để tránh hư hỏng thêm phương tiện.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Bật tín hiệu khẩn cấp, di chuyển vào vị trí an toàn nếu có thể.",
+              "correct": true
+            },
+            {
+              "id": "D",
+              "text": "Dừng lại và rời khỏi xe để xem xét vấn đề, đặt biển cảnh báo nếu cần.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "question": "Trong các tình huống nào sau đây, bạn thể hiện văn hóa giao thông tốt?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Nhường đường cho người đi bộ, giúp đỡ người già và trẻ em qua đường.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Hỗ trợ người bị tai nạn bằng cách gọi cấp cứu hoặc sơ cứu nếu có thể.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Chia sẻ thông tin về tình hình giao thông để giúp đỡ những người khác di chuyển an toàn.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Cả ba phương án trên đều đúng.",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "target": "tac-hai-cua-su-dung-ruou-bia-khi-lai-xe",
+      "src": "",
+      "content": [
+        {
+          "id": 1,
+          "title": "Tác hại của rượu, bia đối với sức khỏe",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Gây ra nhiều bệnh nguy hiểm như ung thư, bệnh tim mạch, xơ gan và rối loạn thần kinh.",
+            "Là nguyên nhân trực tiếp hoặc gián tiếp của hàng trăm loại bệnh, làm suy giảm hệ miễn dịch và ảnh hưởng đến bào thai.",
+            "Là nguyên nhân gây tử vong cao, với hơn 3,3 triệu ca tử vong mỗi năm trên thế giới."
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Tác hại của rượu, bia đối với gia đình và xã hội",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Gây ra nhiều vụ tai nạn giao thông nghiêm trọng, đặc biệt ở nam giới.",
+            "Là nguyên nhân của bạo lực gia đình, mất an ninh trật tự và nhiều hành vi vi phạm pháp luật.",
+            "Ảnh hưởng tiêu cực đến trẻ em, phụ nữ và các nhóm dân cư dễ bị tổn thương."
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Tác hại của rượu, bia đối với kinh tế",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Làm gia tăng gánh nặng chi phí y tế do các bệnh liên quan đến rượu, bia.",
+            "Làm suy giảm năng suất lao động, gây tổn thất kinh tế lớn cho cá nhân, gia đình và xã hội.",
+            "Tại Việt Nam, chi phí giải quyết hậu quả tai nạn liên quan đến rượu, bia chiếm khoảng 1% GDP."
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Tác hại của rượu, bia khi lái xe",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Làm chậm phản xạ, giảm khả năng phán đoán và xử lý tình huống.",
+            "Làm giảm tầm nhìn và khả năng phối hợp giữa mắt, tay và chân, làm tăng nguy cơ tai nạn.",
+            "Tại Việt Nam, hơn 35% vụ tai nạn giao thông có liên quan đến rượu, bia; tỷ lệ này tăng cao vào các dịp lễ, Tết."
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Các mức nồng độ cồn và ảnh hưởng đến khả năng lái xe",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Nồng độ cồn càng cao thì khả năng kiểm soát phương tiện càng giảm.",
+            "Nồng độ cồn 0,08% đã đủ gây mất khả năng kiểm soát phương tiện.",
+            "Chỉ có thời gian mới giúp cơ thể đào thải hết cồn; các biện pháp như uống cà phê hoặc nước chanh không có tác dụng."
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": 1,
+          "question": "Rượu, bia gây ảnh hưởng như thế nào khi lái xe?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Tăng khả năng tập trung và phản xạ nhanh hơn với phương tiện.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Giảm khả năng phán đoán, phản xạ và kiểm soát phương tiện.",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "Làm cho người lái xe thoải mái, vui vẻ hơn khi đi đường dài.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Không có ảnh hưởng đáng kể nếu uống ít.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "Tại sao rượu, bia làm tăng nguy cơ tai nạn giao thông?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Vì làm tăng sự tự tin và hưng phấn của người lái xe khi phản ứng tình huống.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Vì làm giảm căng thẳng khi tham gia giao thông và xử lý tình huống giao thông.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Vì làm giảm sự phối hợp giữa mắt, tay, chân và làm chậm thời gian phản ứng.",
+              "correct": true
+            },
+            {
+              "id": "D",
+              "text": "Vì làm người lái xe điều khiển phương tiện ở tốc độ cao hơn.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "question": "Ở Việt Nam, theo số liệu năm 2017, chi phí giải quyết hậu quả tai nạn liên quan đến rượu, bia chiếm khoảng bao nhiêu phần trăm GDP?",
+          "options": [
+            {
+              "id": "A",
+              "text": "0,5% GDP.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "1% GDP.",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "2% GDP.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "5% GDP.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "question": "Biện pháp nào giúp cơ thể đào thải rượu, bia một cách hiệu quả nhất?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Uống cà phê hoặc nước chanh để giải rượu nhanh hơn.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Ngủ đủ giấc sẽ tỉnh táo lại ngay lập tức.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Tắm nước lạnh để tỉnh táo nhanh chóng.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Chỉ có thời gian mới giúp cơ thể đào thải hết cồn.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "question": "Khi lái xe, nồng độ cồn trong máu bao nhiêu là không bị cấm?",
+          "options": [
+            {
+              "id": "A",
+              "text": "0,00%.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "0,05%.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "0,10%.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "0,15%.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "target": "cac-giai-phap-phong-chong-tac-hai-ruou-bia-khi-lai-xe",
+      "src": "",
+      "content": [
+        {
+          "id": 1,
+          "title": "Xử phạt vi phạm",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Hầu hết các quốc gia đều áp dụng mức phạt nghiêm khắc, từ tiền phạt, tước giấy phép lái xe đến lao động công ích và phạt tù.",
+            "Việt Nam tăng mức xử phạt hành chính đối với các hành vi vi phạm từ năm 2025."
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Quy định pháp luật",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Luật Trật tự, an toàn giao thông đường bộ năm 2025 quy định về xử lý vi phạm liên quan đến nồng độ cồn.",
+            "Nghị định 168/2024/NĐ-CP quy định các mức xử phạt đối với người điều khiển phương tiện có nồng độ cồn.",
+            "Bộ luật Hình sự 2015 quy định tăng mức phạt tù nếu gây tai nạn giao thông có liên quan đến rượu, bia."
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Tăng cường tuần tra, kiểm soát",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Cảnh sát giao thông thường xuyên lập chốt kiểm tra nồng độ cồn.",
+            "Tăng cường tuần tra lưu động để phát hiện và xử lý vi phạm.",
+            "Hoạt động kiểm soát góp phần giảm số vụ tai nạn giao thông."
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Hoạt động tuyên truyền, giáo dục",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Tuyên truyền trên truyền hình, báo chí và các phương tiện truyền thông.",
+            "Lắp đặt biển báo và pano tuyên truyền về an toàn giao thông.",
+            "Đưa nội dung giáo dục an toàn giao thông vào trường học và chương trình đào tạo lái xe.",
+            "Hợp tác với doanh nghiệp và các tổ chức quốc tế để nâng cao ý thức cộng đồng.",
+            "Triển khai các chương trình như 'Đã uống rượu bia – Không lái xe' và 'Uống có trách nhiệm'.",
+            "Khuyến khích sử dụng phương tiện thay thế hoặc bia không cồn."
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": 1,
+          "question": "Theo Nghị định 168/2024/NĐ-CP, mức phạt tối đa đối với người lái ô tô có nồng độ cồn cao nhất là bao nhiêu?",
+          "options": [
+            {
+              "id": "A",
+              "text": "8 triệu đồng.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "20 triệu đồng.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "40 triệu đồng.",
+              "correct": true
+            },
+            {
+              "id": "D",
+              "text": "100 triệu đồng.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "Trong Bộ luật Hình sự 2015, mức phạt tù khi gây tai nạn có nồng độ cồn có thể lên đến bao nhiêu năm?",
+          "options": [
+            {
+              "id": "A",
+              "text": "3 năm.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "5 năm.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "10 năm.",
+              "correct": true
+            },
+            {
+              "id": "D",
+              "text": "15 năm.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "question": "Biện pháp nào dưới đây giúp kiểm soát hiệu quả tình trạng lái xe sử dụng rượu, bia?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Kiểm tra trực tiếp nồng độ cồn.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "Khuyến khích người dân uống bia không cồn.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Tăng thuế rượu, bia.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Tuyên truyền qua mạng xã hội.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "question": "Nội dung tuyên truyền về tác hại của rượu, bia khi lái xe được thực hiện qua hình thức nào sau đây?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Gửi thông tin đến các trường học.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Phát sóng trên truyền hình và báo chí.",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "Phát tờ rơi tại quán ăn.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Thông báo trên loa phát thanh phường.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "question": "Việt Nam thuộc nhóm các quốc gia có quy định nồng độ cồn cho phép khi lái xe ở mức nào?",
+          "options": [
+            {
+              "id": "A",
+              "text": "0,8‰.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "0,5‰.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "0,2‰.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "0,0‰.",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Sơ cứu người bị ngất",
+      "target": "so-cuu-nguoi-bi-ngat",
+      "src": "",
+      "content": [
+        {
+          "id": 1,
+          "title": "Cách đặt nạn nhân đúng tư thế",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Đảm bảo an toàn trước khi tiếp cận nạn nhân.",
+            "Nếu nạn nhân còn tỉnh táo, đặt nằm nghiêng để tránh tắc nghẽn đường thở.",
+            "Nếu nạn nhân bất tỉnh, đặt nằm ngửa để chuẩn bị thực hiện hô hấp nhân tạo."
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Đảm bảo đường thở thông thoáng",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Kiểm tra xem có vật cản trong miệng hoặc cổ họng hay không.",
+            "Khai thông đường thở bằng cách lấy dị vật ra nếu có.",
+            "Sử dụng nghiệm pháp nâng cằm hoặc đẩy hàm để mở đường thở."
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Nhận biết tình trạng không hô hấp",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Quan sát sự di động của lồng ngực.",
+            "Lắng nghe hơi thở và cảm nhận hơi thở trên má.",
+            "Nếu không có dấu hiệu thở, cần tiến hành hô hấp nhân tạo ngay."
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Thực hiện hô hấp nhân tạo",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Đặt nạn nhân nằm ngửa và khai thông đường thở.",
+            "Thổi hơi vào miệng nạn nhân với tần suất khoảng 16–18 lần/phút đối với người lớn.",
+            "Thổi hơi với tần suất khoảng 20–25 lần/phút đối với trẻ em.",
+            "Kiểm tra lại tình trạng sau mỗi 2 phút và tiếp tục cho đến khi có hỗ trợ y tế."
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Xử lý khi nạn nhân ngừng tim",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Gọi cấp cứu ngay.",
+            "Thực hiện hồi sức tim phổi (CPR) với chu kỳ 30 lần ép tim ngoài lồng ngực và 2 lần hô hấp nhân tạo.",
+            "Lặp lại chu kỳ với tần suất 100–120 lần ép tim/phút cho đến khi nạn nhân có dấu hiệu hồi phục hoặc có nhân viên y tế tiếp nhận."
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Lưu ý khi sơ cứu",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Đảm bảo an toàn cho bản thân và nạn nhân.",
+            "Giữ bình tĩnh, quan sát liên tục tình trạng của nạn nhân.",
+            "Ghi lại các thông tin cần thiết để cung cấp cho nhân viên y tế khi họ đến."
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": 1,
+          "question": "Khi nạn nhân còn nhận thức sau tai nạn, tư thế nào giúp họ dễ thở nhất?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Nằm nghiêng.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "Nằm sấp.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Nằm ngửa.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Ngồi thẳng.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "Khi nạn nhân mất ý thức và không thở được, việc đầu tiên cần làm là gì?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Gọi cấp cứu ngay lập tức.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Đánh thức nạn nhân bằng cách lay mạnh.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Dốc ngược nạn nhân và vác lên vai.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Kiểm tra và khai thông đường thở.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "question": "Hô hấp nhân tạo bằng phương pháp miệng đối miệng có tần suất bao nhiêu lần/phút đối với người lớn?",
+          "options": [
+            {
+              "id": "A",
+              "text": "10 - 12 lần.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "16 - 18 lần.",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "20 - 25 lần.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "30 - 35 lần.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "question": "Khi nạn nhân ngừng tim, phương pháp nào cần thực hiện ngay sau hô hấp nhân tạo?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Đặt nạn nhân vào tư thế nằm nghiêng.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Gọi xe cấp cứu.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Ép tim ngoài lồng ngực.",
+              "correct": true
+            },
+            {
+              "id": "D",
+              "text": "Cho nạn nhân uống nước đường.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "question": "Khi thực hiện ép tim ngoài lồng ngực, tần suất ấn ngực được khuyến nghị là bao nhiêu lần/phút?",
+          "options": [
+            {
+              "id": "A",
+              "text": "40 - 60 lần.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "80 - 100 lần.",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "120 - 140 lần.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "150 - 180 lần.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Cách đặt nạn nhân đúng tư thế",
+      "target": "so-cuu-nguoi-bi-thuong-chay-mau",
+      "src": "",
+      "content": [
+        {
+          "id": 1,
+          "title": "Cầm máu trực tiếp",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Dùng gạc hoặc vải sạch ấn chặt lên vết thương, sau đó băng ép để cầm máu."
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Cầm máu không trực tiếp",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Ấn vào các điểm động mạch quan trọng (cảnh, dưới đòn, cánh tay, bẹn) để ngăn máu chảy."
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Cầm máu bằng garo",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Áp dụng khi máu chảy quá mạnh do tổn thương động mạch. Cần tuân thủ các nguyên tắc để tránh hoại tử chi."
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Xử lý gãy xương kèm chảy máu",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "Kết hợp cầm máu và cố định xương gãy bằng nẹp để hạn chế tổn thương."
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Chuẩn bị túi cấp cứu",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "gồm băng gạc, thuốc sát trùng, băng cuộn, kéo, găng tay y tế, thuốc giảm đau, phiếu garo, v.v."
+          ]
+        },
+        {
+          "id": 6,
+          "title": "Sau khi sơ cứu",
+          "causes": [],
+          "solutions": [],
+          "other": [
+            "báo cáo ngay cho cơ quan chức năng và tuân theo hướng dẫn để đảm bảo cứu hộ kịp thời."
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": 1,
+          "question": "Phương pháp cầm máu trực tiếp thường được áp dụng khi nào?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Khi máu chảy ít, rò rỉ, có màu đỏ sẫm.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "Khi vết thương có máu chảy thành tia, phun mạnh theo nhịp tim.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Khi nạn nhân bị gãy xương hở.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Khi cần ngăn chặn toàn bộ lưu thông máu đến vùng bị thương.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "Điểm nào sau đây KHÔNG phải là vị trí ấn động mạch để cầm máu không trực tiếp?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Động mạch cảnh.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Động mạch dưới đòn.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Động mạch cổ tay.",
+              "correct": true
+            },
+            {
+              "id": "D",
+              "text": "Động mạch bẹn.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "question": "Nguyên tắc quan trọng khi sử dụng garo là gì?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Đặt trực tiếp lên da để tăng hiệu quả.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Chỉ áp dụng khi máu chảy quá nhiều từ động mạch.",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "Siết chặt tối đa và không cần nới lỏng trong nhiều giờ.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Dùng bất kỳ vật dụng nào để buộc garo, không cần kiểm tra.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "question": "Trong trường hợp nạn nhân bị gãy xương kèm chảy máu, bước xử lý đầu tiên là gì?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Cố định xương gãy trước, sau đó mới cầm máu.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Gọi cấp cứu ngay lập tức.",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "Di chuyển nạn nhân đến nơi an toàn trước khi sơ cứu.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Dùng garo ngay lập tức để ngăn chảy máu.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "question": "Tại sao túi cấp cứu khẩn cấp cần có phiếu garo?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Để làm vật dụng thay thế nếu thiếu băng gạc.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Để ghi lại thông tin cá nhân của nạn nhân.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Để sử dụng trong trường hợp không có nhân viên y tế hỗ trợ.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Để ghi chú thời gian đặt garo và tránh gây tổn thương lâu dài.",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -911,7 +911,6 @@
 
       chapLessonItem.forEach((item) => {
         item.addEventListener('click', () => {
-          console.log(12)
           const target = item.dataset.target
 
           const lesson = lessonData.find(i => i.target === target)
@@ -1061,6 +1060,215 @@
       video.src = ''
       container.innerHTML = ''
       content.innerHTML = ''
+    })
+
+    init()
+  })();
+
+  // MODAL FOR ALL CHAPTER
+  (() => {
+    const body = document.getElementById("LessonModalBody");
+    const modal = document.getElementById('LessonModal')
+    const chapLessonItem = document.querySelectorAll('.chap-lesson-wrapper')
+    const asideLeft = document.getElementById('LessonPanelLeft')
+    const asideRight = document.getElementById('LessonPanelRight')
+    const btnAsideLeft = document.getElementById('LessonPanelButtonLeft')
+    const btnAsideRight = document.getElementById('LessonPanelButtonRight')
+    const lessonButtonLeft = document.getElementById('LessonButtonLeft')
+    const lessonButtonRight = document.getElementById('LessonButtonRight')
+    const buttonModalClose = document.getElementById('LessonCloseButton')
+    const video = document.getElementById('LessonFrame')
+    const modalTitle = document.getElementById('LessonModalTitle')
+    const lessonContent = document.querySelector('.lesson-summary-list-content')
+    const lessonContainer = document.getElementById("quiz-container-content");
+
+    if (!modal || !chapLessonItem) return;
+
+    let lessonData = []
+
+    const TITLE = {
+      'cac-tinh-huong-ung-xu-khi-tham-gia-giao-thong': 'Các tình huống ứng xử khi tham gia giao thông',
+      // 'cac-tinh-huong-ung-xu-khi-tham-gia-giao-thong-(2)': 'Các tình huống ứng xử khi tham gia giao thông - Phần 2',
+      'tac-hai-cua-su-dung-ruou-bia-khi-lai-xe': 'Tác hại của việc sử dụng rượu, bia khi lái xe',
+      'cac-giai-phap-phong-chong-tac-hai-ruou-bia-khi-lai-xe': 'Các giải pháp phòng, chống tác hại của rượu, bia khi lái xe',
+      'so-cuu-nguoi-bi-ngat': 'Sơ cứu người bị ngất',
+      'so-cuu-nguoi-bi-thuong-chay-mau': 'Sơ cấp cứu người bị thương chảy máu'
+    }
+
+    async function init() {
+      const response = await fetch("../assets/data/lesson-data.json");
+      const json = await response.json();
+
+      lessonData = json.data;
+
+      chapLessonItem.forEach((item) => {
+        item.addEventListener('click', () => {
+          const target = item.dataset.target
+
+          const lesson = lessonData.find(i => i.target === target)
+
+          if (!lesson) return;
+
+          const title = TITLE[target] || 'Bài giảng'
+
+          modalTitle.textContent = title
+          modal.classList.add('is-open')
+          video.src = lesson.src || ""
+
+          if (lesson.content.length > 0) {
+            lessonContent.innerHTML = lesson.content.map((item) =>
+              `
+                <div class="lesson-summary-content">
+                    <h4>${item.title}</h4>
+    
+                    <div class="lesson-summary-content-wrapper">
+                      ${(item.causes && item.causes.length > 0) ? `
+                        <div class="lesson-summary-content-item">
+                          <p>Nguyên nhân:</p>
+                          <ul>
+                            ${item.causes
+                  .map(cause => `<li>${cause}</li>`)
+                  .join("")}
+                          </ul>
+                        </div>  
+                      ` : ""}
+    
+                      ${(item.solutions && item.solutions.length > 0) ? `
+                        <div class="lesson-summary-content-item">
+                          <p>Biện pháp:</p>
+                          <ul>
+                            ${item.solutions
+                  .map(solution => `<li>${solution}</li>`)
+                  .join("")}
+                          </ul>
+                        </div>  
+                      ` : ""}
+
+                      ${(item.other && item.other.length > 0) ? `
+                        <div class="lesson-summary-content-item">
+                          <ul>
+                            ${item.other
+                  .map(other => `<li>${other}</li>`)
+                  .join("")}
+                          </ul>
+                          
+                        </div>  
+                      ` : ''}
+                    </div>
+                  </div>
+              `
+            )
+              .join("")
+          }
+
+          // quiz
+          lessonContainer.innerHTML = lesson.questions.map(question => {
+
+            const answers = question.options.map(answer => `
+              <div
+                class="quiz-option"
+                data-correct="${answer.correct ? "true" : "false"}"
+              >
+                <div class="quiz-option-label">
+                  ${answer.id}
+                </div>
+
+                <div class="quiz-option-text">
+                  ${answer.text}
+                </div>
+              </div>
+            `).join("");
+
+            return `
+            <div class="quiz-item">
+              <h2>
+                <span>Câu ${question.id}.</span>
+                ${question.question}
+              </h2>
+
+              <div class="quiz-options">
+                ${answers}
+              </div>
+
+            </div>
+          `;
+
+          }).join("");
+
+          document.querySelectorAll('.quiz-options').forEach(group => {
+            const options = group.querySelectorAll(".quiz-option");
+
+            options.forEach(option => {
+
+              option.addEventListener("click", () => {
+
+                // Nếu đã chọn rồi thì không cho chọn nữa
+                if (group.classList.contains("answered")) return;
+
+                group.classList.add("answered");
+
+                const isCorrect = option.dataset.correct === "true";
+
+                if (isCorrect) {
+                  option.classList.add("correct");
+                } else {
+                  option.classList.add("wrong");
+
+                  // Highlight đáp án đúng
+                  options.forEach(op => {
+                    if (op.dataset.correct === "true") {
+                      op.classList.add("correct");
+                    }
+                  });
+                }
+
+              });
+
+            });
+          })
+        })
+      })
+    }
+
+    btnAsideLeft.addEventListener('click', () => {
+      body.classList.toggle("hide-left");
+      asideLeft.classList.add('hide')
+      lessonButtonLeft.classList.add('is-open')
+    })
+
+    btnAsideRight.addEventListener('click', () => {
+      body.classList.toggle("hide-right");
+      asideRight.classList.add('hide')
+      lessonButtonRight.classList.add('is-open')
+    })
+
+    lessonButtonLeft.addEventListener('click', () => {
+      body.classList.remove("hide-left");
+      asideLeft.classList.remove('hide')
+      lessonButtonLeft.classList.remove('is-open')
+    })
+
+    lessonButtonRight.addEventListener('click', () => {
+      body.classList.remove("hide-right");
+      asideRight.classList.remove('hide')
+      lessonButtonRight.classList.remove('is-open')
+    })
+
+    buttonModalClose.addEventListener('click', () => {
+      modal.classList.remove('is-open')
+
+      body.classList.remove("hide-left");
+      body.classList.remove("hide-right");
+
+      asideLeft.classList.remove('hide')
+      asideRight.classList.remove('hide')
+
+      lessonButtonLeft.classList.remove('is-open')
+      lessonButtonRight.classList.remove('is-open')
+
+      video.src = ''
+      lessonContainer.innerHTML = ''
+      lessonContent.innerHTML = ''
     })
 
     init()
