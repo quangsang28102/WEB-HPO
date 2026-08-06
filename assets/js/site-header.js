@@ -77,10 +77,11 @@
             <li class="nav-item"><a href="https://hpo.edu.vn/hoc-phi/">Học phí</a></li>
             <li class="nav-item"><a href="${href("quy-dinh-chuong-trinh-hoc-lai-xe/")}"${current("process")}>Quy định chương trình học lái xe</a></li>
             <li class="nav-item has-dropdown">
-              <a href="${href("danh-sach-benh-vien/")}"${current("hospital-lookup", "exam-progress")}>Tra cứu</a>
+              <a href="${href("danh-sach-benh-vien/")}"${current("hospital-lookup", "exam-progress", "payment-qr")}>Tra cứu</a>
               <div class="nav-dropdown">
                 <a href="${href("danh-sach-benh-vien/")}"${current("hospital-lookup")}><span class="dd-dot"></span> Danh sách bệnh viện</a>
                 <a href="${href("tien-do-thi-sat-hach/")}"${current("exam-progress")}><span class="dd-dot"></span> Tiến độ thi sát hạch</a>
+                <a href="${href("tra-cuu-qr/")}"${current("payment-qr")}><span class="dd-dot"></span> Mã QR thanh toán sát hạch</a>
               </div>
             </li>
             
@@ -144,6 +145,7 @@
             <span class="mobile-menu-label">Tra cứu</span>
             <a class="mobile-menu-child" href="${href("danh-sach-benh-vien/")}"${current("hospital-lookup")}>Danh sách bệnh viện</a>
             <a class="mobile-menu-child" href="${href("tien-do-thi-sat-hach/")}"${current("exam-progress")}>Tiến độ thi sát hạch</a>
+            <a class="mobile-menu-child" href="${href("tra-cuu-qr/")}"${current("payment-qr")}>Mã QR thanh toán sát hạch</a>
           </div>
           <a href="https://hpo.edu.vn/thong-tin/">Thông tin</a>
           <a href="https://hpo.edu.vn/huong-dan/">Hướng dẫn</a>          
