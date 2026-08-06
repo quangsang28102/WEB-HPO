@@ -38,11 +38,13 @@
   --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Shadow */
-  --shadow-sm: 0 1px 2px rgba(10, 19, 48, 0.04), 0 1px 1px rgba(10, 19, 48, 0.03);
+  --shadow-sm:
+    0 1px 2px rgba(10, 19, 48, 0.04), 0 1px 1px rgba(10, 19, 48, 0.03);
   --shadow-md:
     0 8px 24px -8px rgba(10, 19, 48, 0.1), 0 2px 6px rgba(10, 19, 48, 0.04);
   --shadow-lg:
-    0 24px 60px -20px rgba(10, 19, 48, 0.18), 0 8px 20px -10px rgba(10, 19, 48, 0.06);
+    0 24px 60px -20px rgba(10, 19, 48, 0.18),
+    0 8px 20px -10px rgba(10, 19, 48, 0.06);
   --shadow-blue: 0 18px 44px -12px rgba(30, 64, 175, 0.32);
 }
 
@@ -546,7 +548,11 @@ button {
     linear-gradient(90deg, rgba(10, 19, 48, 0.025) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    #000 30%,
+    transparent 75%
+  );
   pointer-events: none;
 }
 .hero-grid {
@@ -1424,17 +1430,38 @@ button {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.32), transparent 55%),
-    radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.18), transparent 55%);
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(59, 130, 246, 0.32),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(255, 107, 53, 0.18),
+      transparent 55%
+    );
   pointer-events: none;
 }
 .curr-card[data-accent="warm"] .curr-thumb {
-  background: linear-gradient(135deg, var(--blue-900) 0%, #2a1a52 50%, #6b2d1a 100%);
+  background: linear-gradient(
+    135deg,
+    var(--blue-900) 0%,
+    #2a1a52 50%,
+    #6b2d1a 100%
+  );
 }
 .curr-card[data-accent="warm"] .curr-thumb::after {
   background:
-    radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.32), transparent 55%),
-    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.18), transparent 55%);
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 107, 53, 0.32),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(59, 130, 246, 0.18),
+      transparent 55%
+    );
 }
 .curr-thumb svg.illust {
   position: absolute;
@@ -2731,7 +2758,9 @@ button {
   background: #d97706;
 }
 
-.syll-list--chapters .syll-detail:not(#syllDetail-chap-phap-luat) .mon-body-pad {
+.syll-list--chapters
+  .syll-detail:not(#syllDetail-chap-phap-luat)
+  .mon-body-pad {
   gap: 0;
 }
 
@@ -2750,7 +2779,9 @@ button {
   grid-template-rows: 1fr;
 }
 
-.syll-list--chapters .syll-detail:not(#syllDetail-chap-phap-luat) .phan-body-pad {
+.syll-list--chapters
+  .syll-detail:not(#syllDetail-chap-phap-luat)
+  .phan-body-pad {
   border-top: 0;
   padding: 0;
 }
@@ -3613,7 +3644,11 @@ button {
   left: -120px;
   width: 360px;
   height: 360px;
-  background: radial-gradient(circle, rgba(255, 107, 53, 0.06), transparent 65%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 53, 0.06),
+    transparent 65%
+  );
   pointer-events: none;
 }
 .spot-inner {
@@ -3859,7 +3894,11 @@ button {
 .spot-album-text::after {
   width: 220px;
   height: 220px;
-  background: radial-gradient(circle, rgba(255, 107, 53, 0.18), transparent 65%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 53, 0.18),
+    transparent 65%
+  );
   bottom: -20px;
   right: -20px;
   animation: orbDriftB 18s ease-in-out infinite -3s;
@@ -4482,7 +4521,13 @@ button {
   margin: 0 -28px;
   padding: 36px 0;
   overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent,
@@ -4508,7 +4553,13 @@ button {
   margin: 0 -28px;
   padding: 50px 0 60px;
   overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 5%,
+    #000 95%,
+    transparent
+  );
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent,
@@ -4622,7 +4673,13 @@ button {
   margin: 0 -28px;
   padding: 28px 0;
   overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent,
@@ -4692,7 +4749,13 @@ button {
   margin: 0 -28px;
   padding: 20px 0;
   overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent,
@@ -4811,7 +4874,11 @@ button {
   margin-top: 0;
   margin-bottom: 32px;
   background:
-    radial-gradient(circle at 50% 0%, rgba(255, 214, 112, 0.18), transparent 18%),
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(255, 214, 112, 0.18),
+      transparent 18%
+    ),
     #071536;
   border-top: 1px solid rgba(255, 204, 86, 0.55);
   border-bottom: 1px solid rgba(255, 204, 86, 0.35);
@@ -5723,7 +5790,11 @@ button {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 70%, rgba(10, 19, 48, 0.18) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 70%,
+    rgba(10, 19, 48, 0.18) 100%
+  );
   pointer-events: none;
 }
 .evt-card-img img {
@@ -5896,7 +5967,11 @@ button {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 45%, rgba(10, 19, 48, 0.85) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 45%,
+    rgba(10, 19, 48, 0.85) 100%
+  );
   pointer-events: none;
 }
 .evt-caption {
@@ -6328,7 +6403,7 @@ button {
   right: -100px;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(255, 107, 53, 0.4), transparent 65%);
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.2), transparent 80%);
   pointer-events: none;
 }
 .cta-inner::after {
@@ -6338,7 +6413,11 @@ button {
   left: -80px;
   width: 360px;
   height: 360px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 65%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.16),
+    transparent 65%
+  );
   pointer-events: none;
 }
 .cta-content {
@@ -8238,11 +8317,17 @@ button {
   content: "1. ";
 }
 
-#bbViewModal #hpo-sign-page [data-hpo-pane="nguy-hiem"] .hpo-pane-title::before {
+#bbViewModal
+  #hpo-sign-page
+  [data-hpo-pane="nguy-hiem"]
+  .hpo-pane-title::before {
   content: "2. ";
 }
 
-#bbViewModal #hpo-sign-page [data-hpo-pane="hieu-lenh"] .hpo-pane-title::before {
+#bbViewModal
+  #hpo-sign-page
+  [data-hpo-pane="hieu-lenh"]
+  .hpo-pane-title::before {
   content: "3. ";
 }
 
@@ -10199,8 +10284,16 @@ a.chap[data-engine-view]:focus-visible {
   overflow: hidden;
   padding: clamp(34px, 4vw, 68px) clamp(20px, 4vw, 72px);
   background:
-    radial-gradient(circle at 12% 12%, rgba(23, 104, 220, 0.13), transparent 28%),
-    radial-gradient(circle at 92% 88%, rgba(25, 194, 181, 0.12), transparent 26%),
+    radial-gradient(
+      circle at 12% 12%,
+      rgba(23, 104, 220, 0.13),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 92% 88%,
+      rgba(25, 194, 181, 0.12),
+      transparent 26%
+    ),
     linear-gradient(135deg, #f8fbff 0%, #eef5ff 52%, #f7fbff 100%);
   font-family: var(--ff-body);
 }
@@ -10585,7 +10678,11 @@ a.chap[data-engine-view]:focus-visible {
 
   padding: 56px 0 64px;
   position: relative;
-  background: linear-gradient(160deg, var(--tier-navy) 0%, var(--tier-navy-2) 100%);
+  background: linear-gradient(
+    160deg,
+    var(--tier-navy) 0%,
+    var(--tier-navy-2) 100%
+  );
   color: #fff;
   overflow: hidden;
   isolation: isolate;
@@ -10597,10 +10694,26 @@ a.chap[data-engine-view]:focus-visible {
   inset: -12% -8%;
   z-index: 0;
   background:
-    radial-gradient(circle at 22% 28%, rgba(95, 180, 255, 0.32) 0%, transparent 36%),
-    radial-gradient(circle at 78% 72%, rgba(240, 210, 77, 0.22) 0%, transparent 38%),
-    radial-gradient(circle at 55% 18%, rgba(255, 35, 56, 0.1) 0%, transparent 28%),
-    radial-gradient(circle at 12% 88%, rgba(95, 180, 255, 0.14) 0%, transparent 30%);
+    radial-gradient(
+      circle at 22% 28%,
+      rgba(95, 180, 255, 0.32) 0%,
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 78% 72%,
+      rgba(240, 210, 77, 0.22) 0%,
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 55% 18%,
+      rgba(255, 35, 56, 0.1) 0%,
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 12% 88%,
+      rgba(95, 180, 255, 0.14) 0%,
+      transparent 30%
+    );
   filter: blur(36px);
   pointer-events: none;
   animation: tierBlobDrift 22s ease-in-out infinite alternate;
@@ -10647,7 +10760,11 @@ a.chap[data-engine-view]:focus-visible {
     -120% 0,
     0 0,
     0 0;
-  -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 30%, transparent 82%);
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 40%,
+    #000 30%,
+    transparent 82%
+  );
   mask-image: radial-gradient(circle at 50% 40%, #000 30%, transparent 82%);
   pointer-events: none;
   animation: tierBgFx 11s linear infinite;
@@ -10804,7 +10921,11 @@ a.chap[data-engine-view]:focus-visible {
   bottom: 14%;
   height: 4px;
   z-index: 2;
-  background-image: linear-gradient(90deg, var(--tier-gold) 50%, transparent 50%);
+  background-image: linear-gradient(
+    90deg,
+    var(--tier-gold) 50%,
+    transparent 50%
+  );
   background-size: 80px 100%;
   background-repeat: repeat-x;
   box-shadow: 0 0 14px rgba(240, 210, 77, 0.5);
@@ -11551,7 +11672,6 @@ a.chap[data-engine-view]:focus-visible {
   }
 }
 
-
 /* Ky Thuat Model Detail */
 .hpo-ky-thuat-video {
   width: 100%;
@@ -11608,29 +11728,28 @@ a.chap[data-engine-view]:focus-visible {
 }
 
 #hpo-ky-thuat-tabs {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-height: calc(100vh - 32px);
-    overflow-y: auto;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
 }
 
-
 #hpo-ky-thuat-tabs::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 
 #hpo-ky-thuat-tabs::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 999px;
+  background: #cbd5e1;
+  border-radius: 999px;
 }
 
 #hpo-ky-thuat-tabs::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+  background: #94a3b8;
 }
 
 #hpo-ky-thuat-tabs a[data-hpo-tab] {
@@ -11776,12 +11895,12 @@ a.chap[data-engine-view]:focus-visible {
   text-decoration: none;
 
   box-shadow:
-    0 8px 20px rgba(225, 29, 46, .28),
-    0 0 0 rgba(225, 29, 46, .6);
+    0 8px 20px rgba(225, 29, 46, 0.28),
+    0 0 0 rgba(225, 29, 46, 0.6);
 
   transition:
-    transform .25s ease,
-    box-shadow .25s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 
   animation: ctaGlow 1.8s infinite ease-in-out;
 }
@@ -11799,7 +11918,7 @@ a.chap[data-engine-view]:focus-visible {
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255,255,255,.85),
+    rgba(255, 255, 255, 0.85),
     transparent
   );
 
@@ -11826,22 +11945,22 @@ a.chap[data-engine-view]:focus-visible {
   0% {
     transform: scale(1);
     box-shadow:
-      0 8px 20px rgba(225,29,46,.28),
-      0 0 0 0 rgba(225,29,46,.55);
+      0 8px 20px rgba(225, 29, 46, 0.28),
+      0 0 0 0 rgba(225, 29, 46, 0.55);
   }
 
   50% {
     transform: scale(1.05);
     box-shadow:
-      0 12px 28px rgba(225,29,46,.4),
-      0 0 20px 8px rgba(225,29,46,.45);
+      0 12px 28px rgba(225, 29, 46, 0.4),
+      0 0 20px 8px rgba(225, 29, 46, 0.45);
   }
 
   100% {
     transform: scale(1);
     box-shadow:
-      0 8px 20px rgba(225,29,46,.28),
-      0 0 0 0 rgba(225,29,46,0);
+      0 8px 20px rgba(225, 29, 46, 0.28),
+      0 0 0 0 rgba(225, 29, 46, 0);
   }
 }
 
@@ -11901,7 +12020,7 @@ a.chap[data-engine-view]:focus-visible {
   border-radius: 12px;
 }
 
-#hpo-engine-4ky .step .step-title-row{
+#hpo-engine-4ky .step .step-title-row {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -11926,4 +12045,3 @@ a.chap[data-engine-view]:focus-visible {
   font-weight: 800;
   font-size: 18px;
 }
-

@@ -1,0 +1,224 @@
+@import url("../trung-tam-giao-duc-nghe-nghiep/style.css");
+.exam-page {
+  color: #000;
+}
+.exam-hero .about-hero__media::after {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 18, 45, 0.97) 0%,
+      rgba(4, 18, 45, 0.8) 43%,
+      rgba(4, 18, 45, 0.18) 80%
+    ),
+    linear-gradient(0deg, rgba(4, 18, 45, 0.55), transparent 45%);
+}
+.exam-intro {
+  background: #fff;
+}
+.exam-intro__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
+  align-items: center;
+  gap: clamp(60px, 8vw, 120px);
+}
+.exam-intro__visual {
+  position: relative;
+  min-height: 580px;
+}
+.exam-intro__visual img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  box-shadow: 0 30px 70px -35px rgba(7, 26, 58, 0.5);
+}
+.exam-intro__visual > span {
+  position: absolute;
+  left: -18px;
+  top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 20px 24px;
+  background: var(--about-blue);
+  color: #fff;
+  font: 600 16px/1.4 var(--ff-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.exam-intro__visual > span strong {
+  font-size: 22px;
+  color: #ff8356;
+}
+.exam-intro h2,
+.exam-facilities h2,
+.team h2,
+.exam-cta h2 {
+  color: var(--about-navy);
+  font: 700 clamp(35px, 4vw, 58px)/1.12 var(--ff-display);
+  letter-spacing: -0.04em;
+}
+.exam-intro h2 em {
+  font-style: normal;
+  color: var(--about-blue);
+}
+.exam-intro p {
+  margin-top: 18px;
+  color: #000;
+  font-size: 20px;
+  line-height: 1.8;
+}
+.exam-ranks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 26px;
+}
+.exam-ranks span {
+  padding: 8px 13px;
+  border: 1px solid #c8d4e7;
+  border-radius: 999px;
+  color: var(--about-blue);
+  font: 700 16px var(--ff-display);
+}
+.exam-values {
+  background: #f4f7fc;
+}
+.exam-facilities {
+  background: #fff;
+  scroll-margin-top: 90px;
+}
+.exam-facility-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 20px;
+}
+.exam-gallery {
+  position: relative;
+  height: 540px;
+  overflow: hidden;
+  background: #0b2149;
+}
+.exam-gallery::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(0deg, rgba(4, 18, 45, 0.88), transparent 58%);
+  pointer-events: none;
+}
+.exam-gallery .carousel-track img {
+  cursor: zoom-in;
+  object-fit: cover;
+}
+.exam-gallery .carousel-btn {
+  opacity: 1;
+}
+.exam-gallery .carousel-dots {
+  top: 20px;
+  right: 20px;
+  bottom: auto;
+}
+.exam-gallery__label {
+  position: absolute;
+  z-index: 2;
+  left: 26px;
+  right: 26px;
+  bottom: 24px;
+  display: flex;
+  align-items: end;
+  gap: 15px;
+  color: #fff;
+  pointer-events: none;
+}
+.exam-gallery__label > span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  color: #ff8356;
+  font: 700 10px var(--ff-display);
+}
+.exam-gallery__label h3 {
+  font: 700 21px var(--ff-display);
+}
+.exam-gallery__label p {
+  color: #fff;
+  font-size: 14px;
+}
+.exam-cta {
+  padding: 90px 0;
+  background: linear-gradient(135deg, #f4f7fc, #e8f0fb);
+}
+.exam-cta > .container {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 50px;
+}
+.exam-cta h2 span {
+  color: var(--about-blue);
+}
+.exam-cta .section-label {
+  color: var(--about-blue);
+}
+.exam-cta > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.exam-cta p {
+  font-size: 11px;
+  color: #000;
+}
+.back-to-top svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (max-width: 900px) {
+  .exam-intro__grid {
+    grid-template-columns: 1fr;
+  }
+  .exam-intro__visual {
+    min-height: 500px;
+    max-width: 720px;
+  }
+  .exam-facility-grid {
+    grid-template-columns: 1fr;
+  }
+  .exam-gallery {
+    height: 470px;
+  }
+  .exam-cta > .container {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .hero-proof {
+    display: none;
+  }
+}
+@media (max-width: 620px) {
+  .exam-intro__visual {
+    min-height: 360px;
+  }
+  .exam-intro__visual > span {
+    left: 8px;
+    bottom: 16px;
+  }
+  .exam-gallery {
+    height: 350px;
+  }
+  .exam-gallery__label h3 {
+    font-size: 17px;
+  }
+  .exam-cta {
+    padding: 68px 0;
+  }
+}
