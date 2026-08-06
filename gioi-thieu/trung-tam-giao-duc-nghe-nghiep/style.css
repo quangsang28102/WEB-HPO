@@ -433,7 +433,7 @@
   position: absolute;
   right: 25px;
   top: 22px;
-  font: 700 11px var(--ff-display);
+  font: 700 18px var(--ff-display);
   color: #000;
 }
 .feature-icon {
@@ -908,8 +908,10 @@
 }
 .team-slide img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 300px;
+  aspect-ratio: auto;
   object-fit: cover;
+  object-position: center;
   background: #e7edf7;
   filter: saturate(0.92);
   transition:
@@ -925,11 +927,11 @@
   gap: 12px;
   padding-top: 17px;
   color: var(--about-navy);
-  font: 600 13px var(--ff-display);
+  font: 600 16px var(--ff-display);
 }
 .team-slide figcaption span {
   color: var(--about-orange);
-  font-size: 10px;
+  font-size: 14px;
 }
 .team-controls {
   display: grid;
@@ -1749,6 +1751,9 @@
   }
   .team-carousel {
     --team-visible: 1;
+  }
+  .team-slide img {
+    height: 250px;
   }
   .team-controls {
     grid-template-columns: 1fr auto 40px 40px;
