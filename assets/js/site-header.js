@@ -6,6 +6,7 @@
   const page = mount.dataset.page || "";
   const href = (path) => base + path;
   const current = (...names) => (names.includes(page) ? ' aria-current="page"' : "");
+  const activeClass = (...names) => (names.includes(page) ? " is-active" : "");
 
   mount.outerHTML = `
     <div class="topbar">
@@ -135,14 +136,14 @@
         <nav class="mobile-menu-list">
           <a href="${href("index.html")}"${current("home")}>Trang chủ</a>
           <div class="mobile-menu-group">
-            <span class="mobile-menu-label">Giới thiệu</span>
+            <span class="mobile-menu-label${activeClass("training-center", "exam-center")}">Giới thiệu</span>
             <a class="mobile-menu-child" href="${href("gioi-thieu/trung-tam-giao-duc-nghe-nghiep/")}"${current("training-center")}>Trung tâm giáo dục nghề nghiệp</a>
             <a class="mobile-menu-child" href="${href("gioi-thieu/trung-tam-sat-hach/")}"${current("exam-center")}>Trung tâm sát hạch lái xe</a>
           </div>
           <a href="https://hpo.edu.vn/hoc-phi/">Học phí</a>
           <a href="${href("quy-dinh-chuong-trinh-hoc-lai-xe/")}"${current("process")}>Quy định chương trình học lái xe</a>
           <div class="mobile-menu-group">
-            <span class="mobile-menu-label">Tra cứu</span>
+            <span class="mobile-menu-label${activeClass("hospital-lookup", "exam-progress", "payment-qr")}">Tra cứu</span>
             <a class="mobile-menu-child" href="${href("danh-sach-benh-vien/")}"${current("hospital-lookup")}>Danh sách bệnh viện</a>
             <a class="mobile-menu-child" href="${href("tien-do-thi-sat-hach/")}"${current("exam-progress")}>Tiến độ thi sát hạch</a>
             <a class="mobile-menu-child" href="${href("tra-cuu-qr/")}"${current("payment-qr")}>Mã QR thanh toán sát hạch</a>
