@@ -4371,7 +4371,8 @@ body.mon-modal-open {
   gap: 12px;
 }
 
-#Lesson02Summary {
+#Lesson02Summary,
+#LessonSummary {
   max-height: calc(80vh - 32px);
   overflow-y: auto;
 }
@@ -4380,42 +4381,50 @@ body.mon-modal-open {
   border-bottom: none !important;
 }
 
-#Lesson02Summary::-webkit-scrollbar {
+#Lesson02Summary::-webkit-scrollbar,
+#LessonSummary::-webkit-scrollbar {
     width: 6px;
 }
 
-#Lesson02Summary::-webkit-scrollbar-thumb {
+#Lesson02Summary::-webkit-scrollbar-thumb,
+#LessonSummary::-webkit-scrollbar-thumb {
     background: #cbd5e1;
     border-radius: 999px;
 }
 
-#Lesson02Summary::-webkit-scrollbar-thumb:hover {
+#Lesson02Summary::-webkit-scrollbar-thumb:hover,
+#LessonSummary::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
 }
 
 /* Quiz */
 
-#Lesson02PanelQuiz {
+#Lesson02PanelQuiz,
+#LessonPanelQuiz {
   max-height: calc(80vh - 32px);
   overflow-y: auto;
 }
 
-#quiz-container {
+#quiz-container,
+.quiz-container-warpper {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-#Lesson02PanelQuiz::-webkit-scrollbar {
+#Lesson02PanelQuiz::-webkit-scrollbar,
+#LessonPanelQuiz::-webkit-scrollbar {
   width: 6px;
 }
 
-#Lesson02PanelQuiz::-webkit-scrollbar-thumb {
+#Lesson02PanelQuiz::-webkit-scrollbar-thumb,
+#LessonPanelQuiz::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 999px;
 }
 
-#Lesson02PanelQuiz::-webkit-scrollbar-thumb:hover {
+#Lesson02PanelQuiz::-webkit-scrollbar-thumb:hover,
+#LessonPanelQuiz::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
 
@@ -4493,4 +4502,111 @@ body.mon-modal-open {
 
 .quiz-options.answered .quiz-option{
   cursor:default;
+}
+
+/* MON 03 CHAP 03 */
+#mon-03 .chap-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 12px;
+}
+
+.lesson-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* CSS FOR ALL LESSON */
+#LessonPanelLeft {
+  position: relative;
+  min-height: 150px;
+}
+
+#LessonPanelLeft #LessonPanelButtonLeft {
+  position: absolute;
+  top: 0;
+  left: -22px;
+  z-index: 999;
+}
+
+#LessonPanelButtonLeft,
+#LessonPanelButtonRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #fff;
+}
+
+#LessonButtonLeft,
+#LessonButtonRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #fff;
+}
+
+#LessonButtonLeft {
+  position: absolute;
+  top: 0;
+  left: -22px;
+  display: none;
+  border: 1px solid #fff;
+}
+
+#LessonButtonLeft.is-open {
+  display: flex;
+}
+
+#LessonButtonRight {
+  position: absolute;
+  top: 0;
+  right: -22px;
+  display: none;
+  border: 1px solid #fff;
+}
+
+#LessonButtonRight.is-open {
+  display: flex;
+}
+
+#LessonButtonLeft svg,
+#LessonButtonRight svg{
+  width: 18px;
+  height: 18px;
+}
+
+#LessonPanelButtonLeft svg,
+#LessonPanelButtonRight svg {
+  width: 18px;
+  height: 18px;
+}
+
+#LessonPanelRight {
+  position: relative;
+  min-height: 150px;
+}
+
+#LessonPanelRight #LessonPanelButtonRight {
+  position: absolute;
+  top: 0;
+  right: -22px;
+  z-index: 9999;
+}
+
+#LessonPanelLeft.hide {
+  display: none;
+}
+
+#LessonPanelRight.hide {
+  display: none;
 }
