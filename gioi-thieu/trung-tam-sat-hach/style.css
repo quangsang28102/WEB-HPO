@@ -2,6 +2,24 @@
 .exam-page {
   color: #000;
 }
+.exam-hero .hero-bg {
+  background-position: center 65%;
+}
+.about-hero-2__media {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 18, 45, 0.96) 0%,
+      rgba(4, 18, 45, 0.78) 42%,
+      rgba(4, 18, 45, 0.14) 78%
+    ),
+    linear-gradient(0deg, rgba(4, 18, 45, 0.5), transparent 45%),
+    url("https://hpo.edu.vn/wp-content/uploads/2025/11/TTSH-1-1024x724.webp")
+      center 65% / cover no-repeat;
+  transform: scale(1.02);
+}
 .exam-hero .about-hero__media::after {
   background:
     linear-gradient(
@@ -172,7 +190,7 @@
   gap: 12px;
 }
 .exam-cta p {
-  font-size: 11px;
+  font-size: 16px;
   color: #000;
 }
 .back-to-top svg {
@@ -181,6 +199,12 @@
   stroke-width: 2.4;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+.exam-page .team-slide img {
+  height: 300px;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center;
 }
 @media (max-width: 900px) {
   .exam-intro__grid {
@@ -217,6 +241,9 @@
   }
   .exam-gallery__label h3 {
     font-size: 17px;
+  }
+  .exam-page .team-slide img {
+    height: 250px;
   }
   .exam-cta {
     padding: 68px 0;
