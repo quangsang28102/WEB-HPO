@@ -866,6 +866,116 @@
 .confirm-accept:hover {
   background: #ed5722;
 }
+.guide-modal {
+  position: fixed;
+  z-index: 9600;
+  inset: 0;
+  display: grid;
+  visibility: hidden;
+  place-items: center;
+  padding: 20px;
+  opacity: 0;
+  transition:
+    opacity 0.25s,
+    visibility 0.25s;
+}
+.guide-modal.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+.guide-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 26, 58, 0.78);
+  backdrop-filter: blur(8px);
+}
+.guide-card {
+  position: relative;
+  z-index: 1;
+  width: min(540px, 100%);
+  padding: 38px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 35px 90px -30px rgba(7, 26, 58, 0.85);
+  text-align: center;
+}
+.guide-kicker {
+  color: var(--quiz-blue);
+  font:
+    700 14px Sora,
+    sans-serif;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.guide-card h2 {
+  margin: 9px 0 14px;
+  color: var(--quiz-navy);
+  font:
+    700 25px/1.35 Sora,
+    sans-serif;
+  letter-spacing: -0.03em;
+}
+.guide-card p {
+  color: #000;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.guide-card kbd {
+  display: inline-grid;
+  min-width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid #c9d4e5;
+  border-bottom-width: 3px;
+  border-radius: 7px;
+  background: #f7f9fc;
+  color: var(--quiz-navy);
+  font:
+    700 12px Sora,
+    sans-serif;
+}
+.guide-keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+  margin: 22px 0;
+}
+.guide-keys span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 9px;
+  background: #f1f5fb;
+  color: var(--quiz-blue);
+  font:
+    700 12px Sora,
+    sans-serif;
+}
+.guide-card > button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin-top: 24px;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--quiz-blue);
+  color: #fff;
+  font:
+    700 16px Sora,
+    sans-serif;
+  box-shadow: 0 15px 30px -16px rgba(18, 63, 150, 0.75);
+}
+.guide-card > button:hover {
+  background: #0d327b;
+}
+.guide-card > button span {
+  font-size: 17px;
+}
 .quiz-shell {
   grid-template-columns: minmax(0, 1fr) 320px;
 }
@@ -899,7 +1009,7 @@
   overflow: hidden;
   margin-top: 5px;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  /* -webkit-line-clamp: 2; */
   line-height: 1.35;
 }
 .topic-count {

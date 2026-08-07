@@ -252,9 +252,36 @@
         closeRestartConfirm();
         restart();
     };
+    const keyboardGuide = $("keyboardGuide");
+    const closeKeyboardGuide = () => {
+        keyboardGuide.classList.remove("is-open");
+        keyboardGuide.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    };
+    document.body.style.overflow = "hidden";
+    $("closeGuide").onclick = closeKeyboardGuide;
+    $("guideBackdrop").onclick = closeKeyboardGuide;
     document.addEventListener("keydown", (event) => {
+        if (keyboardGuide.classList.contains("is-open")) {
+            if (event.key === "Escape" || event.key === "Enter") closeKeyboardGuide();
+            return;
+        }
         if (event.key === "Escape" && restartConfirm.classList.contains("is-open")) {
             closeRestartConfirm();
+            return;
+        }
+        if (restartConfirm.classList.contains("is-open") || els.result.classList.contains("is-open") || !state.filtered.length) return;
+        if (["1", "2", "3", "4"].includes(event.key)) {
+            event.preventDefault();
+            els.answers.querySelectorAll(".answer-option")[Number(event.key) - 1]?.click();
+        } else if (event.key === "ArrowLeft" && state.index > 0) {
+            event.preventDefault();
+            state.index--;
+            render();
+        } else if (event.key === "ArrowRight" && state.index < state.filtered.length - 1) {
+            event.preventDefault();
+            state.index++;
+            render();
         }
     });
     $("resultRestart").onclick = restart;
