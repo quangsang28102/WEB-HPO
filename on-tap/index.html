@@ -164,6 +164,35 @@
         </div>
       </div>
     </div>
+    <div
+      class="guide-modal is-open"
+      id="keyboardGuide"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="guideTitle"
+      aria-hidden="false"
+    >
+      <div class="guide-backdrop" id="guideBackdrop"></div>
+      <div class="guide-card">
+        <span class="guide-kicker">Hướng dẫn thao tác nhanh</span>
+        <h2 id="guideTitle">Làm bài thuận tiện hơn với bàn phím</h2>
+        <p>
+          Bạn có thể nhấn các phím <strong>1, 2, 3, 4</strong> tương ứng với đáp
+          án <strong>A, B, C, D</strong>.
+        </p>
+        <div class="guide-keys">
+          <span><kbd>1</kbd>A</span><span><kbd>2</kbd>B</span
+          ><span><kbd>3</kbd>C</span><span><kbd>4</kbd>D</span>
+        </div>
+        <p>
+          Sử dụng phím mũi tên <kbd>←</kbd> và <kbd>→</kbd> để chuyển giữa các
+          câu hỏi.
+        </p>
+        <button id="closeGuide" type="button">
+          Đã hiểu, bắt đầu làm bài <span>→</span>
+        </button>
+      </div>
+    </div>
     <div id="siteFooter" data-base="../"></div>
     <script src="../assets/js/site-footer.js"></script>
     <script src="./script.js"></script>
