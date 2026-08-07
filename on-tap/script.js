@@ -279,10 +279,13 @@
             return r.json();
         })
         .then((data) => {
-            state.categories = data.sort((a, b) => a.order - b.order);
-            state.questions = state.categories.flatMap((c) =>
-                c.questions.filter((q) => q.active),
-            );
+            state.categories = data
+                .sort((a, b) => a.order - b.order)
+                .map((category) => ({
+                    ...category,
+                    questions: category.questions.filter((q) => q.active).reverse(),
+                }));
+            state.questions = state.categories.flatMap((c) => c.questions);
             state.filtered = [...state.questions];
             buildTopics();
             buildPalette();
