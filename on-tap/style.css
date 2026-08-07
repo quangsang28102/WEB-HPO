@@ -556,6 +556,11 @@
   background: #fff0f1;
   color: #ad1e27;
 }
+.palette-item.is-current {
+  border-color: var(--quiz-blue);
+  box-shadow: 0 0 0 0px var(--quiz-blue);
+  /* font-weight: 400; */
+}
 .drawer-backdrop {
   position: fixed;
   z-index: 8000;
