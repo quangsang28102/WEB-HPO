@@ -94,7 +94,7 @@
               </div>
             </li>
             
-            <li class="nav-item"><a href="https://hpo.edu.vn/on-tap/">Ôn tập</a></li>
+            <li class="nav-item"><a href="${href("on-tap/")}"${current("quiz")}>Ôn tập</a></li>
           </ul>
 
           <div class="nav-actions">
@@ -150,7 +150,7 @@
           </div>
           <a href="https://hpo.edu.vn/thong-tin/">Thông tin</a>
           <a href="https://hpo.edu.vn/huong-dan/">Hướng dẫn</a>          
-          <a href="https://hpo.edu.vn/on-tap/">Ôn tập</a>
+          <a href="${href("on-tap/")}"${current("quiz")}>Ôn tập</a>
         </nav>
         <div class="mobile-menu-foot">
           <a href="tel:02836362362" class="btn btn-outline" style="justify-content: center">

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ôn tập 600 câu hỏi lý thuyết lái xe, chấm điểm tự động và luyện câu điểm liệt tại Hiệp Phát."
+    />
+    <title>Ôn tập 600 câu hỏi lái xe | Hiệp Phát</title>
+    <link rel="icon" href="../assets/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      .result-ring {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body class="quiz-page">
+    <div id="siteHeader" data-base="../" data-page="quiz"></div>
+    <script src="../assets/js/site-header.js"></script>
+    <main>
+      <section class="quiz-hero">
+        <div class="container quiz-hero__inner">
+          <div>
+            <span class="quiz-eyebrow">Luyện thi lý thuyết</span>
+            <h1>Trắc Nghiệm <span>Lái Xe</span></h1>
+            <!-- <p>
+              Ngân hàng 600 câu hỏi chuẩn theo bộ GTVT. Làm bài trực tiếp, chấm
+              điểm tự động và hỗ trợ chọn nhanh câu hỏi
+            </p> -->
+          </div>
+          <div class="quiz-hero__stats">
+            <div><strong>600</strong><span>Câu hỏi</span></div>
+            <div><strong>07</strong><span>Chủ đề</span></div>
+            <div><strong>60</strong><span>Câu điểm liệt</span></div>
+          </div>
+        </div>
+      </section>
+      <section class="quiz-app-section">
+        <div class="container quiz-shell">
+          <aside class="quiz-sidebar">
+            <div class="sidebar-head">
+              <span>Chọn nội dung ôn tập</span>
+              <button id="closeTopics" aria-label="Đóng chủ đề">×</button>
+            </div>
+            <div id="topicList" class="topic-list">
+              <div class="topic-skeleton"></div>
+              <div class="topic-skeleton"></div>
+              <div class="topic-skeleton"></div>
+            </div>
+            <div class="sidebar-tip">
+              <span>!</span>
+              <p>
+                <strong>Lưu ý câu điểm liệt</strong>Trả lời sai câu điểm liệt có
+                thể khiến bài thi không đạt.
+              </p>
+            </div>
+          </aside>
+          <div class="selected-exam" aria-live="polite">
+            <span>Bài thi đang chọn</span>
+            <strong id="selectedTopicName">Tất cả câu hỏi</strong>
+          </div>
+          <div class="quiz-main">
+            <div class="quiz-toolbar">
+              <div class="question-progress">
+                <div>
+                  <span id="progressLabel">Đang tải câu hỏi…</span
+                  ><strong id="scoreLabel">Điểm: 0</strong>
+                </div>
+                <div class="progress-track"><span id="progressBar"></span></div>
+              </div>
+            </div>
+            <article class="question-card" id="questionCard" aria-live="polite">
+              <div class="question-meta">
+                <span id="questionNumber">Câu hỏi</span
+                ><span class="danger-tag" id="dangerTag">Câu điểm liệt</span>
+              </div>
+              <h2 id="questionTitle">Đang tải ngân hàng câu hỏi…</h2>
+              <figure class="question-image-wrap" id="imageWrap">
+                <img id="questionImage" alt="Hình minh họa câu hỏi" />
+                <div class="image-fallback">Không tải được hình minh họa</div>
+              </figure>
+              <div class="answer-list" id="answerList"></div>
+              <div class="answer-feedback" id="answerFeedback"></div>
+              <div class="question-actions">
+                <button class="btn-restart" id="restartQuiz">↻ Làm lại</button
+                ><button class="btn-next" id="nextQuestion">
+                  Câu tiếp theo <span>→</span>
+                </button>
+              </div>
+            </article>
+          </div>
+          <aside class="question-palette" id="questionPalette">
+            <div class="palette-head">
+              <div>
+                <span>Chọn nhanh câu hỏi</span
+                ><small id="paletteSummary">0 / 0 đã trả lời</small>
+              </div>
+              <button id="closePalette" aria-label="Đóng bảng câu hỏi">
+                ×
+              </button>
+            </div>
+            <div class="palette-legend">
+              <span><i class="answered"></i>Chưa trả lời</span
+              ><span><i class="correct"></i>Đúng</span
+              ><span><i class="wrong"></i>Sai</span>
+            </div>
+            <div class="palette-grid" id="paletteGrid"></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="result-modal" id="resultModal" aria-hidden="true">
+      <div class="result-card">
+        <button class="result-close" id="closeResult">×</button>
+        <div class="result-ring" id="resultRing">
+          <strong id="resultPercent">0%</strong>
+        </div>
+        <span class="result-kicker">Hoàn thành nội dung ôn tập</span>
+        <h2 id="resultTitle">Kết quả của bạn</h2>
+        <p id="resultText"></p>
+        <div class="result-stats">
+          <div>
+            <strong id="resultCorrect">0</strong><span>Trả lời đúng</span>
+          </div>
+          <div><strong id="resultWrong">0</strong><span>Trả lời sai</span></div>
+        </div>
+        <button class="btn-result" id="resultRestart">
+          Làm lại nội dung này
+        </button>
+      </div>
+    </div>
+    <div
+      class="confirm-modal"
+      id="restartConfirm"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="confirmTitle"
+      aria-hidden="true"
+    >
+      <div class="confirm-backdrop" id="confirmBackdrop"></div>
+      <div class="confirm-card">
+        <div class="confirm-icon">!</div>
+        <h2 id="confirmTitle">
+          Bạn có chắc chắn muốn làm lại bài trắc nghiệm không?
+        </h2>
+        <p>Tất cả tiến độ và điểm số sẽ bị xóa.</p>
+        <div class="confirm-actions">
+          <button class="confirm-cancel" id="cancelRestart" type="button">
+            Hủy
+          </button>
+          <button class="confirm-accept" id="confirmRestart" type="button">
+            Đồng ý
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="siteFooter" data-base="../"></div>
+    <script src="../assets/js/site-footer.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
