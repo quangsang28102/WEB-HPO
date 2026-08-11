@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Học phí các khóa đào tạo lái xe hạng B số tự động, B cơ khí và C1 tại HPO." />
+    <title>Học phí đào tạo lái xe | HPO</title>
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="tuition-page">
+    <div id="siteHeader" data-base="../" data-page="tuition"></div>
+    <script src="../assets/js/site-header.js"></script>
+
+    <main>
+      <section class="tuition-hero" aria-labelledby="tuition-title">
+        <div class="container tuition-hero__inner">
+          <div>
+            <p class="tuition-kicker">Học phí minh bạch · Lộ trình rõ ràng</p>
+            <h1 id="tuition-title">Chọn khóa học<br /><em>phù hợp với bạn</em></h1>
+            <p class="tuition-lead">Xem nhanh mức học phí theo từng hạng bằng, quyền lợi đi kèm và nhận tư vấn lộ trình học phù hợp.</p>
+          </div>
+          <div class="tuition-hero__note">
+            <span>Ưu đãi hiện tại</span>
+            <strong>Giảm đến 5 triệu</strong>
+            <small>Áp dụng cho khóa tuyển sinh trong thời gian chương trình.</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="tier-pick tuition-picker" id="bang-hoc-phi">
+        <div class="container">
+          <header class="tier-head">
+            <div class="tier-head-text"><span class="tier-eyebrow">— Bảng học phí khóa học</span></div>
+          </header>
+          <div class="tier-tabs" role="tablist" aria-label="Chọn hạng đào tạo">
+            <button class="tier-tab is-active" type="button" role="tab" aria-selected="true" data-mode="bauto"><span class="tier-tab-name">Hạng B · Số tự động</span></button>
+            <button class="tier-tab" type="button" role="tab" aria-selected="false" data-mode="bmanual"><span class="tier-tab-name">Hạng B · Cơ khí</span></button>
+            <button class="tier-tab" type="button" role="tab" aria-selected="false" data-mode="c1"><span class="tier-tab-name">Hạng C1</span></button>
+          </div>
+          <div class="tier-stage" data-mode="b" id="courseTierStage">
+            <div class="tier-vehicle">
+              <div class="tier-vehicle-glow"></div>
+              <img class="vehicle car" id="courseCarImage" src="../assets/images/courses/carImage.png" alt="Ô tô con hạng B" />
+              <img class="vehicle truck" id="courseTruckImage" src="../assets/images/courses/truckImage.png" alt="Xe tải hạng C1" />
+            </div>
+            <div class="tier-rates-h">
+              <div class="rate-card rate-card--base"><span class="rate-label">Học phí</span><strong class="rate-value" data-field="base"><s>23.000.000đ</s></strong></div>
+              <div class="rate-card rate-card--local"><span class="rate-label">Giảm ngay <em>5.000.000đ</em></span><strong class="rate-value" data-field="local">18.000.000đ</strong></div>
+            </div>
+          </div>
+          <div class="tier-infobar">
+            <div class="info-col info-col--duration"><span class="info-badge">KHÓA HỌC NGẮN HẠN</span><ul class="info-list"><li><span class="info-tick">✓</span><span><strong>HẠNG B:</strong> <em>Khóa học 2 tháng</em></span></li><li><span class="info-tick">✓</span><span><strong>HẠNG C1:</strong> <em>Khóa học 3 tháng</em></span></li></ul></div>
+            <div class="info-col info-col--exam"><ul class="info-list"><li><span class="info-tick">✓</span><span>Ôn tập xe thiết bị: <strong>2 giờ</strong></span></li><li><span class="info-tick">✓</span><span>Kiểm tra hoàn thành khóa đào tạo trên sân sát hạch: <strong>20 phút</strong></span></li></ul></div>
+            <div class="info-col info-col--contact"><a class="info-contact" href="tel:0911739119"><span>☎</span><span>0911.739.119 — 028.36.362.362</span></a><a class="info-contact" href="mailto:tuyensinh@hpo.edu.vn"><span>✉</span><span>tuyensinh@hpo.edu.vn</span></a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tuition-benefits">
+        <div class="container">
+          <div class="tuition-section-head"><p>Quyền lợi học viên</p><h2>Học phí đi cùng một<br /><em>lộ trình trọn vẹn</em></h2></div>
+          <div class="benefit-grid">
+            <article><span>01</span><h3>Lịch học linh hoạt</h3><p>Sắp xếp ca học phù hợp, hỗ trợ học viên chủ động cân bằng công việc và thời gian.</p></article>
+            <article><span>02</span><h3>Xe tập lái đạt chuẩn</h3><p>Thực hành trên xe được bảo dưỡng định kỳ, có giáo viên theo sát từng buổi học.</p></article>
+            <article><span>03</span><h3>Ôn tập sát kỳ thi</h3><p>Củng cố lý thuyết, mô phỏng và kỹ năng sa hình theo đúng nội dung sát hạch.</p></article>
+            <article><span>04</span><h3>Đồng hành hồ sơ</h3><p>Được hướng dẫn chuẩn bị hồ sơ, theo dõi tiến độ và cập nhật lịch thi rõ ràng.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="tuition-cta">
+        <div class="container tuition-cta__inner"><div><p>Chưa biết nên chọn hạng nào?</p><h2>Nhận tư vấn miễn phí từ HPO</h2></div><div class="tuition-cta__actions"><a href="tel:02836362362" class="tuition-call">Gọi 028.36.362.362</a><a href="https://hpo.edu.vn/dang-ky-hoc/" class="tuition-register">Đăng ký học <span>→</span></a></div></div>
+      </section>
+    </main>
+
+    <div id="siteFooter" data-base="../"></div>
+    <script src="../assets/js/site-footer.js"></script>
+    <script src="../script.js"></script>
+  </body>
+</html>

@@ -75,7 +75,7 @@
                 <a href="${href("gioi-thieu/trung-tam-sat-hach/")}"${current("exam-center")}><span class="dd-dot"></span> Trung tâm sát hạch lái xe ô tô</a>
               </div>
             </li>
-            <li class="nav-item"><a href="https://hpo.edu.vn/hoc-phi/">Học phí</a></li>
+            <li class="nav-item"><a href="${href("hoc-phi/")}"${current("tuition")}>Học phí</a></li>
             <li class="nav-item"><a href="${href("quy-dinh-chuong-trinh-hoc-lai-xe/")}"${current("process")}>Quy định chương trình học lái xe</a></li>
             <li class="nav-item has-dropdown">
               <a href="${href("danh-sach-benh-vien/")}"${current("hospital-lookup", "exam-progress", "payment-qr")}>Tra cứu</a>
@@ -83,14 +83,6 @@
                 <a href="${href("danh-sach-benh-vien/")}"${current("hospital-lookup")}><span class="dd-dot"></span> Danh sách bệnh viện</a>
                 <a href="${href("tien-do-thi-sat-hach/")}"${current("exam-progress")}><span class="dd-dot"></span> Tiến độ thi sát hạch</a>
                 <a href="${href("tra-cuu-qr/")}"${current("payment-qr")}><span class="dd-dot"></span> Mã QR thanh toán sát hạch</a>
-              </div>
-            </li>
-            
-            <li class="nav-item has-dropdown">
-              <a href="https://hpo.edu.vn/huong-dan/">Hướng dẫn</a>
-              <div class="nav-dropdown">
-                <a href="https://hpo.edu.vn/huong-dan-dao-tao/"><span class="dd-dot"></span> Hướng dẫn Đào tạo</a>
-                <a href="https://hpo.edu.vn/huong-dan-sat-hach/"><span class="dd-dot"></span> Hướng dẫn Sát hạch</a>
               </div>
             </li>
             
@@ -140,7 +132,7 @@
             <a class="mobile-menu-child" href="${href("gioi-thieu/trung-tam-giao-duc-nghe-nghiep/")}"${current("training-center")}>Trung tâm giáo dục nghề nghiệp</a>
             <a class="mobile-menu-child" href="${href("gioi-thieu/trung-tam-sat-hach/")}"${current("exam-center")}>Trung tâm sát hạch lái xe</a>
           </div>
-          <a href="https://hpo.edu.vn/hoc-phi/">Học phí</a>
+          <a href="${href("hoc-phi/")}"${current("tuition")}>Học phí</a>
           <a href="${href("quy-dinh-chuong-trinh-hoc-lai-xe/")}"${current("process")}>Quy định chương trình học lái xe</a>
           <div class="mobile-menu-group">
             <span class="mobile-menu-label${activeClass("hospital-lookup", "exam-progress", "payment-qr")}">Tra cứu</span>
@@ -149,7 +141,6 @@
             <a class="mobile-menu-child" href="${href("tra-cuu-qr/")}"${current("payment-qr")}>Mã QR thanh toán sát hạch</a>
           </div>
           <a href="https://hpo.edu.vn/thong-tin/">Thông tin</a>
-          <a href="https://hpo.edu.vn/huong-dan/">Hướng dẫn</a>          
           <a href="${href("on-tap/")}"${current("quiz")}>Ôn tập</a>
         </nav>
         <div class="mobile-menu-foot">
