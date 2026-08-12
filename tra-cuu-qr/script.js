@@ -10,6 +10,15 @@
   const qrCanvas = document.getElementById("qrCanvas");
   const submit = form.querySelector("button[type='submit']");
   const submitLabel = submit.querySelector("span");
+  const DEMO_IDENTITY_CARD = "052098015899";
+  const DEMO_STUDENT = {
+    fullName: "Nguyễn Minh Anh",
+    identityCard: DEMO_IDENTITY_CARD,
+    course: "Đào tạo lái xe hạng B",
+    amount: 765000,
+    isDemo: true,
+    qrCode: "HPO-DEMO|CCCD:052098015899|AMOUNT:765000|NOT-FOR-PAYMENT"
+  };
   let currentQrText = "";
 
   function showError(message) {
@@ -35,6 +44,14 @@
     currentQrText = student.qrCode;
     document.getElementById("result-title").textContent = student.fullName || "Học viên";
     document.getElementById("resultIdentity").textContent = student.identityCard || input.value;
+    document.getElementById("resultCourse").textContent = student.course || "Chưa cập nhật";
+    document.getElementById("resultAmount").textContent = Number.isFinite(Number(student.amount))
+      ? `${new Intl.NumberFormat("vi-VN").format(Number(student.amount))} đ`
+      : "Theo thông tin trên mã QR";
+    document.getElementById("resultDemoBadge").hidden = !student.isDemo;
+    document.getElementById("resultNotice").textContent = student.isDemo
+      ? "Đây là mã QR minh họa để kiểm thử giao diện, không có giá trị thanh toán."
+      : "Mã QR đã được tạo từ dữ liệu thanh toán của hệ thống. Hãy dùng ứng dụng ngân hàng để quét mã.";
     qrCanvas.replaceChildren();
     new window.QRCode(qrCanvas, {
       text: currentQrText,
@@ -55,6 +72,12 @@
     error.hidden = true;
   });
 
+  document.getElementById("fillDemo").addEventListener("click", () => {
+    input.value = DEMO_IDENTITY_CARD;
+    input.dispatchEvent(new Event("input"));
+    input.focus();
+  });
+
   form.addEventListener("submit", async event => {
     event.preventDefault();
     if (!/^\d{12}$/.test(input.value)) {
@@ -69,6 +92,10 @@
     input.classList.remove("is-invalid");
 
     try {
+      if (input.value === DEMO_IDENTITY_CARD) {
+        renderQr(DEMO_STUDENT);
+        return;
+      }
       const url = new URL(API_URL);
       url.searchParams.set("identityCard", input.value);
       const response = await fetch(url.toString(), { headers: { Accept: "application/json" } });
