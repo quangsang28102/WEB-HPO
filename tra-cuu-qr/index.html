@@ -44,7 +44,7 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8" cy="11" r="2"/><path d="M13 10h5M13 14h4"/></svg>
                 <input id="identityCard" name="identityCard" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="Nhập 12 chữ số CCCD" aria-describedby="identityHint identityError" />
               </div>
-              <div class="qr-field-meta"><small id="identityHint">Ví dụ: 052098015899 · gồm 12 chữ số</small><small id="characterCount">0/12</small></div>
+              <div class="qr-field-meta"><small id="identityHint">Dữ liệu demo: <button class="qr-demo-fill" id="fillDemo" type="button">052098015899</button></small><small id="characterCount">0/12</small></div>
               <p class="qr-error" id="identityError" role="alert" hidden></p>
               <button class="qr-submit" type="submit"><span>Tra cứu mã QR</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </form>
@@ -69,8 +69,14 @@
             <div class="qr-student">
               <p>Kết quả tra cứu</p>
               <h2 id="result-title">Học viên</h2>
-              <dl><div><dt>Số căn cước công dân</dt><dd id="resultIdentity">—</dd></div><div><dt>Trạng thái</dt><dd class="qr-ready"><i></i> Sẵn sàng thanh toán</dd></div></dl>
-              <div class="qr-result__notice"><span>✓</span><p>Mã QR đã được tạo từ dữ liệu thanh toán của hệ thống. Hãy dùng ứng dụng ngân hàng để quét mã.</p></div>
+              <div class="qr-demo-badge" id="resultDemoBadge" hidden>DỮ LIỆU MINH HỌA</div>
+              <dl>
+                <div><dt>Số căn cước công dân</dt><dd id="resultIdentity">—</dd></div>
+                <div><dt>Khóa học</dt><dd id="resultCourse">—</dd></div>
+                <div><dt>Lệ phí sát hạch</dt><dd id="resultAmount">—</dd></div>
+                <div><dt>Trạng thái</dt><dd class="qr-ready"><i></i> Sẵn sàng thanh toán</dd></div>
+              </dl>
+              <div class="qr-result__notice"><span>✓</span><p id="resultNotice">Mã QR đã được tạo từ dữ liệu thanh toán của hệ thống. Hãy dùng ứng dụng ngân hàng để quét mã.</p></div>
             </div>
             <div class="qr-code-panel">
               <div id="qrCanvas" aria-label="Mã QR thanh toán"></div>
