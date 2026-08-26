@@ -13375,13 +13375,14 @@ a.chap[data-engine-view]:focus-visible {
   transform: scaleX(-1);
 }
 .award-slider__heading h3 {
-  max-width: 780px;
+  max-width: none;
   margin: 13px 0 0;
   font-family: var(--ff-display);
-  font-size: clamp(32px, 4.1vw, 56px);
+  font-size: clamp(14px, 3.4vw, 48px);
   font-weight: 900;
   line-height: 1.16;
   letter-spacing: 0;
+  white-space: nowrap;
   text-wrap: balance;
 }
 .award-slider__heading > p {
