@@ -323,7 +323,7 @@
 
 /* Awards journey — homepage */
 .events:has(.awards-journey) {
-  padding: 0;
+  padding: 0 0 clamp(78px, 8vw, 110px);
   background:
     radial-gradient(circle at 12% 8%, rgba(46, 104, 255, 0.09), transparent 28%),
     linear-gradient(180deg, #f8faff 0%, #eef3fb 100%);
@@ -651,7 +651,7 @@
 }
 @media (max-width: 700px) {
   .events:has(.awards-journey) {
-    padding: 0;
+    padding: 0 0 72px;
   }
   .asean-frame + .awards-journey__head {
     margin-top: 72px;
@@ -2386,7 +2386,7 @@
 .award-slide--poster {
   display: block;
   min-height: 0;
-  aspect-ratio: 1885 / 835;
+  aspect-ratio: 1885 / 834;
   overflow: hidden;
   background: #06183d;
 }
