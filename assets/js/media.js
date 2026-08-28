@@ -274,19 +274,19 @@
     render();
   };
 
-  // Gắn click vào mọi phần tử có [data-img-group]
-  document.querySelectorAll('[data-img-group]').forEach((el) => {
+  // Gắn click vào ảnh nguồn hoặc phần tử chỉ dùng để mở một nhóm ảnh.
+  document.querySelectorAll('[data-img-group], [data-img-open-group]').forEach((el) => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
-      const group = el.dataset.imgGroup;
-      const idx = parseInt(el.dataset.imgIdx || '0', 10);
+      const group = el.dataset.imgOpenGroup || el.dataset.imgGroup;
+      const idx = parseInt(el.dataset.imgOpenIdx || el.dataset.imgIdx || '0', 10);
       open(group, idx);
     });
     el.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        const group = el.dataset.imgGroup;
-        const idx = parseInt(el.dataset.imgIdx || '0', 10);
+        const group = el.dataset.imgOpenGroup || el.dataset.imgGroup;
+        const idx = parseInt(el.dataset.imgOpenIdx || el.dataset.imgIdx || '0', 10);
         open(group, idx);
       }
     });

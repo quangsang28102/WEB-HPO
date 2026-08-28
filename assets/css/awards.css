@@ -7,11 +7,7 @@
   padding: 52px max(28px, calc((100vw - min(1680px, 88vw)) / 2 + 28px)) 62px;
   overflow: hidden;
   background:
-    radial-gradient(
-      circle at 50% 0,
-      rgba(255, 214, 112, 0.15),
-      transparent 24%
-    ),
+    radial-gradient(circle at 50% 0, rgba(255, 214, 112, 0.15), transparent 24%),
     #071536;
   border-top: 1px solid rgba(255, 204, 86, 0.5);
   border-bottom: 1px solid rgba(255, 204, 86, 0.3);
@@ -329,11 +325,7 @@
 .events:has(.awards-journey) {
   padding: 0 0 clamp(78px, 8vw, 110px);
   background:
-    radial-gradient(
-      circle at 12% 8%,
-      rgba(46, 104, 255, 0.09),
-      transparent 28%
-    ),
+    radial-gradient(circle at 12% 8%, rgba(46, 104, 255, 0.09), transparent 28%),
     linear-gradient(180deg, #f8faff 0%, #eef3fb 100%);
 }
 .events:has(.awards-journey)::before {
@@ -429,8 +421,8 @@
 }
 .journey-award__visual--product {
   isolation: isolate;
-  background: #071536 url("../images/awards/award-card-background.png") center
-    61% / cover no-repeat;
+  background: #071536 url("../images/awards/award-card-background.png") center 61% /
+    cover no-repeat;
 }
 .journey-award__visual--product::before,
 .journey-award__visual--product::after {
@@ -615,15 +607,7 @@
   width: 9%;
   height: 45%;
   background: linear-gradient(#2865a8, #0d3f7a);
-  clip-path: polygon(
-    10% 16%,
-    42% 16%,
-    50% 0,
-    58% 16%,
-    90% 16%,
-    100% 100%,
-    0 100%
-  );
+  clip-path: polygon(10% 16%, 42% 16%, 50% 0, 58% 16%, 90% 16%, 100% 100%, 0 100%);
 }
 .forum-skyline i:nth-child(2) {
   height: 73%;
@@ -705,6 +689,174 @@
     font-size: 34px;
   }
 }
+/* Global Excellent Brands 2026 — centered text and award pair */
+.award-slider .award-slide--global-custom {
+  position: relative;
+  display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  min-height: 0;
+  aspect-ratio: 1881 / 836;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: #061532;
+}
+.award-slider .award-slide--global-custom::before,
+.award-slider .award-slide--global-custom::after {
+  display: none;
+}
+.award-slide__global-background {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.2s ease;
+}
+.award-slider.is-global-pair
+  .award-slide--global-custom
+  .award-slide__global-background {
+  opacity: 0;
+}
+.award-slider.is-global-pair .award-slide--global-custom {
+  background: transparent;
+}
+.award-slide__global-copy {
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  z-index: 1;
+  grid-area: 1 / 1;
+  width: min(76%, 960px);
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 4px 14px rgba(0, 8, 31, 0.86);
+  transform: translateX(-50%);
+}
+.award-slide__global-copy small,
+.award-slide__global-copy span,
+.award-slide__global-copy strong,
+.award-slide__global-copy em {
+  display: block;
+}
+.award-slide__global-copy small {
+  display: none;
+  color: #f2c456;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: clamp(10px, 0.95vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.award-slide__global-copy span {
+  margin-top: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(10px, 1vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+.award-slide__global-copy strong {
+  color: #f4c34f;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: clamp(28px, 4vw, 58px);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.award-slider .award-slide__global-copy h4 {
+  max-width: none;
+  margin: clamp(5px, 0.8vw, 11px) 0 0;
+  color: #fff;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: clamp(26px, 3.2vw, 46px);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  filter: drop-shadow(0 3px 1px rgba(0, 10, 35, 0.82));
+}
+.award-slide__global-copy em {
+  width: min(64%, 560px);
+  margin: clamp(10px, 1.2vw, 17px) auto 0;
+  padding-top: clamp(8px, 1vw, 13px);
+  border-top: 1px solid rgba(239, 190, 67, 0.82);
+  color: #f4cf74;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(11px, 1.4vw, 19px);
+  font-weight: 600;
+}
+.award-slide__global-awards {
+  position: absolute;
+  bottom: 15%;
+  z-index: 1;
+  grid-area: 1 / 1;
+  width: min(48%, 620px);
+  height: 66%;
+}
+.award-slide__global-items {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: -7px;
+  width: auto;
+  height: 96%;
+  object-fit: contain;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 18px 14px rgba(0, 5, 24, 0.58));
+}
+.award-slide__global-platform {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: -98px;
+  width: 90%;
+  height: auto;
+  opacity: 0;
+  transform: translate(-50%, 12px) scale(0.97);
+  filter: drop-shadow(0 14px 13px rgba(0, 4, 24, 0.62));
+  transition:
+    opacity 0.28s ease-out,
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.award-slide--global-showcase.is-active .award-slide__global-platform {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+@media (max-width: 680px) {
+  .award-slider .award-slide--global-custom {
+    height: 590px;
+    aspect-ratio: auto;
+  }
+  .award-slide__global-copy {
+    top: 30%;
+    width: 90%;
+    margin: 0;
+  }
+  .award-slide__global-copy h4 {
+    font-size: clamp(30px, 9.2vw, 42px);
+  }
+  .award-slide__global-copy em {
+    width: 82%;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  .award-slide__global-awards {
+    width: 88%;
+    height: 58%;
+    margin-top: 15%;
+  }
+  .award-slide__global-items {
+    bottom: 0.5%;
+    max-width: 94%;
+    height: auto;
+    max-height: 94%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .journey-award,
   .journey-award__visual--product img {
@@ -900,11 +1052,7 @@
 }
 .protection-item__thumb--domain {
   background:
-    radial-gradient(
-      circle at 50% 30%,
-      rgba(246, 200, 77, 0.2),
-      transparent 55%
-    ),
+    radial-gradient(circle at 50% 30%, rgba(246, 200, 77, 0.2), transparent 55%),
     #0b2047;
 }
 .protection-item__thumb--domain span:not(.protection-item__zoom) {
@@ -1041,16 +1189,8 @@
   padding: 26px;
   border-color: rgba(246, 200, 77, 0.3);
   background:
-    radial-gradient(
-      circle at 15% 40%,
-      rgba(246, 200, 77, 0.1),
-      transparent 28%
-    ),
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.075),
-      rgba(255, 255, 255, 0.025)
-    );
+    radial-gradient(circle at 15% 40%, rgba(246, 200, 77, 0.1), transparent 28%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
 }
 .protection-item:hover {
   background-color: rgba(255, 255, 255, 0.055);
@@ -1410,16 +1550,8 @@
 .brand-protection {
   padding: clamp(60px, 6vw, 88px) 0 clamp(68px, 7vw, 104px);
   background:
-    radial-gradient(
-      circle at 88% 3%,
-      rgba(34, 211, 238, 0.16),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 8% 100%,
-      rgba(99, 102, 241, 0.12),
-      transparent 34%
-    ),
+    radial-gradient(circle at 88% 3%, rgba(34, 211, 238, 0.16), transparent 30%),
+    radial-gradient(circle at 8% 100%, rgba(99, 102, 241, 0.12), transparent 34%),
     linear-gradient(135deg, #f7faff 0%, #eff8ff 52%, #f6f7ff 100%);
 }
 .brand-protection__inner {
@@ -1614,16 +1746,8 @@
 .brand-protection {
   isolation: isolate;
   background:
-    radial-gradient(
-      circle at 50% 2%,
-      rgba(41, 189, 255, 0.23),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 8% 72%,
-      rgba(250, 190, 40, 0.13),
-      transparent 28%
-    ),
+    radial-gradient(circle at 50% 2%, rgba(41, 189, 255, 0.23), transparent 30%),
+    radial-gradient(circle at 8% 72%, rgba(250, 190, 40, 0.13), transparent 28%),
     radial-gradient(circle at 92% 88%, rgba(85, 92, 235, 0.2), transparent 32%),
     linear-gradient(145deg, #03142f 0%, #062b55 48%, #071b3d 100%);
   border-color: rgba(91, 180, 239, 0.24);
@@ -1852,14 +1976,45 @@
   line-height: 1.7;
 }
 .award-slider__viewport {
+  position: relative;
   overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
   border-radius: 30px;
   box-shadow: 0 30px 75px -35px rgba(17, 46, 91, 0.45);
 }
+.award-slider__viewport.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+.award-slider__asean-shared-background,
+.award-slider__global-shared-background {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.award-slider.is-asean-pair .award-slider__asean-shared-background {
+  opacity: 1;
+}
+.award-slider.is-global-pair .award-slider__global-shared-background {
+  opacity: 1;
+}
 .award-slider__track {
+  position: relative;
+  z-index: 1;
   display: flex;
   transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
+}
+.award-slide img {
+  -webkit-user-drag: none;
+  user-select: none;
 }
 .award-slide {
   position: relative;
@@ -1919,11 +2074,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(2, 12, 32, 0.05),
-    rgba(1, 8, 24, 0.48)
-  );
+  background: linear-gradient(180deg, rgba(2, 12, 32, 0.05), rgba(1, 8, 24, 0.48));
   opacity: 1;
 }
 .award-slide--vietnam::after {
@@ -1954,11 +2105,7 @@
   bottom: 5%;
   height: 22%;
   border-radius: 50%;
-  background: radial-gradient(
-    ellipse,
-    rgba(255, 196, 58, 0.38),
-    transparent 68%
-  );
+  background: radial-gradient(ellipse, rgba(255, 196, 58, 0.38), transparent 68%);
   filter: blur(12px);
 }
 .award-slide--asean {
@@ -2022,11 +2169,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(5, 28, 78, 0.04),
-    rgba(3, 20, 55, 0.52)
-  );
+  background: linear-gradient(180deg, rgba(5, 28, 78, 0.04), rgba(3, 20, 55, 0.52));
   opacity: 1;
 }
 .award-slide--global .award-slide__content {
@@ -2309,11 +2452,7 @@
   right: 0;
   bottom: -2%;
   height: 32%;
-  background: radial-gradient(
-    ellipse,
-    rgba(255, 199, 62, 0.3),
-    transparent 68%
-  );
+  background: radial-gradient(ellipse, rgba(255, 199, 62, 0.3), transparent 68%);
   filter: blur(14px);
 }
 .award-slide__visual .award-slide__gallery-certificate {
@@ -2377,7 +2516,7 @@
 }
 .award-slider__controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   margin-top: 20px;
@@ -2404,8 +2543,15 @@
   background: #1767bd;
 }
 .award-slider__arrows {
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  right: 14px;
+  left: 14px;
   display: flex;
-  gap: 9px;
+  justify-content: space-between;
+  pointer-events: none;
+  transform: translateY(-50%);
 }
 .award-slider__arrows button {
   display: grid;
@@ -2418,6 +2564,8 @@
   background: #fff;
   color: #174d8b;
   cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 8px 24px rgba(3, 20, 53, 0.24);
   transition:
     color 0.25s var(--ease),
     border-color 0.25s var(--ease),
@@ -2427,7 +2575,7 @@
   color: #fff;
   border-color: #1767bd;
   background: #1767bd;
-  transform: translateY(-2px);
+  transform: scale(1.06);
 }
 .award-slider__arrows svg {
   width: 21px;
@@ -2621,7 +2769,7 @@
 .award-slide--poster {
   display: block;
   min-height: 0;
-  aspect-ratio: 1885 / 834;
+  aspect-ratio: 1888 / 833;
   overflow: hidden;
   background: #06183d;
 }
@@ -2634,6 +2782,378 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+.award-slide-mobile {
+  display: none;
+}
+
+/* ASEAN 2026 custom slides — supplied event background with centered content */
+.award-slide--asean-custom {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  min-height: 0;
+  aspect-ratio: 1880 / 836;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: #4b0303;
+}
+.award-slide--asean-custom::before,
+.award-slide--asean-custom::after {
+  display: none;
+}
+.award-slide--asean-showcase[data-img-open-group] {
+  cursor: zoom-in;
+}
+.award-slide--asean-showcase[data-img-open-group]:focus-visible {
+  outline: 3px solid #f6c84d;
+  outline-offset: -5px;
+}
+.award-slide__modal-source {
+  display: none !important;
+}
+.award-slide__asean-background {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.2s ease;
+}
+.award-slider.is-asean-pair
+  .award-slide--asean-custom
+  .award-slide__asean-background {
+  opacity: 0;
+}
+.award-slider.is-asean-pair .award-slide--asean-custom {
+  background: transparent;
+}
+.award-slide__asean-copy {
+  --asean-gold-gradient: linear-gradient(
+    180deg,
+    #fff5a8 0%,
+    #ffe06a 28%,
+    #f3bd32 58%,
+    #d58b0d 82%,
+    #b96b05 100%
+  );
+  position: absolute;
+  top: 22%;
+  z-index: 1;
+  grid-area: 1 / 1;
+  justify-self: center;
+  align-self: center;
+  width: min(76%, 980px);
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 3px 12px rgba(37, 0, 0, 0.9);
+}
+.award-slide__asean-copy > small {
+  display: block;
+  color: rgba(255, 244, 218, 0.88);
+  font-size: clamp(9px, 0.9vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.award-slide__asean-copy > small sup {
+  font-size: 0.65em;
+}
+.award-slide__asean-copy p {
+  margin: clamp(5px, 0.7vw, 10px) 0 2px;
+  color: #f9d66f;
+  background: var(--asean-gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: clamp(18px, 2.35vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 2px rgba(45, 10, 0, 0.58));
+}
+.award-slide__asean-copy > span {
+  display: block;
+  color: rgba(255, 255, 255, 0.94);
+  font-family: var(--ff-display);
+  font-size: clamp(9px, 1.15vw, 16px);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.award-slide__asean-rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 1.6vw, 24px);
+  width: min(58%, 530px);
+  margin: clamp(8px, 1.2vw, 16px) auto 0;
+  border-top: 1px solid rgba(242, 198, 69, 0.72);
+  color: #f5ca56;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+}
+.award-slide__asean-rank strong {
+  color: #f7ce58;
+  background: var(--asean-gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-size: clamp(28px, 4vw, 58px);
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 2px rgba(45, 10, 0, 0.6));
+}
+.award-slide__asean-rank i {
+  font-size: clamp(20px, 2.8vw, 38px);
+  font-style: normal;
+}
+.award-slide__asean-rank i:last-child {
+  transform: scaleX(-1);
+}
+.award-slide__asean-copy h4 {
+  max-width: none;
+  margin: 0;
+  color: #f7cf5f;
+  background: var(--asean-gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: clamp(26px, 4.2vw, 60px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 2px rgba(45, 10, 0, 0.62));
+}
+.award-slide__asean-copy em {
+  display: block;
+  width: min(62%, 570px);
+  margin: clamp(6px, 0.8vw, 11px) auto 0;
+  padding-top: clamp(5px, 0.7vw, 9px);
+  border-top: 1px solid rgba(242, 198, 69, 0.72);
+  color: #efd05f;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(11px, 1.5vw, 21px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.award-slide__asean-awards {
+  position: absolute;
+  bottom: 15%;
+  z-index: 1;
+  grid-area: 1 / 1;
+  justify-self: center;
+  align-self: center;
+  width: min(48%, 620px);
+  height: 66%;
+}
+.award-slide__asean-awards::before {
+  content: "";
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  width: 78%;
+  height: 78%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 202, 77, 0.15), transparent 67%);
+  filter: blur(12px);
+  transform: translateX(-50%);
+}
+.award-slide__asean-items {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 12px;
+  width: auto;
+  height: 96%;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 13px rgba(20, 0, 0, 0.55));
+  transform: translateX(-50%);
+}
+.award-slide__asean-platform {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: 0;
+  width: 90%;
+  height: auto;
+  opacity: 0;
+  transform: translate(-50%, 12px) scale(0.97);
+  filter: drop-shadow(0 13px 12px rgba(0, 0, 0, 0.54));
+  transition:
+    opacity 0.95s ease 0.28s,
+    transform 1.05s cubic-bezier(0.22, 1, 0.36, 1) 0.28s;
+}
+.award-slide--asean-showcase.is-active .award-slide__asean-platform {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+@media (max-width: 680px) {
+  .award-slide--asean-custom {
+    height: 590px;
+    aspect-ratio: auto;
+  }
+  .award-slide__asean-background {
+    object-position: center;
+  }
+  .award-slide__asean-copy {
+    width: 90%;
+    margin: 8% auto 0;
+  }
+  .award-slide__asean-copy p {
+    font-size: clamp(19px, 6vw, 27px);
+    line-height: 1.08;
+  }
+  .award-slide__asean-copy > span {
+    margin-top: 7px;
+    line-height: 1.4;
+  }
+  .award-slide__asean-rank {
+    width: 76%;
+    margin-top: 18px;
+  }
+  .award-slide__asean-copy h4 {
+    font-size: clamp(31px, 9vw, 42px);
+  }
+  .award-slide__asean-copy em {
+    width: 82%;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  .award-slide__asean-awards {
+    width: 92%;
+    height: 60%;
+    margin: 18% auto 0;
+  }
+  .award-slide__asean-items {
+    bottom: 0.5%;
+    max-width: 94%;
+    height: auto;
+    max-height: 96%;
+  }
+}
+
+@media (max-width: 680px) {
+  .award-slide--poster {
+    height: 590px;
+    aspect-ratio: auto;
+  }
+  .award-slide--poster > .award-slide__poster {
+    display: none;
+  }
+  .award-slide-mobile {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: 100%;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .award-slide-mobile::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+  }
+  .award-slide-mobile--asean {
+    background: linear-gradient(155deg, #540304 0%, #8e0b08 43%, #071c40 100%);
+  }
+  .award-slide-mobile--asean::before {
+    background:
+      radial-gradient(circle at 85% 22%, rgba(255, 190, 62, 0.3), transparent 30%),
+      repeating-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.035) 0 1px,
+        transparent 1px 24px
+      );
+  }
+  .award-slide-mobile--global {
+    background: linear-gradient(150deg, #06132f 0%, #0b3268 55%, #06142f 100%);
+  }
+  .award-slide-mobile--global::before {
+    background:
+      radial-gradient(circle at 50% 2%, rgba(87, 166, 255, 0.3), transparent 32%),
+      linear-gradient(115deg, rgba(208, 20, 32, 0.13), transparent 45%);
+  }
+  .award-slide-mobile__copy {
+    padding: 25px 22px 17px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.42);
+  }
+  .award-slide-mobile__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    padding: 6px 11px;
+    border: 1px solid rgba(246, 200, 77, 0.52);
+    border-radius: 999px;
+    color: #f8d879;
+    font-family: var(--ff-display);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .award-slide-mobile__copy h4 {
+    max-width: none;
+    margin: 13px 0 8px;
+    color: #fff;
+    font-family: var(--ff-display);
+    font-size: clamp(28px, 8.5vw, 38px);
+    font-weight: 900;
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+  .award-slide-mobile--asean .award-slide-mobile__copy h4 {
+    color: #ffd76a;
+  }
+  .award-slide-mobile__copy p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  .award-slide-mobile__visual {
+    position: relative;
+    min-height: 0;
+    margin: 0 14px 14px;
+    overflow: hidden;
+    border: 1px solid rgba(246, 200, 77, 0.48);
+    border-radius: 17px;
+    background: #06142f;
+    box-shadow: 0 22px 36px -24px rgba(0, 0, 0, 0.82);
+  }
+  .award-slide-mobile__visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .award-slide-mobile--asean .award-slide-mobile__visual img {
+    object-fit: cover;
+    object-position: center 43%;
+  }
+  .award-slide-mobile--global .award-slide-mobile__visual img {
+    object-fit: cover;
+    object-position: 100% center;
+  }
 }
 
 /* Slide 04 — full-bleed Vietnam–Australia award composition */
@@ -2821,10 +3341,24 @@
 
 @media (prefers-reduced-motion: reduce) {
   .award-slider__track,
+  .award-slider__asean-shared-background,
+  .award-slider__global-shared-background,
+  .award-slide__asean-background,
+  .award-slide__asean-platform,
+  .award-slide__global-background,
+  .award-slide__global-platform,
   .award-slider__dots button,
   .award-slider__arrows button,
   .award-slide__actions a {
     transition: none;
+  }
+  .award-slide__asean-platform {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+  .award-slide__global-platform {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
   }
   .award-slider__progress {
     display: none;
