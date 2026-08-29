@@ -2441,11 +2441,14 @@
 }
 
 #building-software-card {
-  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .digital-software-card #building-software-item__thumb {
-  width: 100%;
+  width: 90%;
   height: 100%;
 }
 
