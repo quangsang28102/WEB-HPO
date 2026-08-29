@@ -187,6 +187,59 @@
   goTo(0, false);
 })();
 
+/* Award Posters Slider */
+(() => {
+  const slider = document.querySelector('.award-posters-slider');
+  if (!slider) return;
+
+  const track = slider.querySelector('.award-posters-slider__track');
+  const slides = slider.querySelectorAll('.award-poster-slide');
+  const prevBtn = slider.querySelector('.award-posters-slider__arrow--prev');
+  const nextBtn = slider.querySelector('.award-posters-slider__arrow--next');
+  const dots = slider.querySelectorAll('.award-posters-slider__dots button');
+
+  let current = 0;
+
+  // Dynamically size track and slides based on slide count
+  if (track && slides.length > 0) {
+    track.style.width = `${slides.length * 100}%`;
+    slides.forEach((slide) => {
+      slide.style.width = `${100 / slides.length}%`;
+    });
+  }
+
+  const updateSlider = (index) => {
+    current = (index + slides.length) % slides.length;
+    const stepPercent = 100 / slides.length;
+    track.style.transform = `translate3d(-${current * stepPercent}%, 0, 0)`;
+
+    slides.forEach((slide, idx) => {
+      const active = idx === current;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+    });
+
+    dots.forEach((dot, idx) => {
+      const active = idx === current;
+      dot.classList.toggle('is-active', active);
+      if (active) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+  };
+
+  if (prevBtn) prevBtn.addEventListener('click', () => updateSlider(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => updateSlider(current + 1));
+  dots.forEach((dot, idx) => dot.addEventListener('click', () => updateSlider(idx)));
+
+  // Auto play
+  let autoPlayTimer = setInterval(() => updateSlider(current + 1), 6000);
+  slider.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+  slider.addEventListener('mouseleave', () => {
+    clearInterval(autoPlayTimer);
+    autoPlayTimer = setInterval(() => updateSlider(current + 1), 6000);
+  });
+})();
+
 /* Mobile menu */
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobileMenu');
