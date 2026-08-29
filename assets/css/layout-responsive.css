@@ -169,7 +169,11 @@
   left: -80px;
   width: 360px;
   height: 360px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 65%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.16),
+    transparent 65%
+  );
   pointer-events: none;
 }
 .cta-content {
@@ -1163,4 +1167,3 @@
 .cta-title em {
   color: #fff !important;
 }
-
