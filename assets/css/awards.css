@@ -2779,25 +2779,26 @@
   gap: 13px;
 }
 .award-slider__heading > div > span {
-  color: #1767bd;
+  color: #edf6ff;
   font-family: var(--ff-display);
   font-size: clamp(13px, 1.15vw, 18px);
   font-weight: 900;
   line-height: 1.45;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-shadow: 0 0 22px rgba(148, 214, 255, 0.22);
 }
 .award-slider__heading > div > span > span {
-  text-shadow: 0 5px 18px rgba(23, 103, 189, 0.14);
+  text-shadow: 0 0 18px rgba(120, 195, 255, 0.24);
 }
 .award-slider__heading > div > span strong {
   display: inline-block;
   margin-top: 3px;
-  color: #e11d2e;
+  color: #ff5466;
   font-size: 1.2em;
   font-weight: 950;
   letter-spacing: 0.12em;
-  text-shadow: 0 6px 18px rgba(225, 29, 46, 0.2);
+  text-shadow: 0 0 20px rgba(255, 84, 102, 0.3);
 }
 .award-slider__heading > div > span::before,
 .award-slider__heading > div > span::after {
@@ -2811,13 +2812,14 @@
 }
 .award-slider__heading-sub {
   margin: 16px auto 0;
-  color: #174da3; /* Deep premium blue */
+  color: #f4f8ff;
   font-family: var(--ff-display);
   font-size: clamp(19px, 2.2vw, 32px);
   font-weight: 800;
   line-height: 1.25;
   letter-spacing: -0.01em;
   text-transform: uppercase;
+  text-shadow: 0 0 18px rgba(154, 222, 255, 0.18);
 }
 .award-slider__heading h3 {
   position: relative;
