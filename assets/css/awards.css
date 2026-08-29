@@ -2635,13 +2635,15 @@
 .award-slider {
   --slider-duration: 6500ms;
   position: relative;
-  margin-top: 0;
-  padding-top: clamp(78px, 8vw, 124px);
+  width: 100%;
+  max-width: clamp(1240px, 88vw, 1680px);
+  margin: 0 auto;
+  padding: clamp(78px, 8vw, 124px) 28px 0;
   color: #fff;
 }
 .award-slider__heading {
   display: block;
-  max-width: 980px;
+  max-width: 1180px;
   margin: 0 auto 38px;
   color: #102c55;
   text-align: center;
@@ -2657,10 +2659,23 @@
 .award-slider__heading > div > span {
   color: #1767bd;
   font-family: var(--ff-display);
-  font-size: 11px;
+  font-size: clamp(13px, 1.15vw, 18px);
   font-weight: 900;
-  letter-spacing: 0.14em;
+  line-height: 1.45;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+.award-slider__heading > div > span > span {
+  text-shadow: 0 5px 18px rgba(23, 103, 189, 0.14);
+}
+.award-slider__heading > div > span strong {
+  display: inline-block;
+  margin-top: 3px;
+  color: #e11d2e;
+  font-size: 1.2em;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-shadow: 0 6px 18px rgba(225, 29, 46, 0.2);
 }
 .award-slider__heading > div > span::before,
 .award-slider__heading > div > span::after {
@@ -2676,12 +2691,11 @@
   max-width: none;
   margin: 13px 0 0;
   font-family: var(--ff-display);
-  font-size: clamp(14px, 3.4vw, 48px);
+  font-size: clamp(15px, 3.35vw, 52px);
   font-weight: 900;
   line-height: 1.16;
   letter-spacing: 0;
   white-space: nowrap;
-  text-wrap: balance;
 }
 .award-slider__heading > p {
   max-width: 650px;
@@ -3332,6 +3346,10 @@
   }
 }
 @media (max-width: 900px) {
+  .award-slider {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
   .award-slider__heading {
     display: block;
   }
@@ -3365,6 +3383,8 @@
 @media (max-width: 680px) {
   .award-slider {
     margin-top: 0;
+    padding-right: 20px;
+    padding-left: 20px;
   }
   .award-slider__viewport {
     border-radius: 22px;
@@ -3477,6 +3497,198 @@
   }
   .award-slider__controls {
     margin-top: 16px;
+  }
+}
+
+/* Shared section-title language, based on the Brand Protection heading. */
+.hpo-unified-title-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 980px;
+  margin-right: auto;
+  margin-bottom: clamp(36px, 4vw, 54px);
+  margin-left: auto;
+  padding-bottom: 24px;
+  text-align: center;
+}
+.hpo-unified-title-wrap::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 44%;
+  left: 50%;
+  width: min(820px, 96vw);
+  height: 190px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(30, 183, 235, 0.2) 0%,
+    rgba(32, 104, 192, 0.08) 42%,
+    transparent 72%
+  );
+  filter: blur(18px);
+  opacity: 0.78;
+  transform: translate(-50%, -50%);
+  animation: brand-protection-spotlight 4.8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.hpo-unified-title-wrap::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: clamp(92px, 10vw, 142px);
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f5b51b 0%, #22b8cf 52%, #2157b8 100%);
+  box-shadow: 0 7px 20px rgba(24, 126, 185, 0.24);
+  transform: translateX(-50%);
+}
+.hpo-unified-title {
+  margin: 16px 0 0;
+  padding: 0.12em 0 0.08em;
+  color: #174da3;
+  background-image: linear-gradient(
+    105deg,
+    #174da3 0%,
+    #0891b2 25%,
+    #f1b71c 48%,
+    #0891b2 70%,
+    #174da3 100%
+  );
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--ff-display);
+  font-size: clamp(40px, 4.8vw, 64px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  filter: drop-shadow(0 8px 22px rgba(42, 153, 208, 0.2));
+  animation: brand-protection-title 4.2s linear infinite;
+}
+.platform-v2-head.hpo-unified-title-wrap {
+  margin-bottom: 30px;
+}
+.platform-v2-head.hpo-unified-title-wrap .platform-v2-dash {
+  display: none;
+}
+.tier-head-text.hpo-unified-title-wrap {
+  margin-bottom: 0;
+}
+.tier-head-text.hpo-unified-title-wrap .tier-eyebrow {
+  margin-bottom: 0;
+  color: #1767bd;
+  font-size: clamp(12px, 1vw, 15px);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+.award-slider__heading > .hpo-unified-title-wrap {
+  display: block;
+  margin-bottom: 0;
+}
+.hpo-unified-title-wrap--inverse .hpo-unified-title {
+  background-image: linear-gradient(
+    105deg,
+    #f1b71c 0%,
+    #ffe788 23%,
+    #ffffff 42%,
+    #5ee7f2 50%,
+    #ffffff 57%,
+    #ffe788 76%,
+    #f1b71c 100%
+  );
+  filter: drop-shadow(0 2px 0 rgba(255, 255, 255, 0.12))
+    drop-shadow(0 8px 24px rgba(42, 203, 255, 0.34));
+}
+.cta-content > .hpo-unified-title-wrap {
+  max-width: none;
+  margin-bottom: 24px;
+  text-align: left;
+}
+.cta-content > .hpo-unified-title-wrap::before {
+  left: 34%;
+}
+.cta-content > .hpo-unified-title-wrap::after {
+  right: auto;
+  left: 0;
+  transform: none;
+}
+.cta-content > .hpo-unified-title-wrap .cta-eyebrow {
+  margin-bottom: 0;
+}
+.curr-head--chapters .eyebrow {
+  color: #0891b2;
+}
+.curr-head--chapters .sec-title--new-color {
+  color: #174da3;
+  background: linear-gradient(105deg, #174da3 0%, #0891b2 58%, #2157b8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 7px 18px rgba(24, 126, 185, 0.14));
+}
+.curr-head--chapters .sec-title--new-color em {
+  color: #e0a20b;
+  -webkit-text-fill-color: #e0a20b;
+}
+.platform-v2-title--new-color {
+  color: #174da3;
+  background: linear-gradient(105deg, #174da3 0%, #0891b2 58%, #2157b8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 7px 18px rgba(24, 126, 185, 0.14));
+}
+.platform-v2-head .platform-v2-dash span {
+  background: linear-gradient(90deg, #f5b51b, #22b8cf, #2157b8);
+}
+.platform-v2-head .platform-v2-dash i {
+  background: #0891b2;
+}
+.tier-eyebrow--new-color {
+  width: max-content;
+  max-width: 100%;
+  color: #ffe788;
+  background: linear-gradient(
+    105deg,
+    #f1b71c 0%,
+    #ffe788 22%,
+    #ffffff 42%,
+    #5ee7f2 58%,
+    #ffffff 72%,
+    #f1b71c 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--ff-display);
+  font-weight: 900;
+  letter-spacing: 0.035em;
+  filter: drop-shadow(0 2px 0 rgba(255, 255, 255, 0.14))
+    drop-shadow(0 7px 18px rgba(42, 203, 255, 0.32));
+}
+
+@media (max-width: 680px) {
+  .hpo-unified-title-wrap {
+    margin-bottom: 30px;
+    padding-bottom: 19px;
+  }
+  .hpo-unified-title {
+    font-size: clamp(30px, 9vw, 44px);
+  }
+  .award-slider__heading .hpo-unified-title {
+    font-size: clamp(15px, 3.35vw, 52px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hpo-unified-title-wrap::before,
+  .hpo-unified-title {
+    animation: none;
   }
 }
 
@@ -4077,5 +4289,321 @@
   }
   .award-slider__progress {
     display: none;
+  }
+}
+
+/* Enrollment CTA — final conversion banner before the footer. */
+.enroll-cta {
+  padding: clamp(56px, 7vw, 96px) 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f7faff 0%, #eef6ff 100%);
+}
+.enroll-cta__panel {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+  gap: clamp(38px, 6vw, 88px);
+  align-items: center;
+  min-height: 480px;
+  padding: clamp(48px, 6vw, 86px);
+  overflow: hidden;
+  border: 1px solid rgba(93, 210, 239, 0.3);
+  border-radius: clamp(26px, 3vw, 42px);
+  background:
+    radial-gradient(circle at 88% 15%, rgba(39, 214, 235, 0.2), transparent 28%),
+    radial-gradient(circle at 8% 100%, rgba(247, 190, 45, 0.13), transparent 32%),
+    linear-gradient(135deg, #03142f 0%, #062d59 54%, #083b65 100%);
+  color: #fff;
+  box-shadow: 0 34px 80px -42px rgba(5, 40, 83, 0.62);
+}
+.enroll-cta__panel::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(90deg, transparent, #000 45%, #000);
+  pointer-events: none;
+}
+.enroll-cta__panel::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -110px;
+  right: -80px;
+  width: 430px;
+  height: 430px;
+  border: 1px solid rgba(255, 231, 136, 0.22);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 54px rgba(94, 231, 242, 0.035),
+    0 0 0 108px rgba(255, 255, 255, 0.025);
+  pointer-events: none;
+}
+.enroll-cta__content {
+  position: relative;
+  z-index: 1;
+}
+.enroll-cta__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 14px;
+  border: 1px solid rgba(94, 231, 242, 0.34);
+  border-radius: 999px;
+  background: rgba(94, 231, 242, 0.09);
+  color: #8cecf4;
+  font-family: var(--ff-display);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.enroll-cta__content h2 {
+  max-width: 720px;
+  margin: 22px 0 20px;
+  color: #fff;
+  font-family: var(--ff-display);
+  font-size: clamp(44px, 5vw, 72px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+.enroll-cta__content h2 strong {
+  color: #ffe788;
+  font-weight: inherit;
+  text-shadow: 0 8px 26px rgba(241, 183, 28, 0.22);
+}
+.enroll-cta__content > p {
+  max-width: 650px;
+  margin: 0;
+  color: rgba(238, 247, 255, 0.82);
+  font-size: clamp(15px, 1.15vw, 18px);
+  line-height: 1.7;
+}
+.enroll-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: stretch;
+  margin-top: 32px;
+}
+.enroll-cta__primary,
+.enroll-cta__phone {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-family: var(--ff-display);
+  text-decoration: none;
+  transition:
+    background-color 0.25s var(--ease),
+    border-color 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
+    transform 0.25s var(--ease);
+}
+.enroll-cta__primary {
+  gap: 12px;
+  padding: 0 24px;
+  background: linear-gradient(105deg, #f5b51b, #ffe788);
+  color: #08254a;
+  font-size: 14px;
+  font-weight: 900;
+  box-shadow: 0 16px 32px -18px rgba(245, 181, 27, 0.78);
+}
+.enroll-cta__primary svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.enroll-cta__phone {
+  gap: 11px;
+  padding: 7px 21px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+.enroll-cta__phone svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #72e3ee;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.enroll-cta__phone span {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.enroll-cta__phone small {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.enroll-cta__primary:hover,
+.enroll-cta__phone:hover {
+  transform: translateY(-3px);
+}
+.enroll-cta__primary:hover {
+  box-shadow: 0 20px 38px -18px rgba(245, 181, 27, 0.88);
+}
+.enroll-cta__phone:hover {
+  border-color: rgba(114, 227, 238, 0.66);
+  background: rgba(255, 255, 255, 0.12);
+}
+.enroll-cta__primary:focus-visible,
+.enroll-cta__phone:focus-visible {
+  outline: 3px solid #72e3ee;
+  outline-offset: 4px;
+}
+.enroll-cta__benefits {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.075);
+  box-shadow: 0 24px 54px -34px rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(14px);
+}
+.enroll-cta__benefit {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  min-height: 82px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 17px;
+  background: rgba(3, 20, 47, 0.34);
+}
+.enroll-cta__benefit > span {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(94, 231, 242, 0.2), rgba(245, 181, 27, 0.12));
+  color: #8cecf4;
+}
+.enroll-cta__benefit svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.enroll-cta__benefit strong,
+.enroll-cta__benefit small {
+  display: block;
+}
+.enroll-cta__benefit strong {
+  color: #fff;
+  font-family: var(--ff-display);
+  font-size: 14px;
+  font-weight: 800;
+}
+.enroll-cta__benefit small {
+  margin-top: 5px;
+  color: rgba(235, 246, 255, 0.66);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 960px) {
+  .enroll-cta__panel {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .enroll-cta__content {
+    text-align: center;
+  }
+  .enroll-cta__content h2,
+  .enroll-cta__content > p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .enroll-cta__actions {
+    justify-content: center;
+  }
+  .enroll-cta__benefits {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .enroll-cta__benefit {
+    grid-template-columns: 1fr;
+    align-content: start;
+    text-align: center;
+  }
+  .enroll-cta__benefit > span {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .enroll-cta {
+    padding: 48px 0;
+  }
+  .enroll-cta__panel {
+    gap: 30px;
+    padding: 38px 20px 22px;
+    border-radius: 26px;
+  }
+  .enroll-cta__eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.09em;
+  }
+  .enroll-cta__content h2 {
+    margin-top: 18px;
+    font-size: clamp(38px, 12vw, 52px);
+  }
+  .enroll-cta__content > p {
+    font-size: 14px;
+  }
+  .enroll-cta__actions,
+  .enroll-cta__primary,
+  .enroll-cta__phone {
+    width: 100%;
+  }
+  .enroll-cta__benefits {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+  .enroll-cta__benefit {
+    grid-template-columns: 46px minmax(0, 1fr);
+    min-height: 76px;
+    text-align: left;
+  }
+  .enroll-cta__benefit > span {
+    width: 46px;
+    height: 46px;
+    margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enroll-cta__primary,
+  .enroll-cta__phone {
+    transition: none;
   }
 }
