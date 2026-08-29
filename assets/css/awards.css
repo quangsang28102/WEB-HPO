@@ -2099,6 +2099,9 @@
   filter: drop-shadow(0 6px 16px rgba(24, 116, 180, 0.12));
   animation: digital-materials-title-shine 9s ease-in-out infinite alternate;
 }
+.digital-title__nowrap {
+  white-space: nowrap;
+}
 .digital-learning-materials__head p {
   font-size: 22px;
   font-weight: 600;
@@ -2688,14 +2691,18 @@
   transform: scaleX(-1);
 }
 .award-slider__heading h3 {
+  position: relative;
+  left: 50%;
+  width: min(1500px, calc(100vw - 40px));
   max-width: none;
   margin: 13px 0 0;
   font-family: var(--ff-display);
-  font-size: clamp(15px, 3.35vw, 52px);
+  font-size: clamp(13px, 3.1vw, 52px);
   font-weight: 900;
   line-height: 1.16;
-  letter-spacing: 0;
+  letter-spacing: -0.025em;
   white-space: nowrap;
+  transform: translateX(-50%);
 }
 .award-slider__heading > p {
   max-width: 650px;
@@ -3681,7 +3688,7 @@
     font-size: clamp(30px, 9vw, 44px);
   }
   .award-slider__heading .hpo-unified-title {
-    font-size: clamp(15px, 3.35vw, 52px);
+    font-size: clamp(13px, 3.1vw, 52px);
   }
 }
 
@@ -4605,5 +4612,68 @@
   .enroll-cta__primary,
   .enroll-cta__phone {
     transition: none;
+  }
+}
+
+/* Homepage vertical rhythm and Vietnamese-title breathing room. */
+.brand-protection__head h2,
+.digital-learning-materials__head h2,
+.intro-video__head h2,
+.platform-v2-title,
+.sec-title--new-color,
+.enroll-cta__content h2 {
+  font-size: clamp(32px, 3.1vw, 52px);
+}
+.award-slider {
+  padding-top: clamp(56px, 6vw, 88px);
+}
+.brand-protection {
+  padding-top: clamp(56px, 6vw, 80px);
+  padding-bottom: clamp(64px, 6.5vw, 88px);
+}
+.digital-learning-materials {
+  padding-top: clamp(56px, 6vw, 80px);
+  padding-bottom: clamp(56px, 6vw, 80px);
+}
+.digital-learning-materials + .digital-learning-materials {
+  padding-top: clamp(24px, 3vw, 40px);
+}
+.intro-video {
+  padding-top: clamp(56px, 6vw, 80px);
+  padding-bottom: clamp(56px, 6vw, 80px);
+}
+.enroll-cta {
+  padding-top: clamp(48px, 5.5vw, 72px);
+  padding-bottom: clamp(48px, 5.5vw, 72px);
+}
+.brand-protection__head h2,
+.digital-learning-materials__head h2,
+.intro-video__head h2,
+.platform-v2-title,
+.sec-title--new-color,
+.hpo-unified-title {
+  padding-top: 0.14em;
+  padding-bottom: 0.1em;
+  overflow: visible;
+}
+.tier-eyebrow--new-color {
+  padding-top: 0.12em;
+  padding-bottom: 0.12em;
+  line-height: 1.2;
+}
+
+@media (max-width: 680px) {
+  .award-slider {
+    padding-top: 48px;
+  }
+  .brand-protection,
+  .digital-learning-materials,
+  .intro-video,
+  .enroll-cta {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .digital-learning-materials + .digital-learning-materials {
+    padding-top: 20px;
   }
 }
