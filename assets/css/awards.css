@@ -2460,6 +2460,18 @@
   justify-items: start;
 }
 
+#building-software-card {
+  width: 100%;
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.digital-software-card #building-software-item__thumb {
+  width: 90%;
+  height: 100%;
+}
+
 #digital-learning-driver {
   /* height: fit-content; */
 }
