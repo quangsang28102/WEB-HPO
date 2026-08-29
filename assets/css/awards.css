@@ -7,11 +7,7 @@
   padding: 52px max(28px, calc((100vw - min(1680px, 88vw)) / 2 + 28px)) 62px;
   overflow: hidden;
   background:
-    radial-gradient(
-      circle at 50% 0,
-      rgba(255, 214, 112, 0.15),
-      transparent 24%
-    ),
+    radial-gradient(circle at 50% 0, rgba(255, 214, 112, 0.15), transparent 24%),
     #071536;
   border-top: 1px solid rgba(255, 204, 86, 0.5);
   border-bottom: 1px solid rgba(255, 204, 86, 0.3);
@@ -329,11 +325,7 @@
 .events:has(.awards-journey) {
   padding: 0 0 clamp(78px, 8vw, 110px);
   background:
-    radial-gradient(
-      circle at 12% 8%,
-      rgba(46, 104, 255, 0.09),
-      transparent 28%
-    ),
+    radial-gradient(circle at 12% 8%, rgba(46, 104, 255, 0.09), transparent 28%),
     linear-gradient(180deg, #f8faff 0%, #eef3fb 100%);
 }
 .events:has(.awards-journey)::before {
@@ -429,8 +421,8 @@
 }
 .journey-award__visual--product {
   isolation: isolate;
-  background: #071536 url("../images/awards/award-card-background.png") center
-    61% / cover no-repeat;
+  background: #071536 url("../images/awards/award-card-background.png") center 61% /
+    cover no-repeat;
 }
 .journey-award__visual--product::before,
 .journey-award__visual--product::after {
@@ -615,15 +607,7 @@
   width: 9%;
   height: 45%;
   background: linear-gradient(#2865a8, #0d3f7a);
-  clip-path: polygon(
-    10% 16%,
-    42% 16%,
-    50% 0,
-    58% 16%,
-    90% 16%,
-    100% 100%,
-    0 100%
-  );
+  clip-path: polygon(10% 16%, 42% 16%, 50% 0, 58% 16%, 90% 16%, 100% 100%, 0 100%);
 }
 .forum-skyline i:nth-child(2) {
   height: 73%;
@@ -799,7 +783,7 @@
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  text-shadow: 
+  text-shadow:
     0 4px 12px rgba(0, 0, 0, 0.95),
     0 2px 4px rgba(0, 0, 0, 0.85),
     0 0 20px rgba(255, 234, 0, 0.4);
@@ -814,8 +798,8 @@
   line-height: 1.25;
   letter-spacing: -0.015em;
   text-transform: uppercase;
-  text-shadow: 
-    0 5px 15px rgba(0, 4, 20, 0.98), 
+  text-shadow:
+    0 5px 15px rgba(0, 4, 20, 0.98),
     0 2px 6px rgba(0, 4, 20, 0.9),
     0 0 25px rgba(255, 214, 0, 0.35);
 }
@@ -1116,7 +1100,7 @@
 .protection-item__copy p {
   margin: 0;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 16px !important;
+  font-size: 20px !important;
   line-height: 1.72;
 }
 .protection-item__copy strong {
@@ -1140,11 +1124,7 @@
 }
 .protection-item__thumb--domain {
   background:
-    radial-gradient(
-      circle at 50% 30%,
-      rgba(246, 200, 77, 0.2),
-      transparent 55%
-    ),
+    radial-gradient(circle at 50% 30%, rgba(246, 200, 77, 0.2), transparent 55%),
     #0b2047;
 }
 .protection-item__thumb--domain span:not(.protection-item__zoom) {
@@ -1281,16 +1261,8 @@
   padding: 26px;
   border-color: rgba(246, 200, 77, 0.3);
   background:
-    radial-gradient(
-      circle at 15% 40%,
-      rgba(246, 200, 77, 0.1),
-      transparent 28%
-    ),
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.075),
-      rgba(255, 255, 255, 0.025)
-    );
+    radial-gradient(circle at 15% 40%, rgba(246, 200, 77, 0.1), transparent 28%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
 }
 .protection-item:hover {
   background-color: rgba(255, 255, 255, 0.055);
@@ -1650,16 +1622,8 @@
 .brand-protection {
   padding: clamp(60px, 6vw, 88px) 0 clamp(68px, 7vw, 104px);
   background:
-    radial-gradient(
-      circle at 88% 3%,
-      rgba(34, 211, 238, 0.16),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 8% 100%,
-      rgba(99, 102, 241, 0.12),
-      transparent 34%
-    ),
+    radial-gradient(circle at 88% 3%, rgba(34, 211, 238, 0.16), transparent 30%),
+    radial-gradient(circle at 8% 100%, rgba(99, 102, 241, 0.12), transparent 34%),
     linear-gradient(135deg, #f7faff 0%, #eff8ff 52%, #f6f7ff 100%);
 }
 .brand-protection__inner {
@@ -1696,7 +1660,7 @@
 .protection-item,
 .protection-item:first-child {
   grid-column: auto;
-  grid-template-columns: minmax(220px, 1.8fr) minmax(220px, 1.28fr);
+  grid-template-columns: minmax(165px, 0.32fr) minmax(220px, 1.28fr);
   grid-template-rows: auto auto 1fr;
   column-gap: clamp(20px, 1.8vw, 28px);
   row-gap: 8px;
@@ -1715,7 +1679,7 @@
 .protection-item__number {
   top: 23px;
   right: 26px;
-  font-size: clamp(26px, 3vw, 46px);
+  font-size: clamp(34px, 3vw, 46px);
   color: rgba(71, 117, 225, 0.56);
 }
 .protection-item__copy {
@@ -1739,7 +1703,7 @@
   max-width: calc(100% - 58px);
   margin: 0 0 14px;
   color: #173f75;
-  font-size: clamp(16px, 1.65vw, 27px);
+  font-size: clamp(20px, 1.65vw, 27px);
   line-height: 1.16;
 }
 .protection-item__thumb,
@@ -1836,7 +1800,7 @@
     max-width: none;
     margin: 2px 0 14px;
     padding-right: 42px;
-    font-size: 18px;
+    font-size: 23px;
   }
   .protection-item__thumb,
   .protection-item:first-child .protection-item__thumb,
@@ -1857,16 +1821,8 @@
 .brand-protection {
   isolation: isolate;
   background:
-    radial-gradient(
-      circle at 50% 2%,
-      rgba(41, 189, 255, 0.23),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 8% 72%,
-      rgba(250, 190, 40, 0.13),
-      transparent 28%
-    ),
+    radial-gradient(circle at 50% 2%, rgba(41, 189, 255, 0.23), transparent 30%),
+    radial-gradient(circle at 8% 72%, rgba(250, 190, 40, 0.13), transparent 28%),
     radial-gradient(circle at 92% 88%, rgba(85, 92, 235, 0.2), transparent 32%),
     linear-gradient(145deg, #03142f 0%, #062b55 48%, #071b3d 100%);
   border-color: rgba(91, 180, 239, 0.24);
@@ -2042,11 +1998,7 @@
   padding: clamp(76px, 8vw, 120px) 0;
   background:
     radial-gradient(circle at 0 0, rgba(34, 184, 207, 0.12), transparent 30%),
-    radial-gradient(
-      circle at 100% 100%,
-      rgba(245, 181, 27, 0.1),
-      transparent 28%
-    ),
+    radial-gradient(circle at 100% 100%, rgba(245, 181, 27, 0.1), transparent 28%),
     #f7fbff;
   color: #102f59;
 }
@@ -2372,11 +2324,7 @@
   border: 1px solid rgba(116, 177, 220, 0.6);
   border-radius: 24px;
   background:
-    radial-gradient(
-      circle at 100% 0,
-      rgba(34, 184, 207, 0.12),
-      transparent 32%
-    ),
+    radial-gradient(circle at 100% 0, rgba(34, 184, 207, 0.12), transparent 32%),
     rgba(255, 255, 255, 0.94);
   box-shadow: 0 24px 58px -40px rgba(30, 87, 148, 0.46);
 }
@@ -2510,15 +2458,6 @@
   display: flex;
   flex-direction: column;
   justify-items: start;
-}
-
-#building-software-card {
-  padding: 0;
-}
-
-.digital-software-card #building-software-item__thumb {
-  width: 100%;
-  height: 100%;
 }
 
 #digital-learning-driver {
@@ -2788,26 +2727,25 @@
   gap: 13px;
 }
 .award-slider__heading > div > span {
-  color: #edf6ff;
+  color: #1767bd;
   font-family: var(--ff-display);
   font-size: clamp(13px, 1.15vw, 18px);
   font-weight: 900;
   line-height: 1.45;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  text-shadow: 0 0 22px rgba(148, 214, 255, 0.22);
 }
 .award-slider__heading > div > span > span {
-  text-shadow: 0 0 18px rgba(120, 195, 255, 0.24);
+  text-shadow: 0 5px 18px rgba(23, 103, 189, 0.14);
 }
 .award-slider__heading > div > span strong {
   display: inline-block;
   margin-top: 3px;
-  color: #ff5466;
+  color: #e11d2e;
   font-size: 1.2em;
   font-weight: 950;
   letter-spacing: 0.12em;
-  text-shadow: 0 0 20px rgba(255, 84, 102, 0.3);
+  text-shadow: 0 6px 18px rgba(225, 29, 46, 0.2);
 }
 .award-slider__heading > div > span::before,
 .award-slider__heading > div > span::after {
@@ -2821,14 +2759,13 @@
 }
 .award-slider__heading-sub {
   margin: 16px auto 0;
-  color: #f4f8ff;
+  color: #174da3; /* Deep premium blue */
   font-family: var(--ff-display);
-  font-size: clamp(19px, 2.2vw, 32px);
+  font-size: clamp(16px, 1.8vw, 26px);
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.3;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  text-shadow: 0 0 18px rgba(154, 222, 255, 0.18);
 }
 .award-slider__heading h3 {
   position: relative;
@@ -2950,11 +2887,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(2, 12, 32, 0.05),
-    rgba(1, 8, 24, 0.48)
-  );
+  background: linear-gradient(180deg, rgba(2, 12, 32, 0.05), rgba(1, 8, 24, 0.48));
   opacity: 1;
 }
 .award-slide--vietnam::after {
@@ -2985,11 +2918,7 @@
   bottom: 5%;
   height: 22%;
   border-radius: 50%;
-  background: radial-gradient(
-    ellipse,
-    rgba(255, 196, 58, 0.38),
-    transparent 68%
-  );
+  background: radial-gradient(ellipse, rgba(255, 196, 58, 0.38), transparent 68%);
   filter: blur(12px);
 }
 .award-slide--asean {
@@ -3053,11 +2982,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(5, 28, 78, 0.04),
-    rgba(3, 20, 55, 0.52)
-  );
+  background: linear-gradient(180deg, rgba(5, 28, 78, 0.04), rgba(3, 20, 55, 0.52));
   opacity: 1;
 }
 .award-slide--global .award-slide__content {
@@ -3363,11 +3288,7 @@
   right: 0;
   bottom: -2%;
   height: 32%;
-  background: radial-gradient(
-    ellipse,
-    rgba(255, 199, 62, 0.3),
-    transparent 68%
-  );
+  background: radial-gradient(ellipse, rgba(255, 199, 62, 0.3), transparent 68%);
   filter: blur(14px);
 }
 .award-slide__visual .award-slide__gallery-certificate {
@@ -3753,12 +3674,11 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: var(--ff-display);
-  font-size: clamp(46px, 5.2vw, 92px);
+  font-size: clamp(40px, 4.8vw, 64px);
   font-weight: 900;
-  line-height: 0.96;
+  line-height: 1.08;
   letter-spacing: -0.045em;
   text-transform: uppercase;
-  white-space: nowrap;
   filter: drop-shadow(0 8px 22px rgba(42, 153, 208, 0.2));
   animation: brand-protection-title 4.2s linear infinite;
 }
@@ -3871,11 +3791,9 @@
   }
   .hpo-unified-title {
     font-size: clamp(30px, 9vw, 44px);
-    white-space: normal;
   }
   .award-slider__heading .hpo-unified-title {
-    font-size: clamp(16px, 3.8vw, 52px);
-    white-space: normal;
+    font-size: clamp(13px, 3.1vw, 52px);
   }
 }
 
@@ -4088,11 +4006,7 @@
   width: 78%;
   height: 78%;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 202, 77, 0.15),
-    transparent 67%
-  );
+  background: radial-gradient(circle, rgba(255, 202, 77, 0.15), transparent 67%);
   filter: blur(12px);
   transform: translateX(-50%);
 }
@@ -4199,11 +4113,7 @@
   }
   .award-slide-mobile--asean::before {
     background:
-      radial-gradient(
-        circle at 85% 22%,
-        rgba(255, 190, 62, 0.3),
-        transparent 30%
-      ),
+      radial-gradient(circle at 85% 22%, rgba(255, 190, 62, 0.3), transparent 30%),
       repeating-linear-gradient(
         135deg,
         rgba(255, 255, 255, 0.035) 0 1px,
@@ -4215,11 +4125,7 @@
   }
   .award-slide-mobile--global::before {
     background:
-      radial-gradient(
-        circle at 50% 2%,
-        rgba(87, 166, 255, 0.3),
-        transparent 32%
-      ),
+      radial-gradient(circle at 50% 2%, rgba(87, 166, 255, 0.3), transparent 32%),
       linear-gradient(115deg, rgba(208, 20, 32, 0.13), transparent 45%);
   }
   .award-slide-mobile__copy {
@@ -4517,16 +4423,8 @@
   border: 1px solid rgba(93, 210, 239, 0.3);
   border-radius: clamp(26px, 3vw, 42px);
   background:
-    radial-gradient(
-      circle at 88% 15%,
-      rgba(39, 214, 235, 0.2),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 8% 100%,
-      rgba(247, 190, 45, 0.13),
-      transparent 32%
-    ),
+    radial-gradient(circle at 88% 15%, rgba(39, 214, 235, 0.2), transparent 28%),
+    radial-gradient(circle at 8% 100%, rgba(247, 190, 45, 0.13), transparent 32%),
     linear-gradient(135deg, #03142f 0%, #062d59 54%, #083b65 100%);
   color: #fff;
   box-shadow: 0 34px 80px -42px rgba(5, 40, 83, 0.62);
@@ -4986,8 +4884,9 @@
   aspect-ratio: 1 / 1;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
-              0 0 40px rgba(255, 234, 0, 0.05);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(255, 234, 0, 0.05);
   border: 1.5px solid rgba(255, 255, 255, 0.12);
   background-color: #020716;
 }
