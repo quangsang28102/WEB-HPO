@@ -16,11 +16,7 @@
     linear-gradient(90deg, rgba(10, 19, 48, 0.025) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(
-    ellipse at center,
-    #000 30%,
-    transparent 75%
-  );
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
   pointer-events: none;
 }
 .hero-grid {
@@ -898,38 +894,17 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(
-      circle at 30% 30%,
-      rgba(59, 130, 246, 0.32),
-      transparent 55%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(255, 107, 53, 0.18),
-      transparent 55%
-    );
+    radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.32), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.18), transparent 55%);
   pointer-events: none;
 }
 .curr-card[data-accent="warm"] .curr-thumb {
-  background: linear-gradient(
-    135deg,
-    var(--blue-900) 0%,
-    #2a1a52 50%,
-    #6b2d1a 100%
-  );
+  background: linear-gradient(135deg, var(--blue-900) 0%, #2a1a52 50%, #6b2d1a 100%);
 }
 .curr-card[data-accent="warm"] .curr-thumb::after {
   background:
-    radial-gradient(
-      circle at 30% 30%,
-      rgba(255, 107, 53, 0.32),
-      transparent 55%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(59, 130, 246, 0.18),
-      transparent 55%
-    );
+    radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.32), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.18), transparent 55%);
 }
 .curr-thumb svg.illust {
   position: absolute;
@@ -2002,6 +1977,48 @@
   min-width: 0;
   max-width: 100%;
 }
+
+/* Curriculum palette — each subject carries one colour across number, title and badges. */
+.syll-list--chapters .syll-row[data-mon="01"] {
+  --subject-color: #dc2626;
+  --subject-soft: #ffedd5;
+}
+.syll-list--chapters .syll-row[data-mon="02"] {
+  --subject-color: #7c3aed;
+  --subject-soft: #ede9fe;
+}
+.syll-list--chapters .syll-row[data-mon="03"] {
+  --subject-color: #15803d;
+  --subject-soft: #dcfce7;
+}
+.syll-list--chapters .syll-row[data-mon="04"] {
+  --subject-color: #d97706;
+  --subject-soft: #fef3c7;
+}
+.syll-list--chapters .syll-row[data-mon="05"] {
+  --subject-color: #be185d;
+  --subject-soft: #fce7f3;
+}
+.syll-list--chapters .syll-row[data-mon="06"] {
+  --subject-color: #0f766e;
+  --subject-soft: #ccfbf1;
+}
+
+.syll-list--chapters .syll-row .syll-num,
+.syll-list--chapters .syll-row .syll-title {
+  color: var(--subject-color);
+}
+
+.syll-list--chapters .syll-row .syll-meta,
+.syll-list--chapters .syll-row .syll-tag {
+  color: var(--subject-color);
+  background: var(--subject-soft);
+}
+
+.syll-list--chapters .syll-row::before {
+  background: var(--subject-color);
+}
+
 .syll-title .syll-meta {
   grid-column: 2;
   grid-row: 1;
@@ -2013,6 +2030,7 @@
   grid-column: 1;
   grid-row: 1;
 }
+
 .syll-title small,
 .syll-title .syll-desc {
   grid-column: 1 / -1;
@@ -2226,9 +2244,7 @@
   background: #d97706;
 }
 
-.syll-list--chapters
-  .syll-detail:not(#syllDetail-chap-phap-luat)
-  .mon-body-pad {
+.syll-list--chapters .syll-detail:not(#syllDetail-chap-phap-luat) .mon-body-pad {
   gap: 0;
 }
 
@@ -2247,9 +2263,7 @@
   grid-template-rows: 1fr;
 }
 
-.syll-list--chapters
-  .syll-detail:not(#syllDetail-chap-phap-luat)
-  .phan-body-pad {
+.syll-list--chapters .syll-detail:not(#syllDetail-chap-phap-luat) .phan-body-pad {
   border-top: 0;
   padding: 0;
 }
@@ -3094,16 +3108,8 @@
   overflow: hidden;
   padding: clamp(76px, 8vw, 120px) 0;
   background:
-    radial-gradient(
-      circle at 12% 15%,
-      rgba(34, 184, 207, 0.14),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 88% 86%,
-      rgba(245, 181, 27, 0.1),
-      transparent 26%
-    ),
+    radial-gradient(circle at 12% 15%, rgba(34, 184, 207, 0.14), transparent 28%),
+    radial-gradient(circle at 88% 86%, rgba(245, 181, 27, 0.1), transparent 26%),
     linear-gradient(145deg, #f7fbff, #edf7ff 52%, #f8f8ff);
 }
 .intro-video::before {
@@ -3203,11 +3209,7 @@
   border: 1px solid rgba(109, 170, 214, 0.62);
   border-radius: clamp(20px, 2.5vw, 32px);
   background:
-    radial-gradient(
-      circle at 50% 42%,
-      rgba(37, 176, 214, 0.24),
-      transparent 25%
-    ),
+    radial-gradient(circle at 50% 42%, rgba(37, 176, 214, 0.24), transparent 25%),
     linear-gradient(135deg, #071a39, #0b3b68 55%, #09254c);
   box-shadow:
     0 34px 75px -35px rgba(10, 52, 106, 0.58),

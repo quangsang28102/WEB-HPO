@@ -2403,6 +2403,71 @@ a.chap[data-engine-view]:focus-visible {
   outline-offset: 3px;
 }
 
+#syllDetail-chap-cau-tao {
+  --subject-color: #7c3aed;
+  --subject-soft: #ede9fe;
+}
+#syllDetail-chap-dao-duc {
+  --subject-color: #15803d;
+  --subject-soft: #dcfce7;
+}
+#syllDetail-chap-ky-thuat {
+  --subject-color: #d97706;
+  --subject-soft: #fef3c7;
+}
+#syllDetail-chap-thuc-hanh {
+  --subject-color: #0f766e;
+  --subject-soft: #ccfbf1;
+}
+
+#syllDetail-chap-cau-tao .phan,
+#syllDetail-chap-dao-duc .phan,
+#syllDetail-chap-ky-thuat .phan,
+#syllDetail-chap-thuc-hanh .phan {
+  --phan-color: var(--subject-color);
+}
+
+#syllDetail-chap-cau-tao .phan-stripe,
+#syllDetail-chap-cau-tao .phan-chip,
+#syllDetail-chap-cau-tao .chap-chip,
+#syllDetail-chap-cau-tao .chap-num-wrap,
+#syllDetail-chap-dao-duc .phan-stripe,
+#syllDetail-chap-dao-duc .phan-chip,
+#syllDetail-chap-dao-duc .chap-chip,
+#syllDetail-chap-dao-duc .chap-num-wrap,
+#syllDetail-chap-ky-thuat .phan-stripe,
+#syllDetail-chap-ky-thuat .phan-chip,
+#syllDetail-chap-ky-thuat .chap-chip,
+#syllDetail-chap-ky-thuat .chap-num-wrap,
+#syllDetail-chap-thuc-hanh .phan-stripe,
+#syllDetail-chap-thuc-hanh .phan-chip,
+#syllDetail-chap-thuc-hanh .chap-chip,
+#syllDetail-chap-thuc-hanh .chap-num-wrap {
+  background: var(--subject-color) !important;
+}
+
+#syllDetail-chap-cau-tao .phan-count-meta,
+#syllDetail-chap-cau-tao .phan-title,
+#syllDetail-chap-cau-tao .chap-title,
+#syllDetail-chap-dao-duc .phan-count-meta,
+#syllDetail-chap-dao-duc .phan-title,
+#syllDetail-chap-dao-duc .chap-title,
+#syllDetail-chap-ky-thuat .phan-count-meta,
+#syllDetail-chap-ky-thuat .phan-title,
+#syllDetail-chap-ky-thuat .chap-title,
+#syllDetail-chap-thuc-hanh .phan-count-meta,
+#syllDetail-chap-thuc-hanh .phan-title,
+#syllDetail-chap-thuc-hanh .chap-title {
+  color: var(--subject-color) !important;
+}
+
+#syllDetail-chap-cau-tao .phan-caret,
+#syllDetail-chap-dao-duc .phan-caret,
+#syllDetail-chap-ky-thuat .phan-caret,
+#syllDetail-chap-thuc-hanh .phan-caret {
+  color: var(--subject-color);
+}
+
 /* Chap có video — cả row click được để mở modal */
 .chap--video {
   cursor: pointer;
@@ -2865,4 +2930,3 @@ a.chap[data-engine-view]:focus-visible {
     transform: translateY(0);
   }
 }
-
