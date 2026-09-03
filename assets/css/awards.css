@@ -2929,13 +2929,14 @@
   filter: blur(24px);
 }
 .award-slide--vietnam {
+  background-color: #0649b5;
   background-image:
     linear-gradient(
       90deg,
-      rgba(1, 8, 28, 0.97) 0%,
-      rgba(3, 16, 50, 0.9) 42%,
-      rgba(3, 18, 62, 0.3) 70%,
-      rgba(2, 10, 35, 0.08) 100%
+      rgba(4, 45, 132, 0.94) 0%,
+      rgba(5, 69, 177, 0.82) 40%,
+      rgba(6, 83, 202, 0.3) 70%,
+      rgba(3, 48, 137, 0.12) 100%
     ),
     url("../images/awards/hang-viet-tot-stage-background-2025.png");
   background-position: center;
@@ -2945,7 +2946,11 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(2, 12, 32, 0.05), rgba(1, 8, 24, 0.48));
+  background: linear-gradient(
+    180deg,
+    rgba(25, 112, 238, 0.08),
+    rgba(3, 43, 126, 0.26)
+  );
   opacity: 1;
 }
 .award-slide--vietnam::after {
