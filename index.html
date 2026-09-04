@@ -1402,20 +1402,44 @@
           <div
             class="platform-v2-dash"
             aria-hidden="true"
-          >
-            <span></span><i></i><i></i><i></i>
+          ></div>
+        </div>
+
+        <div
+          class="platform-v2-download"
+          data-reveal
+          data-delay="1"
+        >
+          <div class="platform-dl-label">Tải ứng dụng học online</div>
+          <div class="platform-dl-btns">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.hpo.edugo"
+              target="_blank"
+              rel="noopener"
+              class="platform-dl-badge"
+              aria-label="Tải trên Google Play"
+            >
+              <img
+                src="assets/images/CHPlay.png"
+                alt="Tải trên Google Play"
+                loading="lazy"
+              />
+            </a>
+            <a
+              href="https://apps.apple.com/vn/app/hiep-phat-edu/id6748065752"
+              target="_blank"
+              rel="noopener"
+              class="platform-dl-badge"
+              aria-label="Tải trên App Store"
+            >
+              <img
+                src="assets/images/AppStore.png"
+                alt="Tải trên App Store"
+                loading="lazy"
+              />
+            </a>
           </div>
         </div>
-        <!-- <p class="platform-v2-desc" data-reveal data-delay="1">
-          Các môn học lý thuyết trên nền tảng số thông qua các bài giảng video,
-          tài liệu trực quan, sinh động, dễ hiểu học bằng ứng dụng đa nền tảng
-          trên thiết bị (Windows, IOS, Android) giúp học viên học mọi lúc mọi
-          nơi, không hạn chế khung giờ học, không gian học, giúp người học chủ
-          động việc học trong điều kiện biến đổi khí hậu, tiết kiệm chi phí. Học
-          lý thuyết lái xe ô tô qua nền tảng số không chỉ mang lại sự thuận tiện
-          và hiệu quả mà còn giúp học viên rèn luyện kỹ năng tự học và phản xạ
-          tốt hơn, chuẩn bị sẵn sàng cho cả kỳ thi lý thuyết và thực hành.
-        </p> -->
 
         <div class="platform-v2-body">
           <div
@@ -1580,35 +1604,6 @@
             <div class="platform-circle-cap platform-circle-cap--v2">
               Xác thực khuôn mặt
             </div>
-            <div class="platform-dl-label">Tải ứng dụng học online</div>
-            <div class="platform-dl-btns">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.hpo.edugo"
-                target="_blank"
-                rel="noopener"
-                class="platform-dl-badge"
-                aria-label="Tải trên Google Play"
-              >
-                <img
-                  src="assets/images/CHPlay.png"
-                  alt="Tải trên Google Play"
-                  loading="lazy"
-                />
-              </a>
-              <a
-                href="https://apps.apple.com/vn/app/hiep-phat-edu/id6748065752"
-                target="_blank"
-                rel="noopener"
-                class="platform-dl-badge"
-                aria-label="Tải trên App Store"
-              >
-                <img
-                  src="assets/images/AppStore.png"
-                  alt="Tải trên App Store"
-                  loading="lazy"
-                />
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -1622,8 +1617,7 @@
           <div data-reveal>
             <span class="eyebrow">Chương trình đào tạo</span>
             <h2 class="sec-title sec-title--new-color">
-              Chương trình đào tạo<br />lái xe ô tô
-              <em>thông minh</em>
+              Chương trình đào tạo lái xe ô tô <em>thông minh</em>
             </h2>
           </div>
         </div>
@@ -3282,6 +3276,53 @@
         </div>
       </div>
     </section>
+
+    <script>
+      (() => {
+        const source = document.querySelector(".syll.syll--chapters");
+        if (!source) return;
+
+        const clone = source.cloneNode(true);
+        const idMap = new Map();
+
+        clone.classList.add("syll--chapters-color-bg");
+        clone.setAttribute("aria-label", "Chương trình đào tạo - phiên bản nền màu");
+
+        clone.querySelectorAll("[id]").forEach((element) => {
+          const sourceId = element.id;
+          const cloneId = `${sourceId}-color-bg`;
+          idMap.set(sourceId, cloneId);
+          element.dataset.cloneSourceId = sourceId;
+          element.id = cloneId;
+        });
+
+        clone.querySelectorAll("[data-toggle]").forEach((control) => {
+          control.dataset.toggle = `${control.dataset.toggle}-color-bg`;
+          control.setAttribute("aria-expanded", "false");
+        });
+
+        ["aria-controls", "aria-labelledby", "for"].forEach((attribute) => {
+          clone.querySelectorAll(`[${attribute}]`).forEach((element) => {
+            const values = element.getAttribute(attribute).split(" ");
+            element.setAttribute(
+              attribute,
+              values.map((value) => idMap.get(value) || value).join(" "),
+            );
+          });
+        });
+
+        clone.querySelectorAll("a[href^='#']").forEach((link) => {
+          const target = link.getAttribute("href").slice(1);
+          if (idMap.has(target)) link.setAttribute("href", `#${idMap.get(target)}`);
+        });
+
+        clone.querySelectorAll(".is-open").forEach((element) => {
+          element.classList.remove("is-open");
+        });
+
+        source.insertAdjacentElement("afterend", clone);
+      })();
+    </script>
 
     <!-- ── ENROLLMENT CTA ── -->
     <!-- <section class="enroll-cta" aria-labelledby="enrollCtaTitle">

@@ -1928,7 +1928,7 @@
   grid-column: 1;
   font-family: var(--ff-display);
   font-weight: 700;
-  font-size: 42px;
+  font-size: clamp(29px, 3vw, 34px);
   color: var(--blue-600);
   letter-spacing: 0.02em;
   line-height: 1;
@@ -1962,8 +1962,8 @@
 .syll-title {
   grid-column: 2;
   font-family: var(--ff-display);
-  font-weight: 700;
-  font-size: 30px;
+  font-weight: 600;
+  font-size: clamp(22px, 2.2vw, 26px);
   color: var(--ink-900);
   letter-spacing: -0.018em;
   line-height: 1.3;
@@ -1980,58 +1980,83 @@
 
 /* Curriculum palette — each subject uses its own solid background colour. */
 .syll-list--chapters .syll-row[data-mon="01"] {
-  --subject-bg: #fff1f2;
-  --subject-bg-hover: #ffe4e6;
-  --subject-text: #9f1239;
-  --subject-muted: #881337;
-  --subject-chip: #fecdd3;
-  --subject-border: #fecdd3;
+  --subject-bg: #fff;
+  --subject-bg-hover: #fff1f3;
+  --subject-text: #e21d3b;
+  --subject-muted: #e21d3b;
+  --subject-chip: #e21d3b;
+  --subject-chip-text: #fff;
+  --subject-border: #e21d3b;
+  --subject-bg-solid: #ffe7ec;
+  --subject-bg-solid-hover: #ffd8e0;
+  --subject-on-solid: #a6112c;
 }
 .syll-list--chapters .syll-row[data-mon="02"] {
-  --subject-bg: #eff6ff;
-  --subject-bg-hover: #dbeafe;
-  --subject-text: #1e40af;
-  --subject-muted: #1e3a8a;
-  --subject-chip: #bfdbfe;
-  --subject-border: #bfdbfe;
+  --subject-bg: #fff;
+  --subject-bg-hover: #eff6ff;
+  --subject-text: #1468d4;
+  --subject-muted: #1468d4;
+  --subject-chip: #1468d4;
+  --subject-chip-text: #fff;
+  --subject-border: #1468d4;
+  --subject-bg-solid: #e3efff;
+  --subject-bg-solid-hover: #d4e6ff;
+  --subject-on-solid: #1455a4;
 }
 .syll-list--chapters .syll-row[data-mon="03"] {
-  --subject-bg: #f0fdf4;
-  --subject-bg-hover: #dcfce7;
-  --subject-text: #166534;
-  --subject-muted: #14532d;
-  --subject-chip: #bbf7d0;
-  --subject-border: #bbf7d0;
+  --subject-bg: #fffbea;
+  --subject-bg-hover: #fff6d5;
+  --subject-text: #9a6700;
+  --subject-muted: #9a6700;
+  --subject-chip: #f4c430;
+  --subject-chip-text: #3b2b00;
+  --subject-border: #f4c430;
+  --subject-bg-solid: #fff3a6;
+  --subject-bg-solid-hover: #ffeb7a;
+  --subject-on-solid: #6f4d00;
 }
 .syll-list--chapters .syll-row[data-mon="04"] {
-  --subject-bg: #fff7ed;
-  --subject-bg-hover: #ffedd5;
-  --subject-text: #9a3412;
-  --subject-muted: #7c2d12;
-  --subject-chip: #fed7aa;
-  --subject-border: #fed7aa;
+  --subject-bg: #fff;
+  --subject-bg-hover: #effcf4;
+  --subject-text: #10833f;
+  --subject-muted: #10833f;
+  --subject-chip: #10833f;
+  --subject-chip-text: #fff;
+  --subject-border: #10833f;
+  --subject-bg-solid: #ddf5e6;
+  --subject-bg-solid-hover: #ccefd9;
+  --subject-on-solid: #0d6b34;
 }
 .syll-list--chapters .syll-row[data-mon="05"] {
-  --subject-bg: #f8f1ec;
-  --subject-bg-hover: #f1e3da;
-  --subject-text: #71351f;
-  --subject-muted: #5c2a1a;
-  --subject-chip: #e8cdbd;
-  --subject-border: #e8cdbd;
+  --subject-bg: #fff;
+  --subject-bg-hover: #fff5ed;
+  --subject-text: #c94f0a;
+  --subject-muted: #c94f0a;
+  --subject-chip: #c94f0a;
+  --subject-chip-text: #fff;
+  --subject-border: #c94f0a;
+  --subject-bg-solid: #ffe6d2;
+  --subject-bg-solid-hover: #ffd9bc;
+  --subject-on-solid: #9e3c07;
 }
 .syll-list--chapters .syll-row[data-mon="06"] {
-  --subject-bg: #fefce8;
-  --subject-bg-hover: #fef9c3;
-  --subject-text: #854d0e;
-  --subject-muted: #713f12;
-  --subject-chip: #fef08a;
-  --subject-border: #fde68a;
+  --subject-bg: #fff;
+  --subject-bg-hover: #faf5ff;
+  --subject-text: #6d28d9;
+  --subject-muted: #6d28d9;
+  --subject-chip: #6d28d9;
+  --subject-chip-text: #fff;
+  --subject-border: #6d28d9;
+  --subject-bg-solid: #eee5ff;
+  --subject-bg-solid-hover: #e3d5ff;
+  --subject-on-solid: #5b21b6;
 }
 
 .syll-list--chapters .syll-row {
   background: var(--subject-bg);
   color: var(--subject-text);
   border-top-color: var(--subject-border);
+  box-shadow: inset 4px 0 0 var(--subject-border);
 }
 
 .syll-list--chapters .syll-row:hover {
@@ -2045,7 +2070,7 @@
 
 .syll-list--chapters .syll-row .syll-meta,
 .syll-list--chapters .syll-row .syll-tag {
-  color: var(--subject-text);
+  color: var(--subject-chip-text);
   background: var(--subject-chip);
 }
 
@@ -2060,13 +2085,120 @@
 
 .syll-list--chapters .syll-row .syll-down {
   color: var(--subject-text);
-  border-color: var(--subject-border);
+  background: #fff;
+  border-color: var(--subject-text);
 }
 
 .syll-list--chapters .syll-row .syll-down:hover {
-  color: var(--subject-text);
+  color: var(--subject-chip-text);
   background: var(--subject-chip);
   border-color: var(--subject-text);
+}
+
+/* Phiên bản thứ hai: màu nhận diện trở thành background của từng môn. */
+.syll--chapters-color-bg {
+  background: #f3f6fc;
+  border-top: 1px solid #dce4f2;
+}
+.syll--chapters-color-bg .syll-list--chapters .syll-row {
+  background: var(--subject-bg-solid);
+  color: var(--subject-on-solid, #fff);
+  border-top-color: rgba(255, 255, 255, 0.76);
+  box-shadow: inset 6px 0 0 var(--subject-chip);
+}
+.syll--chapters-color-bg .syll-list--chapters .syll-row:hover {
+  background: var(--subject-bg-solid-hover);
+}
+.syll--chapters-color-bg .syll-list--chapters .syll-row .syll-num,
+.syll--chapters-color-bg .syll-list--chapters .syll-row .syll-title,
+.syll--chapters-color-bg .syll-list--chapters .syll-row .syll-title small {
+  color: var(--subject-on-solid, #fff);
+}
+.syll--chapters-color-bg .syll-list--chapters .syll-row .syll-num {
+  font-size: clamp(29px, 3vw, 34px);
+  font-weight: 700;
+}
+.syll--chapters-color-bg .syll-list--chapters .syll-row .syll-title {
+  font-size: clamp(22px, 2.2vw, 26px);
+  font-weight: 600;
+  line-height: 1.38;
+}
+.syll--chapters-color-bg .syll-list--chapters .syll-row .syll-title small {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.syll--chapters-color-bg .syll-list--chapters .syll-row .syll-meta,
+.syll--chapters-color-bg .syll-list--chapters .syll-row .syll-tag {
+  color: var(--subject-on-solid, #fff);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid currentColor;
+  font-size: 11.5px;
+  letter-spacing: 0.09em;
+}
+.syll--chapters-color-bg .syll-list--chapters .syll-row[data-mon="03"] .syll-meta,
+.syll--chapters-color-bg .syll-list--chapters .syll-row[data-mon="03"] .syll-tag {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: currentColor;
+}
+.syll--chapters-color-bg .syll-list--chapters .syll-row .syll-down,
+.syll--chapters-color-bg .syll-list--chapters .syll-row .syll-play {
+  color: var(--subject-on-solid, #fff);
+  background: rgba(255, 255, 255, 0.72);
+  border-color: currentColor;
+}
+.syll--chapters-color-bg .syll-detail {
+  background: #f7f9fd;
+}
+.syll--chapters-color-bg .syll-detail .phan-stripe,
+.syll--chapters-color-bg .syll-detail .phan-chip,
+.syll--chapters-color-bg .syll-detail .chap-chip,
+.syll--chapters-color-bg .syll-detail .chap-num-wrap {
+  color: #fff;
+  background: var(--subject-chip) !important;
+}
+.syll--chapters-color-bg
+  .syll-row[data-mon="03"]
+  .syll-detail
+  :is(.phan-chip, .chap-chip, .chap-num-wrap) {
+  color: #3b2b00 !important;
+}
+.syll--chapters-color-bg .syll-detail .phan-count-meta {
+  color: var(--subject-chip) !important;
+}
+.syll--chapters-color-bg .syll-detail .phan-title,
+.syll--chapters-color-bg .syll-detail .chap-title {
+  color: #080f2e !important;
+}
+.syll--chapters-color-bg .syll-detail .phan-desc {
+  color: #1b2447 !important;
+}
+.syll--chapters-color-bg .syll-detail .phan-caret {
+  color: var(--subject-chip);
+}
+.syll--chapters-color-bg .syll-detail .phan-title {
+  font-size: clamp(18px, 1.5vw, 20px);
+  font-weight: 700;
+}
+.syll--chapters-color-bg .syll-detail .phan-desc {
+  font-size: 13.5px;
+}
+.syll--chapters-color-bg .syll-detail .phan-count-meta {
+  font-size: 16px;
+}
+.syll--chapters-color-bg .syll-detail .chap-title {
+  font-size: 15px;
+}
+
+@media (max-width: 640px) {
+  .syll--chapters-color-bg .syll-list--chapters .syll-row .syll-num {
+    font-size: 27px;
+  }
+  .syll--chapters-color-bg .syll-list--chapters .syll-row .syll-title {
+    font-size: 20px;
+  }
+  .syll--chapters-color-bg .syll-detail .phan-title {
+    font-size: 16.5px;
+  }
 }
 
 .syll-title .syll-meta {
@@ -2089,7 +2221,7 @@
   display: block;
   font-family: var(--ff-body);
   font-weight: 400;
-  font-size: 12.5px;
+  font-size: 12px;
   color: var(--ink-400);
   margin-top: 4px;
   letter-spacing: 0.01em;
@@ -2283,15 +2415,15 @@
 }
 
 #phan-chap-01-I .chap-num-wrap {
-  background: #dc2626;
+  background: #e21d3b;
 }
 
 #phan-chap-01-II .chap-num-wrap {
-  background: #15803d;
+  background: #10833f;
 }
 
 #phan-chap-01-III .chap-num-wrap {
-  background: #d97706;
+  background: #a93613;
 }
 
 .syll-list--chapters .syll-detail:not(#syllDetail-chap-phap-luat) .mon-body-pad {
@@ -2930,26 +3062,14 @@
   right: 0;
 }
 
-/* Đường gạch + 3 chấm đỏ trang trí dưới title */
+/* Thanh nhấn gradient đồng bộ với các tiêu đề khác */
 .platform-v2-dash {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  margin-top: 14px;
-}
-.platform-v2-dash span {
-  width: 38px;
-  height: 3px;
-  background: #ff2338;
-  border-radius: 2px;
-}
-.platform-v2-dash i {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #ff2338;
-  font-style: normal;
+  width: clamp(92px, 10vw, 142px);
+  height: 5px;
+  margin: 14px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f5b51b 0%, #22b8cf 52%, #2157b8 100%);
+  box-shadow: 0 7px 20px rgba(24, 126, 185, 0.24);
 }
 
 .platform-v2-desc {
@@ -3125,11 +3245,15 @@
   }
 }
 .platform-dl-label {
-  margin-top: 18px;
+  margin-top: 0;
   font-family: var(--ff-display);
   font-style: italic;
   font-size: 15px;
   color: var(--em-red);
+  text-align: center;
+}
+.platform-v2-download {
+  margin: 0 auto 32px;
   text-align: center;
 }
 .platform-dl-btns {

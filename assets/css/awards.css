@@ -4130,7 +4130,23 @@
 .curr-head--chapters .eyebrow {
   color: #0891b2;
 }
+.curr-head--chapters {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.curr-head--chapters > div {
+  width: 100%;
+}
+.curr-head--chapters .eyebrow {
+  justify-content: center;
+}
 .curr-head--chapters .sec-title--new-color {
+  width: max-content;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  white-space: nowrap;
   color: #174da3;
   background-image: linear-gradient(
     105deg,
@@ -4153,6 +4169,13 @@
 .curr-head--chapters .sec-title--new-color em {
   color: inherit;
   -webkit-text-fill-color: transparent;
+}
+@media (max-width: 760px) {
+  .curr-head--chapters .sec-title--new-color {
+    width: auto;
+    white-space: normal;
+    text-wrap: balance;
+  }
 }
 .platform-v2-title--new-color {
   color: #174da3;

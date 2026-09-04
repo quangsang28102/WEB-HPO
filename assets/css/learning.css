@@ -95,8 +95,8 @@
   font-family: var(--ff-display);
 }
 .phan-title {
-  font-size: 20px;
-  font-weight: 800;
+  font-size: clamp(18px, 1.5vw, 20px);
+  font-weight: 700;
   color: #080f2e;
   letter-spacing: -0.018em;
   line-height: 1.3;
@@ -108,7 +108,7 @@
   align-items: center;
 }
 #syllDetail-chap-phap-luat .phan-title {
-  font-size: clamp(19px, 1.7vw, 23px);
+  font-size: clamp(18px, 1.5vw, 20px);
 }
 .phan-title .phan-count-meta {
   grid-column: 3;
@@ -2230,7 +2230,7 @@
   background: #dbeafe;
   color: #1e40af;
   font-family: var(--ff-display);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2270,46 +2270,46 @@
   color: #1e40af;
 }
 #phan-chap-01-I .phan-stripe {
-  background: #dc2626;
+  background: #e21d3b;
 }
 #phan-chap-01-I .phan-chip {
   color: #fff;
-  background: #dc2626;
+  background: #e21d3b;
 }
 #phan-chap-01-I .phan-count-meta {
-  color: #dc2626;
+  color: #e21d3b;
 }
 #phan-chap-01-I.is-open .phan-caret {
-  color: #dc2626;
+  color: #e21d3b;
   background: #fee2e2;
 }
 #phan-chap-01-II .phan-stripe {
-  background: #15803d;
+  background: #10833f;
 }
 #phan-chap-01-II .phan-chip {
   color: #fff;
-  background: #15803d;
+  background: #10833f;
 }
 #phan-chap-01-II .phan-count-meta {
-  color: #15803d;
+  color: #10833f;
 }
 #phan-chap-01-II.is-open .phan-caret {
-  color: #15803d;
+  color: #10833f;
   background: #f0fdf4;
 }
 #phan-chap-01-III .phan-stripe {
-  background: #d97706;
+  background: #a93613;
 }
 #phan-chap-01-III .phan-chip {
   color: #fff;
-  background: #d97706;
+  background: #a93613;
 }
 #phan-chap-01-III .phan-count-meta {
-  color: #d97706;
+  color: #a93613;
 }
 #phan-chap-01-III.is-open .phan-caret {
-  color: #d97706;
-  background: #fef3c7;
+  color: #a93613;
+  background: #ffedd5;
 }
 .phan--II .phan-count-meta {
   color: #ef4822;
@@ -2341,13 +2341,13 @@
   background: #15803d;
 }
 #phan-chap-01-I .chap-chip {
-  background: #dc2626;
+  background: #e21d3b;
 }
 #phan-chap-01-II .chap-chip {
-  background: #15803d;
+  background: #10833f;
 }
 #phan-chap-01-III .chap-chip {
-  background: #d97706;
+  background: #a93613;
 }
 #phan-chap-02 .chap-num-wrap,
 #phan-chap-02 .chap-chip {
@@ -2371,13 +2371,13 @@
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 #chap-full-01-sa .sa-num {
-  background: #d97706;
+  background: #a93613;
 }
 #chap-full-01-sa .sa-card:hover {
-  border-color: #d97706;
+  border-color: #a93613;
 }
 #chap-full-01-sa .sa-card[data-sh-view]:focus-visible {
-  outline-color: rgba(217, 119, 6, 0.3);
+  outline-color: rgba(169, 54, 19, 0.32);
 }
 .phan.has-chip .phan-roman {
   display: none;
@@ -2404,20 +2404,20 @@ a.chap[data-engine-view]:focus-visible {
 }
 
 #syllDetail-chap-cau-tao {
-  --subject-color: #7c3aed;
-  --subject-soft: #ede9fe;
+  --subject-color: #1468d4;
+  --subject-soft: #eff6ff;
 }
 #syllDetail-chap-dao-duc {
-  --subject-color: #15803d;
-  --subject-soft: #dcfce7;
+  --subject-color: #9a6700;
+  --subject-soft: #fffbea;
 }
 #syllDetail-chap-ky-thuat {
-  --subject-color: #d97706;
-  --subject-soft: #fef3c7;
+  --subject-color: #10833f;
+  --subject-soft: #effcf4;
 }
 #syllDetail-chap-thuc-hanh {
-  --subject-color: #0f766e;
-  --subject-soft: #ccfbf1;
+  --subject-color: #6d28d9;
+  --subject-soft: #faf5ff;
 }
 
 #syllDetail-chap-cau-tao .phan,
@@ -2447,17 +2447,9 @@ a.chap[data-engine-view]:focus-visible {
 }
 
 #syllDetail-chap-cau-tao .phan-count-meta,
-#syllDetail-chap-cau-tao .phan-title,
-#syllDetail-chap-cau-tao .chap-title,
 #syllDetail-chap-dao-duc .phan-count-meta,
-#syllDetail-chap-dao-duc .phan-title,
-#syllDetail-chap-dao-duc .chap-title,
 #syllDetail-chap-ky-thuat .phan-count-meta,
-#syllDetail-chap-ky-thuat .phan-title,
-#syllDetail-chap-ky-thuat .chap-title,
-#syllDetail-chap-thuc-hanh .phan-count-meta,
-#syllDetail-chap-thuc-hanh .phan-title,
-#syllDetail-chap-thuc-hanh .chap-title {
+#syllDetail-chap-thuc-hanh .phan-count-meta {
   color: var(--subject-color) !important;
 }
 
@@ -2886,11 +2878,11 @@ a.chap[data-engine-view]:focus-visible {
   align-items: center;
   flex-wrap: wrap;
   gap: 6px;
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
 }
 .chap.is-featured > .chap-row .chap-title .chap-chip {
-  font-size: 13px;
+  font-size: 11.5px;
   padding: 5px 12px;
   letter-spacing: 0.08em;
 }
