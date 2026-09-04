@@ -1394,7 +1394,7 @@
   object-fit: cover;
 }
 .protection-item__copy {
-  align-self: center;
+  align-self: start;
   padding-right: 10px;
 }
 .protection-item__copy > span {
@@ -2098,11 +2098,20 @@
 
 /* Brand protection — final three-column gallery layout */
 .brand-protection__list {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: clamp(18px, 2.2vw, 30px);
 }
 .brand-protection__list > .protection-item:first-child {
-  grid-column: auto;
+  grid-column: span 2;
+}
+.brand-protection__list > .protection-item {
+  grid-column: span 2;
+}
+.brand-protection__list > .protection-item:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+.brand-protection__list > .protection-item:nth-child(5) {
+  grid-column: 4 / span 2;
 }
 .brand-protection .protection-item,
 .brand-protection .protection-item:first-child {
@@ -2269,7 +2278,7 @@
 }
 @media (max-width: 900px) {
   .brand-protection__list {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 14px;
   }
   .brand-protection .protection-item,
@@ -2291,6 +2300,12 @@
   .brand-protection__list {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+  .brand-protection__list > .protection-item,
+  .brand-protection__list > .protection-item:first-child,
+  .brand-protection__list > .protection-item:nth-child(4),
+  .brand-protection__list > .protection-item:nth-child(5) {
+    grid-column: 1;
   }
   .brand-protection .protection-item,
   .brand-protection .protection-item:first-child {
@@ -2620,9 +2635,9 @@
 }
 .digital-learning-materials__layout {
   display: grid;
-  grid-template-columns: minmax(440px, 0.95fr) minmax(460px, 1.05fr);
-  gap: 16px;
-  align-items: stretch;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 52px);
+  align-items: start;
 }
 .digital-learning-materials__documents .protection-item,
 .digital-learning-materials__documents .protection-item:first-child {
@@ -2636,24 +2651,17 @@
 }
 .digital-learning-materials__criteria {
   position: relative;
-  overflow: hidden;
-  padding: clamp(28px, 3vw, 40px);
-  border: 1px solid rgba(116, 177, 220, 0.6);
-  border-radius: 24px;
-  background:
-    radial-gradient(circle at 100% 0, rgba(34, 184, 207, 0.12), transparent 32%),
-    rgba(255, 255, 255, 0.94);
-  box-shadow: 0 24px 58px -40px rgba(30, 87, 148, 0.46);
+  overflow: visible;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  width: min(100%, 1040px);
+  margin-inline: auto;
 }
 .digital-learning-materials__criteria::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 30px;
-  left: 30px;
-  height: 5px;
-  border-radius: 0 0 999px 999px;
-  background: linear-gradient(90deg, #2563eb, #22d3ee, #fbbf24);
+  content: none;
 }
 .digital-learning-materials__criteria > span {
   display: inline-flex;
@@ -2778,10 +2786,18 @@
 }
 
 #building-software-card {
-  width: 100%;
+  width: min(100%, 900px);
+  min-height: 0;
+  margin-inline: auto;
   display: flex;
   align-items: center !important;
   justify-content: center !important;
+}
+
+#building-software-item__thumb {
+  width: min(100%, 829px);
+  height: auto;
+  aspect-ratio: 829 / 635;
 }
 
 .digital-software-card #building-software-item__thumb {
@@ -2961,8 +2977,7 @@
     gap: 18px;
   }
   .digital-learning-materials__criteria {
-    padding: 24px 20px;
-    border-radius: 20px;
+    padding: 0;
   }
   .digital-learning-materials__criteria li {
     grid-template-columns: 42px minmax(0, 1fr);
