@@ -1978,45 +1978,95 @@
   max-width: 100%;
 }
 
-/* Curriculum palette — each subject carries one colour across number, title and badges. */
+/* Curriculum palette — each subject uses its own solid background colour. */
 .syll-list--chapters .syll-row[data-mon="01"] {
-  --subject-color: #dc2626;
-  --subject-soft: #ffedd5;
+  --subject-bg: #fff1f2;
+  --subject-bg-hover: #ffe4e6;
+  --subject-text: #9f1239;
+  --subject-muted: #881337;
+  --subject-chip: #fecdd3;
+  --subject-border: #fecdd3;
 }
 .syll-list--chapters .syll-row[data-mon="02"] {
-  --subject-color: #7c3aed;
-  --subject-soft: #ede9fe;
+  --subject-bg: #eff6ff;
+  --subject-bg-hover: #dbeafe;
+  --subject-text: #1e40af;
+  --subject-muted: #1e3a8a;
+  --subject-chip: #bfdbfe;
+  --subject-border: #bfdbfe;
 }
 .syll-list--chapters .syll-row[data-mon="03"] {
-  --subject-color: #15803d;
-  --subject-soft: #dcfce7;
+  --subject-bg: #f0fdf4;
+  --subject-bg-hover: #dcfce7;
+  --subject-text: #166534;
+  --subject-muted: #14532d;
+  --subject-chip: #bbf7d0;
+  --subject-border: #bbf7d0;
 }
 .syll-list--chapters .syll-row[data-mon="04"] {
-  --subject-color: #d97706;
-  --subject-soft: #fef3c7;
+  --subject-bg: #fff7ed;
+  --subject-bg-hover: #ffedd5;
+  --subject-text: #9a3412;
+  --subject-muted: #7c2d12;
+  --subject-chip: #fed7aa;
+  --subject-border: #fed7aa;
 }
 .syll-list--chapters .syll-row[data-mon="05"] {
-  --subject-color: #be185d;
-  --subject-soft: #fce7f3;
+  --subject-bg: #f8f1ec;
+  --subject-bg-hover: #f1e3da;
+  --subject-text: #71351f;
+  --subject-muted: #5c2a1a;
+  --subject-chip: #e8cdbd;
+  --subject-border: #e8cdbd;
 }
 .syll-list--chapters .syll-row[data-mon="06"] {
-  --subject-color: #0f766e;
-  --subject-soft: #ccfbf1;
+  --subject-bg: #fefce8;
+  --subject-bg-hover: #fef9c3;
+  --subject-text: #854d0e;
+  --subject-muted: #713f12;
+  --subject-chip: #fef08a;
+  --subject-border: #fde68a;
+}
+
+.syll-list--chapters .syll-row {
+  background: var(--subject-bg);
+  color: var(--subject-text);
+  border-top-color: var(--subject-border);
+}
+
+.syll-list--chapters .syll-row:hover {
+  background: var(--subject-bg-hover);
 }
 
 .syll-list--chapters .syll-row .syll-num,
 .syll-list--chapters .syll-row .syll-title {
-  color: var(--subject-color);
+  color: var(--subject-text);
 }
 
 .syll-list--chapters .syll-row .syll-meta,
 .syll-list--chapters .syll-row .syll-tag {
-  color: var(--subject-color);
-  background: var(--subject-soft);
+  color: var(--subject-text);
+  background: var(--subject-chip);
 }
 
 .syll-list--chapters .syll-row::before {
-  background: var(--subject-color);
+  background: var(--subject-text);
+  width: 4px;
+}
+
+.syll-list--chapters .syll-row .syll-title small {
+  color: var(--subject-muted);
+}
+
+.syll-list--chapters .syll-row .syll-down {
+  color: var(--subject-text);
+  border-color: var(--subject-border);
+}
+
+.syll-list--chapters .syll-row .syll-down:hover {
+  color: var(--subject-text);
+  background: var(--subject-chip);
+  border-color: var(--subject-text);
 }
 
 .syll-title .syll-meta {
