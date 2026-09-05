@@ -1738,3 +1738,213 @@
 .nts {
   padding-top: 80px;
 }
+
+/* Inspection record, following the technical infrastructure section. */
+.inspection-record {
+  padding: clamp(40px, 5vw, 80px) 0;
+  background:
+    radial-gradient(circle at 50% 2%, rgba(41, 189, 255, 0.23), transparent 40%),
+    linear-gradient(145deg, #03142f 0%, #062b55 48%, #071b3d 100%);
+}
+.inspection-record .inspection-record__heading { text-align: center; margin: 0 auto 36px; }
+.inspection-record__document {
+  margin: 0;
+  padding: clamp(10px, 1.5vw, 22px);
+  border: 1px solid #dce6f4;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 18px 50px -30px #153e7960;
+}
+.inspection-record__document a { display: block; color: #176fd0; text-decoration: none; border-radius: 12px; }
+.inspection-record__document a:focus-visible { outline: 3px solid #176fd0; outline-offset: 4px; }
+.inspection-record__document img { display: block; width: 100%; height: auto; border-radius: 12px; }
+.inspection-record__zoom { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; margin-top: 10px; font-weight: 700; }
+.inspection-record__document a:hover .inspection-record__zoom { text-decoration: underline; text-underline-offset: 4px; }
+.inspection-record__document figcaption { text-align: center; color: #53647c; font-size: 14px; line-height: 1.5; padding: 0 8px 8px; }
+
+/* Company introduction carousel. */
+.company-slider { position: relative; }
+.company-slider-track { display: flex; align-items: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.company-slider-track::-webkit-scrollbar { display: none; }
+.company-slider-track > section { flex: 0 0 100%; min-width: 0; box-sizing: border-box; scroll-snap-align: start; scroll-snap-stop: always; }
+.company-banner { --company-blue: #3022ff; padding: clamp(20px, 3vw, 48px); background: #fff; display: flex; align-items: center; color: #171717; font-family: var(--ff-body); }
+.company-banner-sheet { width: 100%; max-width: 1440px; margin: auto; display: grid; grid-template-columns: 1.35fr 1fr; column-gap: 24px; position: relative; }
+.company-banner-heading { grid-column: 1 / -1; display: flex; align-items: center; gap: clamp(24px, 7vw, 110px); margin-bottom: 26px; }
+.company-banner-heading img { width: 24%; max-width: 300px; height: auto; }
+.company-banner-heading h2 { margin: 0; color: var(--company-blue); font-size: clamp(26px, 3.2vw, 48px); line-height: 1.15; font-weight: 900; }
+.company-banner-copy { padding-top: 18px; font-size: clamp(17px, 1.65vw, 25px); line-height: 1.55; }
+.company-banner-copy ul { padding-left: 24px; margin: 0; }
+.company-banner-copy strong, .company-facilities-details strong { color: var(--company-blue); font-weight: 800; }
+.company-banner-motto { margin: 28px 0 0; color: #ed101b; font-weight: 800; font-style: italic; }
+.company-banner-photos { grid-column: 2; grid-row: 2; position: relative; align-self: start; }
+.company-banner-photos img { display: block; height: auto; border-radius: 24px; }
+.company-photo-building { position: relative; width: 94%; z-index: 1; }
+.company-photo-fleet { width: 72%; margin: -4% 0 0 auto; }
+.company-banner-facilities { grid-column: 1 / -1; grid-row: 3; align-self: end; padding-top: 38px; pointer-events: none; }
+.company-facilities-label { display: block; width: clamp(220px, 25vw, 330px); height: auto; margin-bottom: 24px; }
+.company-facilities-details { display: flex; align-items: center; gap: 24px; margin-top: 18px; font-size: clamp(16px, 1.3vw, 21px); line-height: 1.9; }
+.company-facilities-details ul { flex-shrink: 0; padding-left: 24px; margin: 0; font-weight: 800; }
+.company-facilities-details p { border-left: 3px solid #3289ed; padding-left: 24px; margin: 0; }
+.company-banner-website { grid-column: 1 / -1; justify-self: end; display: flex; align-items: center; gap: 18px; margin-top: 24px; min-height: 48px; border: 1px solid #435f40; border-radius: 20px; padding-right: 18px; color: #171717; text-decoration: none; font-size: 20px; }
+.company-banner-website span:first-child { background: var(--company-blue); padding: 12px 22px; border-radius: 18px; color: #fff; font-weight: 700; }
+.company-slider-controls { position: absolute; inset: 0; pointer-events: none; }
+.company-slider-controls button { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border: 1px solid #bacbe5; border-radius: 50%; background: #fff; color: #102a56; cursor: pointer; font: inherit; opacity: 0; pointer-events: none; box-shadow: 0 4px 18px #102a5626; transition: opacity .2s, background .2s, color .2s; }
+.company-slider-controls button:first-child { left: 12px; }
+.company-slider-controls button:last-child { right: 12px; }
+.company-slider:hover .company-slider-controls button,
+.company-slider:focus-within .company-slider-controls button { opacity: 1; pointer-events: auto; }
+.company-slider-controls button:hover, .company-slider-controls button[aria-current] { background: #3022ff; color: #fff; }
+.company-slider :focus-visible { outline: 3px solid #1870c9; outline-offset: -3px; }
+.company-banner.is-active .company-reveal { animation: company-enter .85s both cubic-bezier(.2,.7,.2,1); }
+.company-banner.is-active .company-banner-copy { animation-delay: .15s; }
+.company-banner.is-active .company-photo-building { animation-delay: .3s; }
+.company-banner.is-active .company-photo-fleet { animation-delay: .5s; }
+.company-banner.is-active .company-banner-facilities { animation-delay: .65s; }
+.company-banner.is-active .company-banner-website { animation-delay: .8s; }
+@keyframes company-enter { from { opacity: 0; transform: translateY(26px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (max-width: 800px) {
+  .company-banner-sheet { grid-template-columns: minmax(0, 1fr); }
+  .company-banner-heading { gap: 18px; flex-wrap: wrap; margin-bottom: 8px; }
+  .company-banner-heading img { width: 220px; }
+  .company-banner-heading h2 { width: 100%; }
+  .company-banner-photos { grid-column: 1; grid-row: auto; margin-top: 24px; padding-bottom: 0; max-width: 540px; width: 100%; justify-self: center; }
+  .company-banner-facilities { grid-column: 1; grid-row: auto; padding-top: 24px; }
+  .company-facilities-details { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .company-facilities-details p { padding-left: 16px; }
+  .company-banner-website { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .company-banner.is-active .company-reveal { animation: none; }
+}
+
+/* Fit the second slide to the original Digital Hero height. */
+.company-banner {
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  padding: clamp(44px, 4.5vw, 76px) clamp(38px, 6vw, 100px);
+  background:
+    radial-gradient(circle at 10% 15%, #dceaff 0, transparent 35%),
+    radial-gradient(circle at 90% 85%, #d8f4f1 0, transparent 30%),
+    #f2f7ff;
+}
+.company-banner::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: clamp(18px, 2.5vw, 40px) clamp(16px, 4vw, 72px);
+  border: 1px solid #c9dcf4;
+  border-radius: 32px;
+  background:
+    radial-gradient(ellipse at 100% 0, #e6eeff 0, transparent 40%),
+    linear-gradient(120deg, #ffffff 55%, #f4faff);
+  box-shadow: 0 24px 60px -32px #15457e55, inset 0 4px 0 #ffffff;
+  pointer-events: none;
+}
+.company-banner::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 7%;
+  top: 12%;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #2977d51a;
+  border-radius: 50%;
+  box-shadow: 0 0 0 24px #2977d508, 0 0 0 48px #2977d506;
+  pointer-events: none;
+}
+.company-banner-sheet { max-width: 1200px; flex-shrink: 0; margin: 0; transform: scale(var(--company-scale, 1)); transform-origin: center; }
+.company-banner-heading { margin-bottom: 18px; gap: 40px; }
+.company-banner-heading img { max-width: 240px; }
+.company-banner-heading h2 { font-size: clamp(26px, 2.6vw, 38px); }
+.company-banner-copy { font-size: 18px; padding-top: 8px; }
+.company-banner-motto { margin-top: 18px; }
+.company-banner-photos { max-width: 360px; justify-self: end; }
+.company-banner-facilities { padding-top: 18px; }
+.company-facilities-label { width: 240px; margin-bottom: 12px; }
+.company-facilities-details { font-size: 16px; margin-top: 8px; line-height: 1.65; }
+.company-banner-website { font-size: 16px; margin-top: 14px; min-height: 44px; }
+.company-banner-website span:first-child { padding: 10px 18px; }
+.company-banner-heading {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #dce7f5;
+}
+.company-banner-heading h2 {
+  padding-left: 22px;
+  border-left: 4px solid #3022ff;
+  letter-spacing: -.025em;
+}
+.company-banner-copy {
+  align-self: center;
+  padding: 20px 24px;
+  border: 1px solid #e0e9f7;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f4f8ff, #fff);
+}
+.company-banner-copy li + li { margin-top: 8px; }
+.company-banner-copy li::marker { color: #3022ff; }
+.company-banner-motto {
+  padding: 12px 16px;
+  border-left: 3px solid #ed101b;
+  border-radius: 0 12px 12px 0;
+  background: #fff0f1;
+  font-size: .95em;
+}
+.company-banner-photos {
+  width: 100%;
+  max-width: 390px;
+  align-self: center;
+  padding: 12px;
+  border: 1px solid #d6e4f5;
+  border-radius: 26px;
+  background: linear-gradient(145deg, #e9f0ff, #effaf8);
+}
+.company-banner-photos img { border: 4px solid #fff; box-shadow: 0 10px 24px -14px #143e7970; }
+.company-photo-building { width: 92%; z-index: 2; }
+.company-photo-fleet { width: 65%; margin-top: -12%; position: relative; z-index: 1; }
+.company-banner.is-active .company-photo-building {
+  animation: company-enter .85s .3s both cubic-bezier(.2,.7,.2,1), company-float 6s 1.15s infinite ease-in-out;
+}
+.company-banner.is-active .company-photo-fleet {
+  animation: company-enter .85s .5s both cubic-bezier(.2,.7,.2,1), company-float 7s 1.35s infinite ease-in-out reverse;
+}
+.company-banner.is-active::after { animation: company-float 9s infinite ease-in-out; }
+@keyframes company-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .company-banner.is-active .company-photo-building,
+  .company-banner.is-active .company-photo-fleet,
+  .company-banner.is-active::after { animation: none; }
+}
+.company-banner-facilities {
+  margin-top: 18px;
+  padding: 16px 20px;
+  border: 1px solid #dbe6f8;
+  border-radius: 20px;
+  background: #edf4ff;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.company-facilities-label { width: 205px; flex-shrink: 0; margin: 0; }
+.company-facilities-details { gap: 18px; margin: 0; font-size: 15px; }
+.company-facilities-details p { padding-left: 18px; }
+.company-banner-website { border-color: #c5d6ef; background: #fff; box-shadow: 0 5px 14px -8px #15457e50; }
+@media (max-width: 1000px) {
+  .company-banner-facilities { flex-wrap: wrap; gap: 12px; }
+}
+@media (max-width: 800px) {
+  .company-banner { padding: 38px 30px; }
+  .company-banner-heading { gap: 16px; }
+  .company-banner-heading h2 { padding-left: 14px; }
+  .company-banner-copy { padding: 16px; }
+  .company-banner-photos { justify-self: center; margin-top: 16px; max-width: 340px; }
+  .company-banner-facilities { padding: 16px; }
+}
+@media (hover: none) {
+  .company-slider-controls button { opacity: 1; pointer-events: auto; }
+}

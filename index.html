@@ -51,32 +51,150 @@
     <script src="assets/js/site-header.js"></script>
 
     <!-- ── HPO DIGITAL HERO (mới — chữ trái + video heroBanner.mp4 phải) ── -->
-    <section class="hpo-digital-hero">
-      <div class="hpo-digital-hero-inner">
-        <div class="hpo-digital-left hpo-slide-stage">
-          <h1 class="hpo-digital-title hpo-slide-item hpo-slide-title">
-            <span>TIÊN PHONG GIẢI PHÁP CHUYỂN ĐỔI SỐ</span>
-            <span>TRONG ĐÀO TẠO LÁI XE Ô TÔ</span>
-            <span>TÍCH HỢP TRÍ TUỆ NHÂN TẠO (AI) TRÊN NỀN TẢNG SỐ</span>
-          </h1>
-        </div>
-        <div class="hpo-digital-visual">
-          <video
-            class="hpo-digital-video"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="auto"
-          >
-            <source
-              src="https://hpo.edu.vn/wp-content/uploads/2026/05/heroBanner.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
+    <div
+      class="company-slider"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Giới thiệu HPO"
+    >
+      <div
+        class="company-slider-track"
+        id="companySliderTrack"
+        tabindex="0"
+        aria-label="Vuốt hoặc dùng phím mũi tên để chuyển slide"
+      >
+        <section
+          class="hpo-digital-hero"
+          role="group"
+          aria-label="1 / 2: Digital Hero"
+        >
+          <div class="hpo-digital-hero-inner">
+            <div class="hpo-digital-left hpo-slide-stage">
+              <h1 class="hpo-digital-title hpo-slide-item hpo-slide-title">
+                <span>TIÊN PHONG GIẢI PHÁP CHUYỂN ĐỔI SỐ</span>
+                <span>TRONG ĐÀO TẠO LÁI XE Ô TÔ</span>
+                <span>TÍCH HỢP TRÍ TUỆ NHÂN TẠO (AI) TRÊN NỀN TẢNG SỐ</span>
+              </h1>
+            </div>
+            <div class="hpo-digital-visual">
+              <video
+                class="hpo-digital-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+              >
+                <source
+                  src="https://hpo.edu.vn/wp-content/uploads/2026/05/heroBanner.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="company-banner"
+          role="group"
+          aria-label="2 / 2: Giới thiệu công ty"
+          inert
+        >
+          <div class="company-banner-sheet">
+            <header class="company-banner-heading company-reveal">
+              <img
+                src="assets/images/banner/logofull.png"
+                alt="Trung tâm đào tạo và sát hạch lái xe ô tô Hiệp Phát"
+                width="430"
+                height="131"
+              />
+              <h2>GIỚI THIỆU CÔNG TY</h2>
+            </header>
+            <div class="company-banner-copy company-reveal">
+              <ul>
+                <li>Thành lập năm 2010.</li>
+                <li>Hoạt động đào tạo lái xe từ năm 2015.</li>
+                <li>
+                  Phương châm
+                  <strong>“Khởi đầu sự nghiệp lái xe an toàn của bạn”</strong>: đào
+                  tạo thành công nhiều học viên.
+                </li>
+              </ul>
+              <p class="company-banner-motto">
+                Tập lái và sát hạch cùng một địa điểm
+              </p>
+            </div>
+            <div
+              class="company-banner-photos"
+              aria-label="Cơ sở đào tạo Hiệp Phát"
+            >
+              <img
+                class="company-photo-building company-reveal"
+                src="assets/images/banner/h1.png"
+                alt="Tòa nhà trung tâm Hiệp Phát"
+                width="717"
+                height="343"
+              />
+              <img
+                class="company-photo-fleet company-reveal"
+                src="assets/images/banner/h2.png"
+                alt="Sân tập và đội xe đào tạo lái xe Hiệp Phát"
+                width="546"
+                height="367"
+              />
+            </div>
+            <div class="company-banner-facilities company-reveal">
+              <img
+                class="company-facilities-label"
+                src="assets/images/banner/h3.png"
+                alt="Cơ sở vật chất"
+                width="511"
+                height="84"
+              />
+              <div class="company-facilities-details">
+                <ul>
+                  <li>02 sân tập lái</li>
+                  <li>01 sân sát hạch</li>
+                </ul>
+                <p>
+                  Quy chuẩn kỹ thuật Quốc gia về TTSH lái xe cơ giới đường bộ<br /><strong
+                    >QCVN 15:2026/BCA</strong
+                  >
+                  ban hành ngày 29/06/2026
+                </p>
+              </div>
+            </div>
+            <a
+              class="company-banner-website company-reveal"
+              href="https://hpo.edu.vn/"
+              aria-label="Website Hiệp Phát"
+              ><span>Website:</span> hpo.edu.vn <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </section>
       </div>
-    </section>
+      <div
+        class="company-slider-controls"
+        aria-label="Chọn banner"
+      >
+        <button
+          type="button"
+          data-company-step="-1"
+          aria-label="Slide trước"
+          aria-controls="companySliderTrack"
+        >
+          ←
+        </button>
+        <button
+          type="button"
+          data-company-step="1"
+          aria-label="Slide tiếp theo"
+          aria-controls="companySliderTrack"
+        >
+          →
+        </button>
+      </div>
+    </div>
 
     <!-- ── STRIP / TICKER ── -->
     <div class="strip">
@@ -917,6 +1035,23 @@
       </div>
     </section>
 
+    <!-- Biên bản kiểm tra chương trình đào tạo -->
+    <section class="inspection-record" aria-labelledby="inspection-record-title">
+      <div class="container">
+        <header class="brand-protection__head inspection-record__heading">
+          <h2 id="inspection-record-title">Biên bản kiểm tra</h2>
+          <p>Chương trình đào tạo theo hình thức đào tạo từ xa, tự học có hướng dẫn</p>
+        </header>
+        <figure class="inspection-record__document">
+          <a href="assets/images/bienBan.png" data-img-group="inspection-record" data-img-idx="0" aria-haspopup="dialog" aria-controls="imgLb" aria-label="Xem ảnh biên bản kiểm tra trong cửa sổ phóng lớn">
+            <img src="assets/images/bienBan.png" alt="Ba trang biên bản kiểm tra chương trình đào tạo từ xa, tự học có hướng dẫn của Trung tâm Giáo dục nghề nghiệp Hiệp Phát, ngày 27 tháng 8 năm 2024" width="1673" height="805" loading="lazy" decoding="async" />
+            <span class="inspection-record__zoom">Xem ảnh đầy đủ <span aria-hidden="true">↗</span></span>
+          </a>
+          <figcaption>Nhấn vào ảnh để mở và phóng to nội dung biên bản.</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <!-- Image lightbox — dùng chung cho awards + event marquees -->
     <div
       class="img-lb"
@@ -1055,7 +1190,7 @@
     </div>
 
     <!-- Lightbox modal (dùng chung cho gallery) -->
-    <div
+    <!-- <div
       class="lightbox"
       id="spotLightbox"
       role="dialog"
@@ -1135,7 +1270,7 @@
           id="lbCap"
         ></div>
       </div>
-    </div>
+    </div> -->
 
     <!-- ── VIDEO GIỚI THIỆU ── -->
     <section

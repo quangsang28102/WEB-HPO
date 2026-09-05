@@ -14,6 +14,7 @@
   if (!video) return;
   video.muted = true; video.loop = true; video.playsInline = true;
   function safePlay() {
+    if (hero.inert || document.hidden) return;
     var p = video.play();
     if (p !== undefined) p.catch(function () { });
   }
@@ -30,6 +31,94 @@
   document.addEventListener('visibilitychange', function () {
     if (!document.hidden) safePlay();
   });
+})();
+
+/* Company banner: swipe navigation and replay entrance effects. */
+(() => {
+  const root = document.querySelector('.company-slider');
+  if (!root) return;
+  const track = root.querySelector('.company-slider-track');
+  const slides = Array.from(track.children);
+  const banner = root.querySelector('.company-banner');
+  const sheet = root.querySelector('.company-banner-sheet');
+  const video = root.querySelector('video');
+  let active = 0;
+  let visible = true;
+  let pending = false;
+  const AUTO_SLIDE_MS = 8000;
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let autoTimer = null;
+  let hovered = false;
+  let touching = false;
+  function scheduleAutoSlide() {
+    clearTimeout(autoTimer);
+    if (!visible || document.hidden || hovered || touching ||
+        root.contains(document.activeElement) || reducedMotion.matches) return;
+    autoTimer = setTimeout(() => {
+      go(active + 1);
+      scheduleAutoSlide();
+    }, AUTO_SLIDE_MS);
+  }
+  function media() {
+    if (!video) return;
+    if (active === 0 && visible && !document.hidden) video.play().catch(() => {});
+    else video.pause();
+  }
+  function update() {
+    pending = false;
+    active = Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / track.clientWidth)));
+    slides.forEach((slide, index) => {
+      slide.inert = index !== active;
+      slide.classList.toggle('is-active', index === active);
+    });
+    media();
+  }
+  function go(index) {
+    const target = (index + slides.length) % slides.length;
+    track.scrollTo({ left: target * track.clientWidth, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+  }
+  root.querySelectorAll('[data-company-step]').forEach(button => button.addEventListener('click', () => go(active + Number(button.dataset.companyStep))));
+  track.addEventListener('keydown', event => {
+    if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    event.preventDefault();
+    go(active + (event.key === 'ArrowRight' ? 1 : -1));
+  });
+  track.addEventListener('scroll', () => {
+    scheduleAutoSlide();
+    if (!pending) { pending = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  root.addEventListener('pointerenter', event => {
+    if (event.pointerType === 'mouse' || event.pointerType === 'pen') {
+      hovered = true;
+      scheduleAutoSlide();
+    }
+  });
+  root.addEventListener('pointerleave', () => { hovered = false; scheduleAutoSlide(); });
+  root.addEventListener('pointerdown', () => { touching = true; scheduleAutoSlide(); });
+  window.addEventListener('pointerup', () => { touching = false; scheduleAutoSlide(); });
+  window.addEventListener('pointercancel', () => { touching = false; scheduleAutoSlide(); });
+  root.addEventListener('focusin', scheduleAutoSlide);
+  root.addEventListener('focusout', () => requestAnimationFrame(scheduleAutoSlide));
+  reducedMotion.addEventListener('change', scheduleAutoSlide);
+  new ResizeObserver(() => track.scrollTo({ left: active * track.clientWidth, behavior: 'instant' })).observe(track);
+  function fitBanner() {
+    const height = slides[0].getBoundingClientRect().height;
+    banner.style.height = `${height}px`;
+    const style = getComputedStyle(banner);
+    const available = height - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
+    sheet.style.setProperty('--company-scale', Math.min(1, available / sheet.offsetHeight));
+  }
+  const sizeObserver = new ResizeObserver(fitBanner);
+  sizeObserver.observe(slides[0]);
+  sizeObserver.observe(sheet);
+  fitBanner();
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting && entry.intersectionRatio >= 0.25;
+    media();
+    scheduleAutoSlide();
+  }, { threshold: [0, 0.25] }).observe(root);
+  document.addEventListener('visibilitychange', () => { media(); scheduleAutoSlide(); });
+  update();
 })();
 
 /* Course tier picker — tabs, vehicle swap, and price cycle */
