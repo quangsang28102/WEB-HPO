@@ -72,6 +72,7 @@
       slide.classList.toggle('is-active', index === active);
     });
     media();
+    fitBanner();
   }
   function go(index) {
     const target = (index + slides.length) % slides.length;
@@ -100,8 +101,21 @@
   root.addEventListener('focusin', scheduleAutoSlide);
   root.addEventListener('focusout', () => requestAnimationFrame(scheduleAutoSlide));
   reducedMotion.addEventListener('change', scheduleAutoSlide);
-  new ResizeObserver(() => track.scrollTo({ left: active * track.clientWidth, behavior: 'instant' })).observe(track);
+  let trackWidth = track.clientWidth;
+  new ResizeObserver(() => {
+    if (track.clientWidth === trackWidth) return;
+    trackWidth = track.clientWidth;
+    track.scrollTo({ left: active * trackWidth, behavior: 'instant' });
+    fitBanner();
+  }).observe(track);
   function fitBanner() {
+    if (matchMedia('(max-width: 1000px)').matches) {
+      banner.style.removeProperty('height');
+      sheet.style.removeProperty('--company-scale');
+      track.style.height = `${slides[active].offsetHeight}px`;
+      return;
+    }
+    track.style.removeProperty('height');
     const height = slides[0].getBoundingClientRect().height;
     banner.style.height = `${height}px`;
     const style = getComputedStyle(banner);
