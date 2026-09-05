@@ -5243,6 +5243,7 @@
 
 /* ── Poster Gallery Section ── */
 .award-posters-section {
+  display: none;
   position: relative;
   padding-top: clamp(60px, 8vw, 100px);
   padding-bottom: clamp(60px, 8vw, 100px);
@@ -5522,6 +5523,13 @@
 }
 
 @media (max-width: 768px) {
+  /* Show only the mobile award posters at this breakpoint. */
+  .award-slider {
+    display: none;
+  }
+  .award-posters-section {
+    display: block;
+  }
   .award-posters-slider__arrow {
     width: 40px;
     height: 40px;

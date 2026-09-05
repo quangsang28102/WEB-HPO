@@ -2922,3 +2922,130 @@ a.chap[data-engine-view]:focus-visible {
     transform: translateY(0);
   }
 }
+
+/* Mobile curriculum layout shared by the standard and colored sections. */
+@media (max-width: 768px) {
+  .syll.syll--chapters {
+    padding: 44px 0;
+  }
+  .syll--chapters > .container {
+    padding-inline: 16px;
+  }
+  .syll--chapters .curr-head--chapters {
+    margin-bottom: 24px;
+  }
+  .syll--chapters .sec-title {
+    font-size: clamp(26px, 6.5vw, 34px);
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  .syll--chapters .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+  .syll--chapters .syll-list--chapters {
+    border-radius: 16px;
+  }
+  .syll--chapters .syll-list--chapters .syll-row {
+    grid-template-columns: 30px minmax(0, 1fr) 44px;
+    gap: 10px;
+    padding: 18px 12px;
+    align-items: start;
+  }
+  .syll--chapters .syll-list--chapters .syll-row .syll-num {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 22px;
+    line-height: 1.4;
+  }
+  .syll--chapters .syll-list--chapters .syll-row .syll-title {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: clamp(16px, 4.2vw, 19px);
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+  .syll--chapters .syll-title .syll-title-meta {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 6px;
+    white-space: normal;
+  }
+  .syll--chapters .syll-list--chapters .syll-row .syll-meta {
+    margin: 0;
+    padding: 4px 7px;
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+  }
+  .syll--chapters .syll-down {
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
+  }
+  .syll--chapters .syll-detail.is-redesigned .syll-detail-inner {
+    padding: 12px 8px 16px;
+  }
+  .syll--chapters .phan-header {
+    grid-template-columns: 4px minmax(0, 1fr) 36px;
+  }
+  .syll--chapters .phan-stripe {
+    width: 4px;
+  }
+  .syll--chapters .phan-header-inner {
+    gap: 8px;
+    padding: 14px 10px;
+  }
+  .syll--chapters .phan-text {
+    display: block;
+  }
+  .syll--chapters .syll-detail .phan-title,
+  .syll--chapters #syllDetail-chap-phap-luat .phan-title {
+    display: block;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+  .syll--chapters .phan-title .phan-chip {
+    display: table;
+    margin: 0 0 8px;
+    padding: 4px 8px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+  .syll--chapters .syll-detail .phan-count-meta {
+    display: block;
+    margin: 6px 0 0;
+    font-size: 12px;
+  }
+  .syll--chapters .syll-detail .phan-desc {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .syll--chapters .phan-caret {
+    margin-right: 6px;
+  }
+  .syll--chapters .phan-body-pad {
+    padding: 10px 6px 12px;
+  }
+  .syll--chapters .chap-row {
+    gap: 8px;
+    padding: 12px 8px;
+  }
+  .syll--chapters .syll-detail .chap-title {
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+  .syll--chapters .chap.is-featured > .chap-row .chap-title .chap-chip {
+    padding: 4px 8px;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+  }
+}
