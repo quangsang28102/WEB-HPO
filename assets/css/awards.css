@@ -4248,13 +4248,13 @@
   }
 }
 
-/* Poster-only award slides — fill the shared slider height without letterboxing. */
+/* Fit the entire poster to the shared slider frame without exposed background. */
 .award-slide--poster {
   display: block;
   min-height: 0;
   aspect-ratio: 1888 / 833;
   overflow: hidden;
-  background: #06183d;
+  background: transparent;
 }
 .award-slide--poster::before,
 .award-slide--poster::after {
@@ -4264,7 +4264,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   object-position: center;
 }
 .award-slide-mobile {
