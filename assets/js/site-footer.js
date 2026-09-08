@@ -1,3 +1,16 @@
+// Resolve from this shared script so nested pages use the same robot assets.
+(function () {
+  const base = new URL('../../robot/', document.currentScript.src);
+  const css = document.createElement('link');
+  css.rel = 'stylesheet';
+  css.href = new URL('dist/companion.css', base).href;
+  document.head.append(css);
+  const script = document.createElement('script');
+  script.src = new URL('dist/companion.js', base).href;
+  script.defer = true;
+  document.head.append(script);
+})();
+
 (function () {
   const mountFloatingActions = () => {
     // Trang chu da co san cum nut nay trong HTML. Cac trang con dung chung
