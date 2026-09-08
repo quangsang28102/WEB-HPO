@@ -1,103 +1,172 @@
-import './style.css';
+﻿import './style.css';
 import * as THREE from 'three';
-import { Robot } from './robot';
+import { RobotStage, fallback } from './scene';
+import { Wander } from './wander';
+import { createViewer } from './viewer';
 
-// Shared companion: its position is controlled only by CSS, even while scrolling.
-if (!document.getElementById('hpo-robot')) {
+function mount() {
+  if (document.getElementById('hpo-robot')) return;
   const companion = document.createElement('button');
   companion.id = 'hpo-robot';
   companion.type = 'button';
-  companion.setAttribute('aria-label', 'Robot Hiệp Phát — chạm để vẫy tay');
-  companion.title = 'Chạm để chào robot!';
-  companion.innerHTML = `<svg class="hpo-robot-fallback" viewBox="0 0 140 200" aria-hidden="true"><g stroke="#8aafb5" stroke-width="3" fill="#e8f0ef"><rect x="35" y="95" width="70" height="56" rx="18"/><rect x="21" y="24" width="98" height="77" rx="25"/><rect x="29" y="34" width="82" height="55" rx="18" fill="#102d35"/><path d="M43 151v30h19v-30m16 0v30h19v-30M33 108l-13 39m87-39 13 39" stroke-width="14" stroke-linecap="round"/></g><g stroke="#adfff6" stroke-width="6" stroke-linecap="round" fill="none"><path d="M49 53v12m42-12v12M59 76q11 9 22 0"/></g><circle cx="70" cy="120" r="12" fill="#4668dc"/></svg><canvas aria-hidden="true"></canvas>`;
+  companion.setAttribute('aria-label', 'Robot Hiệp Phát — nhấn để xem 3D, kéo hoặc dùng phím mũi tên để di chuyển');
+  companion.setAttribute('aria-haspopup', 'dialog');
+  companion.setAttribute('aria-controls', 'hpo-robot-viewer');
+  companion.setAttribute('aria-expanded', 'false');
+  companion.title = 'Kéo để di chuyển · Nhấn để xem 3D';
+  companion.innerHTML = fallback;
   document.body.append(companion);
-  const canvas = companion.querySelector('canvas')!;
+
+  const position = new THREE.Vector2();
+  const pointer = new THREE.Vector2();
+  const wander = new Wander();
   try {
-    start(companion, canvas);
+    const savedSpeed = localStorage.getItem('hpo-robot-speed');
+    if (savedSpeed !== null) wander.setSpeed(Number(savedSpeed));
+  } catch { /* Storage can be unavailable; keep the default speed. */ }
+  const media = matchMedia('(prefers-reduced-motion: reduce)');
+  let stage: RobotStage | undefined;
+  let frame = 0, last = 0, time = 0;
+  let paused = false, hovered = false, keyboardFocused = false;
+  let width = 0, height = 0, minX = 8, minY = 8;
+  let drag: { id: number; x: number; y: number; offsetX: number; offsetY: number; moved: boolean } | undefined;
+  let suppressClick = false;
+  const viewer = createViewer(companion, () => {
+    wander.pause();
+    resume();
+  }, value => { paused = value; }, wander.speed, value => {
+    wander.setSpeed(value);
+    try { localStorage.setItem('hpo-robot-speed', String(wander.speed)); } catch { /* Optional preference. */ }
+  });
+
+  function place() {
+    position.x = THREE.MathUtils.clamp(position.x, 0, width);
+    position.y = THREE.MathUtils.clamp(position.y, 0, height);
+    companion.style.transform = `translate3d(${position.x + minX}px, ${position.y + minY}px, 0)`;
+  }
+  function resize(initial = false) {
+    const viewport = window.visualViewport;
+    minX = (viewport?.offsetLeft || 0) + 8;
+    minY = (viewport?.offsetTop || 0) + 8;
+    width = Math.max(0, (viewport?.width || innerWidth) - companion.offsetWidth - 16);
+    height = Math.max(0, (viewport?.height || innerHeight) - companion.offsetHeight - 16);
+    if (initial) position.set(0, height);
+    place();
+  }
+  resize(true);
+  new ResizeObserver(() => resize()).observe(companion);
+  window.addEventListener('resize', () => resize());
+  window.visualViewport?.addEventListener('resize', () => resize());
+  window.visualViewport?.addEventListener('scroll', () => resize());
+
+  try {
+    stage = new RobotStage(companion);
+    stage.onRestore = resume;
   } catch (error) {
-    // Keep a visible robot when the browser cannot create a WebGL context.
-    companion.classList.remove('is-ready');
     console.warn('Robot 3D không khả dụng; hiển thị hình thay thế.', error);
   }
-}
 
-function start(companion: HTMLButtonElement, canvas: HTMLCanvasElement) {
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.15;
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(35, 1, .1, 30);
-  camera.position.set(.3, 2.25, 9.5);
-  camera.lookAt(0, 1.95, 0);
-  const robot = new Robot();
-  scene.add(robot.group);
-  scene.add(new THREE.HemisphereLight('#d8faff', '#66777c', 3));
-  const key = new THREE.DirectionalLight('#fff4df', 4.2);
-  key.position.set(-3, 7, 5);
-  scene.add(key);
-  const rim = new THREE.DirectionalLight('#7bfff1', 2.5);
-  rim.position.set(4, 4, -3);
-  scene.add(rim);
-  const pointer = new THREE.Vector2();
-  const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let frame = 0, last = 0, time = 0, lost = false;
-  function render() { renderer.render(scene, camera); }
-  function resize() {
-    const { width, height } = companion.getBoundingClientRect();
-    renderer.setSize(width, height, false);
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-    if (!lost) render();
-  }
-  new ResizeObserver(resize).observe(companion);
-  resize();
-  companion.classList.add('is-ready');
   function animate(now: number) {
     const dt = Math.min((now - last) / 1000, .05);
     last = now;
     time += dt;
-    robot.update(dt, time, pointer, media.matches);
-    render();
+    if (viewer.isOpen) viewer.tick(dt, time, false);
+    else {
+      wander.update(dt, position, width, height, paused || hovered || keyboardFocused || !!drag || !!stage?.lost, !drag);
+      place();
+      if (stage && !stage.lost) {
+        stage.robot.group.rotation.y = wander.heading;
+        stage.robot.update(dt, time, pointer, false, wander.walking);
+        stage.render();
+      }
+    }
     frame = requestAnimationFrame(animate);
   }
   function resume() {
     cancelAnimationFrame(frame);
-    if (document.hidden || lost) return;
+    if (document.hidden) return;
     if (media.matches) {
-      robot.resetPose();
-      robot.update(0, time, pointer, true);
-      render();
+      stage?.robot.resetPose();
+      stage?.render();
+      viewer.resetMotion();
+      viewer.tick(0, time, true);
     } else {
       last = performance.now();
       frame = requestAnimationFrame(animate);
     }
   }
-  companion.addEventListener('click', () => {
-    if (lost) return;
-    if (media.matches) {
-      robot.arms[1].rotation.z = robot.arms[1].rotation.z > 1 ? .13 : 2.5;
-      render();
-    } else robot.wave();
+
+  companion.addEventListener('pointerdown', event => {
+    if (!event.isPrimary || event.button !== 0 || drag) return;
+    suppressClick = false;
+    keyboardFocused = false;
+    drag = { id: event.pointerId, x: event.clientX, y: event.clientY,
+      offsetX: event.clientX - position.x - minX, offsetY: event.clientY - position.y - minY, moved: false };
+    companion.setPointerCapture(event.pointerId);
+    wander.pause();
   });
   companion.addEventListener('pointermove', event => {
-    const rect = companion.getBoundingClientRect();
-    pointer.set((event.clientX - rect.left) / rect.width * 2 - 1, 1 - (event.clientY - rect.top) / rect.height * 2);
+    if (drag && event.pointerId === drag.id) {
+      if (!drag.moved && Math.hypot(event.clientX - drag.x, event.clientY - drag.y) < 6) return;
+      drag.moved = true;
+      companion.classList.add('is-dragging');
+      const nextX = event.clientX - drag.offsetX - minX;
+      const nextY = event.clientY - drag.offsetY - minY;
+      const dx = nextX - position.x, dy = nextY - position.y;
+      if (Math.hypot(dx, dy) > 1) {
+        const desired = Math.atan2(dx, dy);
+        wander.heading += Math.atan2(Math.sin(desired - wander.heading), Math.cos(desired - wander.heading)) * .3;
+      }
+      position.set(nextX, nextY);
+      place();
+      if (stage) {
+        stage.robot.group.rotation.y = wander.heading;
+        stage.render();
+      }
+    } else {
+      const rect = companion.getBoundingClientRect();
+      pointer.set((event.clientX - rect.left) / rect.width * 2 - 1, 1 - (event.clientY - rect.top) / rect.height * 2);
+    }
   });
-  companion.addEventListener('pointerleave', () => pointer.set(0, 0));
-  document.addEventListener('visibilitychange', resume);
-  media.addEventListener('change', resume);
-  canvas.addEventListener('webglcontextlost', event => {
+  function endDrag(event?: PointerEvent) {
+    if (!drag || (event && event.pointerId !== drag.id)) return;
+    const current = drag;
+    drag = undefined;
+    suppressClick = current.moved;
+    if (companion.hasPointerCapture(current.id)) companion.releasePointerCapture(current.id);
+    companion.classList.remove('is-dragging');
+    wander.pause();
+  }
+  companion.addEventListener('pointerup', endDrag);
+  companion.addEventListener('pointercancel', endDrag);
+  companion.addEventListener('lostpointercapture', endDrag);
+  window.addEventListener('blur', () => { endDrag(); hovered = false; });
+  companion.addEventListener('click', event => {
+    if (suppressClick && event.detail !== 0) { suppressClick = false; return; }
+    suppressClick = false;
+    viewer.open();
+  });
+  companion.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') hovered = true; });
+  companion.addEventListener('pointerleave', () => { hovered = false; pointer.set(0, 0); });
+  companion.addEventListener('focus', () => { keyboardFocused = companion.matches(':focus-visible'); });
+  companion.addEventListener('blur', () => { keyboardFocused = false; });
+  companion.addEventListener('keydown', event => {
+    const delta: Record<string, [number, number]> = { ArrowLeft: [-24, 0], ArrowRight: [24, 0], ArrowUp: [0, -24], ArrowDown: [0, 24] };
+    if (!delta[event.key]) return;
     event.preventDefault();
-    lost = true;
-    cancelAnimationFrame(frame);
-    companion.classList.remove('is-ready');
+    keyboardFocused = true;
+    const [dx, dy] = delta[event.key];
+    position.x += dx;
+    position.y += dy;
+    wander.heading = Math.atan2(dx, dy);
+    place();
+    if (stage) { stage.robot.group.rotation.y = wander.heading; stage.render(); }
+    wander.pause();
   });
-  canvas.addEventListener('webglcontextrestored', () => {
-    lost = false;
-    resize();
-    companion.classList.add('is-ready');
-    resume();
-  });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) endDrag(); resume(); });
+  media.addEventListener('change', resume);
   resume();
 }
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount, { once: true });
+else mount();
