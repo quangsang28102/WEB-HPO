@@ -1,3 +1,27 @@
+/* Reveal each awards block as it scrolls into view. */
+(() => {
+  const section = document.getElementById('awardSlider');
+  if (!section || !('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-scroll-revealed');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+  section.querySelectorAll(':scope > .award-slider__heading, :scope > .award-slider__viewport, :scope > .award-slider__controls').forEach(block => {
+    block.classList.add('award-scroll-motion');
+    observer.observe(block);
+  });
+  section.addEventListener('focusin', () => {
+    section.querySelectorAll('.award-scroll-motion').forEach(block => {
+      block.classList.add('is-scroll-revealed');
+      observer.unobserve(block);
+    });
+  });
+})();
+
 /* Detailed awards banner slider */
 (() => {
   const slider = document.getElementById('awardSlider');
@@ -252,5 +276,3 @@ if (burger && mobileMenu && mobileClose) {
   mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMenu(); });
   document.querySelectorAll('.mobile-menu-list a').forEach(a => a.addEventListener('click', closeMenu));
 }
-
-
