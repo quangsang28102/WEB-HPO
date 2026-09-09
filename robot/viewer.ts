@@ -37,6 +37,10 @@ export function createViewer(companion: HTMLButtonElement, welcomeVoiceUrl: stri
           <p class="hpo-chat-welcome">Xin chào! Tôi là robot Hiệp Phát.</p>
           <p>Bạn có thể khám phá mô hình 3D bên cạnh. Tính năng trò chuyện sẽ có mặt tại đây trong thời gian tới.</p>
         </div>
+        <a class="hpo-enroll-cta" href="https://hpo.edu.vn/dang-ky-hoc/">
+          <span>Đăng ký học</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
         <label class="hpo-wander-option"><input type="checkbox" checked> Cho robot tự đi dạo</label>
         <form class="hpo-chat-form">
           <label for="hpo-chat-input">Tin nhắn của bạn</label>
