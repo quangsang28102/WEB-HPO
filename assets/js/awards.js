@@ -44,6 +44,7 @@
   let physicalPosition = 1;
   let boundaryReset = null;
   let paused = false;
+  let scrollStory = false;
 
   if (!track || !viewport || slides.length < 2 || !prev || !next) return;
 
@@ -75,7 +76,7 @@
   const restartProgress = () => {
     slider.classList.remove('is-running');
     void slider.offsetWidth;
-    if (!paused && !reducedMotion.matches && !document.hidden) {
+    if (!scrollStory && !paused && !reducedMotion.matches && !document.hidden) {
       slider.classList.add('is-running');
     }
   };
@@ -84,11 +85,15 @@
     window.clearTimeout(timer);
     timer = null;
     restartProgress();
-    if (paused || reducedMotion.matches || document.hidden) return;
+    if (scrollStory || paused || reducedMotion.matches || document.hidden) return;
     timer = window.setTimeout(() => goTo(current + 1), DURATION);
   };
 
   const goTo = (index, animate = true) => {
+    if (scrollStory && animate) {
+      slider.dispatchEvent(new CustomEvent('award-story-navigate', { detail: { index: Math.max(0, Math.min(slides.length - 1, index)) } }));
+      return;
+    }
     boundaryReset = null;
     if (index < 0) {
       current = slides.length - 1;
@@ -163,6 +168,7 @@
     }
   });
   viewport.addEventListener('pointerdown', (event) => {
+    if (scrollStory) return;
     if (event.button !== 0 || event.target.closest('button')) return;
     pointerStartX = event.clientX;
     pointerStartTime = performance.now();
@@ -208,6 +214,21 @@
   document.addEventListener('visibilitychange', schedule);
   reducedMotion.addEventListener('change', schedule);
 
+  slider.addEventListener('award-story-progress', (event) => {
+    scrollStory = event.detail.enabled;
+    if (!scrollStory) { goTo(current, false); return; }
+    const rawPosition = event.detail.progress * (slides.length - 1);
+    const segment = Math.floor(rawPosition);
+    const blend = Math.max(0, Math.min(1, (rawPosition - segment - 0.35) / 0.65));
+    const position = segment + blend * blend * (3 - 2 * blend);
+    const index = Math.round(position);
+    if (index !== current) goTo(index, false);
+    boundaryReset = null;
+    track.style.transition = 'none';
+    track.style.transform = `translate3d(-${(position + 1) * 100}%, 0, 0)`;
+    window.clearTimeout(timer);
+    slider.classList.remove('is-running');
+  });
   goTo(0, false);
 })();
 

@@ -14,7 +14,7 @@
   if (!video) return;
   video.muted = true; video.loop = true; video.playsInline = true;
   function safePlay() {
-    if (hero.inert || document.hidden) return;
+    if (hero.inert || document.hidden || video.dataset.scrollFrozen) return;
     var p = video.play();
     if (p !== undefined) p.catch(function () { });
   }
@@ -53,7 +53,8 @@
   function scheduleAutoSlide() {
     clearTimeout(autoTimer);
     if (!visible || document.hidden || hovered || touching ||
-        root.contains(document.activeElement) || reducedMotion.matches) return;
+        root.contains(document.activeElement) || reducedMotion.matches ||
+        matchMedia('(min-width: 1100px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)').matches) return;
     autoTimer = setTimeout(() => {
       go(active + 1);
       scheduleAutoSlide();
@@ -61,7 +62,7 @@
   }
   function media() {
     if (!video) return;
-    if (active === 0 && visible && !document.hidden) video.play().catch(() => {});
+    if (active === 0 && visible && !document.hidden && !video.dataset.scrollFrozen) video.play().catch(() => {});
     else video.pause();
   }
   function update() {
@@ -472,4 +473,3 @@ document.querySelectorAll('.platform-acc').forEach((accGroup) => {
     if (e.key === 'ArrowRight') nav(1);
   });
 })();
-
