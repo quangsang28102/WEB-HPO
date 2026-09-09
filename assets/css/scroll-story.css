@@ -2,32 +2,31 @@
 body.has-scroll-story {
   overflow-x: clip;
 }
-.circle-story .company-slider,
-.circle-story .award-slider.is-scroll-story {
+.car-story .company-slider,
+.car-story .award-slider.is-scroll-story {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   margin: 0 auto;
 }
-.circle-story .company-slider {
+.car-story .company-slider {
   z-index: 1;
   opacity: var(--company-intro-opacity, 1);
   transform: translateY(var(--company-intro-y, 0px)) scale(var(--hero-frame-scale, 1));
   transform-origin: center top;
   will-change: transform, opacity;
 }
-.circle-story .award-slider.is-scroll-story {
+.car-story .award-slider.is-scroll-story {
   z-index: 2;
-  opacity: var(--awards-intro-opacity, 0);
   transform: translateY(var(--awards-intro-y, 82vh)) scale(var(--story-scale, 1));
-  will-change: transform, opacity;
+  will-change: transform;
 }
-.circle-story:not(.is-showing-awards) .award-slider,
-.circle-story.is-showing-awards .company-slider {
+.car-story:not(.is-showing-awards) .award-slider,
+.car-story.is-showing-awards .company-slider {
   pointer-events: none;
 }
-.hero-circle-wipe {
+.hero-car-transition {
   position: fixed;
   inset: 0;
   z-index: 20000;
@@ -35,12 +34,40 @@ body.has-scroll-story {
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
-  background: #155b9f;
-  will-change: clip-path, opacity;
+  will-change: opacity;
 }
-.hero-circle-wipe canvas {
+.hero-car-transition::before {
+  content: '';
   position: absolute;
-  display: block;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 55%, rgba(30, 139, 202, .28), transparent 34%),
+    linear-gradient(110deg, rgba(4, 31, 86, .97), rgba(5, 86, 137, .94));
+  clip-path: polygon(0 0, var(--curtain-edge, -6%) 0, calc(var(--curtain-edge, -6%) - 9%) 100%, 0 100%);
+  box-shadow: 20px 0 60px rgba(31, 181, 239, .38);
+  opacity: .96;
+}
+.hero-car-transition__trail {
+  position: absolute;
+  top: var(--trail-y, 68vh);
+  left: 0;
+  width: var(--trail-width, 0px);
+  height: 5px;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(90deg, transparent 2%, rgba(120, 220, 255, .3) 28%, #fff 100%);
+  box-shadow: 0 -18px 30px rgba(81, 207, 255, .5), 0 18px 34px rgba(81, 207, 255, .45);
+  transform: skewX(-20deg);
+  opacity: .5;
+}
+.hero-car-transition__car {
+  position: absolute;
+  top: var(--car-y, 58vh);
+  left: 0;
+  width: var(--car-width, 400px);
+  height: auto;
+  filter: drop-shadow(0 24px 22px rgba(2, 20, 54, .42));
+  transform: translate3d(var(--car-x, -450px), -50%, 0) rotate(var(--car-tilt, 0deg));
+  will-change: transform;
 }
 .award-story {
   position: relative;
@@ -58,6 +85,9 @@ body.has-scroll-story {
 }
 .award-story .award-slider__heading {
   margin-bottom: 16px;
+  opacity: var(--award-title-opacity, 0);
+  transform: translateY(var(--award-title-y, 56px));
+  will-change: opacity, transform;
 }
 .award-story .award-slider__heading .hpo-unified-title-wrap {
   margin-bottom: 16px;
@@ -67,12 +97,17 @@ body.has-scroll-story {
 }
 .award-story .award-slider > .award-scroll-motion {
   animation: none;
-  opacity: 1;
-  transform: none;
 }
 .award-story .award-slider__viewport {
   cursor: auto;
   touch-action: auto;
+  opacity: var(--award-frame-opacity, 0);
+  transform: translateY(var(--award-frame-y, 90px));
+  will-change: opacity, transform;
+}
+.award-story .award-slider__controls {
+  opacity: var(--award-frame-opacity, 0);
+  transform: translateY(var(--award-frame-y, 90px));
 }
 .award-story .award-slider__track {
   transition: none;

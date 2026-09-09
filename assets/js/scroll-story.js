@@ -1,4 +1,4 @@
-/* Native scroll story: video circle wipe, then the awards journey. */
+/* Native scroll story: the training car leads into the awards journey. */
 (() => {
   const hero = document.querySelector('.hpo-digital-hero');
   const company = document.querySelector('.company-slider');
@@ -13,18 +13,23 @@
   company.before(companyHome);
   awards.before(awardsHome);
   const runway = document.createElement('div');
-  runway.className = 'award-story circle-story';
+  runway.className = 'award-story car-story';
   const pin = document.createElement('div');
   pin.className = 'award-story__pin';
   const hint = document.createElement('p');
   hint.className = 'award-story__hint';
-  const wipe = document.createElement('div');
-  wipe.className = 'hero-circle-wipe';
-  wipe.setAttribute('aria-hidden', 'true');
-  const snapshot = document.createElement('canvas');
-  wipe.append(snapshot);
+  const transition = document.createElement('div');
+  transition.className = 'hero-car-transition';
+  transition.setAttribute('aria-hidden', 'true');
+  const trail = document.createElement('span');
+  trail.className = 'hero-car-transition__trail';
+  const car = document.createElement('img');
+  car.className = 'hero-car-transition__car';
+  car.src = new URL('assets/images/courses/carImage.png', document.baseURI).href;
+  car.alt = '';
+  transition.append(trail, car);
   let enabled = false, frame = 0, distance = 1, introDistance = 1, top = 88;
-  let frozen = false, captured = false, showingAwards = false;
+  let frozen = false, showingAwards = false;
   const clamp = value => Math.max(0, Math.min(1, value));
   const smooth = value => { const x = clamp(value); return x * x * (3 - 2 * x); };
 
@@ -34,15 +39,8 @@
     if (freeze) {
       video.dataset.scrollFrozen = 'true';
       video.pause();
-      if (video.readyState >= 2) {
-        snapshot.width = video.videoWidth;
-        snapshot.height = video.videoHeight;
-        snapshot.getContext('2d').drawImage(video, 0, 0);
-        captured = true;
-      }
     } else {
       delete video.dataset.scrollFrozen;
-      captured = false;
       if (!hero.inert && !document.hidden) video.play().catch(() => {});
     }
   }
@@ -51,10 +49,12 @@
     if (!enabled) return;
     const travel = Math.max(0, top - runway.getBoundingClientRect().top);
     const intro = clamp(travel / introDistance);
-    const growing = smooth(intro / 0.65);
+    const carTravel = smooth(intro / 0.95);
     const awardsEntrance = smooth((intro - 0.22) / 0.7);
-    const reveal = smooth((intro - 0.52) / 0.42);
-    const nextAwards = intro >= 0.72;
+    const titleEntrance = smooth((intro - 0.26) / 0.36);
+    const frameEntrance = smooth((intro - 0.4) / 0.46);
+    const transitionFade = smooth((intro - 0.72) / 0.22);
+    const nextAwards = intro >= 0.68;
     if (intro > 0 && companyTrack.scrollLeft > 1) companyTrack.scrollTo({ left: 0, behavior: 'instant' });
     freezeVideo(intro > 0.001);
     if (nextAwards !== showingAwards) {
@@ -67,26 +67,23 @@
       ? 'Cuộn để khám phá hành trình · Cuộn ngược để xem lại'
       : 'Cuộn xuống để khám phá dấu ấn Hiệp Phát';
     runway.style.setProperty('--awards-intro-y', `${(1 - awardsEntrance) * innerHeight * 0.82}px`);
-    runway.style.setProperty('--awards-intro-opacity', String(smooth((intro - 0.25) / 0.42)));
+    runway.style.setProperty('--award-title-opacity', String(titleEntrance));
+    runway.style.setProperty('--award-title-y', `${(1 - titleEntrance) * 56}px`);
+    runway.style.setProperty('--award-frame-opacity', String(frameEntrance));
+    runway.style.setProperty('--award-frame-y', `${(1 - frameEntrance) * 90}px`);
     runway.style.setProperty('--company-intro-y', `${intro * -90}px`);
     runway.style.setProperty('--company-intro-opacity', String(1 - smooth((intro - 0.38) / 0.45)));
-    const rect = video.getBoundingClientRect();
-    // The blue circuit circle occupies the left portion of the 886 × 582 video.
-    const cx = rect.left + rect.width * 0.307;
-    const cy = rect.top + rect.height * 0.5;
-    const startRadius = rect.height * 0.44;
-    const fullRadius = Math.hypot(Math.max(cx, innerWidth - cx), Math.max(cy, innerHeight - cy)) + 8;
-    const radius = startRadius + (fullRadius - startRadius) * growing;
-    wipe.style.clipPath = `circle(${radius}px at ${cx}px ${cy}px)`;
-    wipe.style.opacity = String(clamp(intro / 0.06) * (1 - reveal));
-    wipe.style.visibility = intro > 0 && intro < 1 ? 'visible' : 'hidden';
-    snapshot.style.width = `${rect.width}px`;
-    snapshot.style.height = `${rect.height}px`;
-    snapshot.style.left = `${rect.left}px`;
-    snapshot.style.top = `${rect.top}px`;
-    snapshot.style.transformOrigin = '30.7% 50%';
-    snapshot.style.transform = `scale(${radius / Math.max(1, startRadius)})`;
-    snapshot.style.opacity = captured ? String(1 - smooth(growing / 0.8)) : '0';
+    const carWidth = Math.min(430, innerWidth * 0.32);
+    const carX = -carWidth * 1.05 + carTravel * (innerWidth + carWidth * 1.15);
+    transition.style.setProperty('--car-x', `${carX}px`);
+    transition.style.setProperty('--car-y', `${innerHeight * (0.58 - carTravel * 0.08)}px`);
+    transition.style.setProperty('--trail-y', `${innerHeight * (0.58 - carTravel * 0.08) + carWidth * 0.28}px`);
+    transition.style.setProperty('--car-width', `${carWidth}px`);
+    transition.style.setProperty('--trail-width', `${Math.max(0, carX + carWidth * 0.55)}px`);
+    transition.style.setProperty('--curtain-edge', `${carTravel * 112 - 6}%`);
+    transition.style.setProperty('--car-tilt', `${(0.5 - carTravel) * 2.5}deg`);
+    transition.style.opacity = String(clamp(intro / 0.04) * (1 - transitionFade));
+    transition.style.visibility = intro > 0 && intro < 0.98 ? 'visible' : 'hidden';
     const progress = clamp((travel - introDistance) / distance);
     awards.dispatchEvent(new CustomEvent('award-story-progress', { detail: { enabled: true, progress } }));
     awards.style.setProperty('--story-background-drift', `${(progress - 0.5) * 50}px`);
@@ -119,7 +116,7 @@
       companyHome.after(runway);
       runway.append(pin);
       pin.append(company, awards, hint);
-      document.body.append(wipe);
+      document.body.append(transition);
       showingAwards = false;
       runway.classList.remove('is-showing-awards');
       awards.inert = true;
@@ -128,7 +125,7 @@
       companyHome.after(company);
       awardsHome.after(awards);
       runway.remove();
-      wipe.remove();
+      transition.remove();
       company.inert = false;
       awards.inert = false;
       freezeVideo(false);
@@ -146,6 +143,5 @@
   const sizes = new ResizeObserver(measure);
   sizes.observe(awards);
   sizes.observe(company);
-  video?.addEventListener('loadeddata', () => { if (frozen && !captured) { frozen = false; requestUpdate(); } });
   configure();
 })();
