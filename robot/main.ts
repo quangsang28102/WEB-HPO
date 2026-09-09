@@ -4,6 +4,11 @@ import { RobotStage, fallback } from './scene';
 import { Wander } from './wander';
 import { createViewer } from './viewer';
 
+const bundleUrl = document.currentScript instanceof HTMLScriptElement
+  ? document.currentScript.src
+  : document.baseURI;
+const welcomeVoiceUrl = new URL('../assets/voice-tram-guillaume.mp3', bundleUrl).href;
+
 function mount() {
   if (document.getElementById('hpo-robot')) return;
   const companion = document.createElement('button');
@@ -39,7 +44,7 @@ function mount() {
   let greetingIdleSince: number | null = null;
   let greetingLastX = position.x, greetingLastY = position.y;
   let greetingMovementUntil = 0;
-  const viewer = createViewer(companion, () => {
+  const viewer = createViewer(companion, welcomeVoiceUrl, () => {
     wander.pause();
     resume();
   }, value => { paused = value; }, wander.speed, value => {

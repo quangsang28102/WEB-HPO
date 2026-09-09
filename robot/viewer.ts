@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RobotStage } from './scene';
 
-export function createViewer(companion: HTMLButtonElement, onChange: () => void, setPaused: (paused: boolean) => void, initialSpeed: number, setSpeed: (speed: number) => void) {
+export function createViewer(companion: HTMLButtonElement, welcomeVoiceUrl: string, onChange: () => void, setPaused: (paused: boolean) => void, initialSpeed: number, setSpeed: (speed: number) => void) {
   const dialog = document.createElement('dialog');
   dialog.id = 'hpo-robot-viewer';
   dialog.setAttribute('aria-labelledby', 'hpo-robot-title');
@@ -49,6 +49,10 @@ export function createViewer(companion: HTMLButtonElement, onChange: () => void,
   let stage: RobotStage | undefined;
   let controls: OrbitControls | undefined;
   let previousOverflow = '';
+  const welcomeVoice = new Audio(welcomeVoiceUrl);
+  welcomeVoice.id = 'hpo-robot-welcome-voice';
+  welcomeVoice.preload = 'auto';
+  dialog.append(welcomeVoice);
   const pointer = new THREE.Vector2();
   const speedInput = dialog.querySelector<HTMLInputElement>('#hpo-robot-speed')!;
   const speedOutput = dialog.querySelector<HTMLOutputElement>('#hpo-robot-speed-value')!;
@@ -72,6 +76,8 @@ export function createViewer(companion: HTMLButtonElement, onChange: () => void,
   dialog.addEventListener('pointerdown', event => { backdropDown = event.target === dialog && outside(event); });
   dialog.addEventListener('click', event => { if (backdropDown && event.target === dialog && outside(event)) dialog.close(); });
   dialog.addEventListener('close', () => {
+    welcomeVoice.pause();
+    welcomeVoice.currentTime = 0;
     controls?.dispose();
     controls = undefined;
     stage?.dispose();
@@ -109,6 +115,10 @@ export function createViewer(companion: HTMLButtonElement, onChange: () => void,
       if (dialog.open) return;
       previousOverflow = document.documentElement.style.overflow;
       dialog.showModal();
+      welcomeVoice.currentTime = 0;
+      welcomeVoice.play().catch(() => {
+        // Some browsers may still block playback despite the initiating click.
+      });
       document.documentElement.style.overflow = 'hidden';
       companion.setAttribute('aria-expanded', 'true');
       try {
