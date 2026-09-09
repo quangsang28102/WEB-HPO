@@ -114,3 +114,31 @@ test('hover and pause face forward but dragging retains its heading', () => {
   assert(Math.abs(wander.heading) < .01);
   assert.deepEqual(position.toArray(), [20, 20]);
 });
+
+test('each completed route offers one greeting after facing front', () => {
+  const wander=new Wander(()=>.9), position=new Vector2(20,20);
+  wander.pause(0);
+  let greetings=0, walked=false;
+  for(let i=0;i<100;i++) {
+    wander.update(.1,position,600,400,false);
+    walked ||= wander.walking;
+    if(wander.takeGreeting()) { greetings++; assert.equal(wander.walking,false); assert(Math.abs(wander.heading)<.08); }
+  }
+  assert(walked);assert.equal(greetings,1);assert.equal(wander.takeGreeting(),false);
+});
+
+test('hover stop queues one greeting and keeps enough rest to finish it', () => {
+  const wander=new Wander(()=>.9), position=new Vector2(20,20);
+  wander.pause(0);
+  for(let i=0;i<30&&!wander.walking;i++)wander.update(.1,position,600,400,false);
+  assert(wander.walking);
+  const stopped=position.clone();
+  let greetings=0;
+  for(let i=0;i<30;i++) {
+    wander.update(.1,position,600,400,true);
+    if(wander.takeGreeting())greetings++;
+  }
+  assert.equal(greetings,1);
+  for(let i=0;i<29;i++)wander.update(.1,position,600,400,false);
+  assert.deepEqual(position.toArray(),stopped.toArray());
+});

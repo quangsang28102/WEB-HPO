@@ -9,6 +9,7 @@ export class Wander {
   private travelTime = 0;
   private speedMultiplier = 1;
   private hasTarget = false;
+  private greetingPending = false;
   constructor(private random: () => number = Math.random) {}
 
   get speed() { return this.speedMultiplier; }
@@ -16,7 +17,16 @@ export class Wander {
     if (Number.isFinite(value)) this.speedMultiplier = MathUtils.clamp(value, .5, 2);
   }
 
-  pause(seconds = 5) { this.rest = seconds; this.travelTime = 0; this.hasTarget = false; this.walking = false; }
+  pause(seconds = 5) {
+    if (this.travelTime > 0 || this.walking) this.greetingPending = true;
+    this.rest = seconds; this.travelTime = 0; this.hasTarget = false; this.walking = false;
+  }
+
+  takeGreeting() {
+    if (!this.greetingPending || this.walking || Math.abs(Math.atan2(Math.sin(this.heading), Math.cos(this.heading))) > .08) return false;
+    this.greetingPending = false;
+    return true;
+  }
 
   private turnToward(desired: number, dt: number) {
     const difference = Math.atan2(Math.sin(desired - this.heading), Math.cos(desired - this.heading));
@@ -25,6 +35,7 @@ export class Wander {
   }
 
   update(dt: number, position: Vector2, width: number, height: number, paused: boolean, faceWhenPaused = true) {
+    if (paused && this.walking) this.pause();
     this.walking = false;
     dt = Math.min(dt, .1);
     if (paused) {

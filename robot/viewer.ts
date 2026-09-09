@@ -91,7 +91,7 @@ export function createViewer(companion: HTMLButtonElement, onChange: () => void,
     if (action === 'reset') controls.reset();
     else if (action === 'wave') {
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        stage.robot.arms[1].rotation.z = stage.robot.arms[1].rotation.z > 1 ? .13 : 2.5;
+        stage.robot.setGreetingPose(stage.robot.arms[1].rotation.z > 1 ? 0 : 1);
       } else stage.robot.wave();
     } else {
       const offset = stage.camera.position.clone().sub(controls.target);

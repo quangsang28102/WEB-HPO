@@ -76,6 +76,7 @@ function mount() {
       place();
       if (stage && !stage.lost) {
         stage.robot.group.rotation.y = wander.heading;
+        if (!drag && !stage.robot.isWaving && wander.takeGreeting()) stage.robot.wave();
         stage.robot.update(dt, time, pointer, false, wander.walking);
         stage.render();
       }

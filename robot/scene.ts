@@ -13,6 +13,7 @@ export class RobotStage {
   onRestore = () => {};
   private observer: ResizeObserver;
   private events = new AbortController();
+  private shadow: THREE.Mesh;
 
   constructor(readonly host: HTMLElement) {
     host.innerHTML = `${fallback}<canvas aria-hidden="true"></canvas>`;
@@ -24,6 +25,17 @@ export class RobotStage {
     this.camera.position.set(0, 2.25, 10);
     this.camera.lookAt(0, 1.95, 0);
     this.robot = new Robot();
+    // Soft ground contact shadow stays on the floor while the body bobs and turns.
+    const shadowMaterial = new THREE.ShaderMaterial({
+      transparent: true, depthWrite: false,
+      uniforms: { strength: { value: .52 } },
+      vertexShader: `varying vec2 shadowUv; void main() { shadowUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
+      fragmentShader: `varying vec2 shadowUv; uniform float strength; void main() { float r=length((shadowUv-.5)*2.0); float alpha=pow(1.0-smoothstep(0.0,1.0,r),1.3)*strength; gl_FragColor=vec4(.035,.065,.075,alpha); }`,
+    });
+    this.shadow = new THREE.Mesh(new THREE.PlaneGeometry(2.55,1.85),shadowMaterial);
+    this.shadow.rotation.x=-Math.PI/2;
+    this.shadow.position.set(.10,-.015,.10);
+    this.scene.add(this.shadow);
     this.scene.add(this.robot.group, new THREE.HemisphereLight('#d8faff', '#66777c', 3));
     const key = new THREE.DirectionalLight('#fff4df', 4.2);
     key.position.set(-3, 7, 5);
@@ -57,6 +69,9 @@ export class RobotStage {
   }
 
   render() {
+    const lift = Math.max(0,this.robot.group.position.y);
+    this.shadow.scale.setScalar(1+lift*2);
+    (this.shadow.material as THREE.ShaderMaterial).uniforms.strength.value=.52-lift*.7;
     if (!this.lost) this.renderer.render(this.scene, this.camera);
   }
 
