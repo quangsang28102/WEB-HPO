@@ -12,10 +12,32 @@ body.has-scroll-story {
 }
 .car-story .company-slider {
   z-index: 1;
+  width: 100%;
+  height: var(--hero-frame-height, calc(100svh - 120px));
   opacity: var(--company-intro-opacity, 1);
-  transform: translateY(var(--company-intro-y, 0px)) scale(var(--hero-frame-scale, 1));
+  transform: translateY(var(--company-intro-y, 0px));
   transform-origin: center top;
   will-change: transform, opacity;
+}
+.car-story .company-slider-track,
+.car-story .company-slider-track > section {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+.car-story .hpo-digital-hero-inner {
+  height: 100%;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+.car-story .hpo-digital-visual {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+.car-story .hpo-digital-video {
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
 .car-story .award-slider.is-scroll-story {
   z-index: 2;
@@ -71,7 +93,7 @@ body.has-scroll-story {
 }
 .award-story {
   position: relative;
-  background: #f2f7ff;
+  background: #fff;
 }
 .award-story__pin {
   position: sticky;

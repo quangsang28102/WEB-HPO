@@ -40,7 +40,7 @@
       video.pause();
     } else {
       delete video.dataset.scrollFrozen;
-      if (!hero.inert && !document.hidden) video.play().catch(() => {});
+      if (!hero.inert && !document.hidden) video.play().catch(() => { });
     }
   }
   function setAwardStory(value) {
@@ -70,9 +70,9 @@
       company.inert = showingAwards;
       awards.inert = !showingAwards;
     }
-    hint.textContent = showingAwards
-      ? 'Tiếp tục cuộn để xem nội dung tiếp theo'
-      : 'Cuộn xuống để khám phá dấu ấn Hiệp Phát';
+    // hint.textContent = showingAwards
+    //   ? 'Tiếp tục cuộn để xem nội dung tiếp theo'
+    //   : 'Cuộn xuống để khám phá dấu ấn Hiệp Phát';
     runway.style.setProperty('--awards-intro-y', `${(1 - awardsEntrance) * innerHeight * 0.82}px`);
     runway.style.setProperty('--award-title-opacity', String(titleEntrance));
     runway.style.setProperty('--award-title-y', `${(1 - titleEntrance) * 56}px`);
@@ -102,10 +102,9 @@
     top = Math.max(24, (nav?.getBoundingClientRect().height || 72) + 12);
     const available = Math.max(300, innerHeight - top - 48);
     const scale = Math.min(1, available / Math.max(1, awards.offsetHeight));
-    const heroScale = Math.min(1, available / Math.max(1, company.offsetHeight));
     runway.style.setProperty('--story-top', `${top}px`);
     runway.style.setProperty('--story-scale', String(scale));
-    runway.style.setProperty('--hero-frame-scale', String(heroScale));
+    runway.style.setProperty('--hero-frame-height', `${available}px`);
     runway.style.setProperty('--story-frame-height', `${available}px`);
     introDistance = innerHeight * 1.6;
     runway.style.height = `${introDistance + innerHeight - top + 80}px`;
