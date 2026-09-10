@@ -7,8 +7,6 @@
   let frame = 0;
 
   const clamp = (value) => Math.max(0, Math.min(1, value));
-  const easeIn = (value) => value * value;
-
   function update() {
     frame = 0;
     if (reducedMotion.matches) {
@@ -20,8 +18,15 @@
     }
 
     const rect = hero.getBoundingClientRect();
-    const progress = clamp(-rect.top / Math.max(1, rect.height * 0.78));
-    const exit = easeIn(progress);
+    const scrolledThroughHero = Math.max(0, -rect.top);
+    const transitionStart = rect.height * 0.65;
+    const transitionDistance = Math.max(1, rect.height - transitionStart);
+    const progress = clamp(
+      (scrolledThroughHero - transitionStart) / transitionDistance,
+    );
+    // Keep the scene still until half of the hero has moved above the viewport.
+    // After that point, map the remaining scroll distance directly to the exit.
+    const exit = progress;
 
     hero.style.setProperty('--cover-scroll', progress.toFixed(4));
     hero.style.setProperty('--cover-bg-shift', `${progress * 90}px`);
