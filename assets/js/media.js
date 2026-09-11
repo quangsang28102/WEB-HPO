@@ -177,7 +177,13 @@
     arrow.addEventListener('click', (e) => {
       e.stopPropagation();
       const target = arrow.dataset.toggle;
-      const detail = document.getElementById('syllDetail-' + target);
+      const detailId = 'syllDetail-' + target;
+      const section = arrow.closest('.syll');
+      const detail = Array.from(
+        section?.querySelectorAll('.syll-detail') || [],
+      ).find(
+        (item) => item.id === detailId || item.id.startsWith(detailId + '-'),
+      );
       if (!detail) return;
       const isOpen = arrow.getAttribute('aria-expanded') === 'true';
       document.querySelectorAll('.syll-down').forEach(a => a.setAttribute('aria-expanded', 'false'));
@@ -400,4 +406,3 @@
     });
   });
 })();
-

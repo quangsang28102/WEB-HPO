@@ -2414,38 +2414,58 @@
   background: #15803d;
 }
 
-#phan-chap-01-I .chap-num-wrap {
-  background: #e21d3b;
+:is(#phan-chap-01-I, #phan-chap-01-I-static) .chap-num-wrap {
+  background: #e21d3b !important;
 }
 
-#phan-chap-01-II .chap-num-wrap {
-  background: #10833f;
+:is(#phan-chap-01-II, #phan-chap-01-II-static) .chap-num-wrap {
+  background: #10833f !important;
 }
 
-#phan-chap-01-III .chap-num-wrap {
-  background: #a93613;
+:is(#phan-chap-01-III, #phan-chap-01-III-static) .chap-num-wrap {
+  background: #a93613 !important;
 }
 
-.syll-list--chapters .syll-detail:not(#syllDetail-chap-phap-luat) .mon-body-pad {
+.syll-list--chapters
+  .syll-detail:not(#syllDetail-chap-phap-luat):not(
+    #syllDetail-chap-phap-luat-static
+  )
+  .mon-body-pad {
   gap: 0;
 }
 
-.syll-list--chapters .syll-detail:not(#syllDetail-chap-phap-luat) .phan {
+.syll-list--chapters
+  .syll-detail:not(#syllDetail-chap-phap-luat):not(
+    #syllDetail-chap-phap-luat-static
+  )
+  .phan {
   border: 0;
   background: transparent;
   box-shadow: none;
   overflow: visible;
 }
 
-.syll-list--chapters .syll-detail:not(#syllDetail-chap-phap-luat) .phan-header {
+.syll-list--chapters
+  .syll-detail:not(#syllDetail-chap-phap-luat):not(
+    #syllDetail-chap-phap-luat-static
+  )
+  .phan-header {
   display: none;
 }
 
-.syll-list--chapters .syll-detail:not(#syllDetail-chap-phap-luat) .phan-body {
+.syll-list--chapters
+  .syll-detail:not(#syllDetail-chap-phap-luat):not(
+    #syllDetail-chap-phap-luat-static
+  )
+  .phan-body {
   grid-template-rows: 1fr;
 }
 
-.syll-list--chapters .syll-detail:not(#syllDetail-chap-phap-luat) .phan-body-pad {
+.syll-list--chapters
+  .syll-detail:not(#syllDetail-chap-phap-luat):not(
+    #syllDetail-chap-phap-luat-static
+  )
+  .phan-body-pad {
   border-top: 0;
   padding: 0;
 }
