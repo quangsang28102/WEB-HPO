@@ -45,7 +45,7 @@
   let active = 0;
   let visible = true;
   let pending = false;
-  const AUTO_SLIDE_MS = 8000;
+  const AUTO_SLIDE_MS = 3000;
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let autoTimer = null;
   let hovered = false;
@@ -53,8 +53,7 @@
   function scheduleAutoSlide() {
     clearTimeout(autoTimer);
     if (!visible || document.hidden || hovered || touching ||
-        root.contains(document.activeElement) || reducedMotion.matches ||
-        matchMedia('(min-width: 1100px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)').matches) return;
+        root.contains(document.activeElement) || reducedMotion.matches) return;
     autoTimer = setTimeout(() => {
       go(active + 1);
       scheduleAutoSlide();

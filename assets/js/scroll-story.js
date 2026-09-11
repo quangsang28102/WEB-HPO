@@ -7,7 +7,6 @@
   const video = hero.querySelector('video');
   const companyTrack = company.querySelector('.company-slider-track');
   const desktop = matchMedia('(min-width: 1100px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)');
-  const slideCount = awards.querySelectorAll('.award-slider__dots button').length;
   const companyHome = document.createComment('Company banner position');
   const awardsHome = document.createComment('Awards position');
   company.before(companyHome);
@@ -28,8 +27,8 @@
   car.src = new URL('assets/images/courses/carImage.png', document.baseURI).href;
   car.alt = '';
   transition.append(trail, car);
-  let enabled = false, frame = 0, distance = 1, introDistance = 1, top = 88;
-  let frozen = false, showingAwards = false;
+  let enabled = false, frame = 0, introDistance = 1, top = 88;
+  let frozen = false, showingAwards = false, awardStoryEnabled = false;
   const clamp = value => Math.max(0, Math.min(1, value));
   const smooth = value => { const x = clamp(value); return x * x * (3 - 2 * x); };
 
@@ -41,8 +40,15 @@
       video.pause();
     } else {
       delete video.dataset.scrollFrozen;
-      if (!hero.inert && !document.hidden) video.play().catch(() => {});
+      if (!hero.inert && !document.hidden) video.play().catch(() => { });
     }
+  }
+  function setAwardStory(value) {
+    if (awardStoryEnabled === value) return;
+    awardStoryEnabled = value;
+    awards.dispatchEvent(new CustomEvent('award-story-progress', {
+      detail: { enabled: value, progress: 0 }
+    }));
   }
   function update() {
     frame = 0;
@@ -55,6 +61,7 @@
     const frameEntrance = smooth((intro - 0.4) / 0.46);
     const transitionFade = smooth((intro - 0.72) / 0.22);
     const nextAwards = intro >= 0.68;
+    setAwardStory(intro < 0.995);
     if (intro > 0 && companyTrack.scrollLeft > 1) companyTrack.scrollTo({ left: 0, behavior: 'instant' });
     freezeVideo(intro > 0.001);
     if (nextAwards !== showingAwards) {
@@ -63,9 +70,9 @@
       company.inert = showingAwards;
       awards.inert = !showingAwards;
     }
-    hint.textContent = showingAwards
-      ? 'Cuộn để khám phá hành trình · Cuộn ngược để xem lại'
-      : 'Cuộn xuống để khám phá dấu ấn Hiệp Phát';
+    // hint.textContent = showingAwards
+    //   ? 'Tiếp tục cuộn để xem nội dung tiếp theo'
+    //   : 'Cuộn xuống để khám phá dấu ấn Hiệp Phát';
     runway.style.setProperty('--awards-intro-y', `${(1 - awardsEntrance) * innerHeight * 0.82}px`);
     runway.style.setProperty('--award-title-opacity', String(titleEntrance));
     runway.style.setProperty('--award-title-y', `${(1 - titleEntrance) * 56}px`);
@@ -84,9 +91,7 @@
     transition.style.setProperty('--car-tilt', `${(0.5 - carTravel) * 2.5}deg`);
     transition.style.opacity = String(clamp(intro / 0.04) * (1 - transitionFade));
     transition.style.visibility = intro > 0 && intro < 0.98 ? 'visible' : 'hidden';
-    const progress = clamp((travel - introDistance) / distance);
-    awards.dispatchEvent(new CustomEvent('award-story-progress', { detail: { enabled: true, progress } }));
-    awards.style.setProperty('--story-background-drift', `${(progress - 0.5) * 50}px`);
+    awards.style.setProperty('--story-background-drift', `${(intro - 0.5) * 30}px`);
   }
   function requestUpdate() {
     if (enabled && !frame) frame = requestAnimationFrame(update);
@@ -97,14 +102,12 @@
     top = Math.max(24, (nav?.getBoundingClientRect().height || 72) + 12);
     const available = Math.max(300, innerHeight - top - 48);
     const scale = Math.min(1, available / Math.max(1, awards.offsetHeight));
-    const heroScale = Math.min(1, available / Math.max(1, company.offsetHeight));
     runway.style.setProperty('--story-top', `${top}px`);
     runway.style.setProperty('--story-scale', String(scale));
-    runway.style.setProperty('--hero-frame-scale', String(heroScale));
+    runway.style.setProperty('--hero-frame-height', `${available}px`);
     runway.style.setProperty('--story-frame-height', `${available}px`);
     introDistance = innerHeight * 1.6;
-    distance = Math.max(1, slideCount - 1) * innerHeight * 0.55;
-    runway.style.height = `${introDistance + distance + innerHeight - top}px`;
+    runway.style.height = `${introDistance + innerHeight - top + 80}px`;
     requestUpdate();
   }
   function configure() {
@@ -118,8 +121,11 @@
       pin.append(company, awards, hint);
       document.body.append(transition);
       showingAwards = false;
+      awardStoryEnabled = false;
       runway.classList.remove('is-showing-awards');
       awards.inert = true;
+      awards.dispatchEvent(new CustomEvent('award-story-progress', { detail: { enabled: true, progress: 0 } }));
+      awardStoryEnabled = true;
       measure();
     } else {
       companyHome.after(company);
@@ -129,14 +135,9 @@
       company.inert = false;
       awards.inert = false;
       freezeVideo(false);
-      awards.dispatchEvent(new CustomEvent('award-story-progress', { detail: { enabled: false } }));
+      setAwardStory(false);
     }
   }
-  awards.addEventListener('award-story-navigate', event => {
-    if (!enabled) return;
-    const fraction = event.detail.index / Math.max(1, slideCount - 1);
-    window.scrollTo({ top: scrollY + runway.getBoundingClientRect().top - top + introDistance + fraction * distance, behavior: 'smooth' });
-  });
   window.addEventListener('scroll', requestUpdate, { passive: true });
   window.addEventListener('resize', measure);
   desktop.addEventListener('change', configure);
