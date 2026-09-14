@@ -2,6 +2,228 @@
 .syll-detail.is-redesigned {
   background: var(--cloud, #f0f3fb) !important;
 }
+
+.syll--chapters-html {
+  background: #fff !important;
+  border-top-color: #fff !important;
+}
+
+.syll--chapters-html .syll-detail,
+.syll--chapters-html .syll-detail-inner,
+.syll--chapters-html .mon-body-pad {
+  background: #fff !important;
+}
+
+/* Subject 02: keep every chapter tag and title aligned to the left edge. */
+#syllDetail-chap-cau-tao-static .phan-body-pad {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#syllDetail-chap-cau-tao-static
+  .phan-body-pad
+  > .chap-list
+  > .chap
+  > .chap-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  justify-content: start;
+  gap: 10px;
+  padding-left: 0;
+  padding-right: 8px;
+}
+
+#syllDetail-chap-cau-tao-static
+  .phan-body-pad
+  > .chap-list
+  > .chap
+  > .chap-row
+  > .chap-info {
+  justify-self: start;
+  width: 100%;
+}
+
+#syllDetail-chap-cau-tao-static
+  .phan-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  > .chap-row
+  > .chap-num-wrap {
+  display: none;
+}
+
+#syllDetail-chap-cau-tao-static
+  .phan-body-pad
+  > .chap-list
+  > .chap
+  > .chap-row
+  .chap-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+#syllDetail-chap-cau-tao-static .chap-title > .chap-chip {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #fff !important;
+  background: #1468d4 !important;
+  white-space: nowrap;
+}
+
+#syllDetail-chap-cau-tao-static .chap-chip,
+#syllDetail-chap-cau-tao-static .chap-num-wrap {
+  color: #fff !important;
+  background: #1468d4 !important;
+}
+
+#syllDetail-chap-cau-tao-static
+  .phan-body-pad
+  > .chap-list
+  > .chap
+  > .chap-row {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+#syllDetail-chap-cau-tao-static .phan-body-pad > .chap-list > .chap-row {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+#syllDetail-chap-cau-tao-static
+  .phan-body-pad
+  > .chap-list
+  > .chap
+  > .chap-row {
+  padding: 24px !important;
+}
+
+#syllDetail-chap-cau-tao-static .chap-row {
+  padding: 24px !important;
+}
+
+:is(
+    #syllDetail-chap-phap-luat-static,
+    #syllDetail-chap-dao-duc-static,
+    #syllDetail-chap-ky-thuat-static,
+    #syllDetail-chap-thuc-hanh-static
+  )
+  .chap-row {
+  padding: 24px !important;
+}
+
+/* Subject 03 in the lower HTML section follows subject 02's chapter layout. */
+#syllDetail-chap-dao-duc-static
+  .phan-body-pad
+  > .chap-list
+  > .chap
+  > .chap-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  justify-content: start;
+  gap: 10px;
+  padding-left: 0;
+  padding-right: 8px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+#syllDetail-chap-dao-duc-static
+  .phan-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  > .chap-row
+  > .chap-num-wrap {
+  display: none;
+}
+
+#syllDetail-chap-dao-duc-static
+  .phan-body-pad
+  > .chap-list
+  > .chap
+  > .chap-row
+  > .chap-info {
+  justify-self: start;
+  width: 100%;
+}
+
+#syllDetail-chap-dao-duc-static .chap-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+#syllDetail-chap-dao-duc-static .chap-title > .chap-chip {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #3b2b00 !important;
+  background: #f4c430 !important;
+  white-space: nowrap;
+}
+
+/* Subjects 04 and 06 use the same left-aligned chapter treatment. */
+:is(#syllDetail-chap-ky-thuat-static, #syllDetail-chap-thuc-hanh-static)
+  .phan-body-pad
+  > .chap-list
+  > .chap
+  > .chap-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  justify-content: start;
+  gap: 10px;
+  padding-left: 0;
+  padding-right: 8px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+:is(#syllDetail-chap-ky-thuat-static, #syllDetail-chap-thuc-hanh-static)
+  .phan-body-pad
+  > .chap-list
+  > .chap:not(.is-featured)
+  > .chap-row
+  > .chap-num-wrap {
+  display: none;
+}
+
+:is(#syllDetail-chap-ky-thuat-static, #syllDetail-chap-thuc-hanh-static)
+  .phan-body-pad
+  > .chap-list
+  > .chap
+  > .chap-row
+  > .chap-info {
+  justify-self: start;
+  width: 100%;
+}
+
+:is(#syllDetail-chap-ky-thuat-static, #syllDetail-chap-thuc-hanh-static)
+  .chap-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+#syllDetail-chap-ky-thuat-static .chap-title > .chap-chip,
+#syllDetail-chap-thuc-hanh-static .chap-title > .chap-chip {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #fff !important;
+  white-space: nowrap;
+}
+
+#syllDetail-chap-ky-thuat-static .chap-title > .chap-chip {
+  background: #10833f !important;
+}
+
+#syllDetail-chap-thuc-hanh-static .chap-title > .chap-chip {
+  background: #6d28d9 !important;
+}
 .syll-detail.is-redesigned .syll-detail-inner {
   padding: 22px 22px 26px;
   background: transparent;
@@ -107,7 +329,7 @@
   grid-template-columns: subgrid;
   align-items: center;
 }
-#syllDetail-chap-phap-luat .phan-title {
+:is(#syllDetail-chap-phap-luat, #syllDetail-chap-phap-luat-static) .phan-title {
   font-size: clamp(18px, 1.5vw, 20px);
 }
 .phan-title .phan-count-meta {
@@ -917,11 +1139,17 @@
   content: "1. ";
 }
 
-#bbViewModal #hpo-sign-page [data-hpo-pane="nguy-hiem"] .hpo-pane-title::before {
+#bbViewModal
+  #hpo-sign-page
+  [data-hpo-pane="nguy-hiem"]
+  .hpo-pane-title::before {
   content: "2. ";
 }
 
-#bbViewModal #hpo-sign-page [data-hpo-pane="hieu-lenh"] .hpo-pane-title::before {
+#bbViewModal
+  #hpo-sign-page
+  [data-hpo-pane="hieu-lenh"]
+  .hpo-pane-title::before {
   content: "3. ";
 }
 
@@ -2269,45 +2497,45 @@
 .phan--I .phan-count-meta {
   color: #1e40af;
 }
-#phan-chap-01-I .phan-stripe {
-  background: #e21d3b;
+:is(#phan-chap-01-I, #phan-chap-01-I-static) .phan-stripe {
+  background: #e21d3b !important;
 }
-#phan-chap-01-I .phan-chip {
+:is(#phan-chap-01-I, #phan-chap-01-I-static) .phan-chip {
   color: #fff;
-  background: #e21d3b;
+  background: #e21d3b !important;
 }
-#phan-chap-01-I .phan-count-meta {
-  color: #e21d3b;
+:is(#phan-chap-01-I, #phan-chap-01-I-static) .phan-count-meta {
+  color: #e21d3b !important;
 }
-#phan-chap-01-I.is-open .phan-caret {
+:is(#phan-chap-01-I, #phan-chap-01-I-static).is-open .phan-caret {
   color: #e21d3b;
   background: #fee2e2;
 }
-#phan-chap-01-II .phan-stripe {
-  background: #10833f;
+:is(#phan-chap-01-II, #phan-chap-01-II-static) .phan-stripe {
+  background: #10833f !important;
 }
-#phan-chap-01-II .phan-chip {
+:is(#phan-chap-01-II, #phan-chap-01-II-static) .phan-chip {
   color: #fff;
-  background: #10833f;
+  background: #10833f !important;
 }
-#phan-chap-01-II .phan-count-meta {
-  color: #10833f;
+:is(#phan-chap-01-II, #phan-chap-01-II-static) .phan-count-meta {
+  color: #10833f !important;
 }
-#phan-chap-01-II.is-open .phan-caret {
+:is(#phan-chap-01-II, #phan-chap-01-II-static).is-open .phan-caret {
   color: #10833f;
   background: #f0fdf4;
 }
-#phan-chap-01-III .phan-stripe {
-  background: #a93613;
+:is(#phan-chap-01-III, #phan-chap-01-III-static) .phan-stripe {
+  background: #a93613 !important;
 }
-#phan-chap-01-III .phan-chip {
+:is(#phan-chap-01-III, #phan-chap-01-III-static) .phan-chip {
   color: #fff;
-  background: #a93613;
+  background: #a93613 !important;
 }
-#phan-chap-01-III .phan-count-meta {
-  color: #a93613;
+:is(#phan-chap-01-III, #phan-chap-01-III-static) .phan-count-meta {
+  color: #a93613 !important;
 }
-#phan-chap-01-III.is-open .phan-caret {
+:is(#phan-chap-01-III, #phan-chap-01-III-static).is-open .phan-caret {
   color: #a93613;
   background: #ffedd5;
 }
@@ -2331,6 +2559,7 @@
   margin-right: 10px;
   vertical-align: 1px;
 }
+
 .phan--I .chap-chip {
   background: #1e40af;
 }
@@ -2340,14 +2569,14 @@
 .phan--III .chap-chip {
   background: #15803d;
 }
-#phan-chap-01-I .chap-chip {
-  background: #e21d3b;
+:is(#phan-chap-01-I, #phan-chap-01-I-static) .chap-chip {
+  background: #e21d3b !important;
 }
-#phan-chap-01-II .chap-chip {
-  background: #10833f;
+:is(#phan-chap-01-II, #phan-chap-01-II-static) .chap-chip {
+  background: #10833f !important;
 }
-#phan-chap-01-III .chap-chip {
-  background: #a93613;
+:is(#phan-chap-01-III, #phan-chap-01-III-static) .chap-chip {
+  background: #a93613 !important;
 }
 #phan-chap-02 .chap-num-wrap,
 #phan-chap-02 .chap-chip {
@@ -3005,7 +3234,9 @@ a.chap[data-engine-view]:focus-visible {
     display: block;
   }
   .syll--chapters .syll-detail .phan-title,
-  .syll--chapters #syllDetail-chap-phap-luat .phan-title {
+  .syll--chapters
+    :is(#syllDetail-chap-phap-luat, #syllDetail-chap-phap-luat-static)
+    .phan-title {
     display: block;
     font-size: 16px;
     line-height: 1.5;
