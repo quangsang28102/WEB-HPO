@@ -11,7 +11,7 @@ const result = await build({
 const { Wander } = await import(`data:text/javascript;base64,${Buffer.from(result.outputFiles[0].text).toString('base64')}`);
 
 test('paused movement preserves position and resumes after the drop rest', () => {
-  const wander = new Wander(() => .9);
+  const wander = new Wander();
   const position = new Vector2(20, 20);
   wander.pause(2);
   for (let i = 0; i < 100; i++) wander.update(.1, position, 600, 400, true);
@@ -23,28 +23,26 @@ test('paused movement preserves position and resumes after the drop rest', () =>
 });
 
 test('turns the model toward its route before walking, with bounded angular speed', () => {
-  let index = 0;
-  const wander = new Wander(() => [0.5, 0][index++ % 2]);
-  const position = new Vector2(300, 200);
+  const wander = new Wander();
+  const position = new Vector2(0, 200);
   wander.pause(0);
   wander.update(.1, position, 600, 400, false);
   assert.equal(wander.walking, false);
-  assert.deepEqual(position.toArray(), [300, 200]);
+  assert.deepEqual(position.toArray(), [0, 200]);
   assert(Math.abs(wander.heading) <= .35 + 1e-10);
   for (let i = 0; i < 12; i++) wander.update(.1, position, 600, 400, false);
   assert(Math.abs(wander.heading - Math.PI) < .01);
   assert(position.y < 200, 'upward route presents the robot back');
 });
 
-test('long random walk stays in bounds, explores all quadrants, and caps long frames', () => {
-  let seed = 42;
-  const random = () => ((seed = (1664525 * seed + 1013904223) >>> 0) / 2 ** 32);
-  const wander = new Wander(random);
-  const position = new Vector2(300, 200);
+test('perimeter walk visits all edges without crossing the interior and caps long frames', () => {
+  const wander = new Wander();
+  const position = new Vector2(0, 200);
   const quadrants = new Set();
   for (let i = 0; i < 20000; i++) {
     const before = position.clone();
     wander.update(i % 100 === 0 ? 10 : .1, position, 600, 400, false);
+    assert(position.x === 0 || position.x === 600 || position.y === 0 || position.y === 400);
     assert(position.x >= 0 && position.x <= 600 && position.y >= 0 && position.y <= 400);
     assert(position.distanceTo(before) <= 8.000001);
     quadrants.add(`${position.x >= 300},${position.y >= 200}`);
@@ -53,7 +51,7 @@ test('long random walk stays in bounds, explores all quadrants, and caps long fr
 });
 
 test('zero-sized viewport stays finite and stationary', () => {
-  const wander = new Wander(() => .5);
+  const wander = new Wander();
   const position = new Vector2();
   for (let i = 0; i < 100; i++) wander.update(.1, position, 0, 0, false);
   assert.deepEqual(position.toArray(), [0, 0]);
@@ -61,9 +59,8 @@ test('zero-sized viewport stays finite and stationary', () => {
 });
 
 test('short trips stop and show the front for at least five seconds', () => {
-  let index = 0;
-  const wander = new Wander(() => [.5, 0][index++ % 2]);
-  const position = new Vector2(500, 1000);
+  const wander = new Wander();
+  const position = new Vector2(0, 1000);
   wander.pause(0);
   let walkingFrames = 0;
   for (let i = 0; i < 100; i++) {
@@ -83,7 +80,7 @@ test('short trips stop and show the front for at least five seconds', () => {
 });
 
 test('speed setting affects distance immediately without shortening the rest', () => {
-  const wander = new Wander(() => 1);
+  const wander = new Wander();
   const position = new Vector2(600, 0);
   wander.pause(0);
   wander.setSpeed(.5);
@@ -116,7 +113,7 @@ test('hover and pause face forward but dragging retains its heading', () => {
 });
 
 test('each completed route offers one greeting after facing front', () => {
-  const wander=new Wander(()=>.9), position=new Vector2(20,20);
+  const wander=new Wander(), position=new Vector2(0,200);
   wander.pause(0);
   let greetings=0, walked=false;
   for(let i=0;i<100;i++) {
@@ -128,7 +125,7 @@ test('each completed route offers one greeting after facing front', () => {
 });
 
 test('hover stop queues one greeting and keeps enough rest to finish it', () => {
-  const wander=new Wander(()=>.9), position=new Vector2(20,20);
+  const wander=new Wander(), position=new Vector2(0,200);
   wander.pause(0);
   for(let i=0;i<30&&!wander.walking;i++)wander.update(.1,position,600,400,false);
   assert(wander.walking);
@@ -142,3 +139,29 @@ test('hover stop queues one greeting and keeps enough rest to finish it', () => 
   for(let i=0;i<29;i++)wander.update(.1,position,600,400,false);
   assert.deepEqual(position.toArray(),stopped.toArray());
 });
+
+ test('manual placement and resizing snap to the nearest edge', () => {
+  const wander = new Wander();
+  for (const [input, expected] of [
+    [[20, 200], [0, 200]], [[580, 200], [600, 200]],
+    [[300, 20], [300, 0]], [[300, 380], [300, 400]],
+    [[800, 500], [600, 400]],
+  ]) {
+    const position = new Vector2(...input);
+    wander.snapToEdge(position, 600, 400);
+    assert.deepEqual(position.toArray(), expected);
+  }
+ });
+
+ test('collapsed viewport dimensions keep movement finite and on the available edge', () => {
+  for (const [width, height] of [[0, 400], [600, 0]]) {
+    const wander = new Wander(), position = new Vector2();
+    for (let i = 0; i < 3000; i++) {
+      const before = position.clone();
+      wander.update(.1, position, width, height, false);
+      assert(position.x >= 0 && position.x <= width && position.y >= 0 && position.y <= height);
+      assert(position.distanceTo(before) <= 6.000001);
+      assert(Number.isFinite(wander.heading));
+    }
+  }
+ });
