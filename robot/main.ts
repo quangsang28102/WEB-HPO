@@ -67,8 +67,7 @@ function mount() {
   }
 
   function place() {
-    position.x = THREE.MathUtils.clamp(position.x, 0, width);
-    position.y = THREE.MathUtils.clamp(position.y, 0, height);
+    wander.snapToEdge(position, width, height);
     companion.style.transform = `translate3d(${position.x + minX}px, ${position.y + minY}px, 0)`;
     const bubbleLeft = THREE.MathUtils.clamp(position.x + robotWidth / 2 - greetingWidth / 2, 0, Math.max(0, viewportWidth - greetingWidth - 16));
     greeting.style.left = `${bubbleLeft - position.x}px`;

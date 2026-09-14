@@ -8,9 +8,19 @@ export class Wander {
   private rest = 4;
   private travelTime = 0;
   private speedMultiplier = 1;
-  private hasTarget = false;
   private greetingPending = false;
-  constructor(private random: () => number = Math.random) {}
+
+  /** Keep the widget on the nearest viewport edge, including after manual moves. */
+  snapToEdge(position: Vector2, width: number, height: number) {
+    position.set(MathUtils.clamp(position.x, 0, width), MathUtils.clamp(position.y, 0, height));
+    const distances = [position.x, width - position.x, position.y, height - position.y];
+    switch (distances.indexOf(Math.min(...distances))) {
+      case 0: position.x = 0; break;
+      case 1: position.x = width; break;
+      case 2: position.y = 0; break;
+      case 3: position.y = height; break;
+    }
+  }
 
   get speed() { return this.speedMultiplier; }
   setSpeed(value: number) {
@@ -19,7 +29,7 @@ export class Wander {
 
   pause(seconds = 5) {
     if (this.travelTime > 0 || this.walking) this.greetingPending = true;
-    this.rest = seconds; this.travelTime = 0; this.hasTarget = false; this.walking = false;
+    this.rest = seconds; this.travelTime = 0; this.walking = false;
   }
 
   takeGreeting() {
@@ -47,25 +57,28 @@ export class Wander {
       if (this.turnToward(0, dt)) this.rest -= dt;
       return;
     }
-    if (!this.hasTarget) {
-      for (let attempt = 0; attempt < 8; attempt++) {
-        this.target.set(this.random() * width, this.random() * height);
-        if (position.distanceTo(this.target) > Math.min(120, Math.max(width, height) * .3)) break;
-      }
-      this.hasTarget = true;
-    }
-    this.target.set(MathUtils.clamp(this.target.x, 0, width), MathUtils.clamp(this.target.y, 0, height));
+    this.snapToEdge(position, width, height);
+    // Clockwise, targeting only the next corner so routes never cut across the screen.
+    if (width === 0) this.target.set(0, position.y < height ? height : 0);
+    else if (height === 0) this.target.set(position.x < width ? width : 0, 0);
+    else if (position.y === 0 && position.x < width) this.target.set(width, 0);
+    else if (position.x === width && position.y < height) this.target.set(width, height);
+    else if (position.y === height && position.x > 0) this.target.set(0, height);
+    else this.target.set(0, 0);
     const dx = this.target.x - position.x, dy = this.target.y - position.y;
     const distance = Math.hypot(dx, dy);
-    if (distance < 2 || this.travelTime >= 3) { this.pause(5 + this.random() * 3); return; }
+    if (distance === 0 || this.travelTime >= 3) { this.pause(5); return; }
     // Down-screen = facing the viewer; up-screen = showing the robot's back.
     const desired = Math.atan2(dx, dy);
     const difference = Math.atan2(Math.sin(desired - this.heading), Math.cos(desired - this.heading));
     this.heading += MathUtils.clamp(difference, -dt * 3.5, dt * 3.5);
     if (Math.abs(difference) > .35) return;
     const step = Math.min(distance, dt * 60 * this.speedMultiplier);
-    position.x += dx / distance * step;
-    position.y += dy / distance * step;
+    if (step === distance) position.copy(this.target);
+    else {
+      position.x += dx / distance * step;
+      position.y += dy / distance * step;
+    }
     this.travelTime += dt;
     this.walking = true;
   }
