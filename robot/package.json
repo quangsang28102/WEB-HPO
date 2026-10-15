@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "build": "esbuild main.ts --bundle --minify --format=iife --target=es2020 --outfile=dist/companion.js"
+    "build": "esbuild main.ts --bundle --minify --format=iife --target=es2020 --outfile=dist/companion.js && esbuild style.css --minify --outfile=dist/companion.css"
   },
   "dependencies": {
     "three": "0.180.0"

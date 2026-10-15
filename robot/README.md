@@ -34,7 +34,7 @@ npm test
 npm run build
 ```
 
-Build tạo `dist/companion.js` và `dist/companion.css`. Hai file chứa đủ thư viện, không cần CDN hay Node.js trên hosting. Khi sửa nguồn cần build và đưa cả hai file dist lên website. Esbuild chuyển TypeScript sang JavaScript, không kiểm tra kiểu.
+Build tạo `dist/companion.js` và `dist/companion.css`. JavaScript được bundle cùng thư viện Three.js, nên hosting không cần CDN hay Node.js. Khi sửa nguồn cần build và đưa cả hai file dist lên website. Esbuild chuyển TypeScript sang JavaScript, không kiểm tra kiểu.
 
 Để xem toàn website trên máy, chạy `python -m http.server 5180 --bind 127.0.0.1` tại WEB-HPO rồi mở http://127.0.0.1:5180/.
 

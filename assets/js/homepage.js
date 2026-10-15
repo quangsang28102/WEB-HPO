@@ -313,35 +313,211 @@
   });
 })();
 
-/* Platform: accordion list — click để đổi ảnh (không hover preview) */
+/* Platform: accordion list — click + tự mở tuần tự theo 2 phần. */
+let learningAutoController = null;
+let practiceYouTubePlayer = null;
 document.querySelectorAll('.platform-acc').forEach((accGroup) => {
-  const items = accGroup.querySelectorAll('.pacc-item');
-  const section = accGroup.closest('section');
+  const items = Array.from(accGroup.querySelectorAll('.pacc-item'));
+  const section = accGroup.closest('.platform-v2-panel, section');
   if (!section || !items.length) return;
   const platformImg = section.querySelector('.platform-circle img');
-  if (!platformImg) return;
-  const swap = (src) => {
-    if (!src || platformImg.getAttribute('src') === src) return;
+  const platformVideo = section.querySelector('[data-platform-video]');
+  if (!platformImg && !platformVideo) return;
+  const splitBody = accGroup.closest('.platform-v2-body--split');
+  // Each column owns its open state; the other column stays open while this one advances.
+  const scopeItems = items;
+  const platformCaption = section.querySelector('.platform-circle-cap--v2');
+  const swap = (item) => {
+    if (platformVideo && item.dataset.videoId) {
+      const videoId = item.dataset.videoId;
+      if (practiceYouTubePlayer?.cueVideoById) {
+        practiceYouTubePlayer.cueVideoById(videoId);
+      } else {
+        const url = new URL(`https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}`);
+        url.searchParams.set('playsinline', '1');
+        url.searchParams.set('enablejsapi', '1');
+        if (window.location.origin !== 'null') {
+          url.searchParams.set('origin', window.location.origin);
+        }
+        platformVideo.src = url.toString();
+      }
+      platformVideo.title = 'Video ' + (item.dataset.title || 'practice');
+      return;
+    }
+    const src = item.dataset.img;
+    if (!platformImg || !src || platformImg.getAttribute('src') === src) return;
     platformImg.style.opacity = '0';
     platformImg.style.transform = 'scale(0.97)';
-    setTimeout(() => {
+    window.setTimeout(() => {
       platformImg.src = src;
       platformImg.style.opacity = '1';
       platformImg.style.transform = 'scale(1)';
-    }, 180);
+    }, 120);
+  };
+  const setState = (item, isActive) => {
+    item.classList.toggle('is-active', isActive);
+    const button = item.querySelector('.pacc-head');
+    const body = item.querySelector('.pacc-body');
+    if (button) button.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+    if (body) body.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+  };
+  const activate = (item, allowToggle = true) => {
+    const wasActive = item.classList.contains('is-active');
+    if (allowToggle && wasActive) {
+      // Pause before hiding the practice player; keep its iframe attached for later selections.
+      if (platformVideo && !practiceYouTubePlayer) return;
+      if (platformVideo) practiceYouTubePlayer.pauseVideo();
+      scopeItems.forEach((card) => setState(card, false));
+      section.classList.remove('has-active-accordion');
+      return;
+    }
+    scopeItems.forEach((card) => setState(card, card === item));
+    section.classList.add('has-active-accordion');
+    swap(item);
+    if (platformCaption && item.dataset.title) platformCaption.textContent = item.dataset.title;
   };
   items.forEach((item) => {
-    const img = item.dataset.img;
+    setState(item, item.classList.contains('is-active'));
     item.addEventListener('click', () => {
-      const wasActive = item.classList.contains('is-active');
-      items.forEach(c => c.classList.remove('is-active'));
-      if (!wasActive) {
-        item.classList.add('is-active');
-        swap(img);
-      }
+      activate(item);
+      if (learningAutoController && splitBody) learningAutoController.defer();
     });
   });
+  section.classList.toggle('has-active-accordion', items.some((item) => item.classList.contains('is-active')));
+  accGroup.__activateLearningItem = (item) => activate(item, false);
 });
+
+/* Keep expanded accordion cards equal-height without clipping text at any viewport. */
+(() => {
+  const splitBody = document.querySelector('.platform-v2-body--split');
+  if (!splitBody) return;
+  const items = Array.from(splitBody.querySelectorAll('.platform-acc--v2 .pacc-item'));
+  if (!items.length) return;
+
+  const updateHeights = () => {
+    splitBody.style.setProperty('--platform-acc-head-height', 'auto');
+    splitBody.style.removeProperty('--platform-acc-content-height');
+
+    const headHeight = Math.max(
+      ...items.map((item) => item.querySelector('.pacc-head')?.getBoundingClientRect().height || 0),
+    );
+    const contentHeight = Math.max(
+      ...items.map((item) => item.querySelector('.pacc-body > p')?.getBoundingClientRect().height || 0),
+    );
+
+    if (headHeight) splitBody.style.setProperty('--platform-acc-head-height', `${Math.ceil(headHeight)}px`);
+    if (contentHeight) splitBody.style.setProperty('--platform-acc-content-height', `${Math.ceil(contentHeight)}px`);
+  };
+
+  updateHeights();
+  let resizeFrame = 0;
+  window.addEventListener('resize', () => {
+    window.cancelAnimationFrame(resizeFrame);
+    resizeFrame = window.requestAnimationFrame(updateHeights);
+  }, { passive: true });
+  document.fonts?.ready?.then(updateHeights);
+})();
+
+/* Mở xen kẽ 2 cột: cột 1 mục 1 → cột 2 mục 1 → cột 1 mục 2 → cột 2 mục 2. */
+(() => {
+  const splitBody = document.querySelector('.platform-v2-body--split');
+  if (!splitBody) return;
+  const groups = Array.from(splitBody.querySelectorAll('.platform-acc'));
+  const groupItems = groups.map((group) => Array.from(group.querySelectorAll('.pacc-item')));
+  const sequence = [];
+  const maxItems = Math.max(...groupItems.map((items) => items.length));
+  for (let index = 0; index < maxItems; index += 1) {
+    groupItems.forEach((items) => {
+      if (items[index]) sequence.push(items[index]);
+    });
+  }
+  const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  if (sequence.length < 2 || reduceMotion) return;
+
+  const activeIndex = sequence.findIndex((item) => item.classList.contains('is-active'));
+  let cursor = activeIndex < 0 ? 0 : (activeIndex + 1) % sequence.length;
+  let timerId = null;
+  let videoIsPlaying = false;
+  const stop = () => {
+    if (timerId) window.clearTimeout(timerId);
+    timerId = null;
+  };
+  const schedule = (delay = 3000) => {
+    stop();
+    if (
+      videoIsPlaying ||
+      document.hidden ||
+      splitBody.matches(':hover') ||
+      splitBody.contains(document.activeElement)
+    ) return;
+    timerId = window.setTimeout(() => {
+      const item = sequence[cursor % sequence.length];
+      const group = item.closest('.platform-acc');
+      if (group?.__activateLearningItem) group.__activateLearningItem(item);
+      cursor = (cursor + 1) % sequence.length;
+      schedule();
+    }, delay);
+  };
+  learningAutoController = {
+    defer: () => schedule(4500),
+    setVideoPlaying: (isPlaying) => {
+      videoIsPlaying = isPlaying;
+      if (isPlaying) stop();
+      else schedule();
+    },
+  };
+  splitBody.addEventListener('mouseenter', stop);
+  splitBody.addEventListener('mouseleave', () => schedule(800));
+  splitBody.addEventListener('focusin', stop);
+  splitBody.addEventListener('focusout', (event) => {
+    if (!splitBody.contains(event.relatedTarget)) schedule(800);
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop();
+    else schedule(1000);
+  });
+  schedule(1500);
+})();
+
+/* Pause practice auto-advance while an embedded YouTube video is playing. */
+(() => {
+  const iframe = document.querySelector('[data-platform-video]');
+  if (!iframe) return;
+
+  const initPlayer = () => {
+    if (!window.YT?.Player || practiceYouTubePlayer) return;
+    practiceYouTubePlayer = new window.YT.Player(iframe, {
+      events: {
+        onStateChange: (event) => {
+          const states = window.YT.PlayerState;
+          const isPlaying = event.data === states.PLAYING || event.data === states.BUFFERING;
+          learningAutoController?.setVideoPlaying(isPlaying);
+        },
+      },
+    });
+  };
+
+  if (window.YT?.Player) {
+    initPlayer();
+    return;
+  }
+
+  const previousReadyHandler = window.onYouTubeIframeAPIReady;
+  window.onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady(...args) {
+    try {
+      if (typeof previousReadyHandler === 'function') previousReadyHandler.apply(this, args);
+    } finally {
+      initPlayer();
+    }
+  };
+
+  if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+    const script = document.createElement('script');
+    script.src = 'https://www.youtube.com/iframe_api';
+    script.async = true;
+    document.head.appendChild(script);
+  }
+})();
 
 /* Spotlight — 4 Mini Albums + Lightbox per category */
 (() => {

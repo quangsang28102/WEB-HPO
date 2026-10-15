@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 228" role="img" aria-label="Hộp quà ưu đãi">
+  <!-- Hộp quà 3D màu đỏ, ruy băng + nơ vàng gold. Thay bằng ảnh PNG khác chỉ cần đổi src trong index.html -->
+  <defs>
+    <linearGradient id="redLeft" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5b60"/><stop offset="1" stop-color="#d91e2a"/></linearGradient>
+    <linearGradient id="redRight" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c3141f"/><stop offset="1" stop-color="#8f0d17"/></linearGradient>
+    <linearGradient id="redTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7a7e"/><stop offset="1" stop-color="#ee3a42"/></linearGradient>
+    <linearGradient id="goldLight" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe9a3"/><stop offset=".55" stop-color="#f6c443"/><stop offset="1" stop-color="#e2a12a"/></linearGradient>
+    <linearGradient id="goldDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8ad2c"/><stop offset="1" stop-color="#b47a12"/></linearGradient>
+    <linearGradient id="bow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe7a0"/><stop offset=".6" stop-color="#f2b934"/><stop offset="1" stop-color="#c98a14"/></linearGradient>
+    <linearGradient id="lidShadow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>
+  </defs>
+
+  <!-- Thân hộp -->
+  <polygon points="34,116.6 120,144 120,214 34,186.6" fill="url(#redLeft)"/>
+  <polygon points="120,144 206,116.6 206,186.6 120,214" fill="url(#redRight)"/>
+  <polygon points="34,116.6 120,144 120,158 34,130.6" fill="url(#lidShadow)"/>
+  <polygon points="120,144 206,116.6 206,130.6 120,158" fill="url(#lidShadow)"/>
+  <!-- Ruy băng dọc trên thân -->
+  <polygon points="68,127.4 86,133.2 86,203.2 68,197.4" fill="url(#goldLight)"/>
+  <polygon points="154,133.2 172,127.4 172,197.4 154,203.2" fill="url(#goldDark)"/>
+
+  <!-- Nắp hộp -->
+  <polygon points="26,92 120,122 120,144 26,114" fill="#f0353d"/>
+  <polygon points="120,122 214,92 214,114 120,144" fill="#b5131d"/>
+  <polygon points="26,92 120,62 214,92 120,122" fill="url(#redTop)"/>
+  <!-- Ruy băng trên nắp -->
+  <polygon points="64,104.1 82,109.9 82,131.9 64,126.1" fill="url(#goldLight)"/>
+  <polygon points="158,109.9 176,104.1 176,126.1 158,131.9" fill="url(#goldDark)"/>
+  <polygon points="64,104.1 82,109.9 176,79.9 158,74.1" fill="#f7c950"/>
+  <polygon points="158,109.9 176,104.1 82,74.1 64,79.9" fill="#ffd96e"/>
+  <!-- Viền sáng mép nắp -->
+  <polyline points="26,92 120,122 214,92" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="1.6"/>
+  <line x1="120" y1="144" x2="120" y2="214" stroke="#000" stroke-opacity=".12"/>
+
+  <!-- Nơ -->
+  <path d="M114 92 L96 124 L107 119 L111 130 L121 95 Z" fill="url(#goldDark)"/>
+  <path d="M126 92 L144 124 L133 119 L129 130 L119 95 Z" fill="url(#goldDark)"/>
+  <path d="M120 89 C 98 56, 60 58, 66 80 C 70 96, 100 98, 120 89 Z" fill="url(#bow)"/>
+  <path d="M120 89 C 142 56, 180 58, 174 80 C 170 96, 140 98, 120 89 Z" fill="url(#bow)"/>
+  <path d="M118 88 C 104 72, 82 68, 78 78 C 90 76, 104 80, 118 88 Z" fill="#b97d10" opacity=".55"/>
+  <path d="M122 88 C 136 72, 158 68, 162 78 C 150 76, 136 80, 122 88 Z" fill="#b97d10" opacity=".55"/>
+  <path d="M80 70 C 88 64, 98 64, 106 70" fill="none" stroke="#fff6d6" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+  <path d="M134 70 C 142 64, 152 64, 160 70" fill="none" stroke="#fff6d6" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+  <ellipse cx="120" cy="89" rx="11" ry="8.5" fill="#f4bf3e"/>
+  <ellipse cx="118" cy="86.5" rx="5" ry="3" fill="#fff3c4" opacity=".8"/>
+</svg>

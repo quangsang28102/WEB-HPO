@@ -4,5 +4,281 @@
 @import url("./assets/css/layout-responsive.css");
 @import url("./assets/css/learning.css");
 @import url("./assets/css/homepage.css");
-@import url("./assets/css/awards.css");
+@import url("./assets/css/awards.css?v=20261015-final5");
 @import url("./assets/css/scroll-story.css");
+@import url("./assets/css/courses-demo.css");
+
+
+/* ── Chỉ tách nội dung platform thành 2 phần, giữ nguyên style gốc ── */
+.platform-v2-body--split {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+.platform-v2-panel {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.platform-v2-panel--theory {
+  border-top: 3px solid var(--blue-600);
+}
+
+.platform-v2-panel--practice {
+  border-top: 3px solid var(--accent);
+}
+
+.platform-v2-panel-head {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.platform-v2-panel-eyebrow {
+  display: block;
+  color: var(--blue-600);
+  font-family: var(--ff-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.platform-v2-panel--practice .platform-v2-panel-eyebrow {
+  color: #a95124;
+}
+
+.platform-v2-panel-head h3 {
+  margin-top: 6px;
+  color: var(--ink-900);
+  font-family: var(--ff-display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.platform-v2-panel-head p {
+  margin-top: 6px;
+  color: var(--ink-500);
+  font-family: var(--ff-body);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.platform-v2-panel-description {
+  display: grid;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.platform-v2-panel-description p {
+  margin: 0;
+  color: var(--ink-500);
+  font-family: var(--ff-body);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.platform-v2-panel-description ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--ink-500);
+  font-family: var(--ff-body);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.platform-v2-panel-description li + li {
+  margin-top: 6px;
+}
+
+.platform-v2-panel .platform-acc--v2 {
+  margin-top: 20px;
+}
+
+.platform-v2-download .platform-dl-label {
+  font-size: 18px;
+}
+
+.platform-v2-panel-link {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 10px 14px;
+  border: 1px solid #bfd4ff;
+  border-radius: 10px;
+  background: #f4f8ff;
+  color: var(--blue-700);
+  font-family: var(--ff-display);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+  transition:
+    background-color 0.24s ease,
+    border-color 0.24s ease,
+    transform 0.24s ease;
+}
+
+.platform-v2-panel-link:hover {
+  border-color: var(--blue-600);
+  background: var(--blue-100);
+  transform: translateY(-1px);
+}
+
+.platform-v2-panel-link-icon {
+  flex: 0 0 auto;
+  font-size: 14px;
+}
+
+/* Chỉ hiển thị ảnh minh họa sau khi accordion trong cột được mở. */
+.platform-v2-panel:not(.has-active-accordion) .platform-v2-visual {
+  display: none;
+}
+
+/* Đồng đều chiều cao phần đầu và phần nội dung của accordion khi mở. */
+.platform-v2-body--split .platform-acc--v2 .pacc-head {
+  box-sizing: border-box;
+  height: var(--platform-acc-head-height, 60px);
+}
+
+.platform-v2-body--split .platform-acc--v2 .pacc-item {
+  transition:
+    background-color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.36s ease;
+}
+
+.platform-v2-body--split .platform-acc--v2 .pacc-toggle {
+  transition: background-color 0.28s ease;
+}
+
+.platform-v2-body--split .platform-acc--v2 .pacc-body {
+  height: 0;
+  max-height: none;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.26s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.platform-v2-body--split .platform-acc--v2 .pacc-item.is-active .pacc-body {
+  height: var(--platform-acc-content-height, 120px);
+  max-height: none;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.platform-v2-panel .platform-v2-visual {
+  width: 100%;
+  max-width: 440px;
+  margin: auto auto 0;
+  padding-top: 20px;
+}
+
+.platform-v2-panel .platform-v2-visual--practice {
+  max-width: none;
+  align-items: stretch;
+}
+
+.platform-v2-panel .platform-circle--v2 {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.platform-v2-panel .platform-circle--v2 img {
+  transition:
+    opacity 0.36s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.platform-v2-panel .platform-circle-cap--v2 {
+  display: block !important;
+  margin-top: 8px;
+  color: var(--ink-900);
+  font-family: var(--ff-display);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.platform-v2-panel .platform-acc--v2 .pacc-body a {
+  color: var(--blue-700);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.platform-v2-panel :is(a, button):focus-visible {
+  outline: 3px solid rgba(23, 77, 163, 0.62);
+  outline-offset: 3px;
+}
+
+.platform-v2-panel--practice :is(a, button):focus-visible {
+  outline-color: rgba(240, 138, 36, 0.8);
+}
+
+#chuong-trinh-mon-hoc {
+  scroll-margin-top: 108px;
+}
+
+@media (max-width: 992px) {
+  .platform-v2-body--split {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .platform-v2-panel {
+    min-height: 0;
+  }
+
+  .platform-v2-panel .platform-v2-visual {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .platform-v2-panel {
+    padding: 20px 16px;
+  }
+
+  .platform-v2-panel-head h3 {
+    font-size: 20px;
+  }
+
+  .platform-v2-download .platform-dl-label {
+    font-size: 16px;
+  }
+
+  .platform-v2-panel-head p,
+  .platform-v2-panel-description ul,
+  .platform-v2-panel .platform-acc--v2 .pacc-body p {
+    font-size: 16px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .platform-v2-body--split .platform-acc--v2 .pacc-item,
+  .platform-v2-body--split .platform-acc--v2 .pacc-toggle,
+  .platform-v2-body--split .platform-acc--v2 .pacc-body,
+  .platform-v2-panel-link,
+  .platform-v2-panel .platform-circle--v2 img {
+    transition: none;
+  }
+}
