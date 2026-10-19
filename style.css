@@ -664,7 +664,7 @@
 }
 
 .platform-v2-curriculum .syll-detail .chap-title {
-  font-size: clamp(14px, 1.1vw, 16px);
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: -0.006em;
@@ -675,7 +675,7 @@
   .chap:not(.is-featured)
   > .chap-row
   .chap-title {
-  font-size: clamp(14px, 1.1vw, 16px);
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: -0.006em;
@@ -716,11 +716,23 @@
   margin-right: 12px;
 }
 
+/* Nested lesson rows use a compact marker instead of the 108px chapter chip. */
+.platform-v2-curriculum
+  .syll-detail
+  .chap-content-pad
+  .chap:not(.is-featured)
+  > .chap-row
+  > .chap-num-wrap {
+  width: 36px;
+  min-width: 36px;
+  margin-right: 0;
+}
+
 .platform-v2-curriculum .syll-detail .chap.is-featured > .chap-row .chap-title {
   align-items: flex-start;
   column-gap: 6px !important;
   row-gap: 6px !important;
-  font-size: clamp(14px, 1.1vw, 16px);
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: -0.006em;
