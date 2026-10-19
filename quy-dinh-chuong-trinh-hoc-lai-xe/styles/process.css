@@ -17,9 +17,9 @@
   --shadow-sm: 0 10px 26px rgba(10, 19, 48, 0.07);
   --shadow-md: 0 18px 46px rgba(10, 19, 48, 0.1);
   --shadow-blue: 0 18px 48px rgba(30, 64, 175, 0.2);
-  --ff-display: "Gilroy-Bold", sans-serif;
-  --ff-body: "Gilroy-Regular", sans-serif;
-  --ff-serif: "Gilroy-Bold", sans-serif;
+  --ff-display: "Sora", system-ui, sans-serif;
+  --ff-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --ff-serif: "Playfair Display", Georgia, serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --nav-height: 74px;
 }

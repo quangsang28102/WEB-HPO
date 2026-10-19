@@ -29,10 +29,9 @@
   --white: #ffffff;
 
   /* Fonts */
-  --ff-display: "Gilroy-Bold", sans-serif;
-  --ff-body: "Gilroy-Regular", sans-serif;
-  --ff-serif: "Gilroy-Bold", sans-serif;
-  --ff-sans: "Gilroy-Regular", sans-serif;
+  --ff-display: "Sora", system-ui, sans-serif;
+  --ff-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --ff-serif: "Playfair Display", Georgia, serif;
 
   /* Motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -65,12 +64,6 @@ body {
   color: var(--ink-700);
   line-height: 1.55;
   overflow-x: hidden;
-}
-body,
-body *,
-body *::before,
-body *::after {
-  font-family: var(--ff-display) !important;
 }
 img,
 svg {
