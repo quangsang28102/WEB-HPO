@@ -1124,9 +1124,6 @@
   font: 800 130px var(--ff-display);
   letter-spacing: -0.1em;
 }
-/* .course-visual--truck img {
-  padding: 25px 18px 2px;
-} */
 .course-content {
   display: flex;
   flex: 1;

@@ -1624,20 +1624,6 @@
   z-index: 30;
   height: 100%;
 }
-/* 
-#hpo-ky-thuat-sidebar-wrap::-webkit-scrollbar {
-    width: 6px;
-}
-
-#hpo-ky-thuat-sidebar-wrap::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 999px;
-}
-
-#hpo-ky-thuat-sidebar-wrap::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-} */
-
 #hpo-ky-thuat-sidebar {
   position: relative;
   background: #fff;
@@ -2308,25 +2294,7 @@
   position: relative;
   isolation: isolate;
   padding: clamp(44px, 4.5vw, 76px) clamp(38px, 6vw, 100px);
-  /* background:
-    radial-gradient(circle at 10% 15%, #dceaff 0, transparent 35%),
-    radial-gradient(circle at 90% 85%, #d8f4f1 0, transparent 30%), #f2f7ff; */
 }
-/* .company-banner::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: clamp(18px, 2.5vw, 40px) clamp(16px, 4vw, 72px);
-  border: 1px solid #c9dcf4;
-  border-radius: 32px;
-  background:
-    radial-gradient(ellipse at 100% 0, #e6eeff 0, transparent 40%),
-    linear-gradient(120deg, #ffffff 55%, #f4faff);
-  box-shadow:
-    0 24px 60px -32px #15457e55,
-    inset 0 4px 0 #ffffff;
-  pointer-events: none;
-} */
 .company-banner::after {
   content: "";
   position: absolute;

@@ -76,7 +76,7 @@
               </div>
             </li>
             <li class="nav-item"><a href="${href("hoc-phi/")}"${current("tuition")}>Học phí</a></li>
-            <li class="nav-item"><a href="${href("quy-dinh-chuong-trinh-hoc-lai-xe/")}"${current("process")}>Quy định chương trình học lái xe</a></li>
+            <li class="nav-item"><a href="${href("quy-dinh-chuong-trinh-hoc-lai-xe/")}"${current("process")}>Quy trình đào tạo</a></li>
             <li class="nav-item has-dropdown">
               <a href="${href("danh-sach-benh-vien/")}"${current("hospital-lookup", "exam-progress", "payment-qr")}>Tra cứu</a>
               <div class="nav-dropdown">
@@ -133,7 +133,7 @@
             <a class="mobile-menu-child" href="${href("gioi-thieu/trung-tam-sat-hach/")}"${current("exam-center")}>Trung tâm sát hạch lái xe</a>
           </div>
           <a href="${href("hoc-phi/")}"${current("tuition")}>Học phí</a>
-          <a href="${href("quy-dinh-chuong-trinh-hoc-lai-xe/")}"${current("process")}>Quy định chương trình học lái xe</a>
+          <a href="${href("quy-dinh-chuong-trinh-hoc-lai-xe/")}"${current("process")}>Quy trình đào tạo</a>
           <div class="mobile-menu-group">
             <span class="mobile-menu-label${activeClass("hospital-lookup", "exam-progress", "payment-qr")}">Tra cứu</span>
             <a class="mobile-menu-child" href="${href("danh-sach-benh-vien/")}"${current("hospital-lookup")}>Danh sách bệnh viện</a>

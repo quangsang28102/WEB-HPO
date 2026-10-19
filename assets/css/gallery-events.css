@@ -1300,7 +1300,6 @@
   display: inline-block;
 }
 .hpo-award-top span::before {
-  /* content: "❧"; */
   position: absolute;
   inset: 0;
   display: grid;

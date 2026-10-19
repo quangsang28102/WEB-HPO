@@ -8,11 +8,10 @@
 @import url("./assets/css/scroll-story.css");
 @import url("./assets/css/courses-demo.css");
 
-
-/* ── Chỉ tách nội dung platform thành 2 phần, giữ nguyên style gốc ── */
-.platform-v2-body--split {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
+/* Hiển thị hai lộ trình theo chiều dọc để phần Lý thuyết có chỗ cho chương trình môn học. */
+.platform-v2-body--stacked {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
   align-items: stretch;
 }
 
@@ -20,7 +19,7 @@
   display: flex;
   min-width: 0;
   flex-direction: column;
-  padding: 24px;
+  padding: clamp(22px, 3vw, 32px);
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--white);
@@ -44,9 +43,9 @@
   display: block;
   color: var(--blue-600);
   font-family: var(--ff-display);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.08em;
   line-height: 1.3;
   text-transform: uppercase;
 }
@@ -87,6 +86,32 @@
   line-height: 1.6;
 }
 
+.platform-v2-threshold {
+  display: block;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  margin-top: 4px;
+  padding: 12px 16px;
+  border: 1px solid #dbe7f8;
+  border-left: 4px solid var(--blue-600);
+  border-radius: 12px;
+  background: #f4f8ff;
+}
+
+.platform-v2-threshold strong {
+  color: var(--blue-700);
+  font-weight: 800;
+}
+
+.platform-v2-threshold p {
+  margin: 0;
+  color: #52627a;
+  font-family: var(--ff-body);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 .platform-v2-panel-description ul {
   margin: 0;
   padding-left: 20px;
@@ -96,12 +121,59 @@
   line-height: 1.6;
 }
 
+.platform-v2-panel--practice .platform-v2-panel-description ul {
+  max-width: 980px;
+  margin-top: 4px;
+  padding: 14px 18px 14px 38px;
+  border: 1px solid #f1dfd4;
+  border-radius: 12px;
+  background: #fff8f4;
+  color: #624b40;
+}
+
+.platform-v2-panel--practice .platform-v2-panel-description li::marker {
+  color: #a95124;
+}
+
+.platform-v2-panel--practice .platform-v2-panel-description li strong {
+  color: #743817;
+  font-weight: 800;
+}
+
 .platform-v2-panel-description li + li {
   margin-top: 6px;
 }
 
 .platform-v2-panel .platform-acc--v2 {
   margin-top: 20px;
+}
+
+.platform-v2-panel .platform-acc--v2 .pacc-item {
+  border-color: #e3eaf4;
+  background: #f7f9fc;
+}
+
+.platform-v2-panel .platform-acc--v2 .pacc-item:hover {
+  background: #f0f5fc;
+  box-shadow: 0 6px 16px -10px rgba(23, 77, 163, 0.3);
+}
+
+.platform-v2-panel--theory .platform-acc--v2 .pacc-item.is-active {
+  border-color: #bdd0ef;
+  background: #f0f6ff;
+}
+
+.platform-v2-panel--practice .platform-acc--v2 .pacc-item.is-active {
+  border-color: #edc5ae;
+  background: #fff7f2;
+}
+
+.platform-v2-panel--practice .platform-acc--v2 .pacc-toggle {
+  background: #a95124;
+}
+
+.platform-v2-panel--practice .platform-acc--v2 .pacc-item.is-active .pacc-toggle {
+  background: #743817;
 }
 
 .platform-v2-download .platform-dl-label {
@@ -142,29 +214,180 @@
   font-size: 14px;
 }
 
-/* Chỉ hiển thị ảnh minh họa sau khi accordion trong cột được mở. */
+/* Show a platform illustration after the learner chooses a topic. */
 .platform-v2-panel:not(.has-active-accordion) .platform-v2-visual {
   display: none;
 }
 
-/* Đồng đều chiều cao phần đầu và phần nội dung của accordion khi mở. */
-.platform-v2-body--split .platform-acc--v2 .pacc-head {
+.platform-v2-theory-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0fr);
+  align-items: start;
+  gap: 0;
+  margin-top: 20px;
+  overflow: hidden;
+  transition:
+    grid-template-columns 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    column-gap 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.platform-v2-panel--theory.has-active-accordion .platform-v2-theory-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+  align-items: stretch;
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.platform-v2-practice-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0fr);
+  align-items: start;
+  gap: 0;
+  margin-top: 20px;
+  overflow: hidden;
+  transition:
+    grid-template-columns 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    column-gap 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.platform-v2-panel--practice.has-active-accordion .platform-v2-practice-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 580px);
+  align-items: stretch;
+  gap: clamp(24px, 3vw, 40px);
+}
+
+.platform-v2-panel--practice .platform-v2-practice-layout .platform-acc--v2 {
+  min-width: 0;
+  margin-top: 0;
+}
+
+.platform-v2-panel--practice
+  .platform-v2-practice-layout
+  .platform-v2-visual--practice {
+  display: block;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  justify-self: stretch;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(18px) scale(0.97);
+  transform-origin: center right;
+  transition:
+    opacity 0.26s ease,
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.42s;
+}
+
+.platform-v2-panel--practice.has-active-accordion
+  .platform-v2-practice-layout
+  .platform-v2-visual--practice {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  transition-delay: 0s;
+}
+
+.platform-v2-panel--practice .platform-v2-practice-player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid #ead9ce;
+  border-radius: 16px;
+  background: #0b1220;
+  box-shadow: 0 14px 32px rgba(73, 40, 23, 0.14);
+}
+
+.platform-v2-panel--practice .platform-v2-practice-player iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.platform-v2-panel--theory .platform-v2-theory-layout .platform-acc--v2 {
+  min-width: 0;
+  margin-top: 0;
+}
+
+.platform-v2-panel--theory .platform-v2-theory-layout .platform-v2-visual {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  justify-self: stretch;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(14px) scale(0.96);
+  transform-origin: center right;
+  transition:
+    opacity 0.26s ease,
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.42s;
+}
+
+.platform-v2-panel--theory.has-active-accordion
+  .platform-v2-theory-layout
+  .platform-v2-visual {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  transition-delay: 0s;
+}
+
+.platform-v2-panel--theory .platform-v2-theory-layout .platform-circle--v2 {
+  display: grid;
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 4 / 3;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 18px;
+  border: 1px solid #e1e7f0;
+  border-radius: 16px;
+  background: #f8fafc;
+  box-shadow: 0 12px 28px rgba(20, 40, 80, 0.08);
+}
+
+.platform-v2-panel--theory .platform-v2-theory-layout .platform-circle--v2 img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.platform-v2-panel--theory
+  .platform-v2-theory-layout
+  .platform-v2-visual.is-face-preview
+  .platform-circle--v2
+  img {
+  transform: translateY(-45px) scale(0.8);
+  transform-origin: center center;
+}
+
+/* Keep the accordion labels aligned and avoid clipping when they wrap. */
+.platform-v2-body--stacked .platform-acc--v2 .pacc-head {
   box-sizing: border-box;
   height: var(--platform-acc-head-height, 60px);
 }
 
-.platform-v2-body--split .platform-acc--v2 .pacc-item {
+.platform-v2-body--stacked .platform-acc--v2 .pacc-item {
   transition:
     background-color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.36s ease;
 }
 
-.platform-v2-body--split .platform-acc--v2 .pacc-toggle {
+.platform-v2-body--stacked .platform-acc--v2 .pacc-toggle {
   transition: background-color 0.28s ease;
 }
 
-.platform-v2-body--split .platform-acc--v2 .pacc-body {
+.platform-v2-body--stacked .platform-acc--v2 .pacc-body {
   height: 0;
   max-height: none;
   overflow: hidden;
@@ -176,8 +399,8 @@
     transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.platform-v2-body--split .platform-acc--v2 .pacc-item.is-active .pacc-body {
-  height: var(--platform-acc-content-height, 120px);
+.platform-v2-body--stacked .platform-acc--v2 .pacc-item.is-active .pacc-body {
+  height: var(--platform-acc-content-height, 180px);
   max-height: none;
   opacity: 1;
   transform: translateY(0);
@@ -237,10 +460,307 @@
   scroll-margin-top: 108px;
 }
 
+.platform-v2-curriculum.syll.syll--chapters {
+  width: 100%;
+  min-width: 0;
+  margin-top: 30px;
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid #dce4f2;
+  border-radius: 18px;
+  background: #f6f8fc !important;
+}
+
+.platform-v2-curriculum > .container {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.platform-v2-curriculum .curr-head--chapters {
+  display: block;
+  max-width: 940px;
+  margin: 0 auto 24px;
+  text-align: left;
+}
+
+.platform-v2-curriculum .curr-head--chapters .eyebrow {
+  justify-content: flex-start;
+  color: #174da3;
+  font-family: var(--ff-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+}
+
+.platform-v2-curriculum .curr-head--chapters .sec-title--new-color {
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+  color: var(--ink-900);
+  background: none;
+  filter: none;
+  font-size: clamp(27px, 3vw, 36px);
+  line-height: 1.18;
+  text-align: left;
+  white-space: normal;
+  text-wrap: balance;
+  -webkit-text-fill-color: var(--ink-900);
+  animation: none;
+}
+
+.platform-v2-curriculum .curr-head--chapters .sec-title--new-color em {
+  color: var(--blue-700);
+  -webkit-text-fill-color: var(--blue-700);
+}
+
+.platform-v2-curriculum .syll-list--chapters {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  border: 1px solid #e1e7f0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(20, 40, 80, 0.06);
+}
+
+.platform-v2-curriculum .syll-list--chapters .syll-row {
+  grid-template-columns: 48px minmax(0, 1fr) 44px;
+  grid-template-rows: auto;
+  gap: 7px 14px;
+  align-items: center;
+  padding: 18px 22px;
+  border: 0;
+  border-top: 1px solid #edf1f6;
+  background: #fff;
+  box-shadow: inset 3px 0 0 var(--subject-chip);
+  transition: background-color 0.2s ease;
+}
+
+.platform-v2-curriculum .syll-list--chapters .syll-row:first-child {
+  border-top: 0;
+}
+
+.platform-v2-curriculum .syll-list--chapters .syll-row::before {
+  content: none;
+}
+
+.platform-v2-curriculum .syll-list--chapters .syll-row:hover {
+  padding-left: 22px;
+  background: #f8fafc;
+}
+
+.platform-v2-curriculum .syll-list--chapters .syll-row .syll-num {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: start;
+  margin-top: 3px;
+  color: var(--subject-chip);
+  font-size: 21px;
+}
+
+.platform-v2-curriculum .syll-list--chapters .syll-row .syll-title {
+  grid-column: 2;
+  grid-row: 1;
+  color: var(--ink-900);
+  font-size: clamp(21px, 2vw, 24px);
+  font-weight: 650;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+}
+
+.platform-v2-curriculum .syll-list--chapters .syll-row .syll-title small {
+  display: none;
+}
+
+.platform-v2-curriculum .syll-list--chapters .syll-row .syll-tag {
+  display: none !important;
+}
+
+.platform-v2-curriculum .syll-list--chapters .syll-row[data-mon="06"] .syll-tag {
+  background: #fff1e8;
+  color: #8d4521;
+}
+
+.platform-v2-curriculum.syll--chapters-color-bg
+  .syll-list--chapters
+  .syll-row
+  .syll-meta {
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--subject-text);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+.platform-v2-curriculum .syll-list--chapters .syll-row .syll-down {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  align-self: center;
+  border-color: var(--subject-text);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--subject-text);
+}
+
+.platform-v2-curriculum .syll-list--chapters .syll-row .syll-down:hover,
+.platform-v2-curriculum
+  .syll-list--chapters
+  .syll-row
+  .syll-down[aria-expanded="true"] {
+  border-color: var(--subject-text);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--subject-text);
+}
+
+.platform-v2-curriculum .syll-list--chapters .syll-detail {
+  border-top: 1px solid #e8edf4;
+  background: #f8fafc !important;
+}
+
+/* Heading scale: môn học → phần cha → chương con → mô tả. */
+/* Keep every subject's chapter cards on the same horizontal rhythm. */
+@media (min-width: 769px) {
+  .platform-v2-curriculum
+    :is(
+      #syllDetail-chap-phap-luat-static,
+      #syllDetail-chap-cau-tao-static,
+      #syllDetail-chap-dao-duc-static,
+      #syllDetail-chap-ky-thuat-static,
+      #syllDetail-chap-thuc-hanh-static
+    )
+    .phan-body-pad {
+    padding-inline: 16px !important;
+  }
+
+  .platform-v2-curriculum
+    :is(
+      #syllDetail-chap-phap-luat-static,
+      #syllDetail-chap-cau-tao-static,
+      #syllDetail-chap-dao-duc-static,
+      #syllDetail-chap-ky-thuat-static,
+      #syllDetail-chap-thuc-hanh-static
+    )
+    .phan-body-pad
+    > .chap-list
+    > .chap
+    > .chap-row {
+    padding: 14px 16px !important;
+  }
+}
+
+.platform-v2-curriculum .syll-detail .phan-title {
+  font-size: clamp(17px, 1.45vw, 19px);
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: -0.012em;
+}
+
+.platform-v2-curriculum .syll-detail .phan-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.platform-v2-curriculum .syll-detail .chap-title {
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.006em;
+}
+
+.platform-v2-curriculum
+  .syll-detail
+  .chap:not(.is-featured)
+  > .chap-row
+  .chap-title {
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.006em;
+}
+
+/* Keep featured and regular chapter rows on the same title baseline. */
+.platform-v2-curriculum
+  .syll-detail
+  .chap:not(.is-featured)
+  > .chap-row
+  .chap-num-wrap,
+.platform-v2-curriculum
+  .syll-detail
+  .chap:not(.is-featured)
+  > .chap-row
+  .chap-title
+  .chap-chip,
+.platform-v2-curriculum
+  .syll-detail
+  .chap.is-featured
+  > .chap-row
+  .chap-title
+  .chap-chip {
+  box-sizing: border-box;
+  width: 108px;
+  min-width: 108px;
+  justify-content: center;
+  margin-right: 0;
+  white-space: nowrap;
+}
+
+.platform-v2-curriculum
+  .syll-detail
+  .chap:not(.is-featured)
+  > .chap-row
+  .chap-title
+  .chap-chip {
+  margin-right: 12px;
+}
+
+.platform-v2-curriculum .syll-detail .chap.is-featured > .chap-row .chap-title {
+  align-items: flex-start;
+  column-gap: 6px !important;
+  row-gap: 6px !important;
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.006em;
+}
+
+.platform-v2-curriculum
+  .syll-detail
+  .chap.is-featured
+  > .chap-row
+  .chap-title
+  .chap-chip {
+  margin-right: 12px !important;
+}
+
+.platform-v2-curriculum .syll-detail .chap.is-featured > .chap-row .chap-desc {
+  margin-left: 126px;
+}
+
+.platform-v2-curriculum .syll-detail .chap-desc {
+  margin: 6px 0 0;
+  color: var(--ink-900);
+  font-family: var(--ff-body);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.platform-v2-curriculum .syll-detail .chap.is-featured > .chap-row .chap-desc {
+  max-width: 760px;
+}
+
+.platform-v2-panel--practice .platform-v2-visual--practice {
+  max-width: 920px;
+  margin: 24px auto 0;
+}
+
 @media (max-width: 992px) {
-  .platform-v2-body--split {
+  .platform-v2-body--stacked {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 32px;
   }
 
   .platform-v2-panel {
@@ -249,6 +769,39 @@
 
   .platform-v2-panel .platform-v2-visual {
     margin-top: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .platform-v2-practice-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .platform-v2-panel--practice.has-active-accordion .platform-v2-practice-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .platform-v2-panel--practice
+    .platform-v2-practice-layout
+    .platform-v2-visual--practice {
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(-8px) scale(0.98);
+    transition:
+      max-height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.26s ease,
+      transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0.42s;
+  }
+
+  .platform-v2-panel--practice.has-active-accordion
+    .platform-v2-practice-layout
+    .platform-v2-visual--practice {
+    max-height: 640px;
+    transform: translateY(0) scale(1);
+    transition-delay: 0s;
   }
 }
 
@@ -270,14 +823,153 @@
   .platform-v2-panel .platform-acc--v2 .pacc-body p {
     font-size: 16px;
   }
+}
 
+@media (max-width: 768px) {
+  .platform-v2-panel--theory.has-active-accordion .platform-v2-theory-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .platform-v2-panel--theory .platform-v2-theory-layout .platform-v2-visual {
+    max-width: min(100%, 340px);
+    justify-self: center;
+  }
+
+  .platform-v2-panel--theory .platform-v2-theory-layout .platform-circle--v2 {
+    aspect-ratio: 4 / 3;
+  }
+
+  .platform-v2-panel--theory .platform-v2-curriculum.syll.syll--chapters {
+    margin-top: 24px;
+    padding: 22px 12px;
+    border-radius: 16px;
+  }
+
+  .platform-v2-curriculum .curr-head--chapters {
+    margin-bottom: 20px;
+  }
+
+  .platform-v2-curriculum .syll-list--chapters .syll-row {
+    grid-template-columns: 28px minmax(0, 1fr) 46px;
+    gap: 7px 10px;
+    padding: 15px 10px;
+  }
+
+  .platform-v2-curriculum .syll-list--chapters .syll-row:hover {
+    padding-left: 10px;
+  }
+
+  .platform-v2-curriculum .syll-list--chapters .syll-row .syll-num {
+    font-size: 18px;
+  }
+
+  .platform-v2-curriculum .syll-list--chapters .syll-row .syll-title {
+    font-size: clamp(18px, 4.2vw, 21px);
+    line-height: 1.35;
+  }
+
+  .platform-v2-curriculum .syll-list--chapters .syll-row .syll-meta {
+    font-size: 12px;
+    white-space: normal;
+  }
+
+  .platform-v2-curriculum .syll-detail .chap-desc {
+    margin-left: 0;
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .platform-v2-curriculum
+    .syll-detail
+    .chap:not(.is-featured)
+    > .chap-row
+    .chap-num-wrap,
+  .platform-v2-curriculum
+    .syll-detail
+    .chap:not(.is-featured)
+    > .chap-row
+    .chap-title
+    .chap-chip,
+  .platform-v2-curriculum
+    .syll-detail
+    .chap.is-featured
+    > .chap-row
+    .chap-title
+    .chap-chip {
+    width: 100px;
+    min-width: 100px;
+  }
+
+  .platform-v2-curriculum .syll-detail .chap.is-featured > .chap-row .chap-title {
+    column-gap: 6px !important;
+  }
+
+  .platform-v2-curriculum
+    .syll-detail
+    .chap:not(.is-featured)
+    > .chap-row
+    .chap-title
+    .chap-chip {
+    margin-right: 4px !important;
+  }
+
+  .platform-v2-curriculum
+    .syll-detail
+    .chap.is-featured
+    > .chap-row
+    .chap-title
+    .chap-chip {
+    margin-right: 4px !important;
+  }
+
+  .platform-v2-curriculum
+    :is(
+      #syllDetail-chap-phap-luat-static,
+      #syllDetail-chap-cau-tao-static,
+      #syllDetail-chap-dao-duc-static,
+      #syllDetail-chap-ky-thuat-static,
+      #syllDetail-chap-thuc-hanh-static
+    )
+    .phan-body-pad {
+    padding-inline: 6px !important;
+  }
+
+  .platform-v2-curriculum
+    :is(
+      #syllDetail-chap-phap-luat-static,
+      #syllDetail-chap-cau-tao-static,
+      #syllDetail-chap-dao-duc-static,
+      #syllDetail-chap-ky-thuat-static,
+      #syllDetail-chap-thuc-hanh-static
+    )
+    .phan-body-pad
+    > .chap-list
+    > .chap
+    > .chap-row {
+    padding: 12px 8px !important;
+  }
+
+  .platform-v2-curriculum .syll-list--chapters .syll-row .syll-down {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .platform-v2-body--split .platform-acc--v2 .pacc-item,
-  .platform-v2-body--split .platform-acc--v2 .pacc-toggle,
-  .platform-v2-body--split .platform-acc--v2 .pacc-body,
+  .platform-v2-theory-layout,
+  .platform-v2-practice-layout,
+  .platform-v2-body--stacked .platform-acc--v2 .pacc-item,
+  .platform-v2-body--stacked .platform-acc--v2 .pacc-toggle,
+  .platform-v2-body--stacked .platform-acc--v2 .pacc-body,
   .platform-v2-panel-link,
+  .platform-v2-panel--theory.has-active-accordion
+    .platform-v2-theory-layout
+    .platform-v2-visual,
+  .platform-v2-panel--practice
+    .platform-v2-practice-layout
+    .platform-v2-visual--practice,
   .platform-v2-panel .platform-circle--v2 img {
     transition: none;
   }

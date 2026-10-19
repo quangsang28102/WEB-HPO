@@ -323,11 +323,13 @@ document.querySelectorAll('.platform-acc').forEach((accGroup) => {
   const platformImg = section.querySelector('.platform-circle img');
   const platformVideo = section.querySelector('[data-platform-video]');
   if (!platformImg && !platformVideo) return;
-  const splitBody = accGroup.closest('.platform-v2-body--split');
-  // Each column owns its open state; the other column stays open while this one advances.
+  const stackedBody = accGroup.closest('.platform-v2-body--stacked');
+  // Each learning section owns its open state while the controller advances.
   const scopeItems = items;
+  const platformVisual = section.querySelector('.platform-v2-panel-visual');
   const platformCaption = section.querySelector('.platform-circle-cap--v2');
   const swap = (item) => {
+    platformVisual?.classList.toggle('is-face-preview', item.dataset.img?.includes('xacthuc'));
     if (platformVideo && item.dataset.videoId) {
       const videoId = item.dataset.videoId;
       if (practiceYouTubePlayer?.cueVideoById) {
@@ -345,13 +347,17 @@ document.querySelectorAll('.platform-acc').forEach((accGroup) => {
       return;
     }
     const src = item.dataset.img;
-    if (!platformImg || !src || platformImg.getAttribute('src') === src) return;
+    if (!platformImg || !src) return;
+    platformImg.alt = item.dataset.title || '';
+    if (platformImg.getAttribute('src') === src) return;
     platformImg.style.opacity = '0';
-    platformImg.style.transform = 'scale(0.97)';
+    // Keep the active preview transform in CSS. Inline transforms here would
+    // override the face preview offset after switching between the two items.
+    platformImg.style.removeProperty('transform');
     window.setTimeout(() => {
       platformImg.src = src;
       platformImg.style.opacity = '1';
-      platformImg.style.transform = 'scale(1)';
+      platformImg.style.removeProperty('transform');
     }, 120);
   };
   const setState = (item, isActive) => {
@@ -365,8 +371,7 @@ document.querySelectorAll('.platform-acc').forEach((accGroup) => {
     const wasActive = item.classList.contains('is-active');
     if (allowToggle && wasActive) {
       // Pause before hiding the practice player; keep its iframe attached for later selections.
-      if (platformVideo && !practiceYouTubePlayer) return;
-      if (platformVideo) practiceYouTubePlayer.pauseVideo();
+      if (platformVideo) practiceYouTubePlayer?.pauseVideo?.();
       scopeItems.forEach((card) => setState(card, false));
       section.classList.remove('has-active-accordion');
       return;
@@ -380,7 +385,7 @@ document.querySelectorAll('.platform-acc').forEach((accGroup) => {
     setState(item, item.classList.contains('is-active'));
     item.addEventListener('click', () => {
       activate(item);
-      if (learningAutoController && splitBody) learningAutoController.defer();
+      if (learningAutoController && stackedBody) learningAutoController.defer();
     });
   });
   section.classList.toggle('has-active-accordion', items.some((item) => item.classList.contains('is-active')));
@@ -389,14 +394,14 @@ document.querySelectorAll('.platform-acc').forEach((accGroup) => {
 
 /* Keep expanded accordion cards equal-height without clipping text at any viewport. */
 (() => {
-  const splitBody = document.querySelector('.platform-v2-body--split');
-  if (!splitBody) return;
-  const items = Array.from(splitBody.querySelectorAll('.platform-acc--v2 .pacc-item'));
+  const stackedBody = document.querySelector('.platform-v2-body--stacked');
+  if (!stackedBody) return;
+  const items = Array.from(stackedBody.querySelectorAll('.platform-acc--v2 .pacc-item'));
   if (!items.length) return;
 
   const updateHeights = () => {
-    splitBody.style.setProperty('--platform-acc-head-height', 'auto');
-    splitBody.style.removeProperty('--platform-acc-content-height');
+    stackedBody.style.setProperty('--platform-acc-head-height', 'auto');
+    stackedBody.style.removeProperty('--platform-acc-content-height');
 
     const headHeight = Math.max(
       ...items.map((item) => item.querySelector('.pacc-head')?.getBoundingClientRect().height || 0),
@@ -405,8 +410,10 @@ document.querySelectorAll('.platform-acc').forEach((accGroup) => {
       ...items.map((item) => item.querySelector('.pacc-body > p')?.getBoundingClientRect().height || 0),
     );
 
-    if (headHeight) splitBody.style.setProperty('--platform-acc-head-height', `${Math.ceil(headHeight)}px`);
-    if (contentHeight) splitBody.style.setProperty('--platform-acc-content-height', `${Math.ceil(contentHeight)}px`);
+    if (headHeight) stackedBody.style.setProperty('--platform-acc-head-height', `${Math.ceil(headHeight)}px`);
+    if (contentHeight) {
+      stackedBody.style.setProperty('--platform-acc-content-height', `${Math.ceil(contentHeight + 4)}px`);
+    }
   };
 
   updateHeights();
@@ -416,13 +423,24 @@ document.querySelectorAll('.platform-acc').forEach((accGroup) => {
     resizeFrame = window.requestAnimationFrame(updateHeights);
   }, { passive: true });
   document.fonts?.ready?.then(updateHeights);
+
+  // Re-measure while the theory columns animate. Its text wraps again as the
+  // list becomes narrower, so a one-time measurement would clip the paragraph.
+  if (window.ResizeObserver) {
+    const observer = new ResizeObserver(() => updateHeights());
+    items.forEach((item) => {
+      const paragraph = item.querySelector('.pacc-body > p');
+      if (paragraph) observer.observe(paragraph);
+    });
+  }
 })();
 
-/* Mở xen kẽ 2 cột: cột 1 mục 1 → cột 2 mục 1 → cột 1 mục 2 → cột 2 mục 2. */
+/* Mở xen kẽ 2 phần: lý thuyết, thực hành, rồi lần lượt các mục tiếp theo. */
 (() => {
-  const splitBody = document.querySelector('.platform-v2-body--split');
-  if (!splitBody) return;
-  const groups = Array.from(splitBody.querySelectorAll('.platform-acc'));
+  const stackedBody = document.querySelector('.platform-v2-body--stacked');
+  if (!stackedBody) return;
+  const groups = Array.from(stackedBody.querySelectorAll('.platform-acc'))
+    .filter((group) => group.dataset.autoAdvance !== 'false');
   const groupItems = groups.map((group) => Array.from(group.querySelectorAll('.pacc-item')));
   const sequence = [];
   const maxItems = Math.max(...groupItems.map((items) => items.length));
@@ -447,8 +465,8 @@ document.querySelectorAll('.platform-acc').forEach((accGroup) => {
     if (
       videoIsPlaying ||
       document.hidden ||
-      splitBody.matches(':hover') ||
-      splitBody.contains(document.activeElement)
+      stackedBody.matches(':hover') ||
+      stackedBody.contains(document.activeElement)
     ) return;
     timerId = window.setTimeout(() => {
       const item = sequence[cursor % sequence.length];
@@ -466,11 +484,11 @@ document.querySelectorAll('.platform-acc').forEach((accGroup) => {
       else schedule();
     },
   };
-  splitBody.addEventListener('mouseenter', stop);
-  splitBody.addEventListener('mouseleave', () => schedule(800));
-  splitBody.addEventListener('focusin', stop);
-  splitBody.addEventListener('focusout', (event) => {
-    if (!splitBody.contains(event.relatedTarget)) schedule(800);
+  stackedBody.addEventListener('mouseenter', stop);
+  stackedBody.addEventListener('mouseleave', () => schedule(800));
+  stackedBody.addEventListener('focusin', stop);
+  stackedBody.addEventListener('focusout', (event) => {
+    if (!stackedBody.contains(event.relatedTarget)) schedule(800);
   });
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) stop();
