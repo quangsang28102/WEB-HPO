@@ -20,11 +20,7 @@
   padding-right: 0;
 }
 
-#syllDetail-chap-cau-tao-static
-  .phan-body-pad
-  > .chap-list
-  > .chap
-  > .chap-row {
+#syllDetail-chap-cau-tao-static .phan-body-pad > .chap-list > .chap > .chap-row {
   grid-template-columns: minmax(0, 1fr) auto;
   justify-content: start;
   gap: 10px;
@@ -78,11 +74,7 @@
   background: #1468d4 !important;
 }
 
-#syllDetail-chap-cau-tao-static
-  .phan-body-pad
-  > .chap-list
-  > .chap
-  > .chap-row {
+#syllDetail-chap-cau-tao-static .phan-body-pad > .chap-list > .chap > .chap-row {
   padding-top: 18px;
   padding-bottom: 18px;
 }
@@ -94,11 +86,7 @@
   padding-right: 16px !important;
 }
 
-#syllDetail-chap-cau-tao-static
-  .phan-body-pad
-  > .chap-list
-  > .chap
-  > .chap-row {
+#syllDetail-chap-cau-tao-static .phan-body-pad > .chap-list > .chap > .chap-row {
   padding: 24px !important;
 }
 
@@ -117,11 +105,7 @@
 }
 
 /* Subject 03 in the lower HTML section follows subject 02's chapter layout. */
-#syllDetail-chap-dao-duc-static
-  .phan-body-pad
-  > .chap-list
-  > .chap
-  > .chap-row {
+#syllDetail-chap-dao-duc-static .phan-body-pad > .chap-list > .chap > .chap-row {
   grid-template-columns: minmax(0, 1fr) auto;
   justify-content: start;
   gap: 10px;
@@ -1162,17 +1146,11 @@
   content: "1. ";
 }
 
-#bbViewModal
-  #hpo-sign-page
-  [data-hpo-pane="nguy-hiem"]
-  .hpo-pane-title::before {
+#bbViewModal #hpo-sign-page [data-hpo-pane="nguy-hiem"] .hpo-pane-title::before {
   content: "2. ";
 }
 
-#bbViewModal
-  #hpo-sign-page
-  [data-hpo-pane="hieu-lenh"]
-  .hpo-pane-title::before {
+#bbViewModal #hpo-sign-page [data-hpo-pane="hieu-lenh"] .hpo-pane-title::before {
   content: "3. ";
 }
 
@@ -3134,7 +3112,7 @@ a.chap[data-engine-view]:focus-visible {
   font-weight: 600;
 }
 .chap.is-featured > .chap-row .chap-title .chap-chip {
-  font-size: 11.5px;
+  font-size: 13px;
   padding: 5px 12px;
   letter-spacing: 0.08em;
 }
