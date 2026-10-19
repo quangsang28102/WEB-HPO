@@ -66,6 +66,31 @@
 }
 .courses-section .course-demo-container{ width: min(1280px, 100% - 2 * var(--gutter)); margin-inline: auto; }
 
+.course-info-section,
+.course-info-section *,
+.course-info-section::before,
+.course-info-section::after,
+.course-info-section *::before,
+.course-info-section *::after {
+  box-sizing: border-box;
+}
+.course-info-section {
+  --gutter: clamp(16px, 4vw, 40px);
+  --font: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ink: #0f1f3d;
+  padding: clamp(22px, 3.2vw, 42px) 0;
+  color: var(--ink);
+  font-family: var(--font);
+  background: linear-gradient(180deg, #f5f9ff 0%, #eef4fb 100%);
+}
+.course-info-section .course-demo-container {
+  width: min(1280px, 100% - 2 * var(--gutter));
+  margin-inline: auto;
+}
+.course-info-section .course-info-panel {
+  margin-top: 0;
+}
+
 /* 3. SECTION & NỀN NHIỀU LỚP --------------------------------------------- */
 .courses-section{
   position: relative;
@@ -146,7 +171,7 @@
 }
 
 /* 4b. THÔNG TIN KHÓA HỌC -------------------------------------------------- */
-.courses-section .course-info-panel{
+.course-info-section .course-info-panel{
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) minmax(0, 1fr);
   align-items: center;
@@ -159,17 +184,17 @@
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96), 0 18px 38px -28px rgba(15, 45, 107, 0.38);
   backdrop-filter: blur(12px);
 }
-.courses-section .course-info-panel__column{
+.course-info-section .course-info-panel__column{
   display: flex;
   min-width: 0;
   flex-direction: column;
   gap: 10px;
 }
-.courses-section .course-info-panel__column + .course-info-panel__column{
+.course-info-section .course-info-panel__column + .course-info-panel__column{
   padding-left: clamp(14px, 1.8vw, 24px);
   border-left: 1px solid rgba(29, 78, 216, 0.14);
 }
-.courses-section .course-info-panel__badge{
+.course-info-section .course-info-panel__badge{
   align-self: flex-start;
   padding: 8px 15px;
   border: 1px solid rgba(242, 181, 29, 0.78);
@@ -183,7 +208,7 @@
   line-height: 1.25;
   text-align: center;
 }
-.courses-section .course-info-panel__list{
+.course-info-section .course-info-panel__list{
   display: flex;
   flex-direction: column;
   gap: 7px;
@@ -191,7 +216,7 @@
   padding: 0;
   list-style: none;
 }
-.courses-section .course-info-panel__list li{
+.course-info-section .course-info-panel__list li{
   display: grid;
   grid-template-columns: 18px minmax(0, 1fr);
   align-items: start;
@@ -201,7 +226,7 @@
   font-weight: 650;
   line-height: 1.45;
 }
-.courses-section .course-info-panel__check{
+.course-info-section .course-info-panel__check{
   display: grid;
   width: 18px;
   height: 18px;
@@ -213,11 +238,11 @@
   font-weight: 900;
   line-height: 1;
 }
-.courses-section .course-info-panel__list strong{
+.course-info-section .course-info-panel__list strong{
   color: #1747a8;
   font-weight: 800;
 }
-.courses-section .course-info-panel__contact{
+.course-info-section .course-info-panel__contact{
   display: grid;
   grid-template-columns: 18px minmax(0, 1fr);
   align-items: center;
@@ -229,16 +254,16 @@
   overflow-wrap: anywhere;
   transition: color 180ms ease, transform 180ms ease;
 }
-.courses-section .course-info-panel__contact svg{
+.course-info-section .course-info-panel__contact svg{
   width: 17px;
   height: 17px;
   color: #b48700;
 }
-.courses-section .course-info-panel__contact:hover{
+.course-info-section .course-info-panel__contact:hover{
   color: #1747a8;
   transform: translateX(2px);
 }
-.courses-section .course-info-panel__link{
+.course-info-section .course-info-panel__link{
   display: block;
   width: fit-content;
   max-width: 100%;
@@ -256,12 +281,12 @@
   text-underline-offset: 4px;
   transition: color 180ms ease, transform 180ms ease;
 }
-.courses-section .course-info-panel__link:hover{
+.course-info-section .course-info-panel__link:hover{
   color: #1747a8;
   transform: translateY(-1px);
 }
-.courses-section .course-info-panel__link:focus-visible,
-.courses-section .course-info-panel__contact:focus-visible{
+.course-info-section .course-info-panel__link:focus-visible,
+.course-info-section .course-info-panel__contact:focus-visible{
   outline: 3px solid #3b82f6;
   outline-offset: 3px;
   border-radius: 4px;
@@ -629,8 +654,8 @@
 @media (max-width: 1023px){
   .courses-section{ min-height: 0; }
   .courses-section .courses-layout{ grid-template-columns: minmax(0, 1fr); }
-  .courses-section .course-info-panel{ grid-template-columns: minmax(0, 1fr); gap: 14px; }
-  .courses-section .course-info-panel__column + .course-info-panel__column{
+  .course-info-section .course-info-panel{ grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .course-info-section .course-info-panel__column + .course-info-panel__column{
     padding: 14px 0 0;
     border-top: 1px solid rgba(29, 78, 216, 0.14);
     border-left: 0;
