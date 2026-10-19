@@ -909,14 +909,14 @@
 }
 
 #bbViewModal #hpo-sign-sidebar > div > div:first-child {
-  padding: 14px 14px 10px;
+  padding: 18px 18px 14px;
   border-bottom: 1px solid #e2e8f0;
 }
 
 #bbViewModal #hpo-sign-sidebar > div > div:first-child > div:first-child {
-  font-size: 14px;
-  font-weight: 950;
-  line-height: 1.35;
+  font-size: clamp(16px, 1.8vw, 19px);
+  font-weight: 850;
+  line-height: 1.3;
   color: #000;
 }
 
@@ -929,21 +929,21 @@
 }
 
 #bbViewModal #hpo-sign-tabs {
-  padding: 12px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 #bbViewModal #hpo-sign-tabs a[data-hpo-tab] {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   width: 100%;
-  min-height: 74px;
-  padding: 10px;
+  min-height: 92px;
+  padding: 12px;
   cursor: pointer;
-  border-radius: 16px;
+  border-radius: 18px;
   border: 1px solid #dbe3ef;
   background: linear-gradient(180deg, #fff 0%, #f8fbff 100%);
   box-shadow: 0 10px 20px rgba(37, 99, 235, 0.08);
@@ -974,13 +974,13 @@
 }
 
 #bbViewModal #hpo-sign-tabs .hpo-tab-thumb {
-  width: 74px;
-  height: 54px;
-  min-width: 74px;
-  flex: 0 0 74px;
+  width: 92px;
+  height: 68px;
+  min-width: 92px;
+  flex: 0 0 92px;
   display: block;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 15px;
   border: 1px solid rgba(226, 232, 240, 0.9);
   background: radial-gradient(
     circle at 30% 20%,
@@ -994,8 +994,8 @@
   width: 100%;
   height: 100%;
   max-width: none;
-  object-fit: cover;
-  transform: scale(1.18);
+  object-fit: contain;
+  transform: scale(1.06);
   transform-origin: center;
 }
 
@@ -1298,7 +1298,7 @@
   }
 
   #bbViewModal #hpo-sign-tabs .hpo-tab-thumb img {
-    transform: scale(1.12);
+    transform: scale(1.06);
   }
 }
 
