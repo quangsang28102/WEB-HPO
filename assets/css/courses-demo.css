@@ -78,10 +78,25 @@
   --gutter: clamp(16px, 4vw, 40px);
   --font: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --ink: #0f1f3d;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: clamp(22px, 3.2vw, 42px) 0;
   color: var(--ink);
   font-family: var(--font);
   background: linear-gradient(180deg, #f5f9ff 0%, #eef4fb 100%);
+}
+.course-info-section::before {
+  position: absolute;
+  z-index: -1;
+  top: -120px;
+  right: 8%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(84, 151, 236, 0.16), transparent 68%);
+  content: "";
+  pointer-events: none;
 }
 .course-info-section .course-demo-container {
   width: min(1280px, 100% - 2 * var(--gutter));
@@ -173,15 +188,18 @@
 /* 4b. THÔNG TIN KHÓA HỌC -------------------------------------------------- */
 .course-info-section .course-info-panel{
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(14px, 1.8vw, 24px);
-  margin-top: clamp(22px, 2.5vw, 30px);
-  padding: clamp(18px, 2vw, 26px) clamp(18px, 2.3vw, 32px);
+  grid-template-columns: minmax(250px, 0.9fr) minmax(0, 1.45fr);
+  grid-template-areas:
+    "duration exam"
+    "contact contact";
+  align-items: stretch;
+  gap: 0;
+  margin-top: 0;
+  padding: clamp(22px, 3vw, 38px);
   border: 1px solid rgba(29, 78, 216, 0.16);
-  border-radius: 20px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(239, 246, 255, 0.88));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96), 0 18px 38px -28px rgba(15, 45, 107, 0.38);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 24px 60px -38px rgba(15, 45, 107, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(12px);
 }
 .course-info-section .course-info-panel__column{
@@ -190,19 +208,36 @@
   flex-direction: column;
   gap: 10px;
 }
-.course-info-section .course-info-panel__column + .course-info-panel__column{
-  padding-left: clamp(14px, 1.8vw, 24px);
-  border-left: 1px solid rgba(29, 78, 216, 0.14);
+.course-info-section .course-info-panel__column--duration{
+  grid-area: duration;
+  justify-content: center;
+  padding: clamp(4px, 1vw, 10px) clamp(18px, 2.5vw, 34px) clamp(8px, 1vw, 12px) 0;
+  border-right: 1px solid rgba(29, 78, 216, 0.14);
+}
+.course-info-section .course-info-panel__column--exam{
+  grid-area: exam;
+  justify-content: center;
+  padding: clamp(4px, 1vw, 10px) 0 clamp(8px, 1vw, 12px) clamp(18px, 2.5vw, 34px);
+}
+.course-info-section .course-info-panel__column--contact{
+  grid-area: contact;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 28px);
+  margin-top: clamp(22px, 2.6vw, 32px);
+  padding-top: clamp(18px, 2vw, 24px);
+  border-top: 1px solid rgba(29, 78, 216, 0.14);
 }
 .course-info-section .course-info-panel__badge{
   align-self: flex-start;
-  padding: 8px 15px;
+  margin-bottom: 4px;
+  padding: 10px 17px;
   border: 1px solid rgba(242, 181, 29, 0.78);
   border-radius: 999px;
   background: linear-gradient(135deg, #ffe66b, #f7c934);
   box-shadow: 0 8px 18px -12px rgba(181, 127, 0, 0.6);
   color: #10214d;
-  font-size: clamp(10.5px, 0.95vw, 12.5px);
+  font-size: clamp(11px, 0.95vw, 13px);
   font-weight: 800;
   letter-spacing: 0.12em;
   line-height: 1.25;
@@ -222,9 +257,12 @@
   align-items: start;
   gap: 9px;
   color: #344767;
-  font-size: clamp(12px, 1vw, 14px);
-  font-weight: 650;
-  line-height: 1.45;
+  font-size: clamp(12.5px, 1.05vw, 15px);
+  font-weight: 600;
+  line-height: 1.55;
+}
+.course-info-section .course-info-panel__column--exam .course-info-panel__list {
+  gap: 12px;
 }
 .course-info-section .course-info-panel__check{
   display: grid;
@@ -248,8 +286,8 @@
   align-items: center;
   gap: 10px;
   color: #344767;
-  font-size: 12.5px;
-  font-weight: 650;
+  font-size: clamp(12px, 0.95vw, 14px);
+  font-weight: 600;
   line-height: 1.4;
   overflow-wrap: anywhere;
   transition: color 180ms ease, transform 180ms ease;
@@ -654,11 +692,25 @@
 @media (max-width: 1023px){
   .courses-section{ min-height: 0; }
   .courses-section .courses-layout{ grid-template-columns: minmax(0, 1fr); }
-  .course-info-section .course-info-panel{ grid-template-columns: minmax(0, 1fr); gap: 14px; }
-  .course-info-section .course-info-panel__column + .course-info-panel__column{
-    padding: 14px 0 0;
-    border-top: 1px solid rgba(29, 78, 216, 0.14);
-    border-left: 0;
+  .course-info-section .course-info-panel{
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "duration"
+      "exam"
+      "contact";
+    gap: 0;
+  }
+  .course-info-section .course-info-panel__column--duration{
+    padding: 0 0 20px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(29, 78, 216, 0.14);
+  }
+  .course-info-section .course-info-panel__column--exam{
+    padding: 20px 0 0;
+  }
+  .course-info-section .course-info-panel__column--contact{
+    margin-top: 20px;
+    padding-top: 20px;
   }
   .courses-section .promo{ display: grid; grid-template-columns: 132px auto; grid-template-rows: auto auto; column-gap: 18px; justify-content: center; align-items: center; text-align: left; }
   .courses-section .promo__gift{ grid-row: 1 / span 2; max-width: 132px; }
@@ -678,6 +730,14 @@
   .courses-section .course-card__name{ flex-direction: row; align-items: baseline; gap: 8px; flex: 1; }
   .courses-section .course-card__class{ font-size: 18px; }
   .courses-section .course-card__type{ font-size: 14px; }
+  .course-info-section .course-info-panel {
+    padding: 20px;
+    border-radius: 22px;
+  }
+  .course-info-section .course-info-panel__column--contact {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
   .courses-section .course-card__chevron{
     display: block; flex: none; width: 30px; height: 30px; border-radius: 50%;
     background: var(--blue-50) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d4ed8' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / 18px no-repeat;
