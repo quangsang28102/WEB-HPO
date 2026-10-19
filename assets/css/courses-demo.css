@@ -52,7 +52,7 @@
 
   --card-radius: 22px;
   --gutter: clamp(16px, 4vw, 40px);
-  --font: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font: 'Gilroy-Regular', sans-serif;
 }
 
 /* 2. NỀN TẢNG -------------------------------------------------------------- */
@@ -76,7 +76,7 @@
 }
 .course-info-section {
   --gutter: clamp(16px, 4vw, 40px);
-  --font: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font: 'Gilroy-Regular', sans-serif;
   --ink: #0f1f3d;
   position: relative;
   isolation: isolate;
