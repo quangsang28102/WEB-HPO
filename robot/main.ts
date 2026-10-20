@@ -23,14 +23,37 @@ function mount() {
   companion.setAttribute("aria-haspopup", "dialog");
   companion.setAttribute("aria-controls", "hpo-robot-viewer");
   companion.setAttribute("aria-expanded", "false");
-  companion.title = "Kéo để di chuyển · Nhấn để xem 3D";
+  companion.title = "Kéo để di chuyển · Ném ra ngoài khung để ẩn · Nhấn để xem 3D";
   companion.innerHTML = fallback;
+  const restoreButton = document.createElement("button");
+  restoreButton.id = "hpo-robot-restore";
+  restoreButton.type = "button";
+  restoreButton.className = "float-btn";
+  restoreButton.setAttribute("aria-label", "Mở hộp thoại robot Hiệp Phát");
+  restoreButton.setAttribute("aria-haspopup", "dialog");
+  restoreButton.setAttribute("aria-controls", "hpo-robot-viewer");
+  restoreButton.setAttribute("aria-expanded", "false");
+  restoreButton.title = "Mở robot Hiệp Phát";
+  restoreButton.innerHTML = fallback;
+  restoreButton.hidden = true;
   const greeting = document.createElement("span");
   greeting.id = "hpo-robot-greeting";
   greeting.textContent =
     "Xin chào! Tôi là trợ lý AI của Hiệp Phát. Rất vui được hỗ trợ bạn.";
   companion.setAttribute("aria-describedby", greeting.id);
-  document.body.append(companion);
+  document.body.append(companion, restoreButton);
+  const dockRestoreButton = () => {
+    const floats = document.querySelector<HTMLElement>(".floats");
+    if (!floats) return false;
+    floats.prepend(restoreButton);
+    return true;
+  };
+  if (!dockRestoreButton()) {
+    const floatObserver = new MutationObserver(() => {
+      if (dockRestoreButton()) floatObserver.disconnect();
+    });
+    floatObserver.observe(document.body, { childList: true, subtree: true });
+  }
 
   const position = new THREE.Vector2();
   const pointer = new THREE.Vector2();
@@ -53,6 +76,8 @@ function mount() {
     height = 0,
     minX = 8,
     minY = 8;
+  let robotHidden = false;
+  let hideTimer = 0;
   let greetingWidth = 0,
     robotWidth = 0,
     viewportWidth = 0;
@@ -64,6 +89,11 @@ function mount() {
         offsetX: number;
         offsetY: number;
         moved: boolean;
+        lastX: number;
+        lastY: number;
+        lastTime: number;
+        velocityX: number;
+        velocityY: number;
       }
     | undefined;
   let suppressClick = false;
@@ -71,6 +101,13 @@ function mount() {
   let greetingLastX = position.x,
     greetingLastY = position.y;
   let greetingMovementUntil = 0;
+  try {
+    robotHidden = localStorage.getItem("hpo-robot-hidden") === "true";
+  } catch {
+    /* Storage can be unavailable; keep the default visibility. */
+  }
+  companion.hidden = robotHidden;
+  restoreButton.hidden = !robotHidden;
   const viewer = createViewer(
     companion,
     welcomeVoiceUrl,
@@ -90,7 +127,58 @@ function mount() {
         /* Optional preference. */
       }
     },
+    restoreButton,
+    () => !robotHidden,
+    (visible) => setRobotVisible(visible),
   );
+
+  function setRobotVisible(visible: boolean, throwDirection?: THREE.Vector2) {
+    robotHidden = !visible;
+    try {
+      localStorage.setItem("hpo-robot-hidden", String(robotHidden));
+    } catch {
+      /* Visibility remains available for this page if storage is unavailable. */
+    }
+    window.clearTimeout(hideTimer);
+    companion.classList.remove("is-throwing-away");
+    restoreButton.hidden = visible;
+    wander.pause();
+    if (visible) {
+      companion.hidden = false;
+      resize();
+      position.set(
+        THREE.MathUtils.clamp(position.x, 0, width),
+        THREE.MathUtils.clamp(position.y, 0, height),
+      );
+      wander.snapToEdge(position, width, height);
+      place();
+    } else if (throwDirection && !media.matches) {
+      const direction = throwDirection.clone();
+      if (direction.lengthSq() < 1) direction.set(1, 1);
+      direction.normalize();
+      const distance = Math.max(width, height, robotWidth, companion.offsetHeight) * 2;
+      companion.style.setProperty(
+        "--hpo-throw-to-x",
+        `${position.x + minX + direction.x * distance}px`,
+      );
+      companion.style.setProperty(
+        "--hpo-throw-to-y",
+        `${position.y + minY + direction.y * distance}px`,
+      );
+      companion.style.setProperty(
+        "--hpo-throw-rotation",
+        `${THREE.MathUtils.clamp(direction.x * 32, -32, 32)}deg`,
+      );
+      companion.classList.add("is-throwing-away");
+      hideTimer = window.setTimeout(() => {
+        companion.hidden = true;
+        companion.classList.remove("is-throwing-away");
+      }, media.matches ? 0 : 340);
+    } else {
+      companion.hidden = true;
+    }
+    updateGreeting();
+  }
 
   function updateGreeting(now = performance.now()) {
     const moving = position.x !== greetingLastX || position.y !== greetingLastY;
@@ -102,6 +190,7 @@ function mount() {
       now < greetingMovementUntil ||
       !!drag ||
       viewer.isOpen ||
+      robotHidden ||
       document.hidden;
     if (unavailable) greetingIdleSince = null;
     else if (greetingIdleSince === null) greetingIdleSince = now;
@@ -113,7 +202,7 @@ function mount() {
   }
 
   function place() {
-    wander.snapToEdge(position, width, height);
+    if (!drag) wander.snapToEdge(position, width, height);
     companion.style.transform = `translate3d(${position.x + minX}px, ${position.y + minY}px, 0)`;
     const bubbleLeft = THREE.MathUtils.clamp(
       position.x + robotWidth / 2 - greetingWidth / 2,
@@ -183,11 +272,11 @@ function mount() {
         position,
         width,
         height,
-        paused || hovered || keyboardFocused || !!drag || !!stage?.lost,
+        paused || hovered || keyboardFocused || !!drag || !!stage?.lost || robotHidden,
         !drag,
       );
       place();
-      if (stage && !stage.lost) {
+      if (stage && !stage.lost && !robotHidden) {
         stage.robot.group.rotation.y = wander.heading;
         if (!drag && !stage.robot.isWaving && wander.takeGreeting())
           stage.robot.wave();
@@ -222,6 +311,11 @@ function mount() {
       offsetX: event.clientX - position.x - minX,
       offsetY: event.clientY - position.y - minY,
       moved: false,
+      lastX: event.clientX,
+      lastY: event.clientY,
+      lastTime: performance.now(),
+      velocityX: 0,
+      velocityY: 0,
     };
     companion.setPointerCapture(event.pointerId);
     wander.pause();
@@ -229,6 +323,15 @@ function mount() {
   });
   companion.addEventListener("pointermove", (event) => {
     if (drag && event.pointerId === drag.id) {
+      const now = performance.now();
+      const elapsed = Math.max(1, now - drag.lastTime);
+      const sampleVelocityX = ((event.clientX - drag.lastX) / elapsed) * 1000;
+      const sampleVelocityY = ((event.clientY - drag.lastY) / elapsed) * 1000;
+      drag.velocityX = drag.velocityX * 0.35 + sampleVelocityX * 0.65;
+      drag.velocityY = drag.velocityY * 0.35 + sampleVelocityY * 0.65;
+      drag.lastX = event.clientX;
+      drag.lastY = event.clientY;
+      drag.lastTime = now;
       if (
         !drag.moved &&
         Math.hypot(event.clientX - drag.x, event.clientY - drag.y) < 6
@@ -271,6 +374,44 @@ function mount() {
       companion.releasePointerCapture(current.id);
     companion.classList.remove("is-dragging");
     wander.pause();
+    if (!current.moved) return;
+    if (event?.type !== "pointerup") {
+      wander.snapToEdge(position, width, height);
+      place();
+      return;
+    }
+    const velocityFade = Math.exp(-(performance.now() - current.lastTime) / 140);
+    const velocityX = current.velocityX * velocityFade;
+    const velocityY = current.velocityY * velocityFade;
+    const speed = Math.hypot(velocityX, velocityY);
+    const projectedX = position.x + velocityX * 0.3;
+    const projectedY = position.y + velocityY * 0.3;
+    const draggedOut =
+      position.x < -robotWidth * 0.35 ||
+      position.x > width + robotWidth * 0.35 ||
+      position.y < -companion.offsetHeight * 0.35 ||
+      position.y > height + companion.offsetHeight * 0.35;
+    const thrownOut =
+      speed >= 650 &&
+      (projectedX < 0 ||
+        projectedX > width ||
+        projectedY < 0 ||
+        projectedY > height);
+    if (draggedOut || thrownOut) {
+      const direction = new THREE.Vector2(
+        speed >= 260
+          ? velocityX
+          : position.x - (current.x - current.offsetX - minX),
+        speed >= 260
+          ? velocityY
+          : position.y - (current.y - current.offsetY - minY),
+      );
+      setRobotVisible(false, direction);
+      restoreButton.focus({ preventScroll: true });
+    } else {
+      wander.snapToEdge(position, width, height);
+      place();
+    }
   }
   companion.addEventListener("pointerup", endDrag);
   companion.addEventListener("pointercancel", endDrag);
@@ -285,6 +426,10 @@ function mount() {
       return;
     }
     suppressClick = false;
+    viewer.open();
+    updateGreeting();
+  });
+  restoreButton.addEventListener("click", () => {
     viewer.open();
     updateGreeting();
   });

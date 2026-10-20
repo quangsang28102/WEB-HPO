@@ -2,7 +2,17 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RobotStage } from './scene';
 
-export function createViewer(companion: HTMLButtonElement, welcomeVoiceUrl: string, onChange: () => void, setPaused: (paused: boolean) => void, initialSpeed: number, setSpeed: (speed: number) => void) {
+export function createViewer(
+  companion: HTMLButtonElement,
+  welcomeVoiceUrl: string,
+  onChange: () => void,
+  setPaused: (paused: boolean) => void,
+  initialSpeed: number,
+  setSpeed: (speed: number) => void,
+  restoreButton: HTMLButtonElement,
+  isVisible: () => boolean,
+  setVisible: (visible: boolean) => void,
+) {
   const dialog = document.createElement('dialog');
   dialog.id = 'hpo-robot-viewer';
   dialog.setAttribute('aria-labelledby', 'hpo-robot-title');
@@ -41,7 +51,10 @@ export function createViewer(companion: HTMLButtonElement, welcomeVoiceUrl: stri
           <span>Đăng ký học</span>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <label class="hpo-wander-option"><input type="checkbox" checked> Cho robot tự đi dạo</label>
+        <div class="hpo-chat-options">
+          <label class="hpo-wander-option"><input type="checkbox" checked> Cho robot tự đi dạo</label>
+          <label class="hpo-visibility-option"><input id="hpo-robot-visible" type="checkbox" checked> Hiện robot trên trang</label>
+        </div>
         <form class="hpo-chat-form">
           <label for="hpo-chat-input">Tin nhắn của bạn</label>
           <div class="hpo-chat-compose"><input id="hpo-chat-input" type="text" placeholder="Trò chuyện sắp ra mắt" disabled><button type="submit" disabled>Gửi</button></div>
@@ -60,6 +73,7 @@ export function createViewer(companion: HTMLButtonElement, welcomeVoiceUrl: stri
   const pointer = new THREE.Vector2();
   const speedInput = dialog.querySelector<HTMLInputElement>('#hpo-robot-speed')!;
   const speedOutput = dialog.querySelector<HTMLOutputElement>('#hpo-robot-speed-value')!;
+  const visibilityInput = dialog.querySelector<HTMLInputElement>('#hpo-robot-visible')!;
   const showSpeed = () => {
     speedOutput.value = `${Number(speedInput.value).toFixed(1)}×`;
     speedInput.setAttribute('aria-valuetext', `${Number(speedInput.value).toFixed(1)} lần tốc độ bình thường`);
@@ -88,13 +102,15 @@ export function createViewer(companion: HTMLButtonElement, welcomeVoiceUrl: stri
     stage = undefined;
     document.documentElement.style.overflow = previousOverflow;
     companion.setAttribute('aria-expanded', 'false');
-    companion.focus({ preventScroll: true });
+    restoreButton.setAttribute('aria-expanded', 'false');
+    (companion.hidden ? restoreButton : companion).focus({ preventScroll: true });
     onChange();
   });
   dialog.querySelector('form')!.addEventListener('submit', event => event.preventDefault());
   dialog.querySelector<HTMLInputElement>('.hpo-wander-option input')!.addEventListener('change', event => {
     setPaused(!(event.target as HTMLInputElement).checked);
   });
+  visibilityInput.addEventListener('change', () => setVisible(visibilityInput.checked));
   dialog.querySelector('.hpo-model-tools')!.addEventListener('click', event => {
     const action = (event.target as HTMLElement).closest<HTMLButtonElement>('button')?.dataset.action;
     if (!stage || !controls || !action) return;
@@ -118,6 +134,7 @@ export function createViewer(companion: HTMLButtonElement, welcomeVoiceUrl: stri
     open() {
       if (dialog.open) return;
       previousOverflow = document.documentElement.style.overflow;
+      visibilityInput.checked = isVisible();
       dialog.showModal();
       welcomeVoice.currentTime = 0;
       welcomeVoice.play().catch(() => {
@@ -125,6 +142,7 @@ export function createViewer(companion: HTMLButtonElement, welcomeVoiceUrl: stri
       });
       document.documentElement.style.overflow = 'hidden';
       companion.setAttribute('aria-expanded', 'true');
+      restoreButton.setAttribute('aria-expanded', 'true');
       try {
         stage = new RobotStage(host);
         controls = new OrbitControls(stage.camera, stage.renderer.domElement);

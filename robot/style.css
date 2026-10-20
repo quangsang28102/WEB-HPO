@@ -22,6 +22,51 @@
 }
 #hpo-robot:hover, #hpo-robot:active { background: transparent; box-shadow: none; }
 #hpo-robot.is-dragging { cursor: grabbing; }
+#hpo-robot[hidden] { display: none !important; }
+#hpo-robot.is-throwing-away {
+  pointer-events: none;
+  animation: hpo-robot-throw-away 340ms cubic-bezier(.22, .75, .3, 1) forwards;
+}
+@keyframes hpo-robot-throw-away {
+  to {
+    transform: translate3d(var(--hpo-throw-to-x), var(--hpo-throw-to-y), 0)
+      rotate(var(--hpo-throw-rotation)) scale(.35);
+    opacity: 0;
+  }
+}
+#hpo-robot-restore {
+  position: fixed;
+  right: 24px;
+  bottom: 222px;
+  z-index: 1001;
+  width: 54px;
+  height: 54px;
+  padding: 8px;
+  border: 0;
+  border-radius: 50%;
+  background: #183c43;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(15, 35, 54, .24);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.floats > #hpo-robot-restore {
+  position: relative;
+  inset: auto;
+  z-index: auto;
+}
+#hpo-robot-restore[hidden] { display: none !important; }
+#hpo-robot-restore:hover { background: #24545c; }
+#hpo-robot-restore:focus-visible { outline: 3px solid #4668dc; outline-offset: 3px; }
+#hpo-robot-restore .hpo-robot-fallback {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+#hpo-robot-restore::before { display: none; }
 #hpo-robot #hpo-robot-greeting {
   position: absolute;
   bottom: 90%;
@@ -155,6 +200,7 @@
 #hpo-robot-viewer h3 { font-size: 18px; font-weight: 650; }
 #hpo-robot-viewer .hpo-soon { padding: 4px 10px; border-radius: 99px; background: #eef1fb; color: var(--hpo-accent); font-size: 12px; white-space: nowrap; }
 #hpo-robot-viewer .hpo-chat-messages { flex: 1; color: var(--hpo-muted); font-size: 14px; line-height: 1.7; }
+#hpo-robot-viewer .hpo-chat-options { display: flex; flex-direction: column; gap: 0; }
 #hpo-robot-viewer .hpo-chat-welcome { padding: 16px 18px; margin-bottom: 12px; border: 1px solid var(--hpo-line); border-radius: 2px 16px 16px; background: #f4f8f8; color: var(--hpo-ink); font-weight: 600; }
 #hpo-robot-viewer .hpo-enroll-cta {
   display: inline-flex;
@@ -192,6 +238,8 @@
 #hpo-robot-viewer .hpo-enroll-cta:hover svg { transform: translateX(3px); }
 #hpo-robot-viewer .hpo-wander-option { display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px; cursor: pointer; }
 #hpo-robot-viewer .hpo-wander-option input { width: 18px; height: 18px; accent-color: var(--hpo-accent); }
+#hpo-robot-viewer .hpo-visibility-option { display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px; cursor: pointer; }
+#hpo-robot-viewer .hpo-visibility-option input { width: 18px; height: 18px; accent-color: var(--hpo-accent); }
 #hpo-robot-viewer .hpo-chat-form label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 600; }
 #hpo-robot-viewer .hpo-chat-compose { display: flex; gap: 8px; }
 #hpo-robot-viewer .hpo-chat-compose input { min-width: 0; width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid var(--hpo-line); border-radius: 12px; font-size: 14px; }
@@ -207,6 +255,8 @@
   #hpo-robot-viewer .hpo-chat-panel { border-left: 0; border-top: 1px solid var(--hpo-line); gap: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  #hpo-robot.is-throwing-away { animation: none; opacity: 0; }
+  #hpo-robot-restore { transition: none; }
   #hpo-robot-viewer button { transition: none; }
 }
 @media print { #hpo-robot, #hpo-robot-viewer { display: none !important; } }

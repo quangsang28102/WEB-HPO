@@ -5,11 +5,11 @@ Widget 3D độc lập được nhúng vào website qua `assets/js/site-footer.j
 ## Tương tác
 
 - Robot đi theo viền màn hình theo chiều kim đồng hồ, lần lượt qua bốn góc, quay thân theo hướng đi và bước chân. Mỗi lượt đi tối đa 3 giây, sau đó quay mặt về người xem và nghỉ 5 giây trước khi đi tiếp.
-- Kéo bằng chuột hoặc cảm ứng để đặt robot tại cạnh màn hình gần nhất; thả xong quay về phía trước và nghỉ 5 giây rồi tiếp tục đi. Robot dừng và nhìn về phía trước khi con trỏ chuột nằm trên nó để dễ nhấn.
+- Kéo bằng chuột hoặc cảm ứng để đặt robot tại cạnh màn hình gần nhất; thả xong quay về phía trước và nghỉ 5 giây rồi tiếp tục đi. Ném robot ra ngoài khung hình để ẩn; nút hình robot trong cụm hỗ trợ nhanh mở lại hộp thoại. Trạng thái ẩn được lưu trên trình duyệt.
 - Thanh “Tốc độ di chuyển” dưới mô hình điều chỉnh từ 0.5× đến 2.0× (mặc định 1.0× = 60 px/giây). Tốc độ không làm ngắn thời gian nghỉ; tùy chọn được lưu trên trình duyệt nếu bộ nhớ cục bộ khả dụng.
-- Nhấn robot hoặc dùng Enter/Space để mở cửa sổ: mô hình 3D bên trái, khu vực chat bên phải. Trên điện thoại hai phần xếp dọc.
+- Nhấn robot hoặc dùng Enter/Space để mở cửa sổ: mô hình 3D bên trái, khu vực chat bên phải. Checkbox “Hiện robot trên trang” điều khiển trạng thái ẩn/hiện. Trên điện thoại hai phần xếp dọc.
 - Kéo mô hình để xoay theo hai trục, cuộn/chụm để thu phóng; có nút xoay, thu/phóng, đặt lại góc nhìn và vẫy tay.
-- Đóng bằng nút đóng, Escape hoặc nhấn nền bên ngoài. Focus trở về robot.
+- Đóng bằng nút đóng, Escape hoặc nhấn nền bên ngoài. Focus trở về robot hoặc nút mở lại nếu robot đang ẩn.
 - Dùng Tab để chọn robot rồi các phím mũi tên để đổi vị trí. Bỏ chọn “Cho robot tự đi dạo” trong cửa sổ để tạm dừng.
 - Không tự đi hay chạy hoạt ảnh khi bật giảm chuyển động; vẫn kéo, dùng bàn phím và xoay mô hình thủ công được. Dừng vòng lặp khi tab ẩn.
 - Nếu WebGL không khả dụng/mất context, hiển thị SVG thay thế.
