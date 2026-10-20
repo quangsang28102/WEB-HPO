@@ -143,7 +143,7 @@
 
   function setPracticeLegend() {
     els.paletteLegend.innerHTML =
-      '<span><i class="unanswered"></i>Chưa trả lời</span><span><i class="correct"></i>Đúng</span><span><i class="wrong"></i>Sai</span>';
+      '<span><i class="unanswered"></i>Chưa trả lời</span><span><i class="answered"></i>Đã trả lời</span>';
   }
 
   function setMockLegend() {

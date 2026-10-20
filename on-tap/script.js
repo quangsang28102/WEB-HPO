@@ -57,15 +57,22 @@
         $("selectedTopicName").textContent = `${selected.label} — ${selected.name}`;
         els.topicList.innerHTML = topics
             .map(
-                (t) =>
-                    `<button 
+                (t) => {
+                    const isChapter = t.key.startsWith("cat-");
+                    const title = isChapter ? t.name : t.label;
+                    const detail = isChapter
+                        ? `${t.label} · ${t.count} câu`
+                        : `${t.count} câu`;
+                    return `<button
                         class="topic-button${t.key === state.category ? " is-active" : ""}" 
                         data-topic="${t.key}"
                     >
                         <span class="topic-copy">
-                            <strong>${t.label}</strong>
+                            <strong>${title}</strong>
+                            <small>${detail}</small>
                         </span>
-                    </button>`,
+                    </button>`;
+                },
             )
             .join("");
         els.topicList
@@ -187,7 +194,11 @@
     function updatePalette() {
         els.paletteGrid.querySelectorAll("button").forEach((b, i) => {
             const a = state.answers.get(i);
-            b.className = `palette-item${i === state.index ? " is-current" : ""}${a ? ` is-${a.correct ? "correct" : "wrong"}` : ""}`;
+            const answerClass = a
+                ? ` is-answered is-${a.correct ? "correct" : "wrong"}`
+                : "";
+            const currentClass = i === state.index ? " is-current" : "";
+            b.className = `palette-item${answerClass}${currentClass}`;
         });
         els.paletteSummary.textContent = `${state.answers.size} / ${state.filtered.length} đã trả lời`;
     }
