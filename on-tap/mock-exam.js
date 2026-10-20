@@ -28,6 +28,7 @@
     active: false,
     finished: false,
     previousPapers: new Map(),
+    previousCriticalPositions: new Map(),
   };
   const $ = (id) => document.getElementById(id);
   const els = {
@@ -102,11 +103,15 @@
 
     config.questionCount.forEach((count, index) => {
       const part = index + 1;
+      // Phần 2 dành cho câu điểm liệt; câu này được chèn ngẫu nhiên sau khi tạo các phần còn lại.
+      if (part === 2) return;
       const categories = sourceCategoriesForPart(part);
-      let pool = categories.flatMap((category) => category.questions || []);
-      if (part === 2) pool = pool.filter((question) => question.importance);
+      const pool = categories.flatMap((category) => category.questions || []);
       const available = pool.filter(
-        (question) => !used.has(questionKey(question)) && !excluded.has(questionKey(question)),
+        (question) =>
+          !question.importance &&
+          !used.has(questionKey(question)) &&
+          !excluded.has(questionKey(question)),
       );
       if (available.length < count) {
         throw new Error(`Phần ${part} hiện không đủ câu hỏi để tạo đề.`);
@@ -118,11 +123,36 @@
       });
     });
 
+    const criticalPool = sourceCategoriesForPart(2)
+      .flatMap((category) => category.questions || [])
+      .filter(
+        (question) =>
+          question.importance &&
+          !used.has(questionKey(question)) &&
+          !excluded.has(questionKey(question)),
+      );
+    if (criticalPool.length < config.criticalQuestionsRequired) {
+      throw new Error("Không đủ câu điểm liệt để tạo đề mới.");
+    }
+
+    const selectedCriticalQuestions = shuffle(criticalPool).slice(0, config.criticalQuestionsRequired);
+    let criticalPosition = null;
+    // Không để câu điểm liệt lặp lại đúng vị trí của đề trước cùng hạng.
+    selectedCriticalQuestions.forEach((question) => {
+      const positions = Array.from({ length: questions.length + 1 }, (_, index) => index);
+      const previousPosition = state.previousCriticalPositions.get(state.mode);
+      const availablePositions = positions.filter((position) => position !== previousPosition);
+      criticalPosition = availablePositions[Math.floor(Math.random() * availablePositions.length)];
+      questions.splice(criticalPosition, 0, { ...question });
+      used.add(questionKey(question));
+    });
+
     const criticalCount = questions.filter((question) => question.importance).length;
     if (criticalCount !== config.criticalQuestionsRequired) {
       throw new Error(`Đề phải có đúng ${config.criticalQuestionsRequired} câu điểm liệt.`);
     }
 
+    state.previousCriticalPositions.set(state.mode, criticalPosition);
     state.previousPapers.set(state.mode, new Set(questions.map(questionKey)));
     return questions;
   }
