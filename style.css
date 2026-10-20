@@ -716,6 +716,31 @@
   margin-right: 12px;
 }
 
+/* Match the chapter chips in subjects 02–04 and 06 to subject 01's badge size. */
+.platform-v2-curriculum
+  :is(
+    #syllDetail-chap-cau-tao-static,
+    #syllDetail-chap-dao-duc-static,
+    #syllDetail-chap-ky-thuat-static,
+    #syllDetail-chap-thuc-hanh-static
+  )
+  .chap-title
+  > .chap-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-family: var(--ff-display);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 /* Nested lesson rows use a compact marker instead of the 108px chapter chip. */
 .platform-v2-curriculum
   .syll-detail
