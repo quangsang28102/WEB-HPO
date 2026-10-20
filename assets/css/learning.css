@@ -870,9 +870,9 @@
 }
 
 #bbViewModal #hpo-sign-sidebar-wrap {
-  width: 320px;
-  min-width: 320px;
-  flex: 0 0 320px;
+  width: 340px;
+  min-width: 340px;
+  flex: 0 0 340px;
   position: sticky;
   top: var(--hpo-top, 16px);
   align-self: flex-start;
@@ -909,7 +909,7 @@
 #bbViewModal #hpo-sign-sidebar .hpo-sidebar-title > span {
   min-width: 0;
   overflow: hidden;
-  font-size: clamp(15px, 1.7vw, 18px);
+  font-size: clamp(17px, 1.8vw, 20px);
   font-weight: 850;
   line-height: 1.3;
   text-overflow: ellipsis;
@@ -922,7 +922,7 @@
   border-radius: 999px;
   background: #eff6ff;
   color: #1d4ed8;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
   line-height: 1;
 }
@@ -1440,9 +1440,9 @@
 }
 
 #shViewModal #hpo-sh-sidebar-wrap {
-  width: 320px;
-  flex: 0 0 320px;
-  min-width: 320px;
+  width: 340px;
+  flex: 0 0 340px;
+  min-width: 340px;
   position: sticky;
   top: var(--hpo-top, 16px);
   align-self: flex-start;
@@ -1463,22 +1463,33 @@
 }
 
 #shViewModal .sh-sidebar-head {
-  padding: 14px 14px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 18px 18px 14px;
   border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
 }
 
 #shViewModal .sh-sidebar-title {
-  font-size: 14px;
-  font-weight: 950;
-  line-height: 1.35;
+  min-width: 0;
+  white-space: normal;
+  font-size: clamp(17px, 1.8vw, 20px);
+  font-weight: 850;
+  line-height: 1.3;
 }
 
-#shViewModal .sh-sidebar-sub {
-  margin-top: 6px;
-  font-size: 12px;
-  font-weight: 650;
-  line-height: 1.5;
-  color: black;
+#shViewModal .sh-sidebar-badge {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
 }
 
 #shViewModal .sh-tabs {

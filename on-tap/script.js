@@ -41,15 +41,10 @@
         els.palette.classList.remove("is-open");
         els.backdrop.classList.remove("is-visible");
     };
-    const openDrawer = (drawer) => {
-        closeDrawers();
-        drawer.classList.add("is-open");
-        els.backdrop.classList.add("is-visible");
-    };
     function getTopics() {
         const regular = state.categories
             .map((category, index) => ({ category, index }))
-            .filter(({ category }) => category.order !== 99 && !category._id.toLowerCase().includes("điểm liệt"));
+            .filter(({ category }) => !category._id.toLowerCase().includes("điểm liệt"));
         return [
             { key: "all", label: "Tất cả", name: "Toàn bộ ngân hàng 600 câu hỏi", count: state.questions.length },
             ...regular.map(({ category, index }, chapter) => ({ key: `cat-${index}`, label: `Chương ${chapter + 1}`, name: category._id, count: category.questions.length })),
@@ -225,6 +220,10 @@
         els.result.classList.remove("is-open");
     }
     els.next.onclick = () => {
+        if (window.hpoMockExam?.ownsQuiz?.()) {
+            window.hpoMockExam.next();
+            return;
+        }
         if (state.index < state.filtered.length - 1) {
             state.index++;
             render();
@@ -245,27 +244,21 @@
         restartConfirm.setAttribute("aria-hidden", "true");
         els.restart.focus();
     };
-    els.restart.onclick = openRestartConfirm;
+    els.restart.onclick = () => {
+        if (window.hpoMockExam?.ownsQuiz?.()) {
+            window.hpoMockExam.newPaper();
+            return;
+        }
+        openRestartConfirm();
+    };
     $("cancelRestart").onclick = closeRestartConfirm;
     $("confirmBackdrop").onclick = closeRestartConfirm;
     $("confirmRestart").onclick = () => {
         closeRestartConfirm();
         restart();
     };
-    const keyboardGuide = $("keyboardGuide");
-    const closeKeyboardGuide = () => {
-        keyboardGuide.classList.remove("is-open");
-        keyboardGuide.setAttribute("aria-hidden", "true");
-        document.body.style.overflow = "";
-    };
-    document.body.style.overflow = "hidden";
-    $("closeGuide").onclick = closeKeyboardGuide;
-    $("guideBackdrop").onclick = closeKeyboardGuide;
     document.addEventListener("keydown", (event) => {
-        if (keyboardGuide.classList.contains("is-open")) {
-            if (event.key === "Escape" || event.key === "Enter") closeKeyboardGuide();
-            return;
-        }
+        if (window.hpoMockExam?.ownsQuiz?.()) return;
         if (event.key === "Escape" && restartConfirm.classList.contains("is-open")) {
             closeRestartConfirm();
             return;
@@ -300,6 +293,17 @@
         mobile?.classList.remove("is-open");
         document.body.style.overflow = "";
     });
+    window.hpoQuizPractice = {
+        refresh() {
+            els.result.classList.remove("is-open");
+            els.result.setAttribute("aria-hidden", "true");
+            els.next.hidden = false;
+            els.restart.hidden = false;
+            buildTopics();
+            buildPalette();
+            render();
+        },
+    };
     fetch("../assets/data/600tn.json")
         .then((r) => {
             if (!r.ok) throw Error("Không thể tải dữ liệu");
@@ -314,11 +318,19 @@
                 }));
             state.questions = state.categories.flatMap((c) => c.questions);
             state.filtered = [...state.questions];
+            window.hpoQuizQuestionBank = {
+                categories: state.categories,
+                questions: state.questions,
+            };
             buildTopics();
             buildPalette();
             render();
+            window.dispatchEvent(new CustomEvent("hpo-quiz-bank-ready", {
+                detail: window.hpoQuizQuestionBank,
+            }));
         })
         .catch(() => {
+            window.dispatchEvent(new CustomEvent("hpo-quiz-bank-error"));
             els.title.textContent = "Không thể tải ngân hàng câu hỏi";
             els.number.textContent = "Có lỗi xảy ra";
             els.progressLabel.textContent = "Vui lòng tải lại trang";

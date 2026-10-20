@@ -1,7 +1,7 @@
 [
   {
     "_id": "Giải thế sa hình và kỹ năng xử lý tình huống giao thông",
-    "order": 6,
+    "order": 7,
     "questions": [
       {
         "active": true,
@@ -2119,7 +2119,7 @@
   },
   {
     "_id": "Kỹ thuật lái xe",
-    "order": 3,
+    "order": 4,
     "questions": [
       {
         "active": true,
@@ -2512,7 +2512,7 @@
   },
   {
     "_id": "Biển báo đường bộ",
-    "order": 5,
+    "order": 6,
     "questions": [
       {
         "active": true,
@@ -4183,7 +4183,7 @@
   },
   {
     "_id": "Câu điểm liệt",
-    "order": 99,
+    "order": 2,
     "questions": [
       {
         "active": true,
@@ -4728,7 +4728,7 @@
   },
   {
     "_id": "Văn hóa giao thông, đạo đức người lái xe",
-    "order": 2,
+    "order": 3,
     "questions": [
       {
         "active": true,

@@ -2,21 +2,40 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
     <meta
       name="description"
       content="Ôn tập 600 câu hỏi lý thuyết lái xe, chấm điểm tự động và luyện câu điểm liệt tại Hiệp Phát."
     />
     <title>Ôn tập 600 câu hỏi lái xe | Hiệp Phát</title>
-    <link rel="icon" href="../assets/images/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="icon"
+      href="../assets/images/favicon.png"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="../style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./style.css"
+    />
     <style>
       .result-ring {
         position: relative;
@@ -24,30 +43,167 @@
     </style>
   </head>
   <body class="quiz-page">
-    <div id="siteHeader" data-base="../" data-page="quiz"></div>
+    <div
+      id="siteHeader"
+      data-base="../"
+      data-page="quiz"
+    ></div>
     <script src="../assets/js/site-header.js"></script>
     <main>
       <section class="quiz-hero">
         <div class="container quiz-hero__inner">
-          <div>
-            <span class="quiz-eyebrow">Luyện thi lý thuyết</span>
-            <h1>Trắc Nghiệm <span>Lái Xe</span></h1>
+          <span class="quiz-eyebrow"
+            >Bộ 600 câu hỏi dành cho sát hạch lái xe cơ giới đường bộ của Bộ công an
+            - Cục cảnh sát giao thông</span
+          >
+          <div class="quiz-hero__copy">
+            <h1>Luyện thi lý thuyết<span>trắc nghiệm lái xe</span></h1>
           </div>
           <div class="quiz-hero__stats">
             <div><strong>600</strong><span>Câu hỏi</span></div>
-            <div><strong>07</strong><span>Chủ đề</span></div>
+            <div><strong>06</strong><span>Chương</span></div>
             <div><strong>60</strong><span>Câu điểm liệt</span></div>
           </div>
         </div>
       </section>
       <section class="quiz-app-section">
-        <div class="container quiz-shell">
+        <section
+          class="container quiz-entry"
+          id="quizEntry"
+          aria-labelledby="quizEntryTitle"
+        >
+          <div class="quiz-entry-heading">
+            <span class="quiz-entry-kicker">BẮT ĐẦU LUYỆN TẬP</span>
+            <h2 id="quizEntryTitle">Chọn hình thức luyện thi</h2>
+            <p>Ôn theo từng chương hoặc làm đề thi thử hạng B, C1.</p>
+          </div>
+          <div
+            class="quiz-entry-grid"
+            role="group"
+            aria-label="Ba chức năng luyện thi"
+          >
+            <button
+              class="quiz-entry-card quiz-entry-card--practice"
+              type="button"
+              data-quiz-entry="practice"
+            >
+              <span
+                class="quiz-entry-icon"
+                aria-hidden="true"
+                >600</span
+              >
+              <span class="quiz-entry-label">ÔN THEO TỪNG CHƯƠNG</span>
+              <strong>Ôn tập 600 câu</strong>
+              <span class="quiz-entry-description"
+                >Chọn chương hoặc câu điểm liệt, xem đáp án và giải thích ngay sau
+                mỗi câu.</span
+              >
+              <span class="quiz-entry-details"
+                ><span>600 câu hỏi</span><span>6 chương</span></span
+              >
+              <span class="quiz-entry-cta"
+                >Bắt đầu ôn tập <span aria-hidden="true">→</span></span
+              >
+            </button>
+            <button
+              class="quiz-entry-card quiz-entry-card--b"
+              type="button"
+              data-quiz-entry="B"
+            >
+              <span
+                class="quiz-entry-icon"
+                aria-hidden="true"
+                >B</span
+              >
+              <span class="quiz-entry-label">THI THỬ</span>
+              <strong>Thi thử hạng B</strong>
+              <span class="quiz-entry-description"
+                >Làm đề ngẫu nhiên theo cấu trúc hạng B, có tính giờ và chấm
+                đậu/rớt.</span
+              >
+              <span class="quiz-entry-details"
+                ><span>30 câu</span><span>20 phút</span><span>Đạt từ 27</span></span
+              >
+              <span class="quiz-entry-cta"
+                >Vào thi thử <span aria-hidden="true">→</span></span
+              >
+            </button>
+            <button
+              class="quiz-entry-card quiz-entry-card--c1"
+              type="button"
+              data-quiz-entry="C1"
+            >
+              <span
+                class="quiz-entry-icon"
+                aria-hidden="true"
+                >C1</span
+              >
+              <span class="quiz-entry-label">THI THỬ</span>
+              <strong>Thi thử hạng C1</strong>
+              <span class="quiz-entry-description"
+                >Làm đề ngẫu nhiên theo cấu trúc hạng C1, có tính giờ và chấm
+                đậu/rớt.</span
+              >
+              <span class="quiz-entry-details"
+                ><span>35 câu</span><span>22 phút</span><span>Đạt từ 32</span></span
+              >
+              <span class="quiz-entry-cta"
+                >Vào thi thử <span aria-hidden="true">→</span></span
+              >
+            </button>
+          </div>
+        </section>
+        <div
+          class="container quiz-mode-switcher"
+          id="quizModeSwitcher"
+          role="group"
+          aria-label="Chọn chức năng"
+          hidden
+        >
+          <button
+            class="quiz-mode-tab"
+            type="button"
+            aria-pressed="false"
+            data-quiz-mode="practice"
+          >
+            Ôn tập 600 câu
+          </button>
+          <button
+            class="quiz-mode-tab"
+            type="button"
+            aria-pressed="false"
+            data-quiz-mode="B"
+          >
+            Thi thử hạng B
+          </button>
+          <button
+            class="quiz-mode-tab"
+            type="button"
+            aria-pressed="false"
+            data-quiz-mode="C1"
+          >
+            Thi thử hạng C1
+          </button>
+        </div>
+        <div
+          class="container quiz-shell"
+          id="quizShell"
+          hidden
+        >
           <aside class="quiz-sidebar">
             <div class="sidebar-head">
               <span>Chọn nội dung ôn tập</span>
-              <button id="closeTopics" aria-label="Đóng chủ đề">×</button>
+              <button
+                id="closeTopics"
+                aria-label="Đóng chủ đề"
+              >
+                ×
+              </button>
             </div>
-            <div id="topicList" class="topic-list">
+            <div
+              id="topicList"
+              class="topic-list"
+            >
               <div class="topic-skeleton"></div>
               <div class="topic-skeleton"></div>
               <div class="topic-skeleton"></div>
@@ -55,12 +211,15 @@
             <div class="sidebar-tip">
               <span>!</span>
               <p>
-                <strong>Lưu ý câu điểm liệt</strong>Trả lời sai câu điểm liệt có
-                thể khiến bài thi không đạt.
+                <strong>Lưu ý câu điểm liệt</strong>Trả lời sai câu điểm liệt có thể
+                khiến bài thi không đạt.
               </p>
             </div>
           </aside>
-          <div class="selected-exam" aria-live="polite">
+          <div
+            class="selected-exam"
+            aria-live="polite"
+          >
             <span>Bài thi đang chọn</span>
             <strong id="selectedTopicName">Tất cả câu hỏi</strong>
           </div>
@@ -70,67 +229,209 @@
                 <div>
                   <span id="progressLabel">Đang tải câu hỏi…</span
                   ><strong id="scoreLabel">Điểm: 0</strong>
+                  <strong
+                    class="mock-clock"
+                    id="mockClock"
+                    hidden
+                    >20:00</strong
+                  >
                 </div>
                 <div class="progress-track"><span id="progressBar"></span></div>
               </div>
             </div>
-            <article class="question-card" id="questionCard" aria-live="polite">
+            <article
+              class="question-card"
+              id="questionCard"
+              aria-live="polite"
+            >
               <div class="question-meta">
                 <span id="questionNumber">Câu hỏi</span
-                ><span class="danger-tag" id="dangerTag">Câu điểm liệt</span>
+                ><span
+                  class="danger-tag"
+                  id="dangerTag"
+                  >Câu điểm liệt</span
+                >
               </div>
               <h2 id="questionTitle">Đang tải ngân hàng câu hỏi…</h2>
-              <figure class="question-image-wrap" id="imageWrap">
-                <img id="questionImage" alt="Hình minh họa câu hỏi" />
+              <figure
+                class="question-image-wrap"
+                id="imageWrap"
+              >
+                <img
+                  id="questionImage"
+                  alt="Hình minh họa câu hỏi"
+                />
                 <div class="image-fallback">Không tải được hình minh họa</div>
               </figure>
-              <div class="answer-list" id="answerList"></div>
-              <div class="answer-feedback" id="answerFeedback"></div>
+              <div
+                class="answer-list"
+                id="answerList"
+              ></div>
+              <div
+                class="answer-feedback"
+                id="answerFeedback"
+              ></div>
               <div class="question-actions">
-                <button class="btn-restart" id="restartQuiz">↻ Làm lại</button
-                ><button class="btn-next" id="nextQuestion">
+                <button
+                  class="btn-restart"
+                  id="restartQuiz"
+                >
+                  ↻ Làm lại</button
+                ><button
+                  class="btn-restart mock-previous"
+                  id="previousQuestion"
+                  type="button"
+                  hidden
+                >
+                  ← Câu trước</button
+                ><button
+                  class="btn-next"
+                  id="nextQuestion"
+                >
                   Câu tiếp theo <span>→</span>
                 </button>
               </div>
             </article>
+            <section
+              class="mock-exam-result"
+              id="mockExamResult"
+              aria-live="polite"
+              hidden
+            >
+              <div class="mock-result-summary">
+                <span
+                  class="mock-result-icon"
+                  id="mockResultIcon"
+                  aria-hidden="true"
+                  >✓</span
+                >
+                <span class="mock-dialog-kicker">Kết quả thi thử</span>
+                <h3 id="mockResultStatus">ĐẠT</h3>
+                <p id="mockResultMessage"></p>
+                <div class="mock-result-score">
+                  <strong id="mockResultScore">0 / 30</strong><span>Điểm số</span>
+                </div>
+                <div
+                  class="mock-result-facts"
+                  id="mockResultFacts"
+                ></div>
+                <div class="mock-result-actions">
+                  <button
+                    class="mock-button mock-button--secondary"
+                    id="mockResultPractice"
+                    type="button"
+                  >
+                    Ôn tập 600 câu
+                  </button>
+                  <button
+                    class="mock-button mock-button--primary"
+                    id="mockResultNewExam"
+                    type="button"
+                  >
+                    Làm đề mới
+                  </button>
+                </div>
+              </div>
+              <section
+                class="mock-review-section"
+                aria-labelledby="mockReviewTitle"
+              >
+                <div class="mock-review-heading">
+                  <div>
+                    <span class="mock-dialog-kicker mock-review-kicker">Đối chiếu bài làm</span>
+                    <h3 id="mockReviewTitle">Đáp án chi tiết</h3>
+                  </div>
+                  <span id="mockReviewSummary"></span>
+                </div>
+                <div class="mock-review-legend" aria-label="Chú giải kết quả câu hỏi">
+                  <span><i class="is-correct" aria-hidden="true">✓</i>Trả lời đúng</span>
+                  <span><i class="is-wrong" aria-hidden="true">×</i>Sai hoặc chưa làm</span>
+                  <span><i class="is-critical" aria-hidden="true">!</i>Câu điểm liệt</span>
+                </div>
+                <div
+                  class="mock-review-palette"
+                  id="mockReviewPalette"
+                  role="group"
+                  aria-label="Chọn câu để xem đáp án chi tiết"
+                ></div>
+                <article
+                  class="mock-review-detail"
+                  id="mockReviewDetail"
+                  aria-live="polite"
+                ></article>
+              </section>
+            </section>
           </div>
-          <aside class="question-palette" id="questionPalette">
+          <aside
+            class="question-palette"
+            id="questionPalette"
+          >
             <div class="palette-head">
               <div>
                 <span>Chọn nhanh câu hỏi</span
                 ><small id="paletteSummary">0 / 0 đã trả lời</small>
               </div>
-              <button id="closePalette" aria-label="Đóng bảng câu hỏi">
+              <button
+                id="closePalette"
+                aria-label="Đóng bảng câu hỏi"
+              >
                 ×
               </button>
             </div>
             <div class="palette-legend">
-              <span><i class="answered"></i>Chưa trả lời</span
+              <span><i class="unanswered"></i>Chưa trả lời</span
               ><span><i class="correct"></i>Đúng</span
               ><span><i class="wrong"></i>Sai</span>
             </div>
-            <div class="palette-grid" id="paletteGrid"></div>
+            <div
+              class="palette-grid"
+              id="paletteGrid"
+            ></div>
+            <button
+              class="btn-next mock-submit"
+              id="submitMockExam"
+              type="button"
+              hidden
+            >
+              Nộp bài thi
+            </button>
           </aside>
         </div>
       </section>
     </main>
-    <div class="drawer-backdrop" id="drawerBackdrop"></div>
-    <div class="result-modal" id="resultModal" aria-hidden="true">
+    <div
+      class="drawer-backdrop"
+      id="drawerBackdrop"
+    ></div>
+    <div
+      class="result-modal"
+      id="resultModal"
+      aria-hidden="true"
+    >
       <div class="result-card">
-        <button class="result-close" id="closeResult">×</button>
-        <div class="result-ring" id="resultRing">
+        <button
+          class="result-close"
+          id="closeResult"
+        >
+          ×
+        </button>
+        <div
+          class="result-ring"
+          id="resultRing"
+        >
           <strong id="resultPercent">0%</strong>
         </div>
         <span class="result-kicker">Hoàn thành nội dung ôn tập</span>
         <h2 id="resultTitle">Kết quả của bạn</h2>
         <p id="resultText"></p>
         <div class="result-stats">
-          <div>
-            <strong id="resultCorrect">0</strong><span>Trả lời đúng</span>
-          </div>
+          <div><strong id="resultCorrect">0</strong><span>Trả lời đúng</span></div>
           <div><strong id="resultWrong">0</strong><span>Trả lời sai</span></div>
         </div>
-        <button class="btn-result" id="resultRestart">
+        <button
+          class="btn-result"
+          id="resultRestart"
+        >
           Làm lại nội dung này
         </button>
       </div>
@@ -143,7 +444,10 @@
       aria-labelledby="confirmTitle"
       aria-hidden="true"
     >
-      <div class="confirm-backdrop" id="confirmBackdrop"></div>
+      <div
+        class="confirm-backdrop"
+        id="confirmBackdrop"
+      ></div>
       <div class="confirm-card">
         <div class="confirm-icon">!</div>
         <h2 id="confirmTitle">
@@ -151,46 +455,29 @@
         </h2>
         <p>Tất cả tiến độ và điểm số sẽ bị xóa.</p>
         <div class="confirm-actions">
-          <button class="confirm-cancel" id="cancelRestart" type="button">
+          <button
+            class="confirm-cancel"
+            id="cancelRestart"
+            type="button"
+          >
             Hủy
           </button>
-          <button class="confirm-accept" id="confirmRestart" type="button">
+          <button
+            class="confirm-accept"
+            id="confirmRestart"
+            type="button"
+          >
             Đồng ý
           </button>
         </div>
       </div>
     </div>
     <div
-      class="guide-modal is-open"
-      id="keyboardGuide"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="guideTitle"
-      aria-hidden="false"
-    >
-      <div class="guide-backdrop" id="guideBackdrop"></div>
-      <div class="guide-card">
-        <span class="guide-kicker">Hướng dẫn thao tác nhanh</span>
-        <h2 id="guideTitle">Làm bài thuận tiện hơn với bàn phím</h2>
-        <p>
-          Bạn có thể nhấn các phím <strong>1, 2, 3, 4</strong> tương ứng với đáp
-          án <strong>A, B, C, D</strong>.
-        </p>
-        <div class="guide-keys">
-          <span><kbd>1</kbd>A</span><span><kbd>2</kbd>B</span
-          ><span><kbd>3</kbd>C</span><span><kbd>4</kbd>D</span>
-        </div>
-        <p>
-          Sử dụng phím mũi tên <kbd>←</kbd> và <kbd>→</kbd> để chuyển giữa các
-          câu hỏi.
-        </p>
-        <button id="closeGuide" type="button">
-          Đã hiểu, bắt đầu làm bài <span>→</span>
-        </button>
-      </div>
-    </div>
-    <div id="siteFooter" data-base="../"></div>
+      id="siteFooter"
+      data-base="../"
+    ></div>
     <script src="../assets/js/site-footer.js"></script>
     <script src="./script.js"></script>
+    <script src="./mock-exam.js"></script>
   </body>
 </html>

@@ -12,3 +12,5 @@
 .qr-student h2{margin-bottom:10px}.qr-demo-badge{display:inline-flex;margin:0 0 20px;padding:5px 9px;border:1px solid #e8c45c;border-radius:999px;color:#795b0c;background:#fff8df;font:700 10px/1 Sora,sans-serif;letter-spacing:.08em}.qr-demo-badge[hidden]{display:none}
 .qr-student dl>div:nth-child(odd){border-left:0}.qr-student dl>div:nth-child(even){border-left:1px solid #e1e6ed}.qr-student dl>div:nth-child(n+3){border-top:1px solid #e1e6ed}
 @media(max-width:700px){.qr-student dl>div:nth-child(even){border-left:0}.qr-student dl>div:nth-child(n+2){border-top:1px solid #e1e6ed}}
+
+.qr-hero h1 em{font-family:"Sora",sans-serif;font-style:normal;font-weight:700}
