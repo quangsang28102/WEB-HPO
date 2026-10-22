@@ -513,6 +513,8 @@
     try {
       scroller.innerHTML = await htmlPromise;
       loaded = true;
+      window.initializeEngineVideoPlayback?.(scroller);
+      window.initializeEngineVoice?.(scroller);
     } catch (error) {
       scroller.innerHTML = '<div class="engine-view-loading">Không tải được nội dung động cơ 4 kỳ. Vui lòng kiểm tra file assets/data/engine-4ky-view.html.</div>';
       throw error;
@@ -539,6 +541,7 @@
   }
 
   function closeEngineView() {
+    window.stopEngineVoice?.();
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = previousBodyOverflow;

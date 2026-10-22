@@ -3980,26 +3980,53 @@
       <div class="engine-view-shell">
         <div class="engine-view-topbar">
           <div class="engine-view-heading">
-            <span>Động cơ xe ô tô</span>
-            <h2 id="engineViewTitle">Nguyên lý làm việc của động cơ 4 kỳ</h2>
+            <img
+              class="engine-view-logo"
+              src="assets/images/favicon.png"
+              alt="Logo Trung tâm Hiệp Phát"
+            />
+            <div class="engine-view-heading-copy">
+              <span>Động cơ xe ô tô</span>
+              <h2 id="engineViewTitle">Nguyên lý làm việc của động cơ 4 kỳ</h2>
+            </div>
           </div>
-          <button
-            type="button"
-            class="engine-view-close"
-            id="engineViewClose"
-            aria-label="Đóng"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+          <div class="engine-view-actions">
+            <button
+              type="button"
+              class="engine-view-voice"
+              id="engineVoiceToggle"
+              aria-label="Tắt giọng đọc"
+              aria-pressed="true"
+              title="Tắt giọng đọc"
             >
-              <path d="M6 6l12 12M18 6 6 18" />
-            </svg>
-          </button>
+              <svg class="engine-view-voice-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M11 5 6 9H2v6h4l5 4V5z" />
+                <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+                <path d="M19 5a10 10 0 0 1 0 14" />
+              </svg>
+              <svg class="engine-view-voice-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M11 5 6 9H2v6h4l5 4V5z" />
+                <path d="m17 9 5 6m0-6-5 6" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="engine-view-close"
+              id="engineViewClose"
+              aria-label="Đóng"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
+            </button>
+          </div>
         </div>
         <div
           class="engine-view-scroll"
@@ -4012,6 +4039,8 @@
 
     <!-- ── SCRIPTS ── -->
     <script src="assets/js/core.js"></script>
+    <script src="assets/js/engine-media.js"></script>
+    <script src="assets/js/engine-voice.js"></script>
     <script src="assets/js/learning.js"></script>
     <script src="assets/js/homepage.js?v=20261019-curriculum-ux"></script>
     <script src="assets/js/media.js?v=20261019-curriculum-ux"></script>

@@ -74,6 +74,7 @@
                   <path d="m3 10 9-7 9 7" />
                   <path d="M5.5 9v11h13V9M9.5 20v-6h5v6" />
                 </svg>
+                <span class="nav-home-label">Cổng thông tin điện tử</span>
               </a>
             </li>
             <li class="nav-item has-dropdown">

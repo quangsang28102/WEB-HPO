@@ -801,6 +801,7 @@
     if (!engine4KyModal || !engine4KyChap2Btn) return
 
     const DATA_URL = '../assets/data/engine-4ky-view.html';
+    const SharedAssetBaseUrl = new URL("../", window.location.href).href;
     const SharedStyleUrl = new URL("../style.css", window.location.href).href;
 
     let htmlPromise = null;
@@ -810,7 +811,9 @@
         <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
+          <base href="${SharedAssetBaseUrl}">
           <link rel="stylesheet" href="${SharedStyleUrl}">
+          <script src="${SharedAssetBaseUrl}assets/js/engine-media.js" defer></script>
           <style>
             html,body,#bbViewModal{height:100%;margin:0;background:#f8fafc}
             html,body{overflow:hidden}

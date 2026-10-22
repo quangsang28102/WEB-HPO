@@ -389,15 +389,11 @@ button {
     color 0.2s,
     background 0.2s;
 }
-.nav-item > .nav-home-link {
-  justify-content: center;
-  min-width: 42px;
-  padding-inline: 10px;
-}
 .nav-home-link svg {
   display: block;
   width: 22px;
   height: 22px;
+  flex: 0 0 auto;
 }
 .nav-item > a:hover {
   color: var(--blue-600);

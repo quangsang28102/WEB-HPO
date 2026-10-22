@@ -735,6 +735,16 @@
 /* ──────────────────────────────────────────
        RESPONSIVE
     ────────────────────────────────────────── */
+@media (max-width: 1280px) {
+  .nav-links,
+  .nav-phone {
+    display: none;
+  }
+  .nav-burger {
+    display: flex;
+  }
+}
+
 @media (max-width: 1100px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -810,13 +820,6 @@
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
-  }
-  .nav-links,
-  .nav-phone {
-    display: none;
-  }
-  .nav-burger {
-    display: flex;
   }
   .topbar-left .topbar-item:nth-child(2) {
     display: none;
