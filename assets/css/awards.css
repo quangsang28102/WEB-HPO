@@ -3319,6 +3319,9 @@
   .award-slider > .award-slider__heading.is-scroll-revealed {
     animation: award-section-enter 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
+  .award-slider > .award-slider__body.is-scroll-revealed {
+    animation: award-section-enter 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  }
   .award-slider > .award-slider__viewport.is-scroll-revealed {
     animation: award-section-enter 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
   }
@@ -3420,14 +3423,14 @@
   filter: blur(24px);
 }
 .award-slide--vietnam {
-  background-color: #0649b5;
+  background-color: #3287e8;
   background-image:
     linear-gradient(
       90deg,
-      rgba(4, 45, 132, 0.94) 0%,
-      rgba(5, 69, 177, 0.82) 40%,
-      rgba(6, 83, 202, 0.3) 70%,
-      rgba(3, 48, 137, 0.12) 100%
+      rgba(38, 112, 206, 0.9) 0%,
+      rgba(38, 119, 220, 0.84) 40%,
+      rgba(43, 126, 224, 0.68) 70%,
+      rgba(27, 83, 169, 0.52) 100%
     ),
     url("../images/awards/hang-viet-tot-stage-background-2025.png");
   background-position: center;
@@ -3439,8 +3442,8 @@
   height: 100%;
   background: linear-gradient(
     180deg,
-    rgba(25, 112, 238, 0.08),
-    rgba(3, 43, 126, 0.26)
+    rgba(154, 207, 255, 0.18),
+    rgba(30, 91, 171, 0.08)
   );
   opacity: 1;
 }
@@ -6811,5 +6814,422 @@
 
   .brand-protection .protection-item:first-child .protection-item__thumb {
     height: 180px;
+  }
+}
+
+/* Three-award selector layout for the main awards carousel. */
+.award-slider {
+  display: block;
+  max-width: min(1560px, 94vw);
+  padding-right: clamp(18px, 3vw, 42px);
+  padding-left: clamp(18px, 3vw, 42px);
+}
+.award-slider__heading {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.award-slider__heading > .hpo-unified-title-wrap {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-bottom: 12px;
+}
+.award-slider__heading h3.hpo-unified-title {
+  position: static;
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+  font-size: clamp(22px, 2.5vw, 40px);
+  line-height: 1.16;
+  white-space: nowrap;
+  transform: none;
+}
+.award-slider__heading-sub {
+  width: 100%;
+  min-height: 1.65em;
+  max-width: none;
+  margin: 12px auto clamp(20px, 2.5vw, 32px);
+  color: #000;
+  font-family: var(--ff-sans);
+  font-size: clamp(14px, 1.15vw, 18px);
+  line-height: 1.65;
+  text-align: center;
+  white-space: nowrap;
+}
+.award-slider__body {
+  display: grid;
+  grid-template-columns: minmax(210px, 270px) minmax(0, 1fr);
+  gap: clamp(18px, 2.4vw, 34px);
+  align-items: stretch;
+}
+.award-slider__selector {
+  display: grid;
+  align-content: center;
+  gap: 12px;
+}
+.award-slider__choice {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  min-height: 112px;
+  padding: 16px 18px;
+  border: 1px solid rgba(23, 103, 189, 0.16);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fff 0%, #f5f9ff 100%);
+  color: #183b68;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 12px 30px -24px rgba(17, 46, 91, 0.58);
+  transition: border-color 0.24s ease, background 0.24s ease, box-shadow 0.24s ease, transform 0.24s ease;
+}
+.award-slider__choice:hover {
+  border-color: rgba(23, 103, 189, 0.48);
+  box-shadow: 0 16px 34px -22px rgba(17, 74, 145, 0.38);
+  transform: translateY(-2px);
+}
+.award-slider__choice.is-active {
+  border-color: rgba(23, 103, 189, 0.76);
+  background: linear-gradient(145deg, #edf6ff 0%, #fff 100%);
+  box-shadow: 0 18px 34px -22px rgba(16, 91, 176, 0.42), inset 4px 0 #1767bd;
+}
+.award-slider__choice {
+  --choice-accent: #1767bd;
+  --choice-ink: #123f78;
+  --choice-wash: #eaf5ff;
+  --choice-border: rgba(23, 103, 189, 0.28);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-color: var(--choice-border);
+  background: linear-gradient(120deg, var(--choice-wash), #fff 78%);
+}
+.award-slider__choice::after {
+  position: absolute;
+  z-index: -1;
+  top: -42px;
+  right: -30px;
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  background: var(--choice-accent);
+  content: "";
+  opacity: 0.08;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.award-slider__choice:nth-child(2) {
+  --choice-accent: #c62828;
+  --choice-ink: #812e32;
+  --choice-wash: #fff0ef;
+  --choice-border: rgba(198, 40, 40, 0.3);
+}
+.award-slider__choice:nth-child(3) {
+  --choice-accent: #a56b00;
+  --choice-ink: #704b08;
+  --choice-wash: #fff7df;
+  --choice-border: rgba(194, 138, 19, 0.34);
+}
+.award-slider__choice:hover::after,
+.award-slider__choice.is-active::after {
+  opacity: 0.16;
+  transform: scale(1.16);
+}
+.award-slider__choice.is-active {
+  border-color: var(--choice-accent);
+  background: linear-gradient(120deg, var(--choice-wash), #fff 88%);
+  box-shadow: inset 4px 0 var(--choice-accent), 0 18px 34px -22px var(--choice-border);
+}
+.award-slider__choice-number {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--choice-wash);
+  color: var(--choice-accent);
+  font-family: var(--ff-display);
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.award-slider__choice-copy {
+  display: grid;
+  gap: 5px;
+}
+.award-slider__choice-copy strong {
+  color: var(--choice-ink);
+  font-family: var(--ff-display);
+  font-size: clamp(15px, 1.2vw, 18px);
+  font-weight: 900;
+  line-height: 1.2;
+}
+.award-slider__choice-copy small {
+  color: #000;
+  font-family: var(--ff-sans);
+  font-size: clamp(14px, 1.15vw, 18px);
+  font-weight: 400;
+  line-height: 1.65;
+}
+.award-slider__autoplay-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  margin-top: 4px;
+  padding: 8px 14px;
+  border: 1px solid rgba(23, 103, 189, 0.2);
+  border-radius: 999px;
+  background: #fff;
+  color: #174d8b;
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.award-slider__autoplay-toggle:hover {
+  border-color: #1767bd;
+  background: #edf6ff;
+}
+.award-slider__autoplay-toggle > span:first-child {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  font-size: 13px;
+}
+.award-slider__choice:focus-visible,
+.award-slider__autoplay-toggle:focus-visible,
+.award-slider__arrows button:focus-visible {
+  outline: 3px solid #e6a812;
+  outline-offset: 3px;
+}
+.award-slider__viewport {
+  min-width: 0;
+  border-radius: 24px;
+}
+.award-slider__track {
+  align-items: center;
+  transition: transform 0.95s cubic-bezier(0.35, 0, 0.25, 1);
+}
+.award-slide {
+  min-height: 0;
+  opacity: 0.72;
+  transition: opacity 0.48s ease;
+}
+.award-slide.is-active {
+  opacity: 1;
+}
+.award-slide--loop-clone {
+  opacity: 1;
+}
+.award-slide--poster {
+  display: block;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1888 / 833;
+  background: #f6f8fb;
+}
+.award-slide--poster > .award-slide__poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.award-slide--vietnam {
+  min-height: clamp(390px, 34vw, 470px);
+}
+.award-slider__arrows {
+  right: 12px;
+  left: 12px;
+}
+.award-slider__progress {
+  margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .award-slider__heading h3.hpo-unified-title {
+    font-size: clamp(18px, 2.5vw, 24px);
+  }
+  .award-slider__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .award-slider__selector {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .award-slider__choice {
+    grid-template-columns: 38px minmax(0, 1fr);
+    min-height: 92px;
+    padding: 12px;
+  }
+  .award-slider__choice-number {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+  .award-slider__autoplay-toggle {
+    grid-column: 1 / -1;
+    justify-self: end;
+  }
+}
+@media (max-width: 680px) {
+  .award-slider {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+  .award-slider__heading h3.hpo-unified-title {
+    font-size: clamp(26px, 7.5vw, 36px);
+    white-space: normal;
+    text-wrap: balance;
+  }
+  .award-slider__heading-sub {
+    min-height: 4.9em;
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.62;
+    white-space: normal;
+  }
+  .award-slider__selector {
+    gap: 7px;
+  }
+  .award-slider__choice {
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 6px;
+    min-height: 92px;
+    padding: 10px 8px;
+    border-radius: 14px;
+    text-align: center;
+  }
+  .award-slider__choice-number {
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    border-radius: 11px;
+    font-size: 17px;
+  }
+  .award-slider__choice-copy {
+    gap: 3px;
+  }
+  .award-slider__choice-copy strong {
+    font-size: 12px;
+  }
+  .award-slider__choice-copy small {
+    font-size: 15px;
+    line-height: 1.62;
+  }
+  .award-slider__autoplay-toggle {
+    min-height: 44px;
+    margin-top: 2px;
+  }
+  .award-slider__viewport {
+    border-radius: 16px;
+  }
+  .award-slide--poster {
+    grid-template-columns: none;
+    grid-template-rows: none;
+    align-self: center;
+  }
+  .award-slide--vietnam {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) 136px;
+    min-height: 440px;
+  }
+  .award-slide--vietnam .award-slide__content {
+    padding: 58px 22px 12px;
+  }
+  .award-slide--vietnam h4 {
+    font-size: clamp(29px, 8vw, 38px);
+  }
+  .award-slide--vietnam .award-slide__description {
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .award-slide--vietnam .award-slide__tags {
+    margin-top: 12px;
+  }
+  .award-slide--vietnam .award-slide__visual {
+    display: grid;
+    min-height: 0;
+    padding: 0 24px 14px;
+  }
+  .award-slide--vietnam .award-slide__visual img {
+    width: auto;
+    max-height: 120px;
+    transform: none;
+  }
+  .award-slider__arrows {
+    right: 8px;
+    left: 8px;
+  }
+  .award-slider__arrows button {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .award-slider__track,
+  .award-slide {
+    transition: none;
+  }
+  .award-slider__choice,
+  .award-slider__autoplay-toggle {
+    transition: none;
+  }
+  .award-slider__autoplay-toggle {
+    display: none;
+  }
+}
+
+/* Wide Hàng Việt Tốt composition: copy beside the award trophy. */
+@media (min-width: 681px) {
+  .award-slider .award-slide--vietnam {
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  }
+  .award-slider .award-slide--vietnam .award-slide__topline--absolute {
+    left: 50%;
+    right: auto;
+    width: max-content;
+    max-width: calc(100% - 32px);
+    transform: translateX(-50%);
+  }
+  .award-slider .award-slide--vietnam .award-slide__content {
+    align-items: center;
+    padding: 72px clamp(22px, 3vw, 48px) 30px;
+    text-align: center;
+  }
+  .award-slider .award-slide--vietnam .award-slide__eyebrow {
+    margin-bottom: 10px;
+  }
+  .award-slider .award-slide--vietnam h4 {
+    max-width: 560px;
+    font-size: clamp(32px, 3.4vw, 50px);
+    line-height: 1.04;
+  }
+  .award-slider .award-slide--vietnam .award-slide__description {
+    max-width: 500px;
+    margin: 16px 0 0;
+    font-size: clamp(13px, 1.05vw, 15px);
+    line-height: 1.55;
+    text-align: center;
+  }
+  .award-slider .award-slide--vietnam .award-slide__tags {
+    justify-content: center;
+    margin-top: 18px;
+  }
+  .award-slider .award-slide--vietnam .award-slide__visual {
+    padding: 32px 28px 26px 0;
+  }
+  .award-slider .award-slide--vietnam .award-slide__visual img {
+    width: auto;
+    max-width: min(100%, 390px);
+    max-height: 410px;
+    transform: translateX(-44px);
+  }
+  .award-slider .award-slide--vietnam .award-slide__visual::after {
+    transform: translateX(-44px);
   }
 }

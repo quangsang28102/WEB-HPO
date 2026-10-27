@@ -96,6 +96,18 @@
   function requestUpdate() {
     if (enabled && !frame) frame = requestAnimationFrame(update);
   }
+  awards.addEventListener('award-story-navigate', (event) => {
+    if (!enabled) return;
+    const slideCount = awards.querySelectorAll('.award-slide').length;
+    const index = Math.max(0, Math.min(slideCount - 1, event.detail.index));
+    const slideProgress = index / Math.max(1, slideCount - 1);
+    const introProgress = 0.4 + slideProgress * 0.54;
+    const runwayTop = window.scrollY + runway.getBoundingClientRect().top;
+    window.scrollTo({
+      top: runwayTop - top + introProgress * introDistance,
+      behavior: 'smooth'
+    });
+  });
   function measure() {
     if (!enabled) return;
     const nav = document.getElementById('navbar');

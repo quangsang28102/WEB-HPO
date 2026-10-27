@@ -127,6 +127,14 @@ body.has-scroll-story {
   transform: translateY(var(--award-frame-y, 90px));
   will-change: opacity, transform;
 }
+.award-story .award-slider__selector {
+  opacity: var(--award-frame-opacity, 0);
+  transform: translateY(var(--award-frame-y, 90px));
+  will-change: opacity, transform;
+}
+.award-story .award-slider.is-scroll-story .award-slider__autoplay-toggle {
+  display: none;
+}
 .award-story .award-slider__controls {
   opacity: var(--award-frame-opacity, 0);
   transform: translateY(var(--award-frame-y, 90px));

@@ -10,7 +10,7 @@
       observer.unobserve(entry.target);
     });
   }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
-  section.querySelectorAll(':scope > .award-slider__heading, :scope > .award-slider__viewport, :scope > .award-slider__controls').forEach(block => {
+  section.querySelectorAll(':scope > .award-slider__heading, :scope > .award-slider__body').forEach(block => {
     block.classList.add('award-scroll-motion');
     observer.observe(block);
   });
@@ -30,7 +30,9 @@
   const track = slider.querySelector('.award-slider__track');
   const viewport = slider.querySelector('.award-slider__viewport');
   const slides = [...slider.querySelectorAll('.award-slide')];
-  const dots = [...slider.querySelectorAll('.award-slider__dots button')];
+  const choices = [...slider.querySelectorAll('.award-slider__choice')];
+  const autoplayToggle = slider.querySelector('.award-slider__autoplay-toggle');
+  const subtitle = slider.querySelector('#awardSliderSubtitle');
   const prev = slider.querySelector('.award-slider__prev');
   const next = slider.querySelector('.award-slider__next');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -44,6 +46,8 @@
   let physicalPosition = 1;
   let boundaryReset = null;
   let paused = false;
+  let userPaused = false;
+  let interactionPaused = false;
   let scrollStory = false;
 
   if (!track || !viewport || slides.length < 2 || !prev || !next) return;
@@ -51,6 +55,7 @@
   const firstClone = slides[0].cloneNode(true);
   const lastClone = slides[slides.length - 1].cloneNode(true);
   [firstClone, lastClone].forEach((clone) => {
+    clone.classList.add('award-slide--loop-clone');
     clone.classList.remove('is-active');
     clone.setAttribute('aria-hidden', 'true');
     clone.setAttribute('tabindex', '-1');
@@ -76,7 +81,7 @@
   const restartProgress = () => {
     slider.classList.remove('is-running');
     void slider.offsetWidth;
-    if (!scrollStory && !paused && !reducedMotion.matches && !document.hidden) {
+    if (!scrollStory && !userPaused && !interactionPaused && !reducedMotion.matches && !document.hidden) {
       slider.classList.add('is-running');
     }
   };
@@ -84,6 +89,7 @@
   const schedule = () => {
     window.clearTimeout(timer);
     timer = null;
+    paused = userPaused || interactionPaused;
     restartProgress();
     if (scrollStory || paused || reducedMotion.matches || document.hidden) return;
     timer = window.setTimeout(() => goTo(current + 1), DURATION);
@@ -124,12 +130,13 @@
       if ('inert' in slide) slide.inert = !active;
     });
 
-    dots.forEach((dot, dotIndex) => {
-      const active = dotIndex === current;
-      dot.classList.toggle('is-active', active);
-      if (active) dot.setAttribute('aria-current', 'true');
-      else dot.removeAttribute('aria-current');
+    choices.forEach((choice, choiceIndex) => {
+      const active = choiceIndex === current;
+      choice.classList.toggle('is-active', active);
+      if (active) choice.setAttribute('aria-current', 'step');
+      else choice.removeAttribute('aria-current');
     });
+    if (subtitle && choices[current]) subtitle.textContent = choices[current].dataset.awardSubtitle;
 
     schedule();
   };
@@ -142,13 +149,27 @@
   });
 
   const setPaused = (value) => {
-    paused = value;
+    interactionPaused = value;
     schedule();
   };
 
   prev.addEventListener('click', () => goTo(current - 1));
   next.addEventListener('click', () => goTo(current + 1));
-  dots.forEach((dot, index) => dot.addEventListener('click', () => goTo(index)));
+  choices.forEach((choice, index) => choice.addEventListener('click', () => goTo(index)));
+  autoplayToggle?.addEventListener('click', () => {
+    userPaused = !userPaused;
+    if (!userPaused) interactionPaused = false;
+    autoplayToggle.setAttribute('aria-pressed', String(userPaused));
+    autoplayToggle.setAttribute(
+      'aria-label',
+      userPaused ? 'Tiếp tục tự chuyển giải thưởng' : 'Tạm dừng tự chuyển giải thưởng'
+    );
+    const icon = autoplayToggle.querySelector('[aria-hidden="true"]');
+    const label = autoplayToggle.querySelector('span:last-child');
+    if (icon) icon.textContent = userPaused ? '▶' : 'Ⅱ';
+    if (label) label.textContent = userPaused ? 'Tiếp tục tự chuyển' : 'Tạm dừng tự chuyển';
+    schedule();
+  });
 
   viewport.addEventListener('dragstart', (event) => event.preventDefault());
   slider.addEventListener('mouseenter', () => setPaused(true));
@@ -217,7 +238,8 @@
   slider.addEventListener('award-story-progress', (event) => {
     scrollStory = event.detail.enabled;
     if (!scrollStory) { goTo(current, false); return; }
-    const rawPosition = event.detail.progress * (slides.length - 1);
+    const storyProgress = Math.max(0, Math.min(1, (event.detail.progress - 0.4) / 0.54));
+    const rawPosition = storyProgress * (slides.length - 1);
     const segment = Math.floor(rawPosition);
     const blend = Math.max(0, Math.min(1, (rawPosition - segment - 0.35) / 0.65));
     const position = segment + blend * blend * (3 - 2 * blend);
@@ -230,59 +252,6 @@
     slider.classList.remove('is-running');
   });
   goTo(0, false);
-})();
-
-/* Award Posters Slider */
-(() => {
-  const slider = document.querySelector('.award-posters-slider');
-  if (!slider) return;
-
-  const track = slider.querySelector('.award-posters-slider__track');
-  const slides = slider.querySelectorAll('.award-poster-slide');
-  const prevBtn = slider.querySelector('.award-posters-slider__arrow--prev');
-  const nextBtn = slider.querySelector('.award-posters-slider__arrow--next');
-  const dots = slider.querySelectorAll('.award-posters-slider__dots button');
-
-  let current = 0;
-
-  // Dynamically size track and slides based on slide count
-  if (track && slides.length > 0) {
-    track.style.width = `${slides.length * 100}%`;
-    slides.forEach((slide) => {
-      slide.style.width = `${100 / slides.length}%`;
-    });
-  }
-
-  const updateSlider = (index) => {
-    current = (index + slides.length) % slides.length;
-    const stepPercent = 100 / slides.length;
-    track.style.transform = `translate3d(-${current * stepPercent}%, 0, 0)`;
-
-    slides.forEach((slide, idx) => {
-      const active = idx === current;
-      slide.classList.toggle('is-active', active);
-      slide.setAttribute('aria-hidden', String(!active));
-    });
-
-    dots.forEach((dot, idx) => {
-      const active = idx === current;
-      dot.classList.toggle('is-active', active);
-      if (active) dot.setAttribute('aria-current', 'true');
-      else dot.removeAttribute('aria-current');
-    });
-  };
-
-  if (prevBtn) prevBtn.addEventListener('click', () => updateSlider(current - 1));
-  if (nextBtn) nextBtn.addEventListener('click', () => updateSlider(current + 1));
-  dots.forEach((dot, idx) => dot.addEventListener('click', () => updateSlider(idx)));
-
-  // Auto play
-  let autoPlayTimer = setInterval(() => updateSlider(current + 1), 6000);
-  slider.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
-  slider.addEventListener('mouseleave', () => {
-    clearInterval(autoPlayTimer);
-    autoPlayTimer = setInterval(() => updateSlider(current + 1), 6000);
-  });
 })();
 
 /* Mobile menu */
