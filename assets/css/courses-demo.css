@@ -752,7 +752,7 @@
   .courses-section .price-list{ margin-top: 10px; }
   .courses-section .price__value{ font-size: 18px; }
   .courses-section .price--deal .price__value{ font-size: 21px; }
-  /* Thẻ thu gọn: chỉ giữ giá giảm trực tiếp; mở rộng: hiện đủ 3 mức */
+  /* Thẻ thu gọn: chỉ hiển thị mức học phí hiện hành. */
   .courses-section .course-card:not(.course-demo-active) :is(.price--base, .price--group){
     max-height: 0; margin-top: 0; padding-block: 0; border-width: 0; opacity: 0;
     visibility: hidden; --hide-delay: 420ms;
