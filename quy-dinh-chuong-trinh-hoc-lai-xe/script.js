@@ -1277,3 +1277,53 @@
     init()
   })();
 })();
+
+/* Interactions for the homepage curriculum section cloned onto this route. */
+window.togglePhan = function (id) {
+  const section = document.getElementById("chuong-trinh-mon-hoc");
+  const item = document.getElementById(id);
+  if (section && item && section.contains(item)) {
+    item.classList.toggle("is-open");
+  }
+};
+
+(() => {
+  const section = document.getElementById("chuong-trinh-mon-hoc");
+  if (!section) return;
+
+  section.querySelectorAll(".syll-row").forEach((row) => {
+    const arrow = row.querySelector(".syll-down");
+    if (!arrow) return;
+
+    row.style.cursor = "pointer";
+
+    const toggleDetail = (event) => {
+      event?.stopPropagation();
+      const detailPrefix = `syllDetail-${arrow.dataset.toggle}`;
+      const detail = Array.from(section.querySelectorAll(".syll-detail")).find(
+        (item) =>
+          item.id === detailPrefix || item.id.startsWith(`${detailPrefix}-`),
+      );
+      if (!detail) return;
+
+      const isOpen = arrow.getAttribute("aria-expanded") === "true";
+      section.querySelectorAll(".syll-down").forEach((button) => {
+        button.setAttribute("aria-expanded", "false");
+      });
+      section.querySelectorAll(".syll-detail").forEach((item) => {
+        item.classList.remove("is-open");
+      });
+
+      if (!isOpen) {
+        arrow.setAttribute("aria-expanded", "true");
+        detail.classList.add("is-open");
+      }
+    };
+
+    arrow.addEventListener("click", toggleDetail);
+    row.addEventListener("click", (event) => {
+      if (event.target.closest(".syll-play, .syll-down")) return;
+      arrow.click();
+    });
+  });
+})();
